@@ -677,6 +677,11 @@
               <FileType>1</FileType>
               <FilePath>..\src\app_gpio.c</FilePath>
             </File>
+            <File>
+              <FileName>app_hid_keyboard.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\app_hid_keyboard.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

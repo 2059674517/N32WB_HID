@@ -73,6 +73,7 @@
 /// Length of the HID  Report
 #define APP_HID_CONSUMER_REPORT_LEN    (1)
 #define APP_HID_MOUSE_REPORT_LEN       (6)
+#define APP_HID_KEYBOARD_REPORT_LEN    (8)  // 1 byte modifier + 1 byte reserved + 6 bytes key codes
 /// Length of the Report Descriptor for an HID Mouse
 #define APP_HID_MOUSE_REPORT_MAP_LEN   (sizeof(app_hid_mouse_report_map))
 
@@ -192,30 +193,39 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x81, 0x06,       // Input (Data,Value,Relative,Bit Field)
   
     0xC0,              // End Collection
-		
-		// Report ID 3: Keyboard (支持发送字母A)
-		0x05, 0x01,        // Usage Page (Generic Desktop)
-		0x09, 0x06,        // Usage (Keyboard)
-		0xA1, 0x01,        // Collection (Application)
-		0x85, 0x03,        // Report ID (3) - 键盘报告ID
-		0x05, 0x07,        //   Usage Page (Key Codes)
-		0x19, 0x00,        //   Usage Minimum (0x00)
-		0x29, 0xFF,        //   Usage Maximum (0xFF)
-		0x15, 0x00,        //   Logical Minimum (0)
-		0x25, 0x01,        //   Logical Maximum (1)
-		0x75, 0x01,        //   Report Size (1)
-		0x95, 0x08,        //   Report Count (8) - 8个修饰键（Shift/Ctrl等）
-		0x81, 0x02,        //   Input (Data,Var,Abs) - 修饰键数据
 
-		0x95, 0x06,        //   Report Count (6) - 最多同时按下6个按键
-		0x75, 0x08,        //   Report Size (8) - 每个按键占1字节（扫描码）
-		0x15, 0x00,        //   Logical Minimum (0)
-		0x25, 0xFF,        //   Logical Maximum (0xFF)
-		0x05, 0x07,        //   Usage Page (Key Codes)
-		0x19, 0x00,        //   Usage Minimum (0x00)
-		0x29, 0xFF,        //   Usage Maximum (0xFF)
-		0x81, 0x00,        //   Input (Data,Array) - 按键扫描码数据
-		0xC0,              // End Collection
+    // Report ID 3: Keyboard
+    0x05, 0x01,        // Usage Page (Generic Desktop)
+    0x09, 0x06,        // Usage (Keyboard)
+    0xA1, 0x01,        // Collection (Application)
+    0x85, 0x03,        // Report ID (3)
+
+    // Modifier keys (8 bits for Shift, Ctrl, Alt, GUI)
+    0x05, 0x07,        //   Usage Page (Key Codes)
+    0x19, 0xE0,        //   Usage Minimum (Left Control)
+    0x29, 0xE7,        //   Usage Maximum (Right GUI)
+    0x15, 0x00,        //   Logical Minimum (0)
+    0x25, 0x01,        //   Logical Maximum (1)
+    0x75, 0x01,        //   Report Size (1)
+    0x95, 0x08,        //   Report Count (8)
+    0x81, 0x02,        //   Input (Data,Var,Abs)
+
+    // Reserved byte
+    0x95, 0x01,        //   Report Count (1)
+    0x75, 0x08,        //   Report Size (8)
+    0x81, 0x01,        //   Input (Const)
+
+    // Key codes (6 keys)
+    0x95, 0x06,        //   Report Count (6)
+    0x75, 0x08,        //   Report Size (8)
+    0x15, 0x00,        //   Logical Minimum (0)
+    0x25, 0xFF,        //   Logical Maximum (255)
+    0x05, 0x07,        //   Usage Page (Key Codes)
+    0x19, 0x00,        //   Usage Minimum (0)
+    0x29, 0xFF,        //   Usage Maximum (255)
+    0x81, 0x00,        //   Input (Data,Array)
+
+    0xC0,              // End Collection
 };
 
 
@@ -272,17 +282,20 @@ void app_hid_add_hids(void)
     // Only one HIDS instance is useful
     db_cfg->hids_nb = 1;
 
-    // The device is a mouse
-    db_cfg->cfg[0].svc_features = HOGPD_CFG_MOUSE;//HOGPD_CFG_MOUSE_BIT;
+    // The device is a keyboard and mouse combo
+    db_cfg->cfg[0].svc_features = HOGPD_CFG_KEYBOARD | HOGPD_CFG_MOUSE; // Support both keyboard and mouse
 
     // Only one Report Characteristic is requested
-    db_cfg->cfg[0].report_nb    = 2; 
+    db_cfg->cfg[0].report_nb    = 3;  // Changed from 2 to 3 to include keyboard report
 
     db_cfg->cfg[0].report_id[0] = 1;
     db_cfg->cfg[0].report_char_cfg[0] = HOGPD_CFG_REPORT_IN;
-    
+
     db_cfg->cfg[0].report_id[1] = 2;
     db_cfg->cfg[0].report_char_cfg[1] = HOGPD_CFG_REPORT_IN;
+
+    db_cfg->cfg[0].report_id[2] = 3;
+    db_cfg->cfg[0].report_char_cfg[2] = HOGPD_CFG_REPORT_IN;
 
     // HID Information
     db_cfg->cfg[0].hid_info.bcdHID       = 0x0111;         // HID Version 1.11
@@ -564,6 +577,106 @@ void app_hid_send_consumer_report(uint8_t* report)
 //    app_display_hdl_db_size(0xFFFF, ke_get_mem_usage(KE_MEM_ATT_DB));
 //    app_display_hdl_msg_size((uint16_t)ke_get_max_mem_usage(), ke_get_mem_usage(KE_MEM_KE_MSG));
     #endif //(KE_PROFILING)
+}
+
+/*
+ * @brief Function to send keyboard report
+ *
+ */
+void app_hid_send_keyboard_report(uint8_t* report)
+{
+    NS_LOG_DEBUG("Keyboard report state:%d, nb_report:%d\r\n", app_hid_env.state, app_hid_env.nb_report);
+
+    // Debug: Print report content
+    NS_LOG_DEBUG("Keyboard report data: ");
+    for(int i = 0; i < APP_HID_KEYBOARD_REPORT_LEN; i++) {
+        NS_LOG_DEBUG("%02x ", report[i]);
+    }
+    NS_LOG_DEBUG("\r\n");
+
+    switch (app_hid_env.state)
+    {
+        case (APP_HID_READY):
+        {
+            // Check if the report can be sent
+            if (app_hid_env.nb_report)
+            {
+                // Allocate the HOGPD_REPORT_UPD_REQ message
+                struct hogpd_report_upd_req * req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_UPD_REQ,
+                                                                  prf_get_task_from_id(TASK_ID_HOGPD),
+                                                                  TASK_APP,
+                                                                  hogpd_report_upd_req,
+                                                                  APP_HID_KEYBOARD_REPORT_LEN);
+
+                req->conidx  = app_hid_env.conidx;
+                //now fill report
+                req->report.hid_idx  = app_hid_env.conidx;
+                req->report.type     = HOGPD_REPORT;
+                req->report.idx      = 2; // Report index 2 for Report ID 3 (keyboard)
+                req->report.length   = APP_HID_KEYBOARD_REPORT_LEN;
+                memcpy(&req->report.value[0], report, APP_HID_KEYBOARD_REPORT_LEN);
+
+                NS_LOG_DEBUG("Sending keyboard report: idx=%d, len=%d\r\n", req->report.idx, req->report.length);
+
+                ke_msg_send(req);
+
+                app_hid_env.nb_report--;
+
+                // Restart the mouse timeout timer if needed
+                if (app_hid_env.timeout != 0)
+                {
+                    ke_timer_set(APP_HID_MOUSE_TIMEOUT_TIMER, TASK_APP, (uint16_t)(app_hid_env.timeout));
+                    app_hid_env.timer_enabled = true;
+                }
+            }
+            else
+            {
+                NS_LOG_WARNING("No report available to send\r\n");
+            }
+        } break;
+
+        case (APP_HID_WAIT_REP):
+        {
+            // Requested connection parameters
+            struct gapc_conn_param conn_param;
+
+            /*
+             * Requested connection interval: 10ms
+             * Latency: 25
+             * Supervision Timeout: 2s
+             */
+            conn_param.intv_min = 8;
+            conn_param.intv_max = 8;
+            conn_param.latency  = 25;
+            conn_param.time_out = 200;
+            ns_ble_update_param(&conn_param);
+
+            // Restart the mouse timeout timer if needed
+            if (app_hid_env.timeout != 0)
+            {
+                ke_timer_set(APP_HID_MOUSE_TIMEOUT_TIMER, TASK_APP, (uint16_t)(app_hid_env.timeout));
+                app_hid_env.timer_enabled = true;
+            }
+
+            // Go back to the ready state
+            app_hid_env.state = APP_HID_READY;
+        } break;
+
+        case (APP_HID_IDLE):
+        {
+            NS_LOG_WARNING("HID in IDLE state\r\n");
+            // Try to restart advertising if needed
+//            app_update_adv_state(true);
+        } break;
+
+
+        // DISABLE and ENABLED states
+        default:
+        {
+            NS_LOG_WARNING("HID in unexpected state: %d\r\n", app_hid_env.state);
+            // Drop the message
+        } break;
+    }
 }
 
 bool is_app_hid_ready(void)

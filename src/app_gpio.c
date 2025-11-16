@@ -36,6 +36,7 @@
 #include <stdio.h>
 #include "global_func.h"
 #include "app_hid.h"
+#include "app_hid_keyboard.h"
 #include "ns_log.h"
 #include "ns_timer.h"
 #include "ns_delay.h"
@@ -216,72 +217,107 @@ void app_key_reinit_after_sleep(void)
  */
 void app_key_press_timeout_handler(void)
 {
- 
+
     if(key1_irq_actived == 1)
     {
         LedBlink(LED1_PORT, LED1_PIN);
         #if (CFG_APP_HID)
-        //send move x up
-        struct ps2_mouse_msg msg = {0};
-        msg.x = 10;
-        app_hid_send_mouse_report(msg);
+        // Demo: Send keyboard 'A' key press
+        hid_keyboard_report_t kb_report;
+        uint8_t keys[] = {HID_KEY_A}; // Press 'A' key
+        build_keyboard_report(&kb_report, 0, keys, 1);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
 
-        #endif                        
-        NS_LOG_INFO("Button 1, mouse moving\r\n");
+        // Send key release
+        build_keyboard_report(&kb_report, 0, NULL, 0);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+        #endif
+        NS_LOG_INFO("Button 1, sending keyboard 'A'\r\n");
         key1_irq_actived = 0;
     }
-    else if(key1_irq_actived == 2 ) 
+    else if(key1_irq_actived == 2 )
     {
         //re-start timer if got irq after first created timer
         ns_timer_create(KEY_PRESS_DELAY,app_key_press_timeout_handler);
         key1_irq_actived = 1;
     }
-    
+
     if(key2_irq_actived == 1)
     {
         LedBlink(LED1_PORT, LED1_PIN);
-        #if (CFG_APP_HID)   		
-        uint8_t key = 0;
-        key = 0x08; //Volume Down
-//            key = 0x10; //Volume up
-//            key = 0x20; //Mute
-        app_hid_send_consumer_report((uint8_t*)&key);              
-        key = 0x0; //send release key
-        app_hid_send_consumer_report((uint8_t*)&key); 
+        #if (CFG_APP_HID)
+        // Demo: Send keyboard 'Hello' with multi-key support
+        hid_keyboard_report_t kb_report;
+
+        // Send 'H' (Shift + h)
+        uint8_t keys[] = {HID_KEY_H};
+        build_keyboard_report(&kb_report, HID_KEYBOARD_LEFT_SHIFT, keys, 1);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+        build_keyboard_report(&kb_report, 0, NULL, 0);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+
+        // Send 'e'
+        keys[0] = HID_KEY_E;
+        build_keyboard_report(&kb_report, 0, keys, 1);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+        build_keyboard_report(&kb_report, 0, NULL, 0);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+
+        // Send 'l'
+        keys[0] = HID_KEY_L;
+        build_keyboard_report(&kb_report, 0, keys, 1);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+        build_keyboard_report(&kb_report, 0, NULL, 0);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+
+        // Send 'l'
+        keys[0] = HID_KEY_L;
+        build_keyboard_report(&kb_report, 0, keys, 1);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+        build_keyboard_report(&kb_report, 0, NULL, 0);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+
+        // Send 'o'
+        keys[0] = HID_KEY_O;
+        build_keyboard_report(&kb_report, 0, keys, 1);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+        build_keyboard_report(&kb_report, 0, NULL, 0);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
         #endif
-        NS_LOG_INFO("Button 2, Volume Down\r\n");
+        NS_LOG_INFO("Button 2, sending 'Hello'\r\n");
         key2_irq_actived = 0;
     }
-    else if(key2_irq_actived == 2) 
+    else if(key2_irq_actived == 2)
     {
         //re-start timer if got irq after first created timer
         ns_timer_create(KEY_PRESS_DELAY,app_key_press_timeout_handler);
         key2_irq_actived = 1;
     }
-		
-		if(key3_irq_actived == 1)
+
+    if(key3_irq_actived == 1)
     {
         LedBlink(LED1_PORT, LED1_PIN);
-        #if (CFG_APP_HID)   
+        #if (CFG_APP_HID)
+        // Demo: Send multiple keys pressed at same time (Ctrl+A)
+        hid_keyboard_report_t kb_report;
+        uint8_t keys[] = {HID_KEY_A};
+        build_keyboard_report(&kb_report, HID_KEYBOARD_LEFT_CTRL, keys, 1);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
 
-        uint8_t key = 0;
-        key = 0x10; //Volume up
-//            key = 0x10; //Volume up
-//            key = 0x20; //Mute
-        app_hid_send_consumer_report((uint8_t*)&key);              
-        key = 0x0; //send release key
-        app_hid_send_consumer_report((uint8_t*)&key); 
+        // Release keys
+        build_keyboard_report(&kb_report, 0, NULL, 0);
+        app_hid_send_keyboard_report((uint8_t*)&kb_report);
         #endif
-        NS_LOG_INFO("Button 2, Volume Down\r\n");
+        NS_LOG_INFO("Button 3, sending Ctrl+A\r\n");
         key3_irq_actived = 0;
     }
-    else if(key3_irq_actived == 2) 
+    else if(key3_irq_actived == 2)
     {
         //re-start timer if got irq after first created timer
         ns_timer_create(KEY_PRESS_DELAY,app_key_press_timeout_handler);
         key3_irq_actived = 1;
     }
-		
+
 }
 
 /**

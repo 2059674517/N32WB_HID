@@ -121,6 +121,7 @@
 .\objects\app_gpio.o: ..\..\..\..\..\middlewares\Nationstech\ble_library\ns_ble_stack\stack_common\ble_stack_common.h
 .\objects\app_gpio.o: ..\..\..\..\..\middlewares\Nationstech\ble_library\ns_ble_stack\modules\common\api\co_bt_defines.h
 .\objects\app_gpio.o: ..\inc\app_profile\app_hid.h
+.\objects\app_gpio.o: ..\inc\app_hid_keyboard.h
 .\objects\app_gpio.o: ..\..\..\..\..\middlewares\Nationstech\ble_library\ns_library\timer\ns_timer.h
 .\objects\app_gpio.o: ..\..\..\..\..\middlewares\Nationstech\ble_library\ns_library\delay\ns_delay.h
 .\objects\app_gpio.o: ..\inc\app_ble.h
