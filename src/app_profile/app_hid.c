@@ -342,11 +342,13 @@ void app_hid_enable_prf(uint8_t conidx)
     {
         app_hid_env.state = APP_HID_READY;
         app_hid_env.nb_report = APP_HID_NB_SEND_REPORT;
-        ntf_cfg = 0xC2;
-        NS_LOG_DEBUG("HID ready for bonded device\r\n");
+        // Enable notifications for all reports
+        // This value enables notifications for all configured reports
+        ntf_cfg = 0xFFFF;  // Enable all possible notifications
+        NS_LOG_DEBUG("HID ready for bonded device, enabling all notifications\r\n");
 
     }
- 
+
     req->ntf_cfg[conidx] = ntf_cfg;
 
     // Send the message

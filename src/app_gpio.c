@@ -222,17 +222,22 @@ void app_key_press_timeout_handler(void)
     {
         LedBlink(LED1_PORT, LED1_PIN);
         #if (CFG_APP_HID)
-        // Demo: Send keyboard 'A' key press
-        hid_keyboard_report_t kb_report;
-        uint8_t keys[] = {HID_KEY_A}; // Press 'A' key
-        build_keyboard_report(&kb_report, 0, keys, 1);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+        // Check if HID is ready before sending
+        if (is_app_hid_ready()) {
+            // Demo: Send keyboard 'ABC' key press
+            hid_keyboard_report_t kb_report;
+            uint8_t keys[] = {HID_KEY_A,HID_KEY_CAPS_LOCK,HID_KEY_B}; // Press 'aB' keys
+            build_keyboard_report(&kb_report, 0, keys, 3);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
 
-        // Send key release
-        build_keyboard_report(&kb_report, 0, NULL, 0);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            // Send key release
+            build_keyboard_report(&kb_report, 0, NULL, 0);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            NS_LOG_INFO("Button 1, sending keyboard 'ABC' with Shift\r\n");
+        } else {
+            NS_LOG_WARNING("HID not ready, skipping keyboard send\r\n");
+        }
         #endif
-        NS_LOG_INFO("Button 1, sending keyboard 'A'\r\n");
         key1_irq_actived = 0;
     }
     else if(key1_irq_actived == 2 )
@@ -246,45 +251,50 @@ void app_key_press_timeout_handler(void)
     {
         LedBlink(LED1_PORT, LED1_PIN);
         #if (CFG_APP_HID)
-        // Demo: Send keyboard 'Hello' with multi-key support
-        hid_keyboard_report_t kb_report;
+        // Check if HID is ready before sending
+        if (is_app_hid_ready()) {
+            // Demo: Send keyboard 'Hello' with multi-key support
+            hid_keyboard_report_t kb_report;
 
-        // Send 'H' (Shift + h)
-        uint8_t keys[] = {HID_KEY_H};
-        build_keyboard_report(&kb_report, HID_KEYBOARD_LEFT_SHIFT, keys, 1);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
-        build_keyboard_report(&kb_report, 0, NULL, 0);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            // Send 'H' (Shift + h)
+            uint8_t keys[] = {HID_KEY_H};
+            build_keyboard_report(&kb_report, HID_KEYBOARD_LEFT_SHIFT, keys, 1);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            build_keyboard_report(&kb_report, 0, NULL, 0);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
 
-        // Send 'e'
-        keys[0] = HID_KEY_E;
-        build_keyboard_report(&kb_report, 0, keys, 1);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
-        build_keyboard_report(&kb_report, 0, NULL, 0);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            // Send 'e'
+            keys[0] = HID_KEY_E;
+            build_keyboard_report(&kb_report, 0, keys, 1);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            build_keyboard_report(&kb_report, 0, NULL, 0);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
 
-        // Send 'l'
-        keys[0] = HID_KEY_L;
-        build_keyboard_report(&kb_report, 0, keys, 1);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
-        build_keyboard_report(&kb_report, 0, NULL, 0);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            // Send 'l'
+            keys[0] = HID_KEY_L;
+            build_keyboard_report(&kb_report, 0, keys, 1);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            build_keyboard_report(&kb_report, 0, NULL, 0);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
 
-        // Send 'l'
-        keys[0] = HID_KEY_L;
-        build_keyboard_report(&kb_report, 0, keys, 1);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
-        build_keyboard_report(&kb_report, 0, NULL, 0);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            // Send 'l'
+            keys[0] = HID_KEY_L;
+            build_keyboard_report(&kb_report, 0, keys, 1);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            build_keyboard_report(&kb_report, 0, NULL, 0);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
 
-        // Send 'o'
-        keys[0] = HID_KEY_O;
-        build_keyboard_report(&kb_report, 0, keys, 1);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
-        build_keyboard_report(&kb_report, 0, NULL, 0);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            // Send 'o'
+            keys[0] = HID_KEY_O;
+            build_keyboard_report(&kb_report, 0, keys, 1);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            build_keyboard_report(&kb_report, 0, NULL, 0);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            NS_LOG_INFO("Button 2, sending 'Hello'\r\n");
+        } else {
+            NS_LOG_WARNING("HID not ready, skipping keyboard send\r\n");
+        }
         #endif
-        NS_LOG_INFO("Button 2, sending 'Hello'\r\n");
         key2_irq_actived = 0;
     }
     else if(key2_irq_actived == 2)
@@ -298,17 +308,22 @@ void app_key_press_timeout_handler(void)
     {
         LedBlink(LED1_PORT, LED1_PIN);
         #if (CFG_APP_HID)
-        // Demo: Send multiple keys pressed at same time (Ctrl+A)
-        hid_keyboard_report_t kb_report;
-        uint8_t keys[] = {HID_KEY_A};
-        build_keyboard_report(&kb_report, HID_KEYBOARD_LEFT_CTRL, keys, 1);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+        // Check if HID is ready before sending
+        if (is_app_hid_ready()) {
+            // Demo: Send multiple keys pressed at same time (Ctrl+A)
+            hid_keyboard_report_t kb_report;
+            uint8_t keys[] = {HID_KEY_A};
+            build_keyboard_report(&kb_report, HID_KEYBOARD_LEFT_CTRL, keys, 1);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
 
-        // Release keys
-        build_keyboard_report(&kb_report, 0, NULL, 0);
-        app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            // Release keys
+            build_keyboard_report(&kb_report, 0, NULL, 0);
+            app_hid_send_keyboard_report((uint8_t*)&kb_report);
+            NS_LOG_INFO("Button 3, sending Ctrl+A\r\n");
+        } else {
+            NS_LOG_WARNING("HID not ready, skipping keyboard send\r\n");
+        }
         #endif
-        NS_LOG_INFO("Button 3, sending Ctrl+A\r\n");
         key3_irq_actived = 0;
     }
     else if(key3_irq_actived == 2)
