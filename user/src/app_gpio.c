@@ -224,18 +224,18 @@ void app_key_press_timeout_handler(void)
         #if (CFG_APP_HID)
         // Check if HID is ready before sending
         if (is_app_hid_ready()) {
-            // Demo: Send keyboard 'ABC' key press
-            hid_keyboard_report_t kb_report;
-            uint8_t keys[] = {HID_KEY_A,HID_KEY_CAPS_LOCK,HID_KEY_B}; // Press 'aB' keys
-            build_keyboard_report(&kb_report, 0, keys, 3);
-            app_hid_send_keyboard_report((uint8_t*)&kb_report);
-
-            // Send key release
-            build_keyboard_report(&kb_report, 0, NULL, 0);
-            app_hid_send_keyboard_report((uint8_t*)&kb_report);
-            NS_LOG_INFO("Button 1, sending keyboard 'ABC' with Shift\r\n");
+//						struct ps2_mouse_msg msg = {0};
+//						msg.x = 10;
+//						app_hid_send_mouse_report(msg);//鼠标移动
+						
+            struct ps2_mouse_msg msg = {0};
+						msg.b = 0x01;//左键
+						app_hid_send_mouse_report(msg);
+						
+						msg.b = 0x00;  // 释放所有按键
+						app_hid_send_mouse_report(msg);
         } else {
-            NS_LOG_WARNING("HID not ready, skipping keyboard send\r\n");
+            //NS_LOG_WARNING("HID not ready, skipping keyboard send\r\n");
         }
         #endif
         key1_irq_actived = 0;
