@@ -378,7 +378,7 @@ ork --depend=.\objects\startup_n32wb03x.d -o.\objects\startup_n32wb03x.o -ID:\i
 nstall\MDK\Nationstech\N32WB03X_DFP\1.1.0\firmware\CMSIS\device --predefine="__
 MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 536" --predefine="N32WB03x
  SETA 1" --predefine="USE_STDPERIPH_DRIVER SETA 1" --list=.\listings\startup_n3
-2wb03x.lst ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+2wb03x.lst ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 
 
@@ -389,8 +389,7 @@ STACK 00000000
 
 Symbol: STACK
    Definitions
-      At line 36 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 36 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
       None
 Comment: STACK unused
@@ -398,8 +397,7 @@ Stack_Mem 00000000
 
 Symbol: Stack_Mem
    Definitions
-      At line 37 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 37 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
       None
 Comment: Stack_Mem unused
@@ -407,13 +405,10 @@ __initial_sp 00000800
 
 Symbol: __initial_sp
    Definitions
-      At line 38 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 38 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 61 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 230 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 61 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 230 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 3 symbols
 
@@ -426,8 +421,7 @@ HEAP 00000000
 
 Symbol: HEAP
    Definitions
-      At line 46 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 46 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
       None
 Comment: HEAP unused
@@ -435,8 +429,7 @@ Heap_Mem 00000000
 
 Symbol: Heap_Mem
    Definitions
-      At line 48 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 48 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
       None
 Comment: Heap_Mem unused
@@ -444,21 +437,17 @@ __heap_base 00000000
 
 Symbol: __heap_base
    Definitions
-      At line 47 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 47 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 231 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 231 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 Comment: __heap_base used once
 __heap_limit 00000200
 
 Symbol: __heap_limit
    Definitions
-      At line 49 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 49 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 232 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 232 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 Comment: __heap_limit used once
 4 symbols
 
@@ -471,8 +460,7 @@ RESET 00000000
 
 Symbol: RESET
    Definitions
-      At line 56 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 56 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
       None
 Comment: RESET unused
@@ -480,25 +468,19 @@ __Vectors 00000000
 
 Symbol: __Vectors
    Definitions
-      At line 61 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 61 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 57 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 113 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 57 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 113 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 __Vectors_End 000000C0
 
 Symbol: __Vectors_End
    Definitions
-      At line 111 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 111 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 58 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 113 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 58 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 113 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 3 symbols
 
@@ -511,8 +493,7 @@ Relocatable symbols
 
 Symbol: .text
    Definitions
-      At line 115 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 115 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
       None
 Comment: .text unused
@@ -520,164 +501,127 @@ ADC_IRQHandler 00000012
 
 Symbol: ADC_IRQHandler
    Definitions
-      At line 208 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 208 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 100 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-      At line 175 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 100 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 175 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 BLE_CRYPT_IRQHandler 00000012
 
 Symbol: BLE_CRYPT_IRQHandler
    Definitions
-      At line 205 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 205 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 97 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 172 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 97 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 172 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 BLE_ERROR_IRQHandler 00000012
 
 Symbol: BLE_ERROR_IRQHandler
    Definitions
-      At line 204 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 204 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 96 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 171 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 96 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 171 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 BLE_FIFO_IRQHandler 00000012
 
 Symbol: BLE_FIFO_IRQHandler
    Definitions
-      At line 197 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 197 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 89 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 164 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 89 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 164 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 BLE_FINETGT_IRQHandler 00000012
 
+Symbol: BLE_FINETGT_IRQHandler
+   Definitions
+      At line 196 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 88 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 163 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+BLE_HSLOT_IRQHandler 00000012
+
+Symbol: BLE_HSLOT_IRQHandler
+   Definitions
+      At line 190 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
 
 
 
 ARM Macro Assembler    Page 2 Alphabetic symbol ordering
 Relocatable symbols
 
-Symbol: BLE_FINETGT_IRQHandler
-   Definitions
-      At line 196 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 88 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 163 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-BLE_HSLOT_IRQHandler 00000012
-
-Symbol: BLE_HSLOT_IRQHandler
-   Definitions
-      At line 190 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 82 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 157 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 82 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 157 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 BLE_SLP_IRQHandler 00000012
 
 Symbol: BLE_SLP_IRQHandler
    Definitions
-      At line 213 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 213 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 105 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-      At line 180 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 105 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 180 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 BLE_SW_IRQHandler 00000012
 
 Symbol: BLE_SW_IRQHandler
    Definitions
-      At line 188 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 188 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 80 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 155 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 80 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 155 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 BLE_TIMESTAMP_TGT1_IRQHandler 00000012
 
 Symbol: BLE_TIMESTAMP_TGT1_IRQHandler
    Definitions
-      At line 206 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 206 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 98 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 173 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 98 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 173 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 BLE_TIMESTAMP_TGT2_IRQHandler 00000012
+
+Symbol: BLE_TIMESTAMP_TGT2_IRQHandler
+   Definitions
+      At line 211 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 103 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 178 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+DMA_Channel1_2_3_4_IRQHandler 00000012
+
+Symbol: DMA_Channel1_2_3_4_IRQHandler
+   Definitions
+      At line 198 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 90 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 165 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+DMA_Channel5_IRQHandler 00000012
+
+Symbol: DMA_Channel5_IRQHandler
+   Definitions
+      At line 199 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 91 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 166 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+Default_Handler 00000012
+
 
 
 
 ARM Macro Assembler    Page 3 Alphabetic symbol ordering
 Relocatable symbols
 
-
-Symbol: BLE_TIMESTAMP_TGT2_IRQHandler
-   Definitions
-      At line 211 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 103 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-      At line 178 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-DMA_Channel1_2_3_4_IRQHandler 00000012
-
-Symbol: DMA_Channel1_2_3_4_IRQHandler
-   Definitions
-      At line 198 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 90 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 165 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-DMA_Channel5_IRQHandler 00000012
-
-Symbol: DMA_Channel5_IRQHandler
-   Definitions
-      At line 199 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 91 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 166 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-Default_Handler 00000012
-
 Symbol: Default_Handler
    Definitions
-      At line 152 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 152 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
       None
 Comment: Default_Handler unused
@@ -685,349 +629,259 @@ EXTI0_1_IRQHandler 00000012
 
 Symbol: EXTI0_1_IRQHandler
    Definitions
-      At line 193 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 193 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 85 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 160 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 85 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 160 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 EXTI2_3_IRQHandler 00000012
 
 Symbol: EXTI2_3_IRQHandler
+   Definitions
+      At line 194 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 86 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 161 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+EXTI4_12_IRQHandler 00000012
+
+Symbol: EXTI4_12_IRQHandler
+   Definitions
+      At line 195 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 87 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 162 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+FLASH_IRQHandler 00000012
+
+Symbol: FLASH_IRQHandler
+   Definitions
+      At line 191 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 83 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 158 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+HardFault_Handler 0000000A
+
+Symbol: HardFault_Handler
+   Definitions
+      At line 135 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 64 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 136 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+I2C1_IRQHandler 00000012
+
+Symbol: I2C1_IRQHandler
+   Definitions
+      At line 210 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 102 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 177 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 
 
 ARM Macro Assembler    Page 4 Alphabetic symbol ordering
 Relocatable symbols
 
-   Definitions
-      At line 194 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 86 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 161 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-EXTI4_12_IRQHandler 00000012
-
-Symbol: EXTI4_12_IRQHandler
-   Definitions
-      At line 195 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 87 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 162 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-FLASH_IRQHandler 00000012
-
-Symbol: FLASH_IRQHandler
-   Definitions
-      At line 191 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 83 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 158 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-HardFault_Handler 0000000A
-
-Symbol: HardFault_Handler
-   Definitions
-      At line 135 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 64 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 136 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-I2C1_IRQHandler 00000012
-
-Symbol: I2C1_IRQHandler
-   Definitions
-      At line 210 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 102 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-      At line 177 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
 
 IRC_IRQHandler 00000012
 
+Symbol: IRC_IRQHandler
+   Definitions
+      At line 218 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 110 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 185 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+KEYSCAN_IRQHandler 00000012
+
+Symbol: KEYSCAN_IRQHandler
+   Definitions
+      At line 214 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 106 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 181 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+LPUART1_IRQHandler 00000012
+
+Symbol: LPUART1_IRQHandler
+   Definitions
+      At line 216 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 108 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 183 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+NMI_Handler 00000008
+
+Symbol: NMI_Handler
+   Definitions
+      At line 130 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 63 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 131 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+PendSV_Handler 0000000E
+
+Symbol: PendSV_Handler
+   Definitions
+      At line 143 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 75 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 144 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+RCC_IRQHandler 00000012
+
+Symbol: RCC_IRQHandler
+   Definitions
+      At line 192 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 84 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 159 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+RESERVED_IRQHandler 00000012
+
+Symbol: RESERVED_IRQHandler
+   Definitions
 
 
 
 ARM Macro Assembler    Page 5 Alphabetic symbol ordering
 Relocatable symbols
 
-Symbol: IRC_IRQHandler
-   Definitions
-      At line 218 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 202 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 110 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-      At line 185 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 94 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 169 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
-KEYSCAN_IRQHandler 00000012
+RTC_IRQHandler 00000012
 
-Symbol: KEYSCAN_IRQHandler
+Symbol: RTC_IRQHandler
    Definitions
-      At line 214 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 189 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 106 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-      At line 181 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 81 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 156 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
-LPUART1_IRQHandler 00000012
+Reset_Handler 00000000
 
-Symbol: LPUART1_IRQHandler
+Symbol: Reset_Handler
    Definitions
-      At line 216 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 118 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 108 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-      At line 183 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 62 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 119 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
-NMI_Handler 00000008
+SPI1_IRQHandler 00000012
 
-Symbol: NMI_Handler
+Symbol: SPI1_IRQHandler
    Definitions
-      At line 130 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 212 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 63 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 131 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 104 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 179 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
-PendSV_Handler 0000000E
+SPI2_IRQHandler 00000012
 
-Symbol: PendSV_Handler
+Symbol: SPI2_IRQHandler
    Definitions
-      At line 143 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 209 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 75 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 144 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 101 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 176 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
-RCC_IRQHandler 00000012
+SVC_Handler 0000000C
+
+Symbol: SVC_Handler
+   Definitions
+      At line 139 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 72 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 140 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+SysTick_Handler 00000010
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 147 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 76 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 148 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
 
 
 
 ARM Macro Assembler    Page 6 Alphabetic symbol ordering
 Relocatable symbols
 
+TIM1_BRK_UP_TRG_COM_IRQHandler 00000012
 
-Symbol: RCC_IRQHandler
+Symbol: TIM1_BRK_UP_TRG_COM_IRQHandler
    Definitions
-      At line 192 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 200 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 84 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 159 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 92 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 167 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
-RESERVED_IRQHandler 00000012
+TIM1_CC_IRQHandler 00000012
 
-Symbol: RESERVED_IRQHandler
+Symbol: TIM1_CC_IRQHandler
    Definitions
-      At line 202 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 201 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 94 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 169 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 93 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 168 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
-RTC_IRQHandler 00000012
+TIM3_IRQHandler 00000012
 
-Symbol: RTC_IRQHandler
+Symbol: TIM3_IRQHandler
    Definitions
-      At line 189 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 203 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 81 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 156 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 95 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 170 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
-Reset_Handler 00000000
+TIM6_IRQHandler 00000012
 
-Symbol: Reset_Handler
+Symbol: TIM6_IRQHandler
    Definitions
-      At line 118 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 207 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 62 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 119 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 99 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 174 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
-SPI1_IRQHandler 00000012
+USART1_IRQHandler 00000012
 
-Symbol: SPI1_IRQHandler
+Symbol: USART1_IRQHandler
    Definitions
-      At line 212 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 215 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 104 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-      At line 179 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 107 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 182 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
+USART2_IRQHandler 00000012
+
+Symbol: USART2_IRQHandler
+   Definitions
+      At line 217 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+   Uses
+      At line 109 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 184 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+
+WWDG_IRQHandler 00000012
+
+Symbol: WWDG_IRQHandler
+   Definitions
+      At line 187 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 
 
 ARM Macro Assembler    Page 7 Alphabetic symbol ordering
 Relocatable symbols
 
-SPI2_IRQHandler 00000012
-
-Symbol: SPI2_IRQHandler
-   Definitions
-      At line 209 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
    Uses
-      At line 101 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-      At line 176 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-SVC_Handler 0000000C
-
-Symbol: SVC_Handler
-   Definitions
-      At line 139 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 72 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 140 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-SysTick_Handler 00000010
-
-Symbol: SysTick_Handler
-   Definitions
-      At line 147 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 76 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 148 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-TIM1_BRK_UP_TRG_COM_IRQHandler 00000012
-
-Symbol: TIM1_BRK_UP_TRG_COM_IRQHandler
-   Definitions
-      At line 200 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 92 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 167 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-TIM1_CC_IRQHandler 00000012
-
-Symbol: TIM1_CC_IRQHandler
-   Definitions
-      At line 201 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 93 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 168 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-
-
-ARM Macro Assembler    Page 8 Alphabetic symbol ordering
-Relocatable symbols
-
-
-TIM3_IRQHandler 00000012
-
-Symbol: TIM3_IRQHandler
-   Definitions
-      At line 203 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 95 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 170 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-TIM6_IRQHandler 00000012
-
-Symbol: TIM6_IRQHandler
-   Definitions
-      At line 207 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 99 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 174 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-USART1_IRQHandler 00000012
-
-Symbol: USART1_IRQHandler
-   Definitions
-      At line 215 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 107 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-      At line 182 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-USART2_IRQHandler 00000012
-
-Symbol: USART2_IRQHandler
-   Definitions
-      At line 217 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 109 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-      At line 184 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-
-WWDG_IRQHandler 00000012
-
-Symbol: WWDG_IRQHandler
-   Definitions
-      At line 187 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
-   Uses
-      At line 79 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
-      At line 154 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-
-
-
-ARM Macro Assembler    Page 9 Alphabetic symbol ordering
-Relocatable symbols
-
-n32wb03x.s
+      At line 79 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
+      At line 154 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 
 40 symbols
 
@@ -1040,31 +894,25 @@ Heap_Size 00000200
 
 Symbol: Heap_Size
    Definitions
-      At line 44 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 44 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 48 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 48 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 Comment: Heap_Size used once
 Stack_Size 00000800
 
 Symbol: Stack_Size
    Definitions
-      At line 34 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 34 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 37 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 37 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 Comment: Stack_Size used once
 __Vectors_Size 000000C0
 
 Symbol: __Vectors_Size
    Definitions
-      At line 113 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 113 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 59 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_n
-32wb03x.s
+      At line 59 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 Comment: __Vectors_Size used once
 3 symbols
 
@@ -1077,21 +925,17 @@ SystemInit 00000000
 
 Symbol: SystemInit
    Definitions
-      At line 121 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 121 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 122 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 122 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 Comment: SystemInit used once
 __main 00000000
 
 Symbol: __main
    Definitions
-      At line 120 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 120 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
    Uses
-      At line 124 in file ..\..\..\..\..\firmware\CMSIS\device\startup\startup_
-n32wb03x.s
+      At line 124 in file ..\firmware\CMSIS\device\startup\startup_n32wb03x.s
 Comment: __main used once
 2 symbols
 391 symbols in table
