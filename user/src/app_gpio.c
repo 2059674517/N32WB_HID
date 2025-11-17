@@ -52,6 +52,7 @@
 uint8_t key1_irq_actived = 0;
 uint8_t key2_irq_actived = 0;
 uint8_t key3_irq_actived = 0;
+uint8_t key_enable = 0;//按键检测使能，不为0才检测按键是否按下
 /* Private function prototypes -----------------------------------------------*/
 
 /* Private functions ---------------------------------------------------------*/
@@ -218,7 +219,7 @@ void app_key_reinit_after_sleep(void)
 void app_key_press_timeout_handler(void)
 {
 
-    if(key1_irq_actived == 1)
+    if(key1_irq_actived != 0)
     {
         LedBlink(LED1_PORT, LED1_PIN);
         #if (CFG_APP_HID)
@@ -290,7 +291,7 @@ void app_key_press_timeout_handler(void)
             app_hid_send_keyboard_report((uint8_t*)&kb_report);
             build_keyboard_report(&kb_report, 0, NULL, 0);
             app_hid_send_keyboard_report((uint8_t*)&kb_report);
-            NS_LOG_INFO("Button 2, sending 'Hello'\r\n");
+            NS_LOG_INFO("Button 2, sending 'Hello' %d \r\n",key_enable);
         } else {
             NS_LOG_WARNING("HID not ready, skipping keyboard send\r\n");
         }
@@ -340,65 +341,86 @@ void app_key_press_timeout_handler(void)
  */
 void EXTI4_12_IRQHandler(void)
 {
-    
-    if ( EXTI_GetITStatus(KEY1_INPUT_EXTI_LINE)!= RESET)
-    {
-        delay_n_10us(1000);
-				if (GPIO_ReadInputDataBit(KEY1_INPUT_PORT,KEY1_INPUT_PIN) == 0)
-				{
-					if(key1_irq_actived == 0)
+	if(key_enable != 0){
+		if ( EXTI_GetITStatus(KEY1_INPUT_EXTI_LINE)!= RESET)
+			{
+					delay_n_10us(1000);
+					if (GPIO_ReadInputDataBit(KEY1_INPUT_PORT,KEY1_INPUT_PIN) == 0)
 					{
-							ke_msg_send_basic(APP_KEY_DETECTED, TASK_APP, TASK_APP); 
-							key1_irq_actived = 1;
-					}
-					else if(key1_irq_actived == 1)
-					{
-							//if timer started, update flag
-							key1_irq_actived = 2;
+						if(key1_irq_actived == 0)
+						{
+								ke_msg_send_basic(APP_KEY_DETECTED, TASK_APP, TASK_APP); 
+								key1_irq_actived = 1;
+						}
+						else if(key1_irq_actived == 1)
+						{
+								//if timer started, update flag
+								key1_irq_actived = 2;
 
+						}
 					}
-				}
-        
-        EXTI_ClrITPendBit(KEY1_INPUT_EXTI_LINE);
-    }
-		if ( EXTI_GetITStatus(KEY2_INPUT_EXTI_LINE)!= RESET)
-    {
-        delay_n_10us(1000);
-				if (GPIO_ReadInputDataBit(KEY2_INPUT_PORT,KEY2_INPUT_PIN) == 0)
-				{
-					if(key2_irq_actived == 0)
+					
+					EXTI_ClrITPendBit(KEY1_INPUT_EXTI_LINE);
+			}
+			if ( EXTI_GetITStatus(KEY2_INPUT_EXTI_LINE)!= RESET)
+			{
+					delay_n_10us(1000);
+					if (GPIO_ReadInputDataBit(KEY2_INPUT_PORT,KEY2_INPUT_PIN) == 0)
 					{
-							ke_msg_send_basic(APP_KEY_DETECTED, TASK_APP, TASK_APP); 
-							key2_irq_actived = 1;
+						if(key2_irq_actived == 0)
+						{
+								ke_msg_send_basic(APP_KEY_DETECTED, TASK_APP, TASK_APP); 
+								key2_irq_actived = 1;
+						}
+						else if(key2_irq_actived == 1)
+						{
+								//if timer started, update flag
+								key2_irq_actived = 2;
+						}
 					}
-					else if(key2_irq_actived == 1)
+					
+					EXTI_ClrITPendBit(KEY2_INPUT_EXTI_LINE);
+			}
+			if ( EXTI_GetITStatus(KEY3_INPUT_EXTI_LINE)!= RESET)
+			{
+					delay_n_10us(1000);
+					if (GPIO_ReadInputDataBit(KEY3_INPUT_PORT,KEY3_INPUT_PIN) == 0)
 					{
-							//if timer started, update flag
-							key2_irq_actived = 2;
+						if(key3_irq_actived == 0)
+						{
+								ke_msg_send_basic(APP_KEY_DETECTED, TASK_APP, TASK_APP); 
+								key3_irq_actived = 1;
+						}
+						else if(key3_irq_actived == 1)
+						{
+								//if timer started, update flag
+								key3_irq_actived = 2;
+						}
 					}
-				}
-        
-        EXTI_ClrITPendBit(KEY2_INPUT_EXTI_LINE);
-    }
-		if ( EXTI_GetITStatus(KEY3_INPUT_EXTI_LINE)!= RESET)
-    {
-        delay_n_10us(1000);
-				if (GPIO_ReadInputDataBit(KEY3_INPUT_PORT,KEY3_INPUT_PIN) == 0)
-				{
-					if(key3_irq_actived == 0)
-					{
-							ke_msg_send_basic(APP_KEY_DETECTED, TASK_APP, TASK_APP); 
-							key3_irq_actived = 1;
-					}
-					else if(key3_irq_actived == 1)
-					{
-							//if timer started, update flag
-							key3_irq_actived = 2;
-					}
-				}
-        
-        EXTI_ClrITPendBit(KEY3_INPUT_EXTI_LINE);
-    }
+					
+					EXTI_ClrITPendBit(KEY3_INPUT_EXTI_LINE);
+			}
+	}
+  else{
+		if ( EXTI_GetITStatus(KEY1_INPUT_EXTI_LINE)!= RESET)
+			{
+					delay_n_10us(1000);
+					
+					EXTI_ClrITPendBit(KEY1_INPUT_EXTI_LINE);
+			}
+			if ( EXTI_GetITStatus(KEY2_INPUT_EXTI_LINE)!= RESET)
+			{
+					delay_n_10us(1000);
+					
+					EXTI_ClrITPendBit(KEY2_INPUT_EXTI_LINE);
+			}
+			if ( EXTI_GetITStatus(KEY3_INPUT_EXTI_LINE)!= RESET)
+			{
+					delay_n_10us(1000);
+					
+					EXTI_ClrITPendBit(KEY3_INPUT_EXTI_LINE);
+			}
+	}		
 }
 
 

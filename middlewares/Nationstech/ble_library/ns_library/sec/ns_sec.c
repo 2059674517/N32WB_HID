@@ -71,6 +71,7 @@
 /* Private constants ---------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 struct app_sec_bond_data_env_tag app_sec_bond_data;
+extern uint8_t key_enable;
 /// Application Security Environment Structure
 struct app_sec_env_tag app_sec_env;
 /* Private function prototypes -----------------------------------------------*/
@@ -782,8 +783,8 @@ static int gapc_encrypt_req_ind_handler(ke_msg_id_t const msgid,
                 #endif
                 if( (bond_data.ediv == param->ediv) && 
                     !memcmp(&bond_data.rand_nb, &param->rand_nb.nb, sizeof(struct rand_nb)) )
-                {
-                    NS_LOG_INFO("ediv&rand_nb match\r\n");
+                {										
+                    NS_LOG_INFO("ediv&rand_nb match %d\r\n",key_enable);
                     cfm->found    = true;
                 }
                 if(cfm->found)
@@ -897,6 +898,7 @@ int ns_sec_bond_store_evt_handler(ke_msg_id_t const msgid, void *p_param,
          //erase and write flash 
         ns_bond_db_add_entry(&app_sec_bond_data);
         NS_LOG_INFO("Bond info stored\r\n");
+				key_enable = 2;
         #if 0
         NS_LOG_DEBUG("save peer, type:%d, addr:%02X %02X %02X %02X %02X %02X \r\n",
                                   app_sec_bond_data.peer_addr_type,

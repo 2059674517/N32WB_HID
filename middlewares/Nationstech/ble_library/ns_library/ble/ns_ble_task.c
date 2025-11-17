@@ -117,7 +117,7 @@ static const struct attm_desc gattm_att_db[GATT_IDX_NUMBER] =
 };
 #endif
 /* Private variables ---------------------------------------------------------*/
-
+extern uint8_t key_enable;
 /* Private function prototypes -----------------------------------------------*/
 
 /* Private functions ---------------------------------------------------------*/
@@ -1111,7 +1111,7 @@ static int gapc_disconnect_ind_handler(ke_msg_id_t const msgid,
 {
   
     NS_LOG_INFO("BLE Disconnected,reson:%x,conidx:%d \r\n",p_param->reason,KE_IDX_GET(src_id));    
-    
+    key_enable = 0;
     app_env.conn_env[KE_IDX_GET(src_id)].conidx = GAP_INVALID_CONIDX;    
     if(ns_ble_get_connection_num() == 0)
     {
@@ -1180,7 +1180,7 @@ static int app_msg_handler(ke_msg_id_t const msgid,
             }
         }
     }
-    
+
     return (msg_pol);
 }
 
@@ -1295,7 +1295,12 @@ static int gattc_mtu_changed_ind_handler(ke_msg_id_t const msgid,
     {
         gattc_env[KE_IDX_GET(src_id)]->mtu_exch = false;
     }
-    return (KE_MSG_CONSUMED);
+    
+		NS_LOG_DEBUG("\r\nkey_disenable %d\r\n",key_enable);
+		key_enable = 1;
+		NS_LOG_DEBUG("\r\nkey_enable %d\r\n",key_enable);
+		
+		return (KE_MSG_CONSUMED);
 }
 
 static int gapc_le_phy_ind_handler(ke_msg_id_t const msgid,
