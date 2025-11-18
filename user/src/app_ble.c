@@ -150,7 +150,7 @@ void app_ble_sec_msg_handler(struct sec_msg_t const * p_msg)
     switch (p_msg->msg_id)
     {
         case NS_SEC_PINCODE_DISPLAY:
-            
+            ns_sec_pincode_respond(app_env.conidx, 123456);
             break;
         case NS_SEC_PAIR_SUCCEED:
             ke_timer_set(APP_PARAMS_UPDATE_EVT, TASK_APP, FIRST_CONN_PARAMS_UPDATE_DELAY);
@@ -189,7 +189,7 @@ void app_ble_gap_params_init(void)
     /* init params*/
     dev_info.dev_role       = GAP_ROLE_PERIPHERAL;
     dev_info.mac_addr_type  = GAPM_STATIC_ADDR;
-    dev_info.appearance     = 961;
+    dev_info.appearance     = 0x03C2;
     
     dev_info.dev_name_len = sizeof(CUSTOM_DEVICE_NAME)-1;
     memcpy(dev_info.dev_name, CUSTOM_DEVICE_NAME, dev_info.dev_name_len); 
