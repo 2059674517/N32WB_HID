@@ -70,37 +70,7 @@
 #include "app_ble.h" 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-/// Length of the HID  Report
-#define APP_HID_CONSUMER_REPORT_LEN    (1)
-#define APP_HID_MOUSE_REPORT_LEN       (6)
-#define APP_HID_KEYBOARD_REPORT_LEN    (8)  // 1 byte modifier + 1 byte reserved + 6 bytes key codes
-/// Length of the Report Descriptor for an HID Mouse
-#define APP_HID_MOUSE_REPORT_MAP_LEN   (sizeof(app_hid_mouse_report_map))
 
-/// Duration before connection update procedure if no report received (mouse is silent) - 20s
-#define APP_HID_SILENCE_DURATION_1    0//(2000)
-/// Duration before disconnection if no report is received after connection update - 60s
-#define APP_HID_SILENCE_DURATION_2     (6000)
-
-/// Number of reports that can be sent
-#define APP_HID_NB_SEND_REPORT         (10)
-
-/// States of the Application HID Module
-enum app_hid_states
-{
-    /// Module is disabled (Service not added in DB)
-    APP_HID_DISABLED,
-    /// Module is idle (Service added but profile not enabled)
-    APP_HID_IDLE,
-    /// Module is enabled (Device is connected and the profile is enabled)
-    APP_HID_ENABLED,
-    /// The application can send reports
-    APP_HID_READY,
-    /// Waiting for a report
-    APP_HID_WAIT_REP,
-
-    APP_HID_STATE_MAX,
-};
 
 /* Private constants ---------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -173,7 +143,7 @@ static const uint8_t app_hid_mouse_report_map[] =
     0xC0,            /// END COLLECTION (Application)
 
     // Report ID 2: Advanced buttons
-    0x05, 0x0C,       // Usage Page (Consumer)
+		0x05, 0x0C,       // Usage Page (Consumer)
     0x09, 0x01,       // Usage (Consumer Control)
     0xA1, 0x01,       // Collection (Application)
     0x85, 0x02,       // Report Id (2)
@@ -188,11 +158,62 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x09, 0xEA,       // Usage (Volume Down)
     0x09, 0xE9,       // Usage (Volume Up)
     0x09, 0xE2,       // Usage (Mute)
-    0x09, 0xCC,       // Usage (Stop eject)    
-    0x09, 0xB7,       // Usage (Stop) 
+    0x09, 0x6F,       // Usage (Brightness Decrement)  
+    0x09, 0x70,       // Usage (Brightness Increment) 
     0x81, 0x06,       // Input (Data,Value,Relative,Bit Field)
   
     0xC0,              // End Collection
+		
+//		0x05, 0x0C,        // Usage Page (Consumer Devices)
+//		0x09, 0x01,        // Usage (Consumer Control)
+//		0xA1, 0x01,        // Collection (Application)
+//		0x85, 0x02,        //   Report ID (2)
+
+//		// 定义32个1位开关字段，每个对应一个具体功能
+//		0x15, 0x00,        //   Logical Minimum (0)
+//		0x25, 0x01,        //   Logical Maximum (1)
+//		0x75, 0x01,        //   Report Size (1)
+//		0x95, 0x20,        //   Report Count (32) - 总共32个位
+
+//		// 32个Usage定义 - 每个位对应一个具体功能
+//		0x09, 0xCD,        //   Usage (Play/Pause)
+//		0x09, 0xB5,        //   Usage (Scan Next Track)
+//		0x09, 0xB6,        //   Usage (Scan Previous Track)
+//		0x09, 0xB7,        //   Usage (Stop)
+//		0x09, 0xCC,        //   Usage (Stop/Eject)
+//		0x09, 0xB9,        //   Usage (Record)
+//		0x09, 0xE9,        //   Usage (Fast Forward)
+//		0x09, 0xBB,        //   Usage (Rewind)
+
+//		0x09, 0xE9,        //   Usage (Volume Increment)
+//		0x09, 0xEA,        //   Usage (Volume Decrement)
+//		0x09, 0xE2,        //   Usage (Mute)
+//		0x09, 0x2B, 0x02,  //   Usage (Equalizer)
+//		0x09, 0x31, 0x02,  //   Usage (Bass Boost)
+//		0x09, 0x32, 0x02,  //   Usage (Loudness)
+//		0x09, 0x33, 0x02,  //   Usage (Treble Increment)
+//		0x09, 0x34, 0x02,  //   Usage (Bass Increment)
+
+//		0x09, 0x6F,        //   Usage (Brightness Decrement)
+//		0x09, 0x70,        //   Usage (Brightness Increment)
+//		0x09, 0x06, 0x04,  //   Usage (Sleep Mode)
+//		0x09, 0x07, 0x04,  //   Usage (Wake Up)
+//		0x09, 0x08, 0x04,  //   Usage (Power Down)
+//		0x09, 0x09, 0x04,  //   Usage (Power On)
+//		0x09, 0x0A, 0x04,  //   Usage (Power Toggle)
+//		0x09, 0x8F, 0x05,  //   Usage (Display Invert)
+
+//		0x09, 0x83, 0x01,  //   Usage (Voice Assistant)
+//		0x09, 0x92, 0x01,  //   Usage (Media Select)
+//		0x09, 0x95, 0x01,  //   Usage (Browser Home)
+//		0x09, 0x9C, 0x01,  //   Usage (Calculator)
+//		0x09, 0x16, 0x02,  //   Usage (Email Reader)
+//		0x09, 0x2A, 0x02,  //   Usage (Music Player)
+//		0x09, 0x2D, 0x02,  //   Usage (Video Player)
+//		0x09, 0x50, 0x02,  //   Usage (Search)
+
+//		0x81, 0x06,        //   Input (Data,Var,Abs) - 32位位图字段
+//		0xC0,              // End Collection
 
     // Report ID 3: Keyboard
     0x05, 0x01,        // Usage Page (Generic Desktop)
@@ -520,7 +541,7 @@ void app_hid_send_consumer_report(uint8_t* report)
                 req->report.idx      = 1; //repoort id 2 report map
                 req->report.length   = APP_HID_CONSUMER_REPORT_LEN;
                 memcpy(&req->report.value[0], &report[0],APP_HID_CONSUMER_REPORT_LEN);
-
+								NS_LOG_WARNING("\r\n%d ,%d\r\n",req->report.value[0],req->report.value[1]);
                 ke_msg_send(req);
 
                 app_hid_env.nb_report--;

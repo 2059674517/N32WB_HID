@@ -62,6 +62,8 @@
 /* Public typedef -----------------------------------------------------------*/
 
 
+
+
 /// HID Application Module Environment Structure
 struct app_hid_env_tag
 {
@@ -91,6 +93,38 @@ struct ps2_mouse_msg
 };
 
 /* Public variables ---------------------------------------------------------*/
+
+/// Length of the HID  Report
+#define APP_HID_CONSUMER_REPORT_LEN    (1)
+#define APP_HID_MOUSE_REPORT_LEN       (6)
+#define APP_HID_KEYBOARD_REPORT_LEN    (8)  // 1 byte modifier + 1 byte reserved + 6 bytes key codes
+/// Length of the Report Descriptor for an HID Mouse
+#define APP_HID_MOUSE_REPORT_MAP_LEN   (sizeof(app_hid_mouse_report_map))
+
+/// Duration before connection update procedure if no report received (mouse is silent) - 20s
+#define APP_HID_SILENCE_DURATION_1    0//(2000)
+/// Duration before disconnection if no report is received after connection update - 60s
+#define APP_HID_SILENCE_DURATION_2     (6000)
+
+/// Number of reports that can be sent
+#define APP_HID_NB_SEND_REPORT         (10)
+
+/// States of the Application HID Module
+enum app_hid_states
+{
+    /// Module is disabled (Service not added in DB)
+    APP_HID_DISABLED,
+    /// Module is idle (Service added but profile not enabled)
+    APP_HID_IDLE,
+    /// Module is enabled (Device is connected and the profile is enabled)
+    APP_HID_ENABLED,
+    /// The application can send reports
+    APP_HID_READY,
+    /// Waiting for a report
+    APP_HID_WAIT_REP,
+
+    APP_HID_STATE_MAX,
+};
 
 /// Table of message handlers
 extern const struct app_subtask_handlers app_hid_handlers;

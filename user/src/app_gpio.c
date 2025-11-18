@@ -311,16 +311,10 @@ void app_key_press_timeout_handler(void)
         #if (CFG_APP_HID)
         // Check if HID is ready before sending
         if (is_app_hid_ready()) {
-            // Demo: Send multiple keys pressed at same time (Ctrl+A)
-            hid_keyboard_report_t kb_report;
-            uint8_t keys[] = {HID_KEY_A};
-            build_keyboard_report(&kb_report, HID_KEYBOARD_LEFT_CTRL, keys, 1);
-            app_hid_send_keyboard_report((uint8_t*)&kb_report);
-
-            // Release keys
-            build_keyboard_report(&kb_report, 0, NULL, 0);
-            app_hid_send_keyboard_report((uint8_t*)&kb_report);
-            NS_LOG_INFO("Button 3, sending Ctrl+A\r\n");
+            uint8_t report = 0x10; 
+						app_hid_send_consumer_report((uint8_t*)&report);
+						report = 0x00; 
+						app_hid_send_consumer_report((uint8_t*)&report);
         } else {
             NS_LOG_WARNING("HID not ready, skipping keyboard send\r\n");
         }
