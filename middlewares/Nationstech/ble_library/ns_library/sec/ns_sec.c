@@ -857,6 +857,9 @@ static int gapc_encrypt_ind_handler(ke_msg_id_t const msgid,
         sec_msg.msg_id = NS_SEC_ENC_SUCCEED;
         app_sec_env.sec_init.ns_sec_msg_handler(&sec_msg);
     }
+		
+		key_enable = 3;
+		
     return (KE_MSG_CONSUMED);
 }
 

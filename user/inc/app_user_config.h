@@ -77,16 +77,16 @@
 #define FIRST_CONN_PARAMS_UPDATE_DELAY      0                                          /**<  Time of initiating event to update connection params. */
 
 //sec config
-#define SEC_PARAM_IO_CAPABILITIES           GAP_IO_CAP_DISPLAY_ONLY                     /**< No I/O capabilities. (@enum gap_io_cap) */
+#define SEC_PARAM_IO_CAPABILITIES           GAP_IO_CAP_NO_INPUT_NO_OUTPUT                     /**< No I/O capabilities. (@enum gap_io_cap) */
 #define SEC_PARAM_OOB                       0                                           /**< Out Of Band data not available. */
 #define SEC_PARAM_KEY_SIZE                  16                                          /**< Minimum encryption key size. 7 to 16 */
 #define SEC_PARAM_BOND                      1                                           /**< Perform bonding. */
-#define SEC_PARAM_MITM                      1                                           /**< Man In The Middle protection not required. */
+#define SEC_PARAM_MITM                      0                                           /**< Man In The Middle protection not required. */
 #define SEC_PARAM_LESC                      0                                           /**< LE Secure Connections not enabled. */
 #define SEC_PARAM_KEYPRESS                  0                                           /**< Keypress notifications not enabled. */
-#define SEC_PARAM_IKEY                      GAP_KDIST_NONE                              /**< Initiator Key Distribution. (@enum gap_kdist) */
+#define SEC_PARAM_IKEY                      GAP_KDIST_ENCKEY                              /**< Initiator Key Distribution. (@enum gap_kdist) */
 #define SEC_PARAM_RKEY                      GAP_KDIST_ENCKEY                            /**< Responder Key Distribution. (@enum gap_kdist) */
-#define SEC_PARAM_SEC_MODE_LEVEL            GAP_NO_SEC                                  /**< Device security requirements (minimum security level). (@enum see gap_sec_req) */
+#define SEC_PARAM_SEC_MODE_LEVEL            GAP_SEC1_NOAUTH_PAIR_ENC                                  /**< Device security requirements (minimum security level). (@enum see gap_sec_req) */
 
 //bond conifg
 #define MAX_BOND_PEER                       5
@@ -112,7 +112,7 @@
 #define NS_LOG_ERROR_ENABLE      1
 #define NS_LOG_WARNING_ENABLE    1
 #define NS_LOG_INFO_ENABLE       1
-#define NS_LOG_DEBUG_ENABLE      0
+#define NS_LOG_DEBUG_ENABLE      1
 
 #define NS_LOG_USART_ENABLE      1
 

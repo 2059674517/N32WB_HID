@@ -189,7 +189,7 @@ void app_ble_gap_params_init(void)
     /* init params*/
     dev_info.dev_role       = GAP_ROLE_PERIPHERAL;
     dev_info.mac_addr_type  = GAPM_STATIC_ADDR;
-    dev_info.appearance     = 962;
+    dev_info.appearance     = 961;
     
     dev_info.dev_name_len = sizeof(CUSTOM_DEVICE_NAME)-1;
     memcpy(dev_info.dev_name, CUSTOM_DEVICE_NAME, dev_info.dev_name_len); 
