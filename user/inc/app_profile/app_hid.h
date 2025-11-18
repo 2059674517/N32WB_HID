@@ -95,7 +95,7 @@ struct ps2_mouse_msg
 /* Public variables ---------------------------------------------------------*/
 
 /// Length of the HID  Report
-#define APP_HID_CONSUMER_REPORT_LEN    (1)
+#define APP_HID_CONSUMER_REPORT_LEN    (4)
 #define APP_HID_MOUSE_REPORT_LEN       (6)
 #define APP_HID_KEYBOARD_REPORT_LEN    (8)  // 1 byte modifier + 1 byte reserved + 6 bytes key codes
 /// Length of the Report Descriptor for an HID Mouse

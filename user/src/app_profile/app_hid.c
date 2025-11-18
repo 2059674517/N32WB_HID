@@ -143,77 +143,61 @@ static const uint8_t app_hid_mouse_report_map[] =
     0xC0,            /// END COLLECTION (Application)
 
     // Report ID 2: Advanced buttons
-		0x05, 0x0C,       // Usage Page (Consumer)
-    0x09, 0x01,       // Usage (Consumer Control)
-    0xA1, 0x01,       // Collection (Application)
-    0x85, 0x02,       // Report Id (2)
-    0x15, 0x00,       // Logical minimum (0)
-    0x25, 0x01,       // Logical maximum (1)
-    0x75, 0x01,       // Report Size (1)
-    0x95, 0x08,       // Report Count (8)
+		0x05, 0x0C,        // Usage Page (Consumer Devices)
+		0x09, 0x01,        // Usage (Consumer Control)
+		0xA1, 0x01,        // Collection (Application)
+		0x85, 0x02,        //   Report ID (2)
 
-    0x09, 0xCD,       // Usage (Play/Pause)        //test, for audio final    
-    0x09, 0xB6,       // Usage (Scan Previous Track)
-    0x09, 0xB5,       // Usage (Scan Next Track)
-    0x09, 0xEA,       // Usage (Volume Down)
-    0x09, 0xE9,       // Usage (Volume Up)
-    0x09, 0xE2,       // Usage (Mute)
-    0x09, 0x6F,       // Usage (Brightness Decrement)  
-    0x09, 0x70,       // Usage (Brightness Increment) 
-    0x81, 0x06,       // Input (Data,Value,Relative,Bit Field)
-  
-    0xC0,              // End Collection
-		
-//		0x05, 0x0C,        // Usage Page (Consumer Devices)
-//		0x09, 0x01,        // Usage (Consumer Control)
-//		0xA1, 0x01,        // Collection (Application)
-//		0x85, 0x02,        //   Report ID (2)
+		// 定义32个1位开关字段，每个对应一个具体功能
+		0x15, 0x00,        //   Logical Minimum (0)
+		0x25, 0x01,        //   Logical Maximum (1)
+		0x75, 0x01,        //   Report Size (1)
+		0x95, 0x20,        //   Report Count (32) - 总共32个位
 
-//		// 定义32个1位开关字段，每个对应一个具体功能
-//		0x15, 0x00,        //   Logical Minimum (0)
-//		0x25, 0x01,        //   Logical Maximum (1)
-//		0x75, 0x01,        //   Report Size (1)
-//		0x95, 0x20,        //   Report Count (32) - 总共32个位
+		// Consumer Page的功能 (0x0C)
+		0x09, 0xCD,        //   Usage (Play/Pause)
+		0x09, 0xB5,        //   Usage (Scan Next Track)
+		0x09, 0xB6,        //   Usage (Scan Previous Track)
+		0x09, 0xB7,        //   Usage (Stop)
+		0x09, 0xB8,        //   Usage (Eject)
+		0x09, 0xB9,        //   Usage (Record)
+		0x09, 0xEA,        //   Usage (Fast Forward)
+		0x09, 0xBB,        //   Usage (Rewind)
 
-//		// 32个Usage定义 - 每个位对应一个具体功能
-//		0x09, 0xCD,        //   Usage (Play/Pause)
-//		0x09, 0xB5,        //   Usage (Scan Next Track)
-//		0x09, 0xB6,        //   Usage (Scan Previous Track)
-//		0x09, 0xB7,        //   Usage (Stop)
-//		0x09, 0xCC,        //   Usage (Stop/Eject)
-//		0x09, 0xB9,        //   Usage (Record)
-//		0x09, 0xE9,        //   Usage (Fast Forward)
-//		0x09, 0xBB,        //   Usage (Rewind)
+		0x09, 0xE9,        //   Usage (Volume Increment)
+		0x09, 0xEA,        //   Usage (Volume Decrement)
+		0x09, 0xE2,        //   Usage (Mute)
+		0x0A, 0x2B, 0x02,  //   Usage (Equalizer)
+		0x0A, 0x31, 0x02,  //   Usage (Bass Boost)
+		0x0A, 0x32, 0x02,  //   Usage (Loudness)
+		0x0A, 0x33, 0x02,  //   Usage (Treble Increment)
+		0x0A, 0x34, 0x02,  //   Usage (Bass Increment)
 
-//		0x09, 0xE9,        //   Usage (Volume Increment)
-//		0x09, 0xEA,        //   Usage (Volume Decrement)
-//		0x09, 0xE2,        //   Usage (Mute)
-//		0x09, 0x2B, 0x02,  //   Usage (Equalizer)
-//		0x09, 0x31, 0x02,  //   Usage (Bass Boost)
-//		0x09, 0x32, 0x02,  //   Usage (Loudness)
-//		0x09, 0x33, 0x02,  //   Usage (Treble Increment)
-//		0x09, 0x34, 0x02,  //   Usage (Bass Increment)
+		// 切换到Generic Desktop Page (0x01)
+		0x05, 0x0C,        //   Usage Page (Generic Desktop)
+		0x09, 0x6F,        //   Usage (Brightness Decrement)
+		0x09, 0x70,        //   Usage (Brightness Increment)
+		0x09, 0x82,        // Usage (System Sleep) - 替代 0x0406
+		0x09, 0x83,        // Usage (System Wake) - 替代 0x0407  
+		0x09, 0x81,        // Usage (System Power Down) - 替代 0x0408
+		0x09, 0x80,        // Usage (System Power On) - 替代 0x0409
+		0x0A, 0x0A, 0x04,  //   Usage (Power Toggle)
+		0x0A, 0x8F, 0x05,  //   Usage (Display Invert)
 
-//		0x09, 0x6F,        //   Usage (Brightness Decrement)
-//		0x09, 0x70,        //   Usage (Brightness Increment)
-//		0x09, 0x06, 0x04,  //   Usage (Sleep Mode)
-//		0x09, 0x07, 0x04,  //   Usage (Wake Up)
-//		0x09, 0x08, 0x04,  //   Usage (Power Down)
-//		0x09, 0x09, 0x04,  //   Usage (Power On)
-//		0x09, 0x0A, 0x04,  //   Usage (Power Toggle)
-//		0x09, 0x8F, 0x05,  //   Usage (Display Invert)
+		0x0A, 0x83, 0x01,  //   Usage (Voice Assistant)
+		0x0A, 0x92, 0x01,  //   Usage (Media Select)
+		0x0A, 0x95, 0x01,  //   Usage (Browser Home)
+		0x0A, 0x9C, 0x01,  //   Usage (Calculator) - 现在在正确的Page下了
+		0x0A, 0x16, 0x02,  //   Usage (Email Reader)
+		0x0A, 0x2A, 0x02,  //   Usage (Music Player)
+		0x0A, 0x2D, 0x02,  //   Usage (Video Player)
 
-//		0x09, 0x83, 0x01,  //   Usage (Voice Assistant)
-//		0x09, 0x92, 0x01,  //   Usage (Media Select)
-//		0x09, 0x95, 0x01,  //   Usage (Browser Home)
-//		0x09, 0x9C, 0x01,  //   Usage (Calculator)
-//		0x09, 0x16, 0x02,  //   Usage (Email Reader)
-//		0x09, 0x2A, 0x02,  //   Usage (Music Player)
-//		0x09, 0x2D, 0x02,  //   Usage (Video Player)
-//		0x09, 0x50, 0x02,  //   Usage (Search)
+		// 切换回Consumer Page
+		0x05, 0x0C,        //   Usage Page (Consumer Devices)
+		0x0A, 0x50, 0x02,  //   Usage (Search)
 
-//		0x81, 0x06,        //   Input (Data,Var,Abs) - 32位位图字段
-//		0xC0,              // End Collection
+		0x81, 0x06,        //   Input (Data,Var,Abs) - 32位位图字段
+		0xC0,              // End Collection
 
     // Report ID 3: Keyboard
     0x05, 0x01,        // Usage Page (Generic Desktop)

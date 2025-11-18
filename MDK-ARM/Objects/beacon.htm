@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\beacon.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\beacon.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Nov 19 00:05:40 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Nov 19 01:13:58 2025
 <BR><P>
 <H3>Maximum Stack Usage =        424 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -746,6 +746,7 @@ Global Symbols
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bass_init
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_mouse_report
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_keyboard_report
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_report_req_ind_handler
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_value_req_ind_handler
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_ble_gap_params_init
@@ -1355,7 +1356,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_user_msg_handler
 </UL>
 
-<P><STRONG><a name="[dc]"></a>app_hid_send_consumer_report</STRONG> (Thumb, 148 bytes, Stack size 32 bytes, app_hid.o(i.app_hid_send_consumer_report))
+<P><STRONG><a name="[dc]"></a>app_hid_send_consumer_report</STRONG> (Thumb, 158 bytes, Stack size 32 bytes, app_hid.o(i.app_hid_send_consumer_report))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = app_hid_send_consumer_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
@@ -1364,6 +1365,7 @@ Global Symbols
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_timer_set
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ns_ble_update_param
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_key_press_timeout_handler
 </UL>
@@ -1408,7 +1410,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[37]"></a>app_key_press_timeout_handler</STRONG> (Thumb, 384 bytes, Stack size 32 bytes, app_gpio.o(i.app_key_press_timeout_handler))
+<P><STRONG><a name="[37]"></a>app_key_press_timeout_handler</STRONG> (Thumb, 386 bytes, Stack size 32 bytes, app_gpio.o(i.app_key_press_timeout_handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = app_key_press_timeout_handler &rArr; app_hid_send_mouse_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;is_app_hid_ready

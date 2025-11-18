@@ -311,9 +311,11 @@ void app_key_press_timeout_handler(void)
         #if (CFG_APP_HID)
         // Check if HID is ready before sending
         if (is_app_hid_ready()) {
-            uint8_t report = 0x10; 
+            uint32_t report = 0; 
+						// ´¥·¢Play/Pause£¨µÚ1Î»£©
+						report = (1UL << 10) ;
 						app_hid_send_consumer_report((uint8_t*)&report);
-						report = 0x00; 
+						report = 0; 
 						app_hid_send_consumer_report((uint8_t*)&report);
         } else {
             NS_LOG_WARNING("HID not ready, skipping keyboard send\r\n");
