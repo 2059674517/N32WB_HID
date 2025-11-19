@@ -28,10 +28,13 @@ Project File Date:  11/17/2025
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\install\MDK\ARM\ARMCC\Bin'
 Build target 'N32WB03x'
 compiling app_gpio.c...
+..\user\src\app_gpio.c(260): warning:  #177-D: variable "all_key_values"  was declared but never referenced
+              uint8_t all_key_values[] = {
+..\user\src\app_gpio.c: 1 warning, 0 errors
 linking...
-Program Size: Code=26496 RO-data=4792 RW-data=7052 ZI-data=4020  
+Program Size: Code=26360 RO-data=4788 RW-data=7052 ZI-data=4020  
 After Build - User command #1: fromelf --bin --output=.\bin\beacon.bin .\Objects\beacon.axf
-".\Objects\beacon.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\beacon.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 

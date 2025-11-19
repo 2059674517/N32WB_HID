@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\beacon.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\beacon.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Nov 19 01:13:58 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Nov 19 15:11:13 2025
 <BR><P>
 <H3>Maximum Stack Usage =        424 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1410,8 +1410,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[37]"></a>app_key_press_timeout_handler</STRONG> (Thumb, 386 bytes, Stack size 32 bytes, app_gpio.o(i.app_key_press_timeout_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = app_key_press_timeout_handler &rArr; app_hid_send_mouse_report &rArr; ns_ble_update_param &rArr; __2printf
+<P><STRONG><a name="[37]"></a>app_key_press_timeout_handler</STRONG> (Thumb, 254 bytes, Stack size 40 bytes, app_gpio.o(i.app_key_press_timeout_handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = app_key_press_timeout_handler &rArr; app_hid_send_mouse_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;is_app_hid_ready
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_mouse_report
@@ -1439,7 +1439,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[30]"></a>app_user_msg_handler</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, app_ble.o(i.app_user_msg_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = app_user_msg_handler &rArr; app_key_press_timeout_handler &rArr; app_hid_send_mouse_report &rArr; ns_ble_update_param &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = app_user_msg_handler &rArr; app_key_press_timeout_handler &rArr; app_hid_send_mouse_report &rArr; ns_ble_update_param &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_key_press_timeout_handler
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_mouse_timeout_timer_handler

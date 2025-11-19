@@ -107,7 +107,7 @@ struct ps2_mouse_msg
 #define APP_HID_SILENCE_DURATION_2     (6000)
 
 /// Number of reports that can be sent
-#define APP_HID_NB_SEND_REPORT         (10)
+#define APP_HID_NB_SEND_REPORT         (200)
 
 /// States of the Application HID Module
 enum app_hid_states

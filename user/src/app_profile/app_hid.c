@@ -174,13 +174,15 @@ static const uint8_t app_hid_mouse_report_map[] =
 		0x0A, 0x34, 0x02,  //   Usage (Bass Increment)
 
 		// 切换到Generic Desktop Page (0x01)
-		0x05, 0x0C,        //   Usage Page (Generic Desktop)
 		0x09, 0x6F,        //   Usage (Brightness Decrement)
 		0x09, 0x70,        //   Usage (Brightness Increment)
+		0x0A, 0x92, 0x01,  //   Usage (Calculator)
+		0x0A, 0x50, 0x02,  //   Usage (Search)
 		0x09, 0x82,        // Usage (System Sleep) - 替代 0x0406
 		0x09, 0x83,        // Usage (System Wake) - 替代 0x0407  
 		0x09, 0x81,        // Usage (System Power Down) - 替代 0x0408
 		0x09, 0x80,        // Usage (System Power On) - 替代 0x0409
+		
 		0x0A, 0x0A, 0x04,  //   Usage (Power Toggle)
 		0x0A, 0x8F, 0x05,  //   Usage (Display Invert)
 
@@ -191,10 +193,6 @@ static const uint8_t app_hid_mouse_report_map[] =
 		0x0A, 0x16, 0x02,  //   Usage (Email Reader)
 		0x0A, 0x2A, 0x02,  //   Usage (Music Player)
 		0x0A, 0x2D, 0x02,  //   Usage (Video Player)
-
-		// 切换回Consumer Page
-		0x05, 0x0C,        //   Usage Page (Consumer Devices)
-		0x0A, 0x50, 0x02,  //   Usage (Search)
 
 		0x81, 0x06,        //   Input (Data,Var,Abs) - 32位位图字段
 		0xC0,              // End Collection
@@ -626,7 +624,7 @@ void app_hid_send_keyboard_report(uint8_t* report)
                 NS_LOG_DEBUG("Sending keyboard report: idx=%d, len=%d\r\n", req->report.idx, req->report.length);
 
                 ke_msg_send(req);
-
+								
                 app_hid_env.nb_report--;
 
                 // Restart the mouse timeout timer if needed
