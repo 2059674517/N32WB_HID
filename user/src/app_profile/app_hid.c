@@ -148,13 +148,13 @@ static const uint8_t app_hid_mouse_report_map[] =
 		0xA1, 0x01,        // Collection (Application)
 		0x85, 0x02,        //   Report ID (2)
 
-		// ����32��1λ�����ֶΣ�ÿ����Ӧһ�����幦��
+		// 定义32个1位开关字段，每个对应一个具体功能
 		0x15, 0x00,        //   Logical Minimum (0)
 		0x25, 0x01,        //   Logical Maximum (1)
 		0x75, 0x01,        //   Report Size (1)
-		0x95, 0x20,        //   Report Count (32) - �ܹ�32��λ
+		0x95, 0x20,        //   Report Count (32) - 总共32个位
 
-		// Consumer Page�Ĺ��� (0x0C)
+		// Consumer Page的功能 (0x0C)
 		0x09, 0xCD,        //   Usage (Play/Pause)
 		0x09, 0xB5,        //   Usage (Scan Next Track)
 		0x09, 0xB6,        //   Usage (Scan Previous Track)
@@ -173,15 +173,15 @@ static const uint8_t app_hid_mouse_report_map[] =
 		0x0A, 0x33, 0x02,  //   Usage (Treble Increment)
 		0x0A, 0x34, 0x02,  //   Usage (Bass Increment)
 
-		// �л���Generic Desktop Page (0x01)
+		// 切换到Generic Desktop Page (0x01)
 		0x09, 0x6F,        //   Usage (Brightness Decrement)
 		0x09, 0x70,        //   Usage (Brightness Increment)
 		0x0A, 0x92, 0x01,  //   Usage (Calculator)
 		0x0A, 0x50, 0x02,  //   Usage (Search)
-		0x09, 0x82,        // Usage (System Sleep) - ��� 0x0406
-		0x09, 0x83,        // Usage (System Wake) - ��� 0x0407  
-		0x09, 0x81,        // Usage (System Power Down) - ��� 0x0408
-		0x09, 0x80,        // Usage (System Power On) - ��� 0x0409
+		0x09, 0x82,        // Usage (System Sleep) - 替代 0x0406
+		0x09, 0x83,        // Usage (System Wake) - 替代 0x0407  
+		0x09, 0x81,        // Usage (System Power Down) - 替代 0x0408
+		0x09, 0x80,        // Usage (System Power On) - 替代 0x0409
 		
 		0x0A, 0x0A, 0x04,  //   Usage (Power Toggle)
 		0x0A, 0x8F, 0x05,  //   Usage (Display Invert)
@@ -189,14 +189,14 @@ static const uint8_t app_hid_mouse_report_map[] =
 		0x0A, 0x83, 0x01,  //   Usage (Voice Assistant)
 		0x0A, 0x92, 0x01,  //   Usage (Media Select)
 		0x0A, 0x95, 0x01,  //   Usage (Browser Home)
-		0x0A, 0x9C, 0x01,  //   Usage (Calculator) - ��������ȷ��Page����
+		0x0A, 0x9C, 0x01,  //   Usage (Calculator) - 现在在正确的Page下了
 		0x0A, 0x16, 0x02,  //   Usage (Email Reader)
 		0x0A, 0x2A, 0x02,  //   Usage (Music Player)
 		0x0A, 0x2D, 0x02,  //   Usage (Video Player)
 
-		0x81, 0x06,        //   Input (Data,Var,Abs) - 32λλͼ�ֶ�
+		0x81, 0x06,        //   Input (Data,Var,Abs) - 32位位图字段
 		0xC0,              // End Collection
-
+		
     // Report ID 3: Keyboard
     0x05, 0x01,        // Usage Page (Generic Desktop)
     0x09, 0x06,        // Usage (Keyboard)

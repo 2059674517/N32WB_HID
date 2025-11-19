@@ -50,6 +50,47 @@
 extern struct app_hid_env_tag app_hid_env;
 
 /**
+ * @brief Build HID touch screen report
+ * @param report Pointer to touch screen report structure
+ * @param contact_id Contact identifier (which finger)
+ * @param is_touching Whether the finger is touching (1) or not (0)
+ * @param x X coordinate (0-2047)
+ * @param y Y coordinate (0-1151)
+ * @param pressure Pressure value (0-255)
+ */
+void build_touchscreen_report(hid_touchscreen_report_t* report,
+                              uint8_t contact_id,
+                              uint8_t is_touching,
+                              uint16_t x, uint16_t y,
+                              uint8_t pressure)
+{
+    // Clear the report
+    memset(report, 0, sizeof(hid_touchscreen_report_t));
+
+    // Set contact information
+    report->contact.contact_id = contact_id & 0x0F;  // Limit to 4 bits
+    report->contact.tip_switch = is_touching ? 1 : 0;
+    report->contact.in_range = is_touching ? 1 : 0;
+    report->contact.touch_valid = 1;  // Always valid when we're sending
+    report->contact.padding = 0;
+
+    // Set coordinates (limit to valid ranges)
+    report->contact.x = (x > 2047) ? 2047 : x;
+    report->contact.y = (y > 1151) ? 1151 : y;
+
+    // Set pressure
+    report->contact.pressure = pressure;
+
+    // Set default width and height (can be customized)
+    report->contact.width = 20;   // Default contact width
+    report->contact.height = 20;  // Default contact height
+
+    // Set contact count
+    report->contact_count = is_touching ? 1 : 0;
+    report->contact_count_max = 10;  // Support up to 10 contacts
+}
+
+/**
  * @brief Send touch screen report via HID with proper format
  * @param contact_id Contact identifier (which finger)
  * @param is_touching Whether the finger is touching

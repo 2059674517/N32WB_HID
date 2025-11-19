@@ -41,6 +41,33 @@ extern "C" {
 
 #include <stdint.h>
 
+// Touch Screen report structure
+typedef struct {
+    uint8_t contact_id : 4;     // Contact identifier (0-15)
+    uint8_t tip_switch : 1;     // Finger touching (1) or not (0)
+    uint8_t in_range : 1;       // Finger in range
+    uint8_t touch_valid : 1;    // Touch data is valid
+    uint8_t padding : 1;         // Padding bit
+    uint16_t x;                  // X coordinate (0-2047)
+    uint16_t y;                  // Y coordinate (0-1151)
+    uint8_t pressure;            // Pressure (0-255)
+    uint8_t width;               // Contact width (0-127)
+    uint8_t height;              // Contact height (0-127)
+} hid_touch_contact_t;
+
+typedef struct {
+    hid_touch_contact_t contact;  // Single touch contact
+    uint8_t contact_count;        // Number of contacts (0-10)
+    uint8_t contact_count_max;    // Maximum supported contacts (10)
+} hid_touchscreen_report_t;
+
+// Multi-touch support (up to 5 fingers)
+typedef struct {
+    hid_touch_contact_t contacts[5];  // Up to 5 simultaneous touches
+    uint8_t contact_count;            // Number of active contacts
+    uint8_t contact_count_max;        // Maximum supported contacts
+} hid_multitouch_report_t;
+
 /**
  * @brief Send touch screen event
  * @param contact_id Contact identifier (0-15)

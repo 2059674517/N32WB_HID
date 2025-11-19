@@ -41,19 +41,19 @@ extern "C" {
 
 #include <stdint.h>
 
-// ====================== ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½Modifier Keysï¿½ï¿½======================
-// ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½Í¨ï¿½ï¿½ HID ï¿½ï¿½ï¿½ï¿½Äµï¿½ 0 ï¿½Ö½Ú±ï¿½Ê¾ï¿½ï¿½Ã¿ï¿½ï¿½Î»ï¿½ï¿½Ó¦Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½
-#define HID_MOD_LCTRL    0x01    // ï¿½ï¿½ Control
-#define HID_MOD_LSHIFT   0x02    // ï¿½ï¿½ Shift
-#define HID_MOD_LALT     0x04    // ï¿½ï¿½ Alt
-#define HID_MOD_LGUI     0x08    // ï¿½ï¿½ GUIï¿½ï¿½Windows ï¿½ï¿½/Command ï¿½ï¿½ï¿½ï¿½
-#define HID_MOD_RCTRL    0x10    // ï¿½ï¿½ Control
-#define HID_MOD_RSHIFT   0x20    // ï¿½ï¿½ Shift
-#define HID_MOD_RALT     0x40    // ï¿½ï¿½ Altï¿½ï¿½Alt Grï¿½ï¿½
-#define HID_MOD_RGUI     0x80    // ï¿½ï¿½ GUIï¿½ï¿½Windows ï¿½ï¿½/Command ï¿½ï¿½ï¿½ï¿½
+// ====================== ÐÞÊÎ¼ü£¨Modifier Keys£©======================
+// ×¢£ºÐÞÊÎ¼üÍ¨¹ý HID ±¨¸æµÄµÚ 0 ×Ö½Ú±íÊ¾£¬Ã¿¸öÎ»¶ÔÓ¦Ò»¸öÐÞÊÎ¼ü
+#define HID_MOD_LCTRL    0x01    // ×ó Control
+#define HID_MOD_LSHIFT   0x02    // ×ó Shift
+#define HID_MOD_LALT     0x04    // ×ó Alt
+#define HID_MOD_LGUI     0x08    // ×ó GUI£¨Windows ¼ü/Command ¼ü£©
+#define HID_MOD_RCTRL    0x10    // ÓÒ Control
+#define HID_MOD_RSHIFT   0x20    // ÓÒ Shift
+#define HID_MOD_RALT     0x40    // ÓÒ Alt£¨Alt Gr£©
+#define HID_MOD_RGUI     0x80    // ÓÒ GUI£¨Windows ¼ü/Command ¼ü£©
 
-// ====================== ï¿½ï¿½ï¿½æ°´ï¿½ï¿½ï¿½ï¿½Key Codes 0x04-0x31ï¿½ï¿½======================
-// ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½A-Zï¿½ï¿½
+// ====================== ³£¹æ°´¼ü£¨Key Codes 0x04-0x31£©======================
+// ×ÖÄ¸¼ü£¨A-Z£©
 #define HID_KEY_A        0x04
 #define HID_KEY_B        0x05
 #define HID_KEY_C        0x06
@@ -81,7 +81,7 @@ extern "C" {
 #define HID_KEY_Y        0x1C
 #define HID_KEY_Z        0x1D
 
-// ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½0-9ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// Êý×Ö¼ü£¨0-9£¬Ö÷¼üÅÌÇø£©
 #define HID_KEY_1        0x1E
 #define HID_KEY_2        0x1F
 #define HID_KEY_3        0x20
@@ -93,26 +93,26 @@ extern "C" {
 #define HID_KEY_9        0x26
 #define HID_KEY_0        0x27
 
-// ï¿½ï¿½ï¿½Å¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-#define HID_KEY_ENTER    0x28        // ï¿½Ø³ï¿½ï¿½ï¿½
-#define HID_KEY_ESC      0x29        // ï¿½Ë³ï¿½ï¿½ï¿½
-#define HID_KEY_BACKSPACE 0x2A       // ï¿½Ë¸ï¿½ï¿½
-#define HID_KEY_TAB      0x2B        // Tab ï¿½ï¿½
-#define HID_KEY_SPACE    0x2C        // ï¿½Õ¸ï¿½ï¿½
-#define HID_KEY_MINUS    0x2D        // ï¿½ï¿½ï¿½Å£ï¿½-ï¿½ï¿½
-#define HID_KEY_EQUAL    0x2E        // ï¿½ÈºÅ£ï¿½=ï¿½ï¿½
-#define HID_KEY_LEFTBRACE 0x2F       // ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½[ï¿½ï¿½
-#define HID_KEY_RIGHTBRACE 0x30      // ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½]ï¿½ï¿½
-#define HID_KEY_BACKSLASH 0x31       // ï¿½ï¿½Ð±ï¿½Ü£ï¿½\ï¿½ï¿½
+// ·ûºÅ¼ü£¨Ö÷¼üÅÌÇø£©
+#define HID_KEY_ENTER    0x28        // »Ø³µ¼ü
+#define HID_KEY_ESC      0x29        // ÍË³ö¼ü
+#define HID_KEY_BACKSPACE 0x2A       // ÍË¸ñ¼ü
+#define HID_KEY_TAB      0x2B        // Tab ¼ü
+#define HID_KEY_SPACE    0x2C        // ¿Õ¸ñ¼ü
+#define HID_KEY_MINUS    0x2D        // ¼õºÅ£¨-£©
+#define HID_KEY_EQUAL    0x2E        // µÈºÅ£¨=£©
+#define HID_KEY_LEFTBRACE 0x2F       // ×óÀ¨ºÅ£¨[£©
+#define HID_KEY_RIGHTBRACE 0x30      // ÓÒÀ¨ºÅ£¨]£©
+#define HID_KEY_BACKSLASH 0x31       // ·´Ð±¸Ü£¨\£©
 	
-// ====================== ï¿½ï¿½ï¿½Ü¼ï¿½ï¿½ï¿½à¼­ï¿½ï¿½ï¿½ï¿½0x32-0x47ï¿½ï¿½======================
-#define HID_KEY_SEMICOLON 0x33       // ï¿½ÖºÅ£ï¿½;ï¿½ï¿½
-#define HID_KEY_APOSTROPHE 0x34      // ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½'ï¿½ï¿½
-#define HID_KEY_GRAVE     0x35       // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ç£ï¿½
-#define HID_KEY_COMMA     0x36       // ï¿½ï¿½ï¿½Å£ï¿½,ï¿½ï¿½
-#define HID_KEY_DOT       0x37       // ï¿½ï¿½Å£ï¿½.ï¿½ï¿½
-#define HID_KEY_SLASH     0x38       // Ð±ï¿½Ü£ï¿½/ï¿½ï¿½
-#define HID_KEY_CAPS_LOCK 0x39       // ï¿½ï¿½Ð¡Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// ====================== ¹¦ÄÜ¼üÓë±à¼­¼ü£¨0x32-0x47£©======================
+#define HID_KEY_SEMICOLON 0x33       // ·ÖºÅ£¨;£©
+#define HID_KEY_APOSTROPHE 0x34      // µ¥ÒýºÅ£¨'£©
+#define HID_KEY_GRAVE     0x35       // ÖØÒô·û£¨`£¬×óÉÏ½Ç£©
+#define HID_KEY_COMMA     0x36       // ¶ººÅ£¨,£©
+#define HID_KEY_DOT       0x37       // ¾äºÅ£¨.£©
+#define HID_KEY_SLASH     0x38       // Ð±¸Ü£¨/£©
+#define HID_KEY_CAPS_LOCK 0x39       // ´óÐ¡Ð´Ëø¶¨¼ü
 #define HID_KEY_F1        0x3A       // F1
 #define HID_KEY_F2        0x3B       // F2
 #define HID_KEY_F3        0x3C       // F3
@@ -125,43 +125,43 @@ extern "C" {
 #define HID_KEY_F10       0x43       // F10
 #define HID_KEY_F11       0x44       // F11
 #define HID_KEY_F12       0x45       // F12
-#define HID_KEY_PRINT_SCREEN 0x46    // ï¿½ï¿½Ó¡ï¿½ï¿½Ä»ï¿½ï¿½
-#define HID_KEY_SCROLL_LOCK 0x47    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define HID_KEY_PRINT_SCREEN 0x46    // ´òÓ¡ÆÁÄ»¼ü
+#define HID_KEY_SCROLL_LOCK 0x47    // ¹ö¶¯Ëø¶¨¼ü
 
-// ====================== ï¿½à¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0x48-0x53ï¿½ï¿½======================
-#define HID_KEY_PAUSE     0x48       // ï¿½ï¿½Í£ï¿½ï¿½
-#define HID_KEY_INSERT    0x49       // Insert ï¿½ï¿½
-#define HID_KEY_HOME      0x4A       // Home ï¿½ï¿½
-#define HID_KEY_PAGEUP    0x4B       // Page Up ï¿½ï¿½
-#define HID_KEY_DELETE    0x4C       // Delete ï¿½ï¿½
-#define HID_KEY_END       0x4D       // End ï¿½ï¿½
-#define HID_KEY_PAGEDOWN  0x4E       // Page Down ï¿½ï¿½
-#define HID_KEY_RIGHT     0x4F       // ï¿½Ò¼ï¿½Í·ï¿½ï¿½
-#define HID_KEY_LEFT      0x50       // ï¿½ï¿½ï¿½Í·ï¿½ï¿½
-#define HID_KEY_DOWN      0x51       // ï¿½Â¼ï¿½Í·ï¿½ï¿½
-#define HID_KEY_UP        0x52       // ï¿½Ï¼ï¿½Í·ï¿½ï¿½
-#define HID_KEY_NUM_LOCK  0x53       // Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// ====================== ±à¼­¼üÇø£¨0x48-0x53£©======================
+#define HID_KEY_PAUSE     0x48       // ÔÝÍ£¼ü
+#define HID_KEY_INSERT    0x49       // Insert ¼ü
+#define HID_KEY_HOME      0x4A       // Home ¼ü
+#define HID_KEY_PAGEUP    0x4B       // Page Up ¼ü
+#define HID_KEY_DELETE    0x4C       // Delete ¼ü
+#define HID_KEY_END       0x4D       // End ¼ü
+#define HID_KEY_PAGEDOWN  0x4E       // Page Down ¼ü
+#define HID_KEY_RIGHT     0x4F       // ÓÒ¼ýÍ·¼ü
+#define HID_KEY_LEFT      0x50       // ×ó¼ýÍ·¼ü
+#define HID_KEY_DOWN      0x51       // ÏÂ¼ýÍ·¼ü
+#define HID_KEY_UP        0x52       // ÉÏ¼ýÍ·¼ü
+#define HID_KEY_NUM_LOCK  0x53       // Ð¡¼üÅÌËø¶¨¼ü
 
-// ====================== Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0x54-0x65ï¿½ï¿½======================
-#define HID_KEY_KP_SLASH  0x54       // Ð¡ï¿½ï¿½ï¿½ï¿½ Ð±ï¿½Ü£ï¿½/ï¿½ï¿½
-#define HID_KEY_KP_ASTERISK 0x55     // Ð¡ï¿½ï¿½ï¿½ï¿½ ï¿½ÇºÅ£ï¿½*ï¿½ï¿½
-#define HID_KEY_KP_MINUS  0x56       // Ð¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å£ï¿½-ï¿½ï¿½
-#define HID_KEY_KP_PLUS   0x57       // Ð¡ï¿½ï¿½ï¿½ï¿½ ï¿½ÓºÅ£ï¿½+ï¿½ï¿½
-#define HID_KEY_KP_ENTER  0x58       // Ð¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ø³ï¿½ï¿½ï¿½
-#define HID_KEY_KP_1      0x59       // Ð¡ï¿½ï¿½ï¿½ï¿½ 1
-#define HID_KEY_KP_2      0x5A       // Ð¡ï¿½ï¿½ï¿½ï¿½ 2
-#define HID_KEY_KP_3      0x5B       // Ð¡ï¿½ï¿½ï¿½ï¿½ 3
-#define HID_KEY_KP_4      0x5C       // Ð¡ï¿½ï¿½ï¿½ï¿½ 4
-#define HID_KEY_KP_5      0x5D       // Ð¡ï¿½ï¿½ï¿½ï¿½ 5
-#define HID_KEY_KP_6      0x5E       // Ð¡ï¿½ï¿½ï¿½ï¿½ 6
-#define HID_KEY_KP_7      0x5F       // Ð¡ï¿½ï¿½ï¿½ï¿½ 7
-#define HID_KEY_KP_8      0x60       // Ð¡ï¿½ï¿½ï¿½ï¿½ 8
-#define HID_KEY_KP_9      0x61       // Ð¡ï¿½ï¿½ï¿½ï¿½ 9
-#define HID_KEY_KP_0      0x62       // Ð¡ï¿½ï¿½ï¿½ï¿½ 0
-#define HID_KEY_KP_DOT    0x63       // Ð¡ï¿½ï¿½ï¿½ï¿½ Ð¡ï¿½ï¿½ï¿½ã£¨.ï¿½ï¿½
-#define HID_KEY_KP_EQUAL  0x67       // Ð¡ï¿½ï¿½ï¿½ï¿½ ï¿½ÈºÅ£ï¿½=ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½Ö§ï¿½Ö£ï¿½
+// ====================== Ð¡¼üÅÌÇø£¨0x54-0x65£©======================
+#define HID_KEY_KP_SLASH  0x54       // Ð¡¼üÅÌ Ð±¸Ü£¨/£©
+#define HID_KEY_KP_ASTERISK 0x55     // Ð¡¼üÅÌ ÐÇºÅ£¨*£©
+#define HID_KEY_KP_MINUS  0x56       // Ð¡¼üÅÌ ¼õºÅ£¨-£©
+#define HID_KEY_KP_PLUS   0x57       // Ð¡¼üÅÌ ¼ÓºÅ£¨+£©
+#define HID_KEY_KP_ENTER  0x58       // Ð¡¼üÅÌ »Ø³µ¼ü
+#define HID_KEY_KP_1      0x59       // Ð¡¼üÅÌ 1
+#define HID_KEY_KP_2      0x5A       // Ð¡¼üÅÌ 2
+#define HID_KEY_KP_3      0x5B       // Ð¡¼üÅÌ 3
+#define HID_KEY_KP_4      0x5C       // Ð¡¼üÅÌ 4
+#define HID_KEY_KP_5      0x5D       // Ð¡¼üÅÌ 5
+#define HID_KEY_KP_6      0x5E       // Ð¡¼üÅÌ 6
+#define HID_KEY_KP_7      0x5F       // Ð¡¼üÅÌ 7
+#define HID_KEY_KP_8      0x60       // Ð¡¼üÅÌ 8
+#define HID_KEY_KP_9      0x61       // Ð¡¼üÅÌ 9
+#define HID_KEY_KP_0      0x62       // Ð¡¼üÅÌ 0
+#define HID_KEY_KP_DOT    0x63       // Ð¡¼üÅÌ Ð¡Êýµã£¨.£©
+#define HID_KEY_KP_EQUAL  0x67       // Ð¡¼üÅÌ µÈºÅ£¨=£¬²¿·Ö¼üÅÌÖ§³Ö£©
 
-// ====================== ï¿½ï¿½ï¿½â¹¦ï¿½Ü¼ï¿½ï¿½ï¿½0x68-0x87ï¿½ï¿½======================
+// ====================== ÌØÊâ¹¦ÄÜ¼ü£¨0x68-0x87£©======================
 #define HID_KEY_F13       0x68       // F13
 #define HID_KEY_F14       0x69       // F14
 #define HID_KEY_F15       0x6A       // F15
@@ -175,25 +175,25 @@ extern "C" {
 #define HID_KEY_F23       0x72       // F23
 #define HID_KEY_F24       0x73       // F24
 
-// ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½Ö§ï¿½Ö£ï¿½
-#define HID_KEY_MUTE      0x7F       // ï¿½ï¿½ï¿½ï¿½
-#define HID_KEY_VOLUME_UP 0x80       // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-#define HID_KEY_VOLUME_DOWN 0x81    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-#define HID_KEY_MEDIA_NEXT 0x83      // ï¿½ï¿½Ò»ï¿½ï¿½
-#define HID_KEY_MEDIA_PREV 0x84      // ï¿½ï¿½Ò»ï¿½ï¿½
-#define HID_KEY_MEDIA_PLAY_PAUSE 0x85 // ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½Í£
+// ¶àÃ½Ìå¿ØÖÆ¼ü£¨²¿·Ö¼üÅÌÖ§³Ö£©
+#define HID_KEY_MUTE      0x7F       // ¾²Òô
+#define HID_KEY_VOLUME_UP 0x80       // ÒôÁ¿¼Ó
+#define HID_KEY_VOLUME_DOWN 0x81    // ÒôÁ¿¼õ
+#define HID_KEY_MEDIA_NEXT 0x83      // ÏÂÒ»Çú
+#define HID_KEY_MEDIA_PREV 0x84      // ÉÏÒ»Çú
+#define HID_KEY_MEDIA_PLAY_PAUSE 0x85 // ²¥·Å/ÔÝÍ£
 
 #define HID_KEY_LEFT_CONTROL     0xE0
 #define HID_KEY_LEFT_SHIFT       0xE1
 #define HID_KEY_LEFT_ALT         0xE2
-#define HID_KEY_LEFT_GUI         0xE3    // ï¿½ï¿½ Windows ï¿½ï¿½
+#define HID_KEY_LEFT_GUI         0xE3    // ×ó Windows ¼ü
 #define HID_KEY_RIGHT_CONTROL    0xE4
 #define HID_KEY_RIGHT_SHIFT      0xE5
 #define HID_KEY_RIGHT_ALT        0xE6
-#define HID_KEY_RIGHT_GUI        0xE7    // ï¿½ï¿½ Windows ï¿½ï¿½
+#define HID_KEY_RIGHT_GUI        0xE7    // ÓÒ Windows ¼ü
 
-// ====================== ï¿½Þ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ HID ï¿½ï¿½ï¿½æ£©======================
-#define HID_KEY_NONE      0x00       // ï¿½Þ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// ====================== ÎÞ°´¼ü£¨ÓÃÓÚÌî³ä HID ±¨¸æ£©======================
+#define HID_KEY_NONE      0x00       // ÎÞ°´¼ü°´ÏÂ
 
 
 // Keyboard report structure
@@ -203,53 +203,8 @@ typedef struct {
     uint8_t keys[6];     // Key codes (up to 6 simultaneous keys)
 } hid_keyboard_report_t;
 
-// Touch Screen report structure
-typedef struct {
-    uint8_t contact_id : 4;     // Contact identifier (0-15)
-    uint8_t tip_switch : 1;     // Finger touching (1) or not (0)
-    uint8_t in_range : 1;       // Finger in range
-    uint8_t touch_valid : 1;    // Touch data is valid
-    uint8_t padding : 1;         // Padding bit
-    uint16_t x;                  // X coordinate (0-2047)
-    uint16_t y;                  // Y coordinate (0-1151)
-    uint8_t pressure;            // Pressure (0-255)
-    uint8_t width;               // Contact width (0-127)
-    uint8_t height;              // Contact height (0-127)
-} hid_touch_contact_t;
-
-typedef struct {
-    hid_touch_contact_t contact;  // Single touch contact
-    uint8_t contact_count;        // Number of contacts (0-10)
-    uint8_t contact_count_max;    // Maximum supported contacts (10)
-} hid_touchscreen_report_t;
-
-// Multi-touch support (up to 5 fingers)
-typedef struct {
-    hid_touch_contact_t contacts[5];  // Up to 5 simultaneous touches
-    uint8_t contact_count;            // Number of active contacts
-    uint8_t contact_count_max;        // Maximum supported contacts
-} hid_multitouch_report_t;
-
 // Function to build keyboard report
 void build_keyboard_report(hid_keyboard_report_t* report, uint8_t modifier, uint8_t* keys, uint8_t key_count);
-
-// Function to build touch screen report
-void build_touchscreen_report(hid_touchscreen_report_t* report,
-                              uint8_t contact_id,
-                              uint8_t is_touching,
-                              uint16_t x, uint16_t y,
-                              uint8_t pressure);
-
-// Function to simulate touch screen tap
-void touchscreen_tap(uint16_t x, uint16_t y);
-
-// Function to simulate touch screen swipe
-void touchscreen_swipe(uint16_t x_start, uint16_t y_start,
-                       uint16_t x_end, uint16_t y_end,
-                       uint8_t duration_ms);
-
-// Function to send touch screen report
-void app_hid_send_touchscreen_report(hid_touchscreen_report_t* report);
 
 #ifdef __cplusplus
 }

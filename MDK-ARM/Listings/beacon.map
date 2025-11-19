@@ -727,16 +727,8 @@ Section Cross References
     main.o(i.main) refers to main.o(i.ResInit) for ResInit
     main.o(i.main) refers to main.o(i.detect_select) for detect_select
     main.o(i.main) refers to ns_sleep.o(i.ns_sleep) for ns_sleep
-    app_hid_keyboard.o(i.app_hid_send_touchscreen_report) refers to app_hid.o(i.app_hid_send_report_id) for app_hid_send_report_id
     app_hid_keyboard.o(i.build_keyboard_report) refers to memseta.o(.text) for __aeabi_memclr
     app_hid_keyboard.o(i.build_keyboard_report) refers to memcpya.o(.text) for __aeabi_memcpy
-    app_hid_keyboard.o(i.build_touchscreen_report) refers to memseta.o(.text) for __aeabi_memclr
-    app_hid_keyboard.o(i.touchscreen_swipe) refers to uidiv.o(.text) for __aeabi_uidivmod
-    app_hid_keyboard.o(i.touchscreen_swipe) refers to idiv.o(.text) for __aeabi_idivmod
-    app_hid_keyboard.o(i.touchscreen_swipe) refers to app_hid_keyboard.o(i.build_touchscreen_report) for build_touchscreen_report
-    app_hid_keyboard.o(i.touchscreen_swipe) refers to app_hid_keyboard.o(i.app_hid_send_touchscreen_report) for app_hid_send_touchscreen_report
-    app_hid_keyboard.o(i.touchscreen_tap) refers to app_hid_keyboard.o(i.build_touchscreen_report) for build_touchscreen_report
-    app_hid_keyboard.o(i.touchscreen_tap) refers to app_hid_keyboard.o(i.app_hid_send_touchscreen_report) for app_hid_send_touchscreen_report
     app_gpio.o(i.EXTI4_12_IRQHandler) refers to n32wb03x_exti.o(i.EXTI_GetITStatus) for EXTI_GetITStatus
     app_gpio.o(i.EXTI4_12_IRQHandler) refers to n32wb03x_gpio.o(i.GPIO_ReadInputDataBit) for GPIO_ReadInputDataBit
     app_gpio.o(i.EXTI4_12_IRQHandler) refers to n32wb03x_exti.o(i.EXTI_ClrITPendBit) for EXTI_ClrITPendBit
@@ -775,6 +767,7 @@ Section Cross References
     app_hid_touchscreen.o(i.app_touchscreen_swipe) refers to app_hid_touchscreen.o(i.app_hid_send_touchscreen) for app_hid_send_touchscreen
     app_hid_touchscreen.o(i.app_touchscreen_tap) refers to printf8.o(i.__0printf$8) for __2printf
     app_hid_touchscreen.o(i.app_touchscreen_tap) refers to app_hid_touchscreen.o(i.app_hid_send_touchscreen) for app_hid_send_touchscreen
+    app_hid_touchscreen.o(i.build_touchscreen_report) refers to memseta.o(.text) for __aeabi_memclr
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000F) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$00000011) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry12b.o(.ARM.Collect$$$$0000000E) for __rt_lib_shutdown_fini
@@ -1431,13 +1424,10 @@ Removing Unused input sections from the image.
     Removing app_hid.o(i.app_hid_send_report_id), (312 bytes).
     Removing main.o(.emb_text), (8 bytes).
     Removing app_hid_keyboard.o(.emb_text), (8 bytes).
-    Removing app_hid_keyboard.o(i.app_hid_send_touchscreen_report), (14 bytes).
-    Removing app_hid_keyboard.o(i.build_touchscreen_report), (128 bytes).
-    Removing app_hid_keyboard.o(i.touchscreen_swipe), (184 bytes).
-    Removing app_hid_keyboard.o(i.touchscreen_tap), (66 bytes).
     Removing app_gpio.o(.emb_text), (8 bytes).
     Removing app_gpio.o(i.app_key_reinit_after_sleep), (12 bytes).
     Removing app_hid_touchscreen.o(.emb_text), (8 bytes).
+    Removing app_hid_touchscreen.o(i.build_touchscreen_report), (128 bytes).
     Removing fadd.o(.text), (178 bytes).
     Removing dadd.o(.text), (360 bytes).
     Removing ddiv.o(.text), (240 bytes).
@@ -1454,7 +1444,7 @@ Removing Unused input sections from the image.
     Removing ns_sec.o(i.co_rand_word), (8 bytes).
     Removing depilogue.o(i.__ARM_clz), (46 bytes).
 
-408 unused section(s) (total 13884 bytes) removed from the image.
+405 unused section(s) (total 13620 bytes) removed from the image.
 
 ==============================================================================
 
@@ -3353,47 +3343,47 @@ Memory Map of the image
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x01000000   0x01000000   0x000000c0   Data   RO            3    RESET               startup_n32wb03x.o
-    0x010000c0   0x010000c0   0x00000000   Code   RO         4887  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
-    0x010000c0   0x010000c0   0x00000004   Code   RO         5192    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
-    0x010000c4   0x010000c4   0x00000004   Code   RO         5195    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
-    0x010000c8   0x010000c8   0x00000000   Code   RO         5197    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
-    0x010000c8   0x010000c8   0x00000000   Code   RO         5199    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
-    0x010000c8   0x010000c8   0x00000008   Code   RO         5200    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
-    0x010000d0   0x010000d0   0x00000004   Code   RO         5207    .ARM.Collect$$$$0000000E  mc_p.l(entry12b.o)
-    0x010000d4   0x010000d4   0x00000000   Code   RO         5202    .ARM.Collect$$$$0000000F  mc_p.l(entry10a.o)
-    0x010000d4   0x010000d4   0x00000000   Code   RO         5204    .ARM.Collect$$$$00000011  mc_p.l(entry11a.o)
-    0x010000d4   0x010000d4   0x00000004   Code   RO         5193    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x010000c0   0x010000c0   0x00000000   Code   RO         4869  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x010000c0   0x010000c0   0x00000004   Code   RO         5174    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x010000c4   0x010000c4   0x00000004   Code   RO         5177    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x010000c8   0x010000c8   0x00000000   Code   RO         5179    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x010000c8   0x010000c8   0x00000000   Code   RO         5181    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x010000c8   0x010000c8   0x00000008   Code   RO         5182    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x010000d0   0x010000d0   0x00000004   Code   RO         5189    .ARM.Collect$$$$0000000E  mc_p.l(entry12b.o)
+    0x010000d4   0x010000d4   0x00000000   Code   RO         5184    .ARM.Collect$$$$0000000F  mc_p.l(entry10a.o)
+    0x010000d4   0x010000d4   0x00000000   Code   RO         5186    .ARM.Collect$$$$00000011  mc_p.l(entry11a.o)
+    0x010000d4   0x010000d4   0x00000004   Code   RO         5175    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
     0x010000d8   0x010000d8   0x0000000e   Code   RO           10    .emb_text           system_n32wb03x.o
     0x010000e6   0x010000e6   0x00000002   PAD
     0x010000e8   0x010000e8   0x0000001c   Code   RO            4    .text               startup_n32wb03x.o
-    0x01000104   0x01000104   0x0000002c   Code   RO         4890    .text               mc_p.l(uidiv.o)
-    0x01000130   0x01000130   0x00000028   Code   RO         4892    .text               mc_p.l(idiv.o)
-    0x01000158   0x01000158   0x00000060   Code   RO         4894    .text               mc_p.l(uldiv.o)
-    0x010001b8   0x010001b8   0x00000024   Code   RO         4896    .text               mc_p.l(rand.o)
-    0x010001dc   0x010001dc   0x00000024   Code   RO         4899    .text               mc_p.l(memcpya.o)
-    0x01000200   0x01000200   0x00000024   Code   RO         4901    .text               mc_p.l(memseta.o)
-    0x01000224   0x01000224   0x0000001a   Code   RO         4903    .text               mc_p.l(memcmp.o)
-    0x0100023e   0x0100023e   0x0000007a   Code   RO         5170    .text               mf_p.l(fmul.o)
-    0x010002b8   0x010002b8   0x0000007c   Code   RO         5172    .text               mf_p.l(fdiv.o)
-    0x01000334   0x01000334   0x0000000e   Code   RO         5180    .text               mf_p.l(ffltui.o)
-    0x01000342   0x01000342   0x0000001c   Code   RO         5182    .text               mf_p.l(ffltul.o)
-    0x0100035e   0x0100035e   0x00000030   Code   RO         5186    .text               mf_p.l(ffixul.o)
-    0x0100038e   0x0100038e   0x00000020   Code   RO         5208    .text               mc_p.l(llshl.o)
-    0x010003ae   0x010003ae   0x00000022   Code   RO         5210    .text               mc_p.l(llushr.o)
-    0x010003d0   0x010003d0   0x00000000   Code   RO         5214    .text               mc_p.l(iusefp.o)
-    0x010003d0   0x010003d0   0x00000082   Code   RO         5215    .text               mf_p.l(fepilogue.o)
+    0x01000104   0x01000104   0x0000002c   Code   RO         4872    .text               mc_p.l(uidiv.o)
+    0x01000130   0x01000130   0x00000028   Code   RO         4874    .text               mc_p.l(idiv.o)
+    0x01000158   0x01000158   0x00000060   Code   RO         4876    .text               mc_p.l(uldiv.o)
+    0x010001b8   0x010001b8   0x00000024   Code   RO         4878    .text               mc_p.l(rand.o)
+    0x010001dc   0x010001dc   0x00000024   Code   RO         4881    .text               mc_p.l(memcpya.o)
+    0x01000200   0x01000200   0x00000024   Code   RO         4883    .text               mc_p.l(memseta.o)
+    0x01000224   0x01000224   0x0000001a   Code   RO         4885    .text               mc_p.l(memcmp.o)
+    0x0100023e   0x0100023e   0x0000007a   Code   RO         5152    .text               mf_p.l(fmul.o)
+    0x010002b8   0x010002b8   0x0000007c   Code   RO         5154    .text               mf_p.l(fdiv.o)
+    0x01000334   0x01000334   0x0000000e   Code   RO         5162    .text               mf_p.l(ffltui.o)
+    0x01000342   0x01000342   0x0000001c   Code   RO         5164    .text               mf_p.l(ffltul.o)
+    0x0100035e   0x0100035e   0x00000030   Code   RO         5168    .text               mf_p.l(ffixul.o)
+    0x0100038e   0x0100038e   0x00000020   Code   RO         5190    .text               mc_p.l(llshl.o)
+    0x010003ae   0x010003ae   0x00000022   Code   RO         5192    .text               mc_p.l(llushr.o)
+    0x010003d0   0x010003d0   0x00000000   Code   RO         5196    .text               mc_p.l(iusefp.o)
+    0x010003d0   0x010003d0   0x00000082   Code   RO         5197    .text               mf_p.l(fepilogue.o)
     0x01000452   0x01000452   0x00000002   PAD
-    0x01000454   0x01000454   0x00000024   Code   RO         5227    .text               mc_p.l(init.o)
-    0x01000478   0x01000478   0x00000060   Code   RO         5231    .text               mc_p.l(__dclz77c.o)
-    0x010004d8   0x010004d8   0x0000000c   Ven    RO         5233    Veneer$$Code        anon$$obj.o
-    0x010004e4   0x010004e4   0x0000000c   Ven    RO         5234    Veneer$$Code        anon$$obj.o
-    0x010004f0   0x010004f0   0x0000000c   Ven    RO         5235    Veneer$$Code        anon$$obj.o
-    0x010004fc   0x010004fc   0x0000000c   Ven    RO         5236    Veneer$$Code        anon$$obj.o
-    0x01000508   0x01000508   0x0000000c   Ven    RO         5237    Veneer$$Code        anon$$obj.o
-    0x01000514   0x01000514   0x0000000c   Ven    RO         5238    Veneer$$Code        anon$$obj.o
-    0x01000520   0x01000520   0x0000000c   Ven    RO         5239    Veneer$$Code        anon$$obj.o
-    0x0100052c   0x0100052c   0x0000000c   Ven    RO         5240    Veneer$$Code        anon$$obj.o
-    0x01000538   0x01000538   0x0000011c   Code   RO         4788    i.EXTI4_12_IRQHandler  app_gpio.o
+    0x01000454   0x01000454   0x00000024   Code   RO         5209    .text               mc_p.l(init.o)
+    0x01000478   0x01000478   0x00000060   Code   RO         5213    .text               mc_p.l(__dclz77c.o)
+    0x010004d8   0x010004d8   0x0000000c   Ven    RO         5215    Veneer$$Code        anon$$obj.o
+    0x010004e4   0x010004e4   0x0000000c   Ven    RO         5216    Veneer$$Code        anon$$obj.o
+    0x010004f0   0x010004f0   0x0000000c   Ven    RO         5217    Veneer$$Code        anon$$obj.o
+    0x010004fc   0x010004fc   0x0000000c   Ven    RO         5218    Veneer$$Code        anon$$obj.o
+    0x01000508   0x01000508   0x0000000c   Ven    RO         5219    Veneer$$Code        anon$$obj.o
+    0x01000514   0x01000514   0x0000000c   Ven    RO         5220    Veneer$$Code        anon$$obj.o
+    0x01000520   0x01000520   0x0000000c   Ven    RO         5221    Veneer$$Code        anon$$obj.o
+    0x0100052c   0x0100052c   0x0000000c   Ven    RO         5222    Veneer$$Code        anon$$obj.o
+    0x01000538   0x01000538   0x0000011c   Code   RO         4764    i.EXTI4_12_IRQHandler  app_gpio.o
     0x01000654   0x01000654   0x0000000c   Code   RO          568    i.EXTI_ClrITPendBit  n32wb03x_exti.o
     0x01000660   0x01000660   0x0000001c   Code   RO          571    i.EXTI_GetITStatus  n32wb03x_exti.o
     0x0100067c   0x0100067c   0x0000006c   Code   RO          573    i.EXTI_InitPeripheral  n32wb03x_exti.o
@@ -3406,11 +3396,11 @@ Memory Map of the image
     0x0100095e   0x0100095e   0x00000004   Code   RO          639    i.GPIO_ResetBits    n32wb03x_gpio.o
     0x01000962   0x01000962   0x00000004   Code   RO          640    i.GPIO_SetBits      n32wb03x_gpio.o
     0x01000966   0x01000966   0x00000008   Code   RO          641    i.GPIO_TogglePin    n32wb03x_gpio.o
-    0x0100096e   0x0100096e   0x00000008   Code   RO         4789    i.LedBlink          app_gpio.o
+    0x0100096e   0x0100096e   0x00000008   Code   RO         4765    i.LedBlink          app_gpio.o
     0x01000976   0x01000976   0x00000002   PAD
-    0x01000978   0x01000978   0x0000004c   Code   RO         4790    i.LedInit           app_gpio.o
-    0x010009c4   0x010009c4   0x00000008   Code   RO         4791    i.LedOff            app_gpio.o
-    0x010009cc   0x010009cc   0x00000008   Code   RO         4792    i.LedOn             app_gpio.o
+    0x01000978   0x01000978   0x0000004c   Code   RO         4766    i.LedInit           app_gpio.o
+    0x010009c4   0x010009c4   0x00000008   Code   RO         4767    i.LedOff            app_gpio.o
+    0x010009cc   0x010009cc   0x00000008   Code   RO         4768    i.LedOn             app_gpio.o
     0x010009d4   0x010009d4   0x000000b4   Code   RO         3719    i.NS_BLE_PATCH_INIT  ns_ble.o
     0x01000a88   0x01000a88   0x00000094   Code   RO         3720    i.NS_BLE_STACK_INIT  ns_ble.o
     0x01000b1c   0x01000b1c   0x00000074   Code   RO          158    i.NVIC_Init         misc.o
@@ -3433,13 +3423,13 @@ Memory Map of the image
     0x01000f7e   0x01000f7e   0x00000002   PAD
     0x01000f80   0x01000f80   0x00000088   Code   RO         1535    i.USART_Init        n32wb03x_usart.o
     0x01001008   0x01001008   0x00000008   Code   RO         1538    i.USART_SendData    n32wb03x_usart.o
-    0x01001010   0x01001010   0x00000020   Code   RO         5114    i.__0printf$8       mc_p.l(printf8.o)
+    0x01001010   0x01001010   0x00000020   Code   RO         5096    i.__0printf$8       mc_p.l(printf8.o)
     0x01001030   0x01001030   0x00000030   Code   RO         2636    i.__ARM_common_ll_mulss  rwip_driver.o
     0x01001060   0x01001060   0x0000001a   Code   RO          740    i.__ARM_common_switch8  n32wb03x_gpio.o
     0x0100107a   0x0100107a   0x00000002   PAD
-    0x0100107c   0x0100107c   0x00000428   Code   RO         5121    i._printf_core      mc_p.l(printf8.o)
-    0x010014a4   0x010014a4   0x00000020   Code   RO         5122    i._printf_post_padding  mc_p.l(printf8.o)
-    0x010014c4   0x010014c4   0x0000002c   Code   RO         5123    i._printf_pre_padding  mc_p.l(printf8.o)
+    0x0100107c   0x0100107c   0x00000428   Code   RO         5103    i._printf_core      mc_p.l(printf8.o)
+    0x010014a4   0x010014a4   0x00000020   Code   RO         5104    i._printf_post_padding  mc_p.l(printf8.o)
+    0x010014c4   0x010014c4   0x0000002c   Code   RO         5105    i._printf_pre_padding  mc_p.l(printf8.o)
     0x010014f0   0x010014f0   0x00000034   Code   RO         4520    i.app_batt_add_bas  app_batt.o
     0x01001524   0x01001524   0x00000030   Code   RO         4521    i.app_batt_enable_prf  app_batt.o
     0x01001554   0x01001554   0x00000038   Code   RO         4522    i.app_batt_init     app_batt.o
@@ -3469,10 +3459,10 @@ Memory Map of the image
     0x01001ba8   0x01001ba8   0x00000004   Code   RO         4584    i.app_hid_msg_dflt_handler  app_hid.o
     0x01001bac   0x01001bac   0x00000110   Code   RO         4586    i.app_hid_send_keyboard_report  app_hid.o
     0x01001cbc   0x01001cbc   0x000000ec   Code   RO         4587    i.app_hid_send_mouse_report  app_hid.o
-    0x01001da8   0x01001da8   0x00000148   Code   RO         4852    i.app_hid_send_touchscreen  app_hid_touchscreen.o
+    0x01001da8   0x01001da8   0x00000148   Code   RO         4828    i.app_hid_send_touchscreen  app_hid_touchscreen.o
     0x01001ef0   0x01001ef0   0x0000001c   Code   RO         4154    i.app_init_timeout_evt_handler  ns_ble_task.o
-    0x01001f0c   0x01001f0c   0x000000dc   Code   RO         4793    i.app_key_configuration  app_gpio.o
-    0x01001fe8   0x01001fe8   0x00000220   Code   RO         4794    i.app_key_press_timeout_handler  app_gpio.o
+    0x01001f0c   0x01001f0c   0x000000dc   Code   RO         4769    i.app_key_configuration  app_gpio.o
+    0x01001fe8   0x01001fe8   0x00000220   Code   RO         4770    i.app_key_press_timeout_handler  app_gpio.o
     0x01002208   0x01002208   0x000000ac   Code   RO         4155    i.app_lsi_calib_evt_handler  ns_ble_task.o
     0x010022b4   0x010022b4   0x00000004   Code   RO         3495    i.app_sec_msg_dflt_handler  ns_sec.o
     0x010022b8   0x010022b8   0x0000007c   Code   RO         3725    i.app_set_adv_data  ns_ble.o
@@ -3482,8 +3472,8 @@ Memory Map of the image
     0x01002406   0x01002406   0x00000002   PAD
     0x01002408   0x01002408   0x00000068   Code   RO         3727    i.app_start_advertising  ns_ble.o
     0x01002470   0x01002470   0x00000030   Code   RO         3728    i.app_stop_advertising  ns_ble.o
-    0x010024a0   0x010024a0   0x000000d4   Code   RO         4853    i.app_touchscreen_swipe  app_hid_touchscreen.o
-    0x01002574   0x01002574   0x00000058   Code   RO         4854    i.app_touchscreen_tap  app_hid_touchscreen.o
+    0x010024a0   0x010024a0   0x000000d4   Code   RO         4829    i.app_touchscreen_swipe  app_hid_touchscreen.o
+    0x01002574   0x01002574   0x00000058   Code   RO         4830    i.app_touchscreen_tap  app_hid_touchscreen.o
     0x010025cc   0x010025cc   0x0000001c   Code   RO         4371    i.app_user_msg_handler  app_ble.o
     0x010025e8   0x010025e8   0x000000b4   Code   RO         2741    i.attm_att_set_permission  lib_att.o
     0x0100269c   0x0100269c   0x000000b8   Code   RO         2742    i.attm_att_set_value  lib_att.o
@@ -3503,7 +3493,7 @@ Memory Map of the image
     0x01002c04   0x01002c04   0x00000008   Code   RO         3167    i.bass_prf_itf_get  bass.o
     0x01002c0c   0x01002c0c   0x00000020   Code   RO         3081    i.bass_task_init    bass_task.o
     0x01002c2c   0x01002c2c   0x00000004   Code   RO         4526    i.batt_level_upd_handler  app_batt.o
-    0x01002c30   0x01002c30   0x0000002c   Code   RO         4742    i.build_keyboard_report  app_hid_keyboard.o
+    0x01002c30   0x01002c30   0x0000002c   Code   RO         4741    i.build_keyboard_report  app_hid_keyboard.o
     0x01002c5c   0x01002c5c   0x00000010   Code   RO         4697    i.detect_select     main.o
     0x01002c6c   0x01002c6c   0x0000002a   Code   RO         2910    i.diss_check_val_len  diss.o
     0x01002c96   0x01002c96   0x00000002   Code   RO         2911    i.diss_cleanup      diss.o
@@ -3673,7 +3663,7 @@ Memory Map of the image
     0x01007b40   0x01007b40   0x0000015e   Data   RO         4596    .constdata          app_hid.o
     0x01007c9e   0x01007c9e   0x00000002   PAD
     0x01007ca0   0x01007ca0   0x00000038   Data   RO         4597    .constdata          app_hid.o
-    0x01007cd8   0x01007cd8   0x00000020   Data   RO         5229    Region$$Table       anon$$obj.o
+    0x01007cd8   0x01007cd8   0x00000020   Data   RO         5211    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Exec base: 0x20004000, Load base: 0x01007cf8, Size: 0x00002b40, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x000016b0])
@@ -3691,9 +3681,9 @@ Memory Map of the image
     0x20005b77   COMPRESSED   0x00000002   Data   RW         4529    .data               app_batt.o
     0x20005b79   COMPRESSED   0x00000001   PAD
     0x20005b7a   COMPRESSED   0x00000008   Data   RW         4598    .data               app_hid.o
-    0x20005b82   COMPRESSED   0x00000005   Data   RW         4796    .data               app_gpio.o
+    0x20005b82   COMPRESSED   0x00000005   Data   RW         4772    .data               app_gpio.o
     0x20005b87   COMPRESSED   0x00000001   PAD
-    0x20005b88   COMPRESSED   0x00000004   Data   RW         4897    .data               mc_p.l(rand.o)
+    0x20005b88   COMPRESSED   0x00000004   Data   RW         4879    .data               mc_p.l(rand.o)
     0x20005b8c        -       0x00000034   Zero   RW           19    .bss                system_n32wb03x.o
     0x20005bc0        -       0x00000328   Zero   RW         1808    .bss                n32wb03x_qflash.o
     0x20005ee8        -       0x0000011c   Zero   RW         2789    .bss                prf.o
@@ -3710,42 +3700,42 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       168         20         32          2          0       5196   app_batt.o
-       626        144          0          0          0      14646   app_ble.o
-       280         98         16          0          0       8772   app_dis.o
-      1148        260          0          5          0       5648   app_gpio.o
-      1352        202        406          8          0      17791   app_hid.o
-        44          0          0          0          0       4994   app_hid_keyboard.o
-       628        214          0          0          0       7250   app_hid_touchscreen.o
-       932         18         56          0          0      20971   bass.o
-       728         40         48          0          0      46313   bass_task.o
-       364         14        168          0          0      17274   diss.o
-       508         24         24          0          0      18526   diss_task.o
-      2034         18        200          0          0      11649   hogpd.o
-      1652         98         64          0          0      17298   hogpd_task.o
-       398         16          0          0          0      49115   lib_att.o
-       230         60          0          0          0       3186   main.o
-       116         14          0          0          0       6900   misc.o
-       148         16          0          0          0       2325   n32wb03x_exti.o
-       670         38          0          0          0       6152   n32wb03x_gpio.o
-       120         26       2020         12        808       4168   n32wb03x_qflash.o
-       184         40         12          0          0       3230   n32wb03x_rcc.o
-       186         22          0          0          0       4147   n32wb03x_usart.o
-      4054        836        841       6772        656      92119   ns_ble.o
-      2872        386        409          3          0      26804   ns_ble_task.o
-       184         28          0          1          0       1906   ns_log_usart.o
-      2022        212         48          0         92      70930   ns_sec.o
-       404         52          0          4          0       4514   ns_sleep.o
-       260         30          0          0         80       5025   ns_timer.o
-       524         32          0          0        284       8933   prf.o
-        30          0          0          0          0       9387   prf_utils.o
-       276         76          0          0          0     114495   rwip.o
-      1096        258         30         20          0      73094   rwip_driver.o
+       168         20         32          2          0       5224   app_batt.o
+       626        144          0          0          0      14698   app_ble.o
+       280         98         16          0          0       8788   app_dis.o
+      1148        260          0          5          0       6464   app_gpio.o
+      1352        202        406          8          0      17851   app_hid.o
+        44          0          0          0          0       4464   app_hid_keyboard.o
+       628        214          0          0          0       7274   app_hid_touchscreen.o
+       932         18         56          0          0      21011   bass.o
+       728         40         48          0          0      46365   bass_task.o
+       364         14        168          0          0      17330   diss.o
+       508         24         24          0          0      18562   diss_task.o
+      2034         18        200          0          0      11677   hogpd.o
+      1652         98         64          0          0      17338   hogpd_task.o
+       398         16          0          0          0      49131   lib_att.o
+       230         60          0          0          0       3210   main.o
+       116         14          0          0          0       6908   misc.o
+       148         16          0          0          0       2337   n32wb03x_exti.o
+       670         38          0          0          0       6180   n32wb03x_gpio.o
+       120         26       2020         12        808       4188   n32wb03x_qflash.o
+       184         40         12          0          0       3246   n32wb03x_rcc.o
+       186         22          0          0          0       4163   n32wb03x_usart.o
+      4054        836        841       6772        656      92275   ns_ble.o
+      2872        386        409          3          0      26880   ns_ble_task.o
+       184         28          0          1          0       1910   ns_log_usart.o
+      2022        212         48          0         92      71006   ns_sec.o
+       404         52          0          4          0       4542   ns_sleep.o
+       260         30          0          0         80       5041   ns_timer.o
+       524         32          0          0        284       8961   prf.o
+        30          0          0          0          0       9395   prf_utils.o
+       276         76          0          0          0     114551   rwip.o
+      1096        258         30         20          0      73174   rwip_driver.o
         28          8        192          0       2048        692   startup_n32wb03x.o
-       506         62        320          0         52     118507   system_n32wb03x.o
+       506         62        320          0         52     118559   system_n32wb03x.o
 
     ----------------------------------------------------------------------
-     24892       3394       4924       7048       4020     801957   Object Totals
+     24892       3394       4924       7048       4020     803395   Object Totals
         96         32         32          0          0          0   (incl. Generated)
         24          0          6        221          0          0   (incl. Padding)
 
@@ -3803,8 +3793,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     27068       3474       4924       7052       4020     792349   Grand Totals
-     27068       3474       4924       5808       4020     792349   ELF Image Totals (compressed)
+     27068       3474       4924       7052       4020     793787   Grand Totals
+     27068       3474       4924       5808       4020     793787   ELF Image Totals (compressed)
      27068       3474       4924       5808          0          0   ROM Totals
 
 ==============================================================================
