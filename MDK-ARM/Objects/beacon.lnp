@@ -40,6 +40,7 @@
 ".\objects\main.o"
 ".\objects\app_hid_keyboard.o"
 ".\objects\app_gpio.o"
+".\objects\app_hid_touchscreen.o"
 --library_type=microlib --strict --scatter ".\Objects\beacon.sct"
 ..\middlewares\Nationstech\ble_library\ns_ble_stack\symdef\symbol_g15.obj --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

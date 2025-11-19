@@ -166,6 +166,7 @@ int app_hid_mouse_timeout_timer_handler(ke_msg_id_t const msgid,void const *para
 void app_hid_send_consumer_report(uint8_t* report);
 void app_hid_send_keyboard_report(uint8_t* report);
 void app_hid_send_voice_report(uint8_t* report, uint8_t len);
+void app_hid_send_report_id(uint8_t report_id, uint8_t* data, uint16_t len);
 bool is_app_hid_ready(void);
 #endif //(BLE_APP_HID)
 

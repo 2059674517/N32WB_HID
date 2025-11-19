@@ -744,6 +744,11 @@
               <FileType>1</FileType>
               <FilePath>..\user\src\app_gpio.c</FilePath>
             </File>
+            <File>
+              <FileName>app_hid_touchscreen.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\user\src\app_hid_touchscreen.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

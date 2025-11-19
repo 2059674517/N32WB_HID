@@ -76,7 +76,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /// HID Application Module Environment Structure
-static struct app_hid_env_tag app_hid_env;
+struct app_hid_env_tag app_hid_env;
 
 /// HID Mouse Report Descriptor
 static const uint8_t app_hid_mouse_report_map[] =
@@ -148,13 +148,13 @@ static const uint8_t app_hid_mouse_report_map[] =
 		0xA1, 0x01,        // Collection (Application)
 		0x85, 0x02,        //   Report ID (2)
 
-		// ¶¨Òå32¸ö1Î»¿ª¹Ø×Ö¶Î£¬Ã¿¸ö¶ÔÓ¦Ò»¸ö¾ßÌå¹¦ÄÜ
+		// ï¿½ï¿½ï¿½ï¿½32ï¿½ï¿½1Î»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶Î£ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Ó¦Ò»ï¿½ï¿½ï¿½ï¿½ï¿½å¹¦ï¿½ï¿½
 		0x15, 0x00,        //   Logical Minimum (0)
 		0x25, 0x01,        //   Logical Maximum (1)
 		0x75, 0x01,        //   Report Size (1)
-		0x95, 0x20,        //   Report Count (32) - ×Ü¹²32¸öÎ»
+		0x95, 0x20,        //   Report Count (32) - ï¿½Ü¹ï¿½32ï¿½ï¿½Î»
 
-		// Consumer PageµÄ¹¦ÄÜ (0x0C)
+		// Consumer Pageï¿½Ä¹ï¿½ï¿½ï¿½ (0x0C)
 		0x09, 0xCD,        //   Usage (Play/Pause)
 		0x09, 0xB5,        //   Usage (Scan Next Track)
 		0x09, 0xB6,        //   Usage (Scan Previous Track)
@@ -173,15 +173,15 @@ static const uint8_t app_hid_mouse_report_map[] =
 		0x0A, 0x33, 0x02,  //   Usage (Treble Increment)
 		0x0A, 0x34, 0x02,  //   Usage (Bass Increment)
 
-		// ÇÐ»»µ½Generic Desktop Page (0x01)
+		// ï¿½Ð»ï¿½ï¿½ï¿½Generic Desktop Page (0x01)
 		0x09, 0x6F,        //   Usage (Brightness Decrement)
 		0x09, 0x70,        //   Usage (Brightness Increment)
 		0x0A, 0x92, 0x01,  //   Usage (Calculator)
 		0x0A, 0x50, 0x02,  //   Usage (Search)
-		0x09, 0x82,        // Usage (System Sleep) - Ìæ´ú 0x0406
-		0x09, 0x83,        // Usage (System Wake) - Ìæ´ú 0x0407  
-		0x09, 0x81,        // Usage (System Power Down) - Ìæ´ú 0x0408
-		0x09, 0x80,        // Usage (System Power On) - Ìæ´ú 0x0409
+		0x09, 0x82,        // Usage (System Sleep) - ï¿½ï¿½ï¿½ 0x0406
+		0x09, 0x83,        // Usage (System Wake) - ï¿½ï¿½ï¿½ 0x0407  
+		0x09, 0x81,        // Usage (System Power Down) - ï¿½ï¿½ï¿½ 0x0408
+		0x09, 0x80,        // Usage (System Power On) - ï¿½ï¿½ï¿½ 0x0409
 		
 		0x0A, 0x0A, 0x04,  //   Usage (Power Toggle)
 		0x0A, 0x8F, 0x05,  //   Usage (Display Invert)
@@ -189,12 +189,12 @@ static const uint8_t app_hid_mouse_report_map[] =
 		0x0A, 0x83, 0x01,  //   Usage (Voice Assistant)
 		0x0A, 0x92, 0x01,  //   Usage (Media Select)
 		0x0A, 0x95, 0x01,  //   Usage (Browser Home)
-		0x0A, 0x9C, 0x01,  //   Usage (Calculator) - ÏÖÔÚÔÚÕýÈ·µÄPageÏÂÁË
+		0x0A, 0x9C, 0x01,  //   Usage (Calculator) - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Pageï¿½ï¿½ï¿½ï¿½
 		0x0A, 0x16, 0x02,  //   Usage (Email Reader)
 		0x0A, 0x2A, 0x02,  //   Usage (Music Player)
 		0x0A, 0x2D, 0x02,  //   Usage (Video Player)
 
-		0x81, 0x06,        //   Input (Data,Var,Abs) - 32Î»Î»Í¼×Ö¶Î
+		0x81, 0x06,        //   Input (Data,Var,Abs) - 32Î»Î»Í¼ï¿½Ö¶ï¿½
 		0xC0,              // End Collection
 
     // Report ID 3: Keyboard
@@ -227,6 +227,95 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x19, 0x00,        //   Usage Minimum (0)
     0x29, 0xFF,        //   Usage Maximum (255)
     0x81, 0x00,        //   Input (Data,Array)
+
+    0xC0,              // End Collection
+
+    // Report ID 4: Touch Screen (Digitizer)
+    0x05, 0x0D,        // Usage Page (Digitizers)
+    0x09, 0x04,        // Usage (Touch Screen)
+    0xA1, 0x01,        // Collection (Application)
+    0x85, 0x04,        // Report ID (4)
+
+    // Contact identifier
+    0x09, 0x22,        //   Usage (Finger)
+    0xA1, 0x02,        //   Collection (Logical)
+
+    // Contact identifier (which finger)
+    0x09, 0x51,        //     Usage (Contact Identifier)
+    0x15, 0x00,        //     Logical Minimum (0)
+    0x25, 0x0F,        //     Logical Maximum (15)
+    0x75, 0x04,        //     Report Size (4)
+    0x95, 0x01,        //     Report Count (1)
+    0x81, 0x02,        //     Input (Data,Var,Abs)
+
+    // Contact status
+    0x09, 0x42,        //     Usage (Tip Switch)
+    0x09, 0x32,        //     Usage (In Range)
+    0x09, 0x47,        //     Usage (Touch Valid)
+    0x25, 0x01,        //     Logical Maximum (1)
+    0x75, 0x01,        //     Report Size (1)
+    0x95, 0x03,        //     Report Count (3)
+    0x81, 0x02,        //     Input (Data,Var,Abs)
+
+    // Padding bit
+    0x95, 0x01,        //     Report Count (1)
+    0x81, 0x03,        //     Input (Const,Var,Abs)
+
+    // X coordinate
+    0x05, 0x01,        //     Usage Page (Generic Desktop)
+    0x09, 0x30,        //     Usage (X)
+    0x15, 0x00,        //     Logical Minimum (0)
+    0x26, 0x00, 0x08,  //     Logical Maximum (2048)
+    0x35, 0x00,        //     Physical Minimum (0)
+    0x46, 0x00, 0x08,  //     Physical Maximum (2048)
+    0x65, 0x11,        //     Unit (SI Linear: Length in cm)
+    0x55, 0x0E,        //     Unit Exponent (-2)
+    0x75, 0x10,        //     Report Size (16)
+    0x95, 0x01,        //     Report Count (1)
+    0x81, 0x02,        //     Input (Data,Var,Abs)
+
+    // Y coordinate
+    0x09, 0x31,        //     Usage (Y)
+    0x26, 0x80, 0x04,  //     Logical Maximum (1152)
+    0x46, 0x80, 0x04,  //     Physical Maximum (1152)
+    0x81, 0x02,        //     Input (Data,Var,Abs)
+
+    // Pressure (optional)
+    0x05, 0x0D,        //     Usage Page (Digitizers)
+    0x09, 0x30,        //     Usage (Tip Pressure)
+    0x26, 0xFF, 0x00,  //     Logical Maximum (255)
+    0x46, 0xFF, 0x00,  //     Physical Maximum (255)
+    0x75, 0x08,        //     Report Size (8)
+    0x81, 0x02,        //     Input (Data,Var,Abs)
+
+    // Contact width and height (optional)
+    0x09, 0x48,        //     Usage (Width)
+    0x09, 0x49,        //     Usage (Height)
+    0x15, 0x00,        //     Logical Minimum (0)
+    0x25, 0x7F,        //     Logical Maximum (127)
+    0x35, 0x00,        //     Physical Minimum (0)
+    0x45, 0x7F,        //     Physical Maximum (127)
+    0x65, 0x11,        //     Unit (SI Linear: Length in cm)
+    0x55, 0x0E,        //     Unit Exponent (-2)
+    0x75, 0x08,        //     Report Size (8)
+    0x95, 0x02,        //     Report Count (2)
+    0x81, 0x02,        //     Input (Data,Var,Abs)
+
+    0xC0,              //   End Collection (Logical)
+
+    // Contact count
+    0x05, 0x0D,        //   Usage Page (Digitizers)
+    0x09, 0x54,        //   Usage (Contact Count)
+    0x15, 0x00,        //   Logical Minimum (0)
+    0x25, 0x0A,        //   Logical Maximum (10)
+    0x75, 0x08,        //   Report Size (8)
+    0x95, 0x01,        //   Report Count (1)
+    0x81, 0x02,        //   Input (Data,Var,Abs)
+
+    // Scan time
+    0x09, 0x55,        //   Usage (Contact Count Maximum)
+    0x25, 0x0A,        //   Logical Maximum (10)
+    0x81, 0x02,        //   Input (Data,Var,Abs)
 
     0xC0,              // End Collection
 };
@@ -285,20 +374,23 @@ void app_hid_add_hids(void)
     // Only one HIDS instance is useful
     db_cfg->hids_nb = 1;
 
-    // The device is a keyboard and mouse combo
+    // The device is a keyboard and mouse combo with touch screen
     db_cfg->cfg[0].svc_features = HOGPD_CFG_KEYBOARD | HOGPD_CFG_MOUSE; // Support both keyboard and mouse
 
-    // Only one Report Characteristic is requested
-    db_cfg->cfg[0].report_nb    = 3;  // Changed from 2 to 3 to include keyboard report
+    // Report Characteristics - Now includes touch screen
+    db_cfg->cfg[0].report_nb    = 4;  // Changed from 3 to 4 to include touch screen report
 
-    db_cfg->cfg[0].report_id[0] = 1;
+    db_cfg->cfg[0].report_id[0] = 1;  // Mouse
     db_cfg->cfg[0].report_char_cfg[0] = HOGPD_CFG_REPORT_IN;
 
-    db_cfg->cfg[0].report_id[1] = 2;
+    db_cfg->cfg[0].report_id[1] = 2;  // Multimedia keys
     db_cfg->cfg[0].report_char_cfg[1] = HOGPD_CFG_REPORT_IN;
 
-    db_cfg->cfg[0].report_id[2] = 3;
+    db_cfg->cfg[0].report_id[2] = 3;  // Keyboard
     db_cfg->cfg[0].report_char_cfg[2] = HOGPD_CFG_REPORT_IN;
+
+    db_cfg->cfg[0].report_id[3] = 4;  // Touch Screen
+    db_cfg->cfg[0].report_char_cfg[3] = HOGPD_CFG_REPORT_IN;
 
     // HID Information
     db_cfg->cfg[0].hid_info.bcdHID       = 0x0111;         // HID Version 1.11
@@ -1115,6 +1207,100 @@ const struct ke_msg_handler app_hid_msg_handler_list[] =
 };
 
 const struct app_subtask_handlers app_hid_handlers = APP_HANDLERS(app_hid);
+
+/**
+ * @brief Send HID report with specific report ID
+ * @param report_id The report ID (1-4)
+ * @param data Pointer to report data
+ * @param len Length of report data
+ */
+void app_hid_send_report_id(uint8_t report_id, uint8_t* data, uint16_t len)
+{
+    NS_LOG_INFO("Send Report ID %d, state:%d, nb_report:%d, len:%d\r\n",
+                report_id, app_hid_env.state, app_hid_env.nb_report, len);
+
+    // Debug: Print first few bytes of data
+    if (len > 0 && data) {
+        NS_LOG_DEBUG("Data bytes: %02x %02x %02x %02x\r\n",
+                     data[0], data[1], data[2], data[3]);
+    }
+
+    switch (app_hid_env.state)
+    {
+        case (APP_HID_READY):
+        {
+            // Check if the report can be sent
+            if (app_hid_env.nb_report)
+            {
+                // Allocate the HOGPD_REPORT_UPD_REQ message
+                struct hogpd_report_upd_req * req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_UPD_REQ,
+                                                                  prf_get_task_from_id(TASK_ID_HOGPD),
+                                                                  TASK_APP,
+                                                                  hogpd_report_upd_req,
+                                                                  len);
+
+                req->conidx  = app_hid_env.conidx;
+
+                // Fill report info
+                req->report.hid_idx  = app_hid_env.conidx;
+                req->report.type     = HOGPD_REPORT;
+                req->report.idx      = report_id - 1;  // Report index (0-based)
+                req->report.length   = len;
+
+                // Copy report data
+                memcpy(&req->report.value[0], data, len);
+
+                ke_msg_send(req);
+
+                app_hid_env.nb_report--;
+
+                // Restart the timeout timer if needed
+                if (app_hid_env.timeout != 0)
+                {
+                    ke_timer_set(APP_HID_MOUSE_TIMEOUT_TIMER, TASK_APP, (uint16_t)(app_hid_env.timeout));
+                    app_hid_env.timer_enabled = true;
+                }
+            }
+            else
+            {
+                NS_LOG_WARNING("No reports available to send\r\n");
+            }
+        } break;
+
+        case (APP_HID_WAIT_REP):
+        {
+            // Requested connection parameters
+            struct gapc_conn_param conn_param;
+
+            conn_param.intv_min = 8;
+            conn_param.intv_max = 8;
+            conn_param.latency  = 25;
+            conn_param.time_out = 200;
+
+            ns_ble_update_param(&conn_param);
+
+            // Restart the timeout timer if needed
+            if (app_hid_env.timeout != 0)
+            {
+                ke_timer_set(APP_HID_MOUSE_TIMEOUT_TIMER, TASK_APP, (uint16_t)(app_hid_env.timeout));
+                app_hid_env.timer_enabled = true;
+            }
+
+            // Go back to the ready state
+            app_hid_env.state = APP_HID_READY;
+        } break;
+
+        case (APP_HID_IDLE):
+        {
+            NS_LOG_DEBUG("HID in IDLE state, cannot send report\r\n");
+        } break;
+
+        default:
+        {
+            NS_LOG_WARNING("HID in unknown state %d\r\n", app_hid_env.state);
+        } break;
+    }
+}
 
 #endif //(BLE_APP_HID)
 

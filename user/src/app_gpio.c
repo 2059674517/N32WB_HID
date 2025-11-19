@@ -37,6 +37,7 @@
 #include "global_func.h"
 #include "app_hid.h"
 #include "app_hid_keyboard.h"
+#include "app_hid_touchscreen.h"
 #include "ns_log.h"
 #include "ns_timer.h"
 #include "ns_delay.h"
@@ -52,7 +53,7 @@
 uint8_t key1_irq_actived = 0;
 uint8_t key2_irq_actived = 0;
 uint8_t key3_irq_actived = 0;
-uint8_t key_enable = 0;//°´¼ü¼ì²âÊ¹ÄÜ£¬²»Îª0²Å¼ì²â°´¼üÊÇ·ñ°´ÏÂ
+uint8_t key_enable = 0;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ü£ï¿½ï¿½ï¿½Îª0ï¿½Å¼ï¿½â°´ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
 /* Private function prototypes -----------------------------------------------*/
 
 /* Private functions ---------------------------------------------------------*/
@@ -227,13 +228,13 @@ void app_key_press_timeout_handler(void)
         if (is_app_hid_ready()) {
 //						struct ps2_mouse_msg msg = {0};
 //						msg.x = 10;
-//						app_hid_send_mouse_report(msg);//Êó±êÒÆ¶¯
+//						app_hid_send_mouse_report(msg);//ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
 						
             struct ps2_mouse_msg msg = {0};
-						msg.b = 0x01;//×ó¼ü
+						msg.b = 0x01;//ï¿½ï¿½ï¿½
 						app_hid_send_mouse_report(msg);
 						
-						msg.b = 0x00;  // ÊÍ·ÅËùÓÐ°´¼ü
+						msg.b = 0x00;  // ï¿½Í·ï¿½ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½
 						app_hid_send_mouse_report(msg);
         } else {
             //NS_LOG_WARNING("HID not ready, skipping keyboard send\r\n");
@@ -258,7 +259,7 @@ void app_key_press_timeout_handler(void)
             hid_keyboard_report_t kb_report;
 
             uint8_t all_key_values[] = {
-//								// ×ÖÄ¸¼ü£¨A-Z£©
+//								// ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½A-Zï¿½ï¿½
 //								HID_KEY_A, HID_KEY_B, HID_KEY_C, HID_KEY_D, HID_KEY_E,
 //								HID_KEY_F, HID_KEY_G, HID_KEY_H, HID_KEY_I, HID_KEY_J,
 //								HID_KEY_K, HID_KEY_L, HID_KEY_M, HID_KEY_N, HID_KEY_O,
@@ -266,37 +267,37 @@ void app_key_press_timeout_handler(void)
 //								HID_KEY_U, HID_KEY_V, HID_KEY_W, HID_KEY_X, HID_KEY_Y,
 //								HID_KEY_Z,
 
-//								// Êý×Ö¼ü£¨Ö÷¼üÅÌÇø 0-9£©
+//								// ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0-9ï¿½ï¿½
 //								HID_KEY_1, HID_KEY_2, HID_KEY_3, HID_KEY_4, HID_KEY_5,
 //								HID_KEY_6, HID_KEY_7, HID_KEY_8, HID_KEY_9, HID_KEY_0,
-//								// ·ûºÅ¼ü£¨Ö÷¼üÅÌÇø£©
+//								// ï¿½ï¿½ï¿½Å¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //								HID_KEY_ENTER, HID_KEY_ESC, HID_KEY_BACKSPACE, HID_KEY_TAB,
 //								HID_KEY_SPACE, HID_KEY_MINUS, HID_KEY_EQUAL, HID_KEY_LEFTBRACE,
 //								HID_KEY_RIGHTBRACE, HID_KEY_BACKSLASH, HID_KEY_SEMICOLON,
 //								HID_KEY_APOSTROPHE, HID_KEY_GRAVE, HID_KEY_COMMA, HID_KEY_DOT,
 //								HID_KEY_SLASH,
 
-								// ¹¦ÄÜ¼ü£¨F1-F24£©
+								// ï¿½ï¿½ï¿½Ü¼ï¿½ï¿½ï¿½F1-F24ï¿½ï¿½
 //								HID_KEY_F1, HID_KEY_F2, HID_KEY_F3, HID_KEY_F4, HID_KEY_F5,
 //								HID_KEY_F6, HID_KEY_F7, HID_KEY_F8, HID_KEY_F9, HID_KEY_F10,
 //								HID_KEY_F11, HID_KEY_F12, HID_KEY_F13, HID_KEY_F14, HID_KEY_F15,
 //								HID_KEY_F16, HID_KEY_F17, HID_KEY_F18, HID_KEY_F19, HID_KEY_F20,
 //								HID_KEY_F21, HID_KEY_F22, HID_KEY_F23, HID_KEY_F24,
 
-								// ±à¼­¼üÇø
+								// ï¿½à¼­ï¿½ï¿½ï¿½ï¿½
 //								HID_KEY_CAPS_LOCK, HID_KEY_PRINT_SCREEN, HID_KEY_SCROLL_LOCK,
 //								HID_KEY_PAUSE, HID_KEY_INSERT, HID_KEY_HOME, HID_KEY_PAGEUP,
 //								HID_KEY_DELETE, HID_KEY_END, HID_KEY_PAGEDOWN, HID_KEY_RIGHT,
 //								HID_KEY_LEFT, HID_KEY_DOWN, HID_KEY_UP, HID_KEY_NUM_LOCK,
 
-//								// Ð¡¼üÅÌÇø
+//								// Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //								HID_KEY_KP_SLASH, HID_KEY_KP_ASTERISK, HID_KEY_KP_MINUS,
 //								HID_KEY_KP_PLUS, HID_KEY_KP_ENTER, HID_KEY_KP_1, HID_KEY_KP_2,
 //								HID_KEY_KP_3, HID_KEY_KP_4, HID_KEY_KP_5, HID_KEY_KP_6,
 //								HID_KEY_KP_7, HID_KEY_KP_8, HID_KEY_KP_9, HID_KEY_KP_0,
 //								HID_KEY_KP_DOT, HID_KEY_KP_EQUAL,
 
-//								// ¶àÃ½Ìå¿ØÖÆ¼ü£¨²¿·Ö¼üÅÌÖ§³Ö£©
+//								// ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½Ö§ï¿½Ö£ï¿½
 //								HID_KEY_MUTE, HID_KEY_VOLUME_UP, HID_KEY_VOLUME_DOWN,
 //								HID_KEY_MEDIA_NEXT, HID_KEY_MEDIA_PREV, HID_KEY_MEDIA_PLAY_PAUSE
 									
@@ -305,11 +306,11 @@ void app_key_press_timeout_handler(void)
 						};
 						uint8_t keys[6] = {0};
 //						for (int i = 0; i < sizeof(all_key_values) / sizeof(all_key_values[0]); i++) {
-//								// °´ÏÂµ±Ç°°´¼ü£¨ÎÞÐÞÊÎ¼ü£©
+//								// ï¿½ï¿½ï¿½Âµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½
 //								keys[0] = all_key_values[i];
 //								build_keyboard_report(&kb_report, 0, keys, 1); 
 //								app_hid_send_keyboard_report((uint8_t*)&kb_report);
-//								// ËÉ¿ªµ±Ç°°´¼ü£¨·¢ËÍ¿Õ±¨¸æ£©
+//								// ï¿½É¿ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿Õ±ï¿½ï¿½æ£©
 //								build_keyboard_report(&kb_report, 0, NULL, 0);
 //								app_hid_send_keyboard_report((uint8_t*)&kb_report);
 //						}
@@ -317,7 +318,7 @@ void app_key_press_timeout_handler(void)
 						keys[1] = HID_KEY_A;
 						build_keyboard_report(&kb_report, 0, keys, 2); 
 						app_hid_send_keyboard_report((uint8_t*)&kb_report);
-						// ËÉ¿ªµ±Ç°°´¼ü£¨·¢ËÍ¿Õ±¨¸æ£©
+						// ï¿½É¿ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿Õ±ï¿½ï¿½æ£©
 						build_keyboard_report(&kb_report, 0, NULL, 0);
 						app_hid_send_keyboard_report((uint8_t*)&kb_report);
             NS_LOG_INFO("Button 2, sending 'Hello' %d \r\n",key_enable);
@@ -340,19 +341,32 @@ void app_key_press_timeout_handler(void)
         #if (CFG_APP_HID)
         // Check if HID is ready before sending
         if (is_app_hid_ready()) {
-            uint32_t report = 0; 
-						// ´¥·¢Play/Pause£¨µÚ1Î»£©
-						report = (1UL << 18) ;
-						app_hid_send_consumer_report((uint8_t*)&report);
-						report = 0; 
-						app_hid_send_consumer_report((uint8_t*)&report);
-					
-						report = (1UL << 1) ;
-						app_hid_send_consumer_report((uint8_t*)&report);
-						report = 0; 
-						app_hid_send_consumer_report((uint8_t*)&report);
+            // Demo: Touch screen operations
+            static uint8_t touch_demo = 0;
+
+            switch(touch_demo % 3) {
+                case 0:
+                    // Simulate a tap at center of screen (1024, 576)
+                    NS_LOG_INFO("Touch screen: Tap at center\r\n");
+                    app_touchscreen_tap(1024, 576);
+                    break;
+
+                case 1:
+                    // Simulate a swipe from left to right
+                    NS_LOG_INFO("Touch screen: Swipe left to right\r\n");
+                    app_touchscreen_swipe(200, 576, 1800, 576, 200);
+                    break;
+
+                case 2:
+                    // Simulate a swipe from top to bottom
+                    NS_LOG_INFO("Touch screen: Swipe top to bottom\r\n");
+                    app_touchscreen_swipe(1024, 100, 1024, 1000, 200);
+                    break;
+            }
+
+            touch_demo++;
         } else {
-            NS_LOG_WARNING("HID not ready, skipping keyboard send\r\n");
+            NS_LOG_WARNING("HID not ready, skipping touch screen send\r\n");
         }
         #endif
         key3_irq_actived = 0;
