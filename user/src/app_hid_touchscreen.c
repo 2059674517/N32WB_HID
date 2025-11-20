@@ -42,67 +42,22 @@
 #include "prf.h"
 #include "ke_msg.h"
 #include "co_utils.h"
+#include <math.h>
 
-// Touch screen report size (must match HID descriptor)
-#define APP_HID_TOUCHSCREEN_REPORT_LEN  10  // 1(status) + 2(x) + 2(y) + 1(pressure) + 1(width) + 1(height) + 1(count) + 1(max)
+// Multi-touch report size (6 bytes per touch * 5 touches + 1 byte count = 31 bytes)
+#define APP_HID_MULTITOUCH_REPORT_LEN  31
 
 // External HID environment
 extern struct app_hid_env_tag app_hid_env;
 
 /**
- * @brief Build HID touch screen report
- * @param report Pointer to touch screen report structure
- * @param contact_id Contact identifier (which finger)
- * @param is_touching Whether the finger is touching (1) or not (0)
- * @param x X coordinate (0-2047)
- * @param y Y coordinate (0-1151)
- * @param pressure Pressure value (0-255)
+ * @brief Send multi-touch screen report via HID
+ * @param touches Array of touch points
+ * @param count Number of active touch points (0-5)
  */
-void build_touchscreen_report(hid_touchscreen_report_t* report,
-                              uint8_t contact_id,
-                              uint8_t is_touching,
-                              uint16_t x, uint16_t y,
-                              uint8_t pressure)
+void app_hid_send_multitouch(const hid_touch_point_t* touches, uint8_t count)
 {
-    // Clear the report
-    memset(report, 0, sizeof(hid_touchscreen_report_t));
-
-    // Set contact information
-    report->contact.contact_id = contact_id & 0x0F;  // Limit to 4 bits
-    report->contact.tip_switch = is_touching ? 1 : 0;
-    report->contact.in_range = is_touching ? 1 : 0;
-    report->contact.touch_valid = 1;  // Always valid when we're sending
-    report->contact.padding = 0;
-
-    // Set coordinates (limit to valid ranges)
-    report->contact.x = (x > 2047) ? 2047 : x;
-    report->contact.y = (y > 1151) ? 1151 : y;
-
-    // Set pressure
-    report->contact.pressure = pressure;
-
-    // Set default width and height (can be customized)
-    report->contact.width = 20;   // Default contact width
-    report->contact.height = 20;  // Default contact height
-
-    // Set contact count
-    report->contact_count = is_touching ? 1 : 0;
-    report->contact_count_max = 10;  // Support up to 10 contacts
-}
-
-/**
- * @brief Send touch screen report via HID with proper format
- * @param contact_id Contact identifier (which finger)
- * @param is_touching Whether the finger is touching
- * @param x X coordinate
- * @param y Y coordinate
- * @param pressure Pressure value
- */
-void app_hid_send_touchscreen(uint8_t contact_id, uint8_t is_touching,
-                              uint16_t x, uint16_t y, uint8_t pressure)
-{
-    NS_LOG_INFO("Touchscreen: id=%d, touch=%d, x=%d, y=%d, p=%d\r\n",
-                contact_id, is_touching, x, y, pressure);
+    NS_LOG_INFO("Multi-touch: count=%d\r\n", count);
 
     if (app_hid_env.state != APP_HID_READY) {
         NS_LOG_WARNING("HID not ready for touchscreen\r\n");
@@ -114,59 +69,107 @@ void app_hid_send_touchscreen(uint8_t contact_id, uint8_t is_touching,
         return;
     }
 
-    // Build the touch report buffer matching HID descriptor format
-    uint8_t report[APP_HID_TOUCHSCREEN_REPORT_LEN];
+    // Validate count
+    if (count > MAX_TOUCH_POINTS) {
+        NS_LOG_WARNING("Too many touch points: %d (max %d)\r\n", count, MAX_TOUCH_POINTS);
+        count = MAX_TOUCH_POINTS;
+    }
+
+    // Build the multi-touch report buffer
+    uint8_t report[APP_HID_MULTITOUCH_REPORT_LEN];
     memset(report, 0, sizeof(report));
 
-    // Byte 0: Contact status (contact_id:4, tip:1, in_range:1, valid:1, padding:1)
-    report[0] = (contact_id & 0x0F) |
-                (is_touching ? 0x10 : 0x00) |  // tip_switch
-                (is_touching ? 0x20 : 0x00) |  // in_range
-                0x40;  // touch_valid always 1 when sending
+    // Fill in touch data for each finger (6 bytes per finger)
+    for (uint8_t i = 0; i < MAX_TOUCH_POINTS; i++) {
+        uint8_t offset = i * 6;
 
-    // Bytes 1-2: X coordinate (little-endian)
-    report[1] = x & 0xFF;
-    report[2] = (x >> 8) & 0xFF;
+        if (i < count && touches != NULL) {
+            // Active touch point
+            const hid_touch_point_t* touch = &touches[i];
 
-    // Bytes 3-4: Y coordinate (little-endian)
-    report[3] = y & 0xFF;
-    report[4] = (y >> 8) & 0xFF;
+            // Byte 0: Status byte (tip:1, in_range:1, valid:1, padding:5)
+            report[offset] = (touch->tip_switch ? 0x01 : 0x00) |
+                           (touch->in_range ? 0x02 : 0x00) |
+                           (touch->touch_valid ? 0x04 : 0x00);
 
-    // Byte 5: Pressure
-    report[5] = pressure;
+            // Byte 1: Contact ID
+            report[offset + 1] = touch->contact_id;
 
-    // Byte 6: Width
-    report[6] = 20;  // Default width
+            // Bytes 2-3: X coordinate (little-endian)
+            report[offset + 2] = touch->x & 0xFF;
+            report[offset + 3] = (touch->x >> 8) & 0xFF;
 
-    // Byte 7: Height
-    report[7] = 20;  // Default height
+            // Bytes 4-5: Y coordinate (little-endian)
+            report[offset + 4] = touch->y & 0xFF;
+            report[offset + 5] = (touch->y >> 8) & 0xFF;
 
-    // Byte 8: Contact count
-    report[8] = is_touching ? 1 : 0;
+            NS_LOG_DEBUG("Touch %d: id=%d, tip=%d, x=%d, y=%d\r\n",
+                        i, touch->contact_id, touch->tip_switch, touch->x, touch->y);
+        } else {
+            // No touch - all zeros (already cleared by memset)
+            report[offset + 1] = i;  // Set contact ID even when not touching
+        }
+    }
 
-    // Byte 9: Max contact count
-    report[9] = 10;
+    // Last byte: Contact count
+    report[30] = count;
 
     // Send the report using the HID profile
     struct hogpd_report_upd_req * req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_UPD_REQ,
                                                       prf_get_task_from_id(TASK_ID_HOGPD),
                                                       TASK_APP,
                                                       hogpd_report_upd_req,
-                                                      APP_HID_TOUCHSCREEN_REPORT_LEN);
+                                                      APP_HID_MULTITOUCH_REPORT_LEN);
 
     req->conidx = app_hid_env.conidx;
     req->report.hid_idx = app_hid_env.conidx;
     req->report.type = HOGPD_REPORT;
     req->report.idx = 3;  // Report index 3 for Report ID 4
-    req->report.length = APP_HID_TOUCHSCREEN_REPORT_LEN;
+    req->report.length = APP_HID_MULTITOUCH_REPORT_LEN;
 
-    memcpy(&req->report.value[0], report, APP_HID_TOUCHSCREEN_REPORT_LEN);
+    memcpy(&req->report.value[0], report, APP_HID_MULTITOUCH_REPORT_LEN);
 
-    NS_LOG_DEBUG("Sending touch report to HOGPD: idx=%d, len=%d\r\n",
+    NS_LOG_DEBUG("Sending multi-touch report to HOGPD: idx=%d, len=%d\r\n",
                  req->report.idx, req->report.length);
 
     ke_msg_send(req);
     app_hid_env.nb_report--;
+}
+
+/**
+ * @brief Send single touch screen event (convenience function)
+ * @param contact_id Contact identifier (0-4)
+ * @param is_touching Whether the finger is touching
+ * @param x X coordinate (0-4095)
+ * @param y Y coordinate (0-4095)
+ * @param pressure Pressure value (not used in current implementation)
+ */
+void app_hid_send_touchscreen(uint8_t contact_id, uint8_t is_touching,
+                              uint16_t x, uint16_t y, uint8_t pressure)
+{
+    hid_touch_point_t touch;
+
+    // Validate contact ID
+    if (contact_id >= MAX_TOUCH_POINTS) {
+        NS_LOG_WARNING("Invalid contact ID: %d (max %d)\r\n", contact_id, MAX_TOUCH_POINTS - 1);
+        contact_id = 0;
+    }
+
+    // Fill touch point data
+    touch.tip_switch = is_touching ? 1 : 0;
+    touch.in_range = is_touching ? 1 : 0;
+    touch.touch_valid = 1;
+    touch.padding = 0;
+    touch.contact_id = contact_id;
+    touch.x = (x > 4095) ? 4095 : x;
+    touch.y = (y > 4095) ? 4095 : y;
+
+    // Send as single touch
+    if (is_touching) {
+        app_hid_send_multitouch(&touch, 1);
+    } else {
+        app_hid_send_multitouch(NULL, 0);  // No touches
+    }
 }
 
 /**
@@ -220,4 +223,168 @@ void app_touchscreen_swipe(uint16_t x_start, uint16_t y_start,
 
     // Touch up
     app_hid_send_touchscreen(0, 0, x_end, y_end, 0);
+}
+
+/**
+ * @brief Simulate multiple simultaneous touches
+ * @param finger_count Number of fingers (1-5)
+ * @param x_coords Array of X coordinates for each finger
+ * @param y_coords Array of Y coordinates for each finger
+ */
+void app_touchscreen_multi_tap(uint8_t finger_count,
+                               const uint16_t* x_coords,
+                               const uint16_t* y_coords)
+{
+    if (finger_count == 0 || finger_count > MAX_TOUCH_POINTS) {
+        NS_LOG_WARNING("Invalid finger count: %d\r\n", finger_count);
+        return;
+    }
+
+    NS_LOG_INFO("Multi-tap with %d fingers\r\n", finger_count);
+
+    hid_touch_point_t touches[MAX_TOUCH_POINTS];
+
+    // Prepare touch points
+    for (uint8_t i = 0; i < finger_count; i++) {
+        touches[i].tip_switch = 1;
+        touches[i].in_range = 1;
+        touches[i].touch_valid = 1;
+        touches[i].padding = 0;
+        touches[i].contact_id = i;
+        touches[i].x = (x_coords[i] > 4095) ? 4095 : x_coords[i];
+        touches[i].y = (y_coords[i] > 4095) ? 4095 : y_coords[i];
+    }
+
+    // Touch down all fingers
+    app_hid_send_multitouch(touches, finger_count);
+    delay_n_ms(100);
+
+    // Touch up all fingers
+    app_hid_send_multitouch(NULL, 0);
+}
+
+/**
+ * @brief Simulate a two-finger pinch gesture
+ * @param center_x Center X coordinate
+ * @param center_y Center Y coordinate
+ * @param start_distance Starting distance between fingers
+ * @param end_distance Ending distance between fingers
+ * @param duration_ms Duration of pinch in milliseconds
+ */
+void app_touchscreen_pinch(uint16_t center_x, uint16_t center_y,
+                           uint16_t start_distance, uint16_t end_distance,
+                           uint16_t duration_ms)
+{
+    NS_LOG_INFO("Pinch gesture at (%d,%d), distance %d->%d\r\n",
+                center_x, center_y, start_distance, end_distance);
+
+    uint8_t steps = 10;
+    uint16_t delay_per_step = duration_ms / steps;
+    int16_t distance_step = (end_distance - start_distance) / steps;
+
+    hid_touch_point_t touches[2];
+
+    // Initialize two fingers
+    touches[0].tip_switch = 1;
+    touches[0].in_range = 1;
+    touches[0].touch_valid = 1;
+    touches[0].padding = 0;
+    touches[0].contact_id = 0;
+
+    touches[1].tip_switch = 1;
+    touches[1].in_range = 1;
+    touches[1].touch_valid = 1;
+    touches[1].padding = 0;
+    touches[1].contact_id = 1;
+
+    // Perform pinch gesture
+    for (uint8_t i = 0; i <= steps; i++) {
+        uint16_t current_distance = start_distance + (distance_step * i);
+
+        // Position fingers horizontally around center
+        touches[0].x = (center_x > current_distance/2) ? center_x - current_distance/2 : 0;
+        touches[0].y = center_y;
+        touches[1].x = (center_x + current_distance/2 > 4095) ? 4095 : center_x + current_distance/2;
+        touches[1].y = center_y;
+
+        app_hid_send_multitouch(touches, 2);
+
+        if (i < steps) {
+            delay_n_ms(delay_per_step);
+        }
+    }
+
+    delay_n_ms(50);
+
+    // Release both fingers
+    app_hid_send_multitouch(NULL, 0);
+}
+
+/**
+ * @brief Simulate a two-finger rotate gesture
+ * @param center_x Center X coordinate
+ * @param center_y Center Y coordinate
+ * @param radius Radius of rotation
+ * @param angle_degrees Rotation angle in degrees (positive = clockwise)
+ * @param duration_ms Duration of rotation in milliseconds
+ */
+void app_touchscreen_rotate(uint16_t center_x, uint16_t center_y,
+                            uint16_t radius, int16_t angle_degrees,
+                            uint16_t duration_ms)
+{
+    NS_LOG_INFO("Rotate gesture at (%d,%d), radius %d, angle %d deg\r\n",
+                center_x, center_y, radius, angle_degrees);
+
+    uint8_t steps = 20;
+    uint16_t delay_per_step = duration_ms / steps;
+    float angle_step = (angle_degrees * 3.14159f / 180.0f) / steps;
+
+    hid_touch_point_t touches[2];
+
+    // Initialize two fingers
+    touches[0].tip_switch = 1;
+    touches[0].in_range = 1;
+    touches[0].touch_valid = 1;
+    touches[0].padding = 0;
+    touches[0].contact_id = 0;
+
+    touches[1].tip_switch = 1;
+    touches[1].in_range = 1;
+    touches[1].touch_valid = 1;
+    touches[1].padding = 0;
+    touches[1].contact_id = 1;
+
+    // Perform rotate gesture
+    for (uint8_t i = 0; i <= steps; i++) {
+        float current_angle = angle_step * i;
+
+        // Calculate positions for two fingers on opposite sides
+        float cos_angle = cosf(current_angle);
+        float sin_angle = sinf(current_angle);
+
+        // Finger 1 position
+        int16_t x1 = center_x + (int16_t)(radius * cos_angle);
+        int16_t y1 = center_y + (int16_t)(radius * sin_angle);
+
+        // Finger 2 position (180 degrees opposite)
+        int16_t x2 = center_x - (int16_t)(radius * cos_angle);
+        int16_t y2 = center_y - (int16_t)(radius * sin_angle);
+
+        // Clamp to valid range
+        touches[0].x = (x1 < 0) ? 0 : ((x1 > 4095) ? 4095 : x1);
+        touches[0].y = (y1 < 0) ? 0 : ((y1 > 4095) ? 4095 : y1);
+        touches[1].x = (x2 < 0) ? 0 : ((x2 > 4095) ? 4095 : x2);
+        touches[1].y = (y2 < 0) ? 0 : ((y2 > 4095) ? 4095 : y2);
+
+        app_hid_send_multitouch(touches, 2);
+
+        if (i < steps) {
+            delay_n_ms(delay_per_step);
+        }
+    }
+
+    delay_n_ms(50);
+
+    // Release both fingers
+    app_hid_send_multitouch(NULL, 0);
 }

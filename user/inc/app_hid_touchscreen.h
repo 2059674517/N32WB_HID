@@ -41,40 +41,39 @@ extern "C" {
 
 #include <stdint.h>
 
-// Touch Screen report structure
+// Maximum number of simultaneous touch points
+#define MAX_TOUCH_POINTS 5
+
+// Single touch contact structure (6 bytes per contact)
 typedef struct {
-    uint8_t contact_id : 4;     // Contact identifier (0-15)
     uint8_t tip_switch : 1;     // Finger touching (1) or not (0)
     uint8_t in_range : 1;       // Finger in range
     uint8_t touch_valid : 1;    // Touch data is valid
-    uint8_t padding : 1;         // Padding bit
-    uint16_t x;                  // X coordinate (0-2047)
-    uint16_t y;                  // Y coordinate (0-1151)
-    uint8_t pressure;            // Pressure (0-255)
-    uint8_t width;               // Contact width (0-127)
-    uint8_t height;              // Contact height (0-127)
-} hid_touch_contact_t;
+    uint8_t padding : 5;        // Padding bits
+    uint8_t contact_id;         // Contact identifier (0-4 for 5 fingers)
+    uint16_t x;                 // X coordinate (0-4095)
+    uint16_t y;                 // Y coordinate (0-4095)
+} __attribute__((packed)) hid_touch_point_t;
 
+// Multi-touch report structure (31 bytes total)
 typedef struct {
-    hid_touch_contact_t contact;  // Single touch contact
-    uint8_t contact_count;        // Number of contacts (0-10)
-    uint8_t contact_count_max;    // Maximum supported contacts (10)
-} hid_touchscreen_report_t;
-
-// Multi-touch support (up to 5 fingers)
-typedef struct {
-    hid_touch_contact_t contacts[5];  // Up to 5 simultaneous touches
-    uint8_t contact_count;            // Number of active contacts
-    uint8_t contact_count_max;        // Maximum supported contacts
-} hid_multitouch_report_t;
+    hid_touch_point_t touches[MAX_TOUCH_POINTS];  // 5 * 6 = 30 bytes
+    uint8_t contact_count;                        // Number of active contacts (0-5)
+} __attribute__((packed)) hid_multitouch_report_t;
 
 /**
- * @brief Send touch screen event
- * @param contact_id Contact identifier (0-15)
+ * @brief Send multi-touch screen event with multiple touch points
+ * @param touches Array of touch points
+ * @param count Number of active touch points (1-5)
+ */
+void app_hid_send_multitouch(const hid_touch_point_t* touches, uint8_t count);
+
+/**
+ * @brief Send single touch screen event (convenience function)
+ * @param contact_id Contact identifier (0-4)
  * @param is_touching 1 if touching, 0 if not
- * @param x X coordinate (0-2047)
- * @param y Y coordinate (0-1151)
- * @param pressure Pressure value (0-255)
+ * @param x X coordinate (0-4095)
+ * @param y Y coordinate (0-4095)
  */
 void app_hid_send_touchscreen(uint8_t contact_id, uint8_t is_touching,
                               uint16_t x, uint16_t y, uint8_t pressure);
@@ -97,6 +96,40 @@ void app_touchscreen_tap(uint16_t x, uint16_t y);
 void app_touchscreen_swipe(uint16_t x_start, uint16_t y_start,
                            uint16_t x_end, uint16_t y_end,
                            uint16_t duration_ms);
+
+/**
+ * @brief Simulate a two-finger pinch gesture
+ * @param center_x Center X coordinate
+ * @param center_y Center Y coordinate
+ * @param start_distance Starting distance between fingers
+ * @param end_distance Ending distance between fingers
+ * @param duration_ms Duration of pinch in milliseconds
+ */
+void app_touchscreen_pinch(uint16_t center_x, uint16_t center_y,
+                           uint16_t start_distance, uint16_t end_distance,
+                           uint16_t duration_ms);
+
+/**
+ * @brief Simulate a two-finger rotate gesture
+ * @param center_x Center X coordinate
+ * @param center_y Center Y coordinate
+ * @param radius Radius of rotation
+ * @param angle_degrees Rotation angle in degrees
+ * @param duration_ms Duration of rotation in milliseconds
+ */
+void app_touchscreen_rotate(uint16_t center_x, uint16_t center_y,
+                            uint16_t radius, int16_t angle_degrees,
+                            uint16_t duration_ms);
+
+/**
+ * @brief Simulate multiple simultaneous touches
+ * @param finger_count Number of fingers (1-5)
+ * @param x_coords Array of X coordinates for each finger
+ * @param y_coords Array of Y coordinates for each finger
+ */
+void app_touchscreen_multi_tap(uint8_t finger_count,
+                               const uint16_t* x_coords,
+                               const uint16_t* y_coords);
 
 #ifdef __cplusplus
 }
