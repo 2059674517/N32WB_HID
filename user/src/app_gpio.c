@@ -360,7 +360,7 @@ void app_key_press_timeout_handler(void)
                 case 2:
                     // Simulate a swipe from top to bottom
                     NS_LOG_INFO("Touch screen: Swipe top to bottom\r\n");
-                    app_touchscreen_swipe(1024, 100, 1024, 1000, 200);
+                    app_touchscreen_swipe(1024, 700, 1024, 1400, 200);
                     break;
             }
 						
