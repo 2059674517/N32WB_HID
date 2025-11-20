@@ -183,13 +183,13 @@ static const uint8_t app_hid_mouse_report_map[] =
 		0x09, 0x81,        // Usage (System Power Down) - 替代 0x0408
 		0x09, 0x80,        // Usage (System Power On) - 替代 0x0409
 		
-		0x0A, 0x0A, 0x04,  //   Usage (Power Toggle)
+		//0x0A, 0x0A, 0x04,  //   Usage (Power Toggle)
 		0x0A, 0x8F, 0x05,  //   Usage (Display Invert)
 
 		0x0A, 0x83, 0x01,  //   Usage (Voice Assistant)
 		0x0A, 0x92, 0x01,  //   Usage (Media Select)
 		0x0A, 0x95, 0x01,  //   Usage (Browser Home)
-		0x0A, 0x9C, 0x01,  //   Usage (Calculator) - 现在在正确的Page下了
+		0x0A, 0x92, 0x01,  //   Usage (Calculator) - 现在在正确的Page下了
 		0x0A, 0x16, 0x02,  //   Usage (Email Reader)
 		0x0A, 0x2A, 0x02,  //   Usage (Music Player)
 		0x0A, 0x2D, 0x02,  //   Usage (Video Player)
@@ -230,14 +230,21 @@ static const uint8_t app_hid_mouse_report_map[] =
 
     0xC0,              // End Collection
 
-    // Report ID 4: Multi-Touch Screen (Digitizer) - Support up to 5 fingers
+    // Report ID 4: Multi-Touch Screen (Windows 8+ compatible, 3 touches)
     0x05, 0x0D,        // Usage Page (Digitizers)
     0x09, 0x04,        // Usage (Touch Screen)
     0xA1, 0x01,        // Collection (Application)
     0x85, 0x04,        // Report ID (4)
 
-    // Define each touch contact separately (5 fingers)
-    // Finger 1
+    // Maximum contact count (3 touches)
+    0x09, 0x55,        //   Usage (Contact Count Maximum)
+    0x15, 0x00,        //   Logical Minimum (0)
+    0x25, 0x03,        //   Logical Maximum (3)
+    0x75, 0x08,        //   Report Size (8)
+    0x95, 0x01,        //   Report Count (1)
+    0xB1, 0x02,        //   Feature (Data,Var,Abs)
+
+    // Touch point 1
     0x09, 0x22,        //   Usage (Finger)
     0xA1, 0x02,        //   Collection (Logical)
     0x09, 0x42,        //     Usage (Tip Switch)
@@ -246,26 +253,26 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x75, 0x01,        //     Report Size (1)
     0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x32,        //     Usage (In Range)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x47,        //     Usage (Touch Valid)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x95, 0x05,        //     Report Count (5) - padding
-    0x81, 0x03,        //     Input (Const,Var,Abs)
-    0x75, 0x08,        //     Report Size (8)
+
     0x09, 0x51,        //     Usage (Contact Identifier)
+    0x25, 0x7F,        //     Logical Maximum (127)
+    0x75, 0x07,        //     Report Size (7)
     0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
+
     0x05, 0x01,        //     Usage Page (Generic Desktop)
-    0x26, 0xFF, 0x0F,  //     Logical Maximum (4095)
-    0x75, 0x10,        //     Report Size (16)
     0x09, 0x30,        //     Usage (X)
+    0x15, 0x00,        //     Logical Minimum (0)
+    0x26, 0xFF, 0x7F,  //     Logical Maximum (32767)
+    0x75, 0x10,        //     Report Size (16)
+    0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
+
     0x09, 0x31,        //     Usage (Y)
     0x81, 0x02,        //     Input (Data,Var,Abs)
     0xC0,              //   End Collection (Logical)
 
-    // Finger 2
+    // Touch point 2
     0x09, 0x22,        //   Usage (Finger)
     0xA1, 0x02,        //   Collection (Logical)
     0x09, 0x42,        //     Usage (Tip Switch)
@@ -274,26 +281,26 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x75, 0x01,        //     Report Size (1)
     0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x32,        //     Usage (In Range)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x47,        //     Usage (Touch Valid)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x95, 0x05,        //     Report Count (5) - padding
-    0x81, 0x03,        //     Input (Const,Var,Abs)
-    0x75, 0x08,        //     Report Size (8)
+
     0x09, 0x51,        //     Usage (Contact Identifier)
+    0x25, 0x7F,        //     Logical Maximum (127)
+    0x75, 0x07,        //     Report Size (7)
     0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
+
     0x05, 0x01,        //     Usage Page (Generic Desktop)
-    0x26, 0xFF, 0x0F,  //     Logical Maximum (4095)
-    0x75, 0x10,        //     Report Size (16)
     0x09, 0x30,        //     Usage (X)
+    0x15, 0x00,        //     Logical Minimum (0)
+    0x26, 0xFF, 0x7F,  //     Logical Maximum (32767)
+    0x75, 0x10,        //     Report Size (16)
+    0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
+
     0x09, 0x31,        //     Usage (Y)
     0x81, 0x02,        //     Input (Data,Var,Abs)
     0xC0,              //   End Collection (Logical)
 
-    // Finger 3
+    // Touch point 3
     0x09, 0x22,        //   Usage (Finger)
     0xA1, 0x02,        //   Collection (Logical)
     0x09, 0x42,        //     Usage (Tip Switch)
@@ -302,77 +309,21 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x75, 0x01,        //     Report Size (1)
     0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x32,        //     Usage (In Range)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x47,        //     Usage (Touch Valid)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x95, 0x05,        //     Report Count (5) - padding
-    0x81, 0x03,        //     Input (Const,Var,Abs)
-    0x75, 0x08,        //     Report Size (8)
-    0x09, 0x51,        //     Usage (Contact Identifier)
-    0x95, 0x01,        //     Report Count (1)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x05, 0x01,        //     Usage Page (Generic Desktop)
-    0x26, 0xFF, 0x0F,  //     Logical Maximum (4095)
-    0x75, 0x10,        //     Report Size (16)
-    0x09, 0x30,        //     Usage (X)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x31,        //     Usage (Y)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0xC0,              //   End Collection (Logical)
 
-    // Finger 4
-    0x09, 0x22,        //   Usage (Finger)
-    0xA1, 0x02,        //   Collection (Logical)
-    0x09, 0x42,        //     Usage (Tip Switch)
-    0x15, 0x00,        //     Logical Minimum (0)
-    0x25, 0x01,        //     Logical Maximum (1)
-    0x75, 0x01,        //     Report Size (1)
-    0x95, 0x01,        //     Report Count (1)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x32,        //     Usage (In Range)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x47,        //     Usage (Touch Valid)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x95, 0x05,        //     Report Count (5) - padding
-    0x81, 0x03,        //     Input (Const,Var,Abs)
-    0x75, 0x08,        //     Report Size (8)
     0x09, 0x51,        //     Usage (Contact Identifier)
+    0x25, 0x7F,        //     Logical Maximum (127)
+    0x75, 0x07,        //     Report Size (7)
     0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x05, 0x01,        //     Usage Page (Generic Desktop)
-    0x26, 0xFF, 0x0F,  //     Logical Maximum (4095)
-    0x75, 0x10,        //     Report Size (16)
-    0x09, 0x30,        //     Usage (X)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x31,        //     Usage (Y)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0xC0,              //   End Collection (Logical)
 
-    // Finger 5
-    0x09, 0x22,        //   Usage (Finger)
-    0xA1, 0x02,        //   Collection (Logical)
-    0x09, 0x42,        //     Usage (Tip Switch)
-    0x15, 0x00,        //     Logical Minimum (0)
-    0x25, 0x01,        //     Logical Maximum (1)
-    0x75, 0x01,        //     Report Size (1)
-    0x95, 0x01,        //     Report Count (1)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x32,        //     Usage (In Range)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x09, 0x47,        //     Usage (Touch Valid)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
-    0x95, 0x05,        //     Report Count (5) - padding
-    0x81, 0x03,        //     Input (Const,Var,Abs)
-    0x75, 0x08,        //     Report Size (8)
-    0x09, 0x51,        //     Usage (Contact Identifier)
-    0x95, 0x01,        //     Report Count (1)
-    0x81, 0x02,        //     Input (Data,Var,Abs)
     0x05, 0x01,        //     Usage Page (Generic Desktop)
-    0x26, 0xFF, 0x0F,  //     Logical Maximum (4095)
-    0x75, 0x10,        //     Report Size (16)
     0x09, 0x30,        //     Usage (X)
+    0x15, 0x00,        //     Logical Minimum (0)
+    0x26, 0xFF, 0x7F,  //     Logical Maximum (32767)
+    0x75, 0x10,        //     Report Size (16)
+    0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
+
     0x09, 0x31,        //     Usage (Y)
     0x81, 0x02,        //     Input (Data,Var,Abs)
     0xC0,              //   End Collection (Logical)
@@ -381,7 +332,7 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x05, 0x0D,        //   Usage Page (Digitizers)
     0x09, 0x54,        //   Usage (Contact Count)
     0x15, 0x00,        //   Logical Minimum (0)
-    0x25, 0x05,        //   Logical Maximum (5)
+    0x25, 0x03,        //   Logical Maximum (3)
     0x75, 0x08,        //   Report Size (8)
     0x95, 0x01,        //   Report Count (1)
     0x81, 0x02,        //   Input (Data,Var,Abs)

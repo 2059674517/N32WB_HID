@@ -226,16 +226,17 @@ void app_key_press_timeout_handler(void)
         #if (CFG_APP_HID)
         // Check if HID is ready before sending
         if (is_app_hid_ready()) {
-//						struct ps2_mouse_msg msg = {0};
-//						msg.x = 10;
-//						app_hid_send_mouse_report(msg);//����ƶ�
-						
-            struct ps2_mouse_msg msg = {0};
-						msg.b = 0x01;//���
-						app_hid_send_mouse_report(msg);
-						
-						msg.b = 0x00;  // �ͷ����а���
-						app_hid_send_mouse_report(msg);
+						uint32_t report = 0; 
+						// ����Play/Pause����1λ��
+						report = (1UL << 28) ;
+						app_hid_send_consumer_report((uint8_t*)&report);
+						report = 0; 
+						app_hid_send_consumer_report((uint8_t*)&report);
+					
+						report = (1UL << 1) ;
+						app_hid_send_consumer_report((uint8_t*)&report);
+						report = 0; 
+						app_hid_send_consumer_report((uint8_t*)&report);
         } else {
             //NS_LOG_WARNING("HID not ready, skipping keyboard send\r\n");
         }
@@ -344,69 +345,49 @@ void app_key_press_timeout_handler(void)
             // Demo: Multi-touch screen operations
             static uint8_t touch_demo = 0;
 
-            switch(touch_demo % 8) {
+            switch(touch_demo % 6) {
                 case 0:
-                    // Single tap at center of screen
-                    NS_LOG_INFO("Touch screen: Single tap at center\r\n");
-                    app_touchscreen_tap(500, 1000);
+                    // Single tap
+                    NS_LOG_INFO("Touch screen: Single tap\r\n");
+                    app_touchscreen_tap(16384, 16384);  // Center of screen
                     break;
 
                 case 1:
-                    // Swipe from top to bottom
-                    NS_LOG_INFO("Touch screen: Swipe top to bottom\r\n");
-                    app_touchscreen_swipe(500, 700, 500, 1400, 300);
+                    // Swipe
+                    NS_LOG_INFO("Touch screen: Swipe\r\n");
+                    app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
                     break;
 
                 case 2:
-                    // Two-finger tap (multi-touch)
+                    // Two-finger tap (real multi-touch)
                     NS_LOG_INFO("Touch screen: Two-finger tap\r\n");
                     {
-                        uint16_t x_coords[2] = {500, 800};
-                        uint16_t y_coords[2] = {1500, 1500};
+                        uint16_t x_coords[2] = {10000, 22000};
+                        uint16_t y_coords[2] = {16384, 16384};
                         app_touchscreen_multi_tap(2, x_coords, y_coords);
                     }
                     break;
 
                 case 3:
-                    // Three-finger tap (multi-touch)
+                    // Three-finger tap (real multi-touch)
                     NS_LOG_INFO("Touch screen: Three-finger tap\r\n");
                     {
-                        uint16_t x_coords[3] = {300, 500, 759};
-                        uint16_t y_coords[3] = {1500, 1500, 1500};
+                        uint16_t x_coords[3] = {8000, 16384, 24000};
+                        uint16_t y_coords[3] = {16384, 16384, 16384};
                         app_touchscreen_multi_tap(3, x_coords, y_coords);
                     }
                     break;
 
                 case 4:
-                    // Four-finger tap (multi-touch)
-                    NS_LOG_INFO("Touch screen: Four-finger tap\r\n");
-                    {
-                        uint16_t x_coords[4] = {300, 500, 700, 1000};
-                        uint16_t y_coords[4] = {1500, 1500, 500, 500};
-                        app_touchscreen_multi_tap(4, x_coords, y_coords);
-                    }
+                    // Pinch gesture (zoom)
+                    NS_LOG_INFO("Touch screen: Pinch zoom\r\n");
+                    app_touchscreen_pinch(16384, 16384, 8000, 16000, 500);
                     break;
 
                 case 5:
-                    // Five-finger tap (multi-touch)
-                    NS_LOG_INFO("Touch screen: Five-finger tap (full hand)\r\n");
-                    {
-                        uint16_t x_coords[5] = {200, 400, 600, 800, 1000};
-                        uint16_t y_coords[5] = {1800, 1200, 1000, 1200, 1800};
-                        app_touchscreen_multi_tap(5, x_coords, y_coords);
-                    }
-                    break;
-
-                case 6:
-                    // Pinch gesture (zoom in)
-                    NS_LOG_INFO("Touch screen: Pinch zoom in\r\n");
-                    app_touchscreen_pinch(500, 800, 800, 1600, 500);
-                    break;
-
-                case 7:
                     // Rotate gesture
                     NS_LOG_INFO("Touch screen: Two-finger rotate\r\n");
-                    app_touchscreen_rotate(500, 1000, 600, 90, 800);
+                    app_touchscreen_rotate(16384, 16384, 6000, 90, 800);
                     break;
             }
 

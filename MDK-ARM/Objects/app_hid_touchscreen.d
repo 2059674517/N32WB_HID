@@ -69,4 +69,3 @@
 .\objects\app_hid_touchscreen.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\modules\common\api\co_bt_defines.h
 .\objects\app_hid_touchscreen.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\modules\common\api\co_error.h
 .\objects\app_hid_touchscreen.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\modules\rwip\api\rwip.h
-.\objects\app_hid_touchscreen.o: D:\install\MDK\ARM\ARMCC\Bin\..\include\math.h

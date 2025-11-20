@@ -42,24 +42,21 @@ extern "C" {
 #include <stdint.h>
 
 // Maximum number of simultaneous touch points
-#define MAX_TOUCH_POINTS 5
+#define MAX_TOUCH_POINTS 3  // Support up to 3 fingers
 
-// Single touch contact structure (6 bytes per contact)
-typedef struct {
+// Single touch contact structure (5 bytes per contact)
+typedef struct __attribute__((packed)) {
     uint8_t tip_switch : 1;     // Finger touching (1) or not (0)
-    uint8_t in_range : 1;       // Finger in range
-    uint8_t touch_valid : 1;    // Touch data is valid
-    uint8_t padding : 5;        // Padding bits
-    uint8_t contact_id;         // Contact identifier (0-4 for 5 fingers)
-    uint16_t x;                 // X coordinate (0-4095)
-    uint16_t y;                 // Y coordinate (0-4095)
-} __attribute__((packed)) hid_touch_point_t;
+    uint8_t contact_id : 7;     // Contact identifier (0-127)
+    uint16_t x;                 // X coordinate (0-32767)
+    uint16_t y;                 // Y coordinate (0-32767)
+} hid_touch_point_t;
 
-// Multi-touch report structure (31 bytes total)
-typedef struct {
-    hid_touch_point_t touches[MAX_TOUCH_POINTS];  // 5 * 6 = 30 bytes
-    uint8_t contact_count;                        // Number of active contacts (0-5)
-} __attribute__((packed)) hid_multitouch_report_t;
+// Multi-touch report structure (16 bytes total)
+typedef struct __attribute__((packed)) {
+    hid_touch_point_t touches[MAX_TOUCH_POINTS];  // 3 * 5 = 15 bytes
+    uint8_t contact_count;                        // Number of active contacts (0-3)
+} hid_multitouch_report_t;
 
 /**
  * @brief Send multi-touch screen event with multiple touch points
