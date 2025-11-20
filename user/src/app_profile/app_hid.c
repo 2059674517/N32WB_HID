@@ -237,12 +237,12 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x85, 0x04,        // Report ID (4)
 
     // Maximum contact count (3 touches)
-    0x09, 0x55,        //   Usage (Contact Count Maximum)
-    0x15, 0x00,        //   Logical Minimum (0)
-    0x25, 0x03,        //   Logical Maximum (3)
-    0x75, 0x08,        //   Report Size (8)
-    0x95, 0x01,        //   Report Count (1)
-    0xB1, 0x02,        //   Feature (Data,Var,Abs)
+//    0x09, 0x55,        //   Usage (Contact Count Maximum)
+//    0x15, 0x00,        //   Logical Minimum (0)
+//    0x25, 0x03,        //   Logical Maximum (3)
+//    0x75, 0x08,        //   Report Size (8)
+//    0x95, 0x01,        //   Report Count (1)
+//    0xB1, 0x02,        //   Feature (Data,Var,Abs)
 
     // Touch point 1
     0x09, 0x22,        //   Usage (Finger)
