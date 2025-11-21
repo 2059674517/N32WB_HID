@@ -200,21 +200,103 @@ void app_touchscreen_swipe(uint16_t x_start, uint16_t y_start,
 
     // Touch down
     app_hid_send_touchscreen(0, 1, current_x, current_y, 100);
+		app_hid_send_touchscreen(1, 1, current_x+1000, current_y, 100);
+		app_hid_send_touchscreen(2, 1, current_x+2000, current_y, 100);
 
     // Move through intermediate points
     for (uint8_t i = 1; i < steps; i++) {
         current_x += x_step;
         current_y += y_step;
         app_hid_send_touchscreen(0, 1, current_x, current_y, 100);
+				app_hid_send_touchscreen(1, 1, current_x+1000, current_y, 100);
+				app_hid_send_touchscreen(2, 1, current_x+2000, current_y, 100);
         delay_n_ms(delay_per_step);
     }
 
     // Final position
     app_hid_send_touchscreen(0, 1, x_end, y_end, 100);
+		app_hid_send_touchscreen(1, 1, x_end+1000, y_end, 100);
+		app_hid_send_touchscreen(2, 1, x_end+2000, y_end, 100);
     delay_n_ms(10);
 
     // Touch up
     app_hid_send_touchscreen(0, 0, x_end, y_end, 0);
+		app_hid_send_touchscreen(1, 0, x_end+1000, y_end, 0);
+		app_hid_send_touchscreen(2, 0, x_end+2000, y_end, 0);
+}
+
+void app_touchscreen_multi(uint8_t finger_count,
+                               const uint16_t* x_coords,
+                               const uint16_t* y_coords)
+{
+    if (finger_count == 0 || finger_count > MAX_TOUCH_POINTS) {
+        NS_LOG_WARNING("Invalid finger count: %d\r\n", finger_count);
+        return;
+    }
+
+    NS_LOG_INFO("Multi-tap with %d fingers\r\n", finger_count);
+
+    hid_touch_point_t touches[MAX_TOUCH_POINTS];
+
+    // Prepare touch points
+    for (uint8_t i = 0; i < finger_count; i++) {
+        touches[i].tip_switch = 1;
+        touches[i].contact_id = i;
+        touches[i].x = (x_coords[i] > 32767) ? 32767 : x_coords[i];
+        touches[i].y = (y_coords[i] > 32767) ? 32767 : y_coords[i];
+    }
+
+    // Touch down all fingers simultaneously
+    app_hid_send_multitouch(touches, finger_count);
+}
+
+
+/**
+ * @brief Simulate a swipe gesture
+ */
+void app_multi_touchscreen_swipe(uint16_t* x_start, uint16_t* y_start,
+                           uint16_t* x_end, uint16_t* y_end,
+                           uint16_t duration_ms)
+{
+    NS_LOG_INFO("multiTouchscreen SWIPE");
+
+    uint8_t steps = 10;
+    uint16_t delay_per_step = duration_ms / steps;
+
+    int16_t x_step = (x_end[0] - x_start[0]) / steps;
+    int16_t y_step = (y_end[0] - y_start[0]) / steps;
+
+    uint16_t current_x[3];
+    uint16_t current_y[3];
+		
+		current_x[0] = x_start[0];
+    current_y[0] = y_start[0];
+		current_x[1] = x_start[1];
+    current_y[1] = y_start[1];
+		current_x[2] = x_start[2];
+    current_y[2] = y_start[2];
+	
+    // Touch down
+		app_touchscreen_multi(3,x_start,y_start);
+
+    // Move through intermediate points
+    for (uint8_t i = 1; i < steps; i++) {
+        current_x[0] += x_step;
+        current_y[0] += y_step;
+				current_x[1] += x_step;
+        current_y[1] += y_step;
+				current_x[2] += x_step;
+        current_y[2] += y_step;
+        app_touchscreen_multi(3,current_x,current_y);
+        delay_n_ms(delay_per_step);
+    }
+
+    // Final position
+    app_touchscreen_multi(3,x_end,y_end);
+    delay_n_ms(10);
+
+    // Touch up
+		app_hid_send_multitouch(NULL, 0);
 }
 
 /**

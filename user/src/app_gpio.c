@@ -344,52 +344,57 @@ void app_key_press_timeout_handler(void)
         if (is_app_hid_ready()) {
             // Demo: Multi-touch screen operations
             static uint8_t touch_demo = 0;
+						uint16_t x_start[3] = {8000, 16384, 24000};
+            uint16_t y_start[3] = {5000, 5000, 5000};
+						uint16_t x_end[3] = {8000, 16384, 24000};
+            uint16_t y_end[3] = {15000, 15000, 15000};
+						app_multi_touchscreen_swipe(x_start,y_start,x_end,y_end,300);
+						//app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
+//            switch(touch_demo % 6) {
+//                case 0:
+//                    // Single tap
+//                    NS_LOG_INFO("Touch screen: Single tap\r\n");
+//                    app_touchscreen_tap(16384, 16384);  // Center of screen
+//                    break;
 
-            switch(touch_demo % 6) {
-                case 0:
-                    // Single tap
-                    NS_LOG_INFO("Touch screen: Single tap\r\n");
-                    app_touchscreen_tap(16384, 16384);  // Center of screen
-                    break;
+//                case 1:
+//                    // Swipe
+//                    NS_LOG_INFO("Touch screen: Swipe\r\n");
+//                    app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
+//                    break;
 
-                case 1:
-                    // Swipe
-                    NS_LOG_INFO("Touch screen: Swipe\r\n");
-                    app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
-                    break;
+//                case 2:
+//                    // Two-finger tap (real multi-touch)
+//                    NS_LOG_INFO("Touch screen: Two-finger tap\r\n");
+//                    {
+//                        uint16_t x_coords[2] = {10000, 22000};
+//                        uint16_t y_coords[2] = {16384, 16384};
+//                        app_touchscreen_multi_tap(2, x_coords, y_coords);
+//                    }
+//                    break;
 
-                case 2:
-                    // Two-finger tap (real multi-touch)
-                    NS_LOG_INFO("Touch screen: Two-finger tap\r\n");
-                    {
-                        uint16_t x_coords[2] = {10000, 22000};
-                        uint16_t y_coords[2] = {16384, 16384};
-                        app_touchscreen_multi_tap(2, x_coords, y_coords);
-                    }
-                    break;
+//                case 3:
+//                    // Three-finger tap (real multi-touch)
+//                    NS_LOG_INFO("Touch screen: Three-finger tap\r\n");
+//                    {
+//                        uint16_t x_coords[3] = {8000, 16384, 24000};
+//                        uint16_t y_coords[3] = {16384, 16384, 16384};
+//                        app_touchscreen_multi_tap(3, x_coords, y_coords);
+//                    }
+//                    break;
 
-                case 3:
-                    // Three-finger tap (real multi-touch)
-                    NS_LOG_INFO("Touch screen: Three-finger tap\r\n");
-                    {
-                        uint16_t x_coords[3] = {8000, 16384, 24000};
-                        uint16_t y_coords[3] = {16384, 16384, 16384};
-                        app_touchscreen_multi_tap(3, x_coords, y_coords);
-                    }
-                    break;
+//                case 4:
+//                    // Pinch gesture (zoom)
+//                    NS_LOG_INFO("Touch screen: Pinch zoom\r\n");
+//                    app_touchscreen_pinch(16384, 16384, 8000, 16000, 500);
+//                    break;
 
-                case 4:
-                    // Pinch gesture (zoom)
-                    NS_LOG_INFO("Touch screen: Pinch zoom\r\n");
-                    app_touchscreen_pinch(16384, 16384, 8000, 16000, 500);
-                    break;
-
-                case 5:
-                    // Rotate gesture
-                    NS_LOG_INFO("Touch screen: Two-finger rotate\r\n");
-                    app_touchscreen_rotate(16384, 16384, 6000, 90, 800);
-                    break;
-            }
+//                case 5:
+//                    // Rotate gesture
+//                    NS_LOG_INFO("Touch screen: Two-finger rotate\r\n");
+//                    app_touchscreen_rotate(16384, 16384, 6000, 90, 800);
+//                    break;
+//            }
 
             touch_demo++;
         } else {

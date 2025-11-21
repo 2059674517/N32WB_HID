@@ -237,12 +237,12 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x85, 0x04,        // Report ID (4)
 
     // Maximum contact count (3 touches)
-//    0x09, 0x55,        //   Usage (Contact Count Maximum)
-//    0x15, 0x00,        //   Logical Minimum (0)
-//    0x25, 0x03,        //   Logical Maximum (3)
-//    0x75, 0x08,        //   Report Size (8)
-//    0x95, 0x01,        //   Report Count (1)
-//    0xB1, 0x02,        //   Feature (Data,Var,Abs)
+    0x09, 0x55,        //   Usage (Contact Count Maximum)
+    0x15, 0x00,        //   Logical Minimum (0)
+    0x25, 0x03,        //   Logical Maximum (3)
+    0x75, 0x08,        //   Report Size (8)
+    0x95, 0x01,        //   Report Count (1)
+    0xB1, 0x02,        //   Feature (Data,Var,Abs)
 
     // Touch point 1
     0x09, 0x22,        //   Usage (Finger)
@@ -899,130 +899,113 @@ static int hogpd_report_req_ind_handler(ke_msg_id_t const msgid,
                                     ke_task_id_t const src_id)
 {
     NS_LOG_DEBUG("%s\r\n",__func__);
+    // 第一步：根据report.idx获取Report类型（Input/Feature）
+    uint8_t report_cfg = 0;
+    switch(param->report.idx)
+    {
+        case 0: // Report ID=1（鼠标）
+        case 1: // Report ID=2（多媒体）
+        case 2: // Report ID=3（键盘）
+            report_cfg = HOGPD_CFG_REPORT_IN;
+            break;
+        case 3: // Report ID=4（触摸屏：含Input和Feature）
+            report_cfg = HOGPD_CFG_REPORT_FEAT; // 同时支持Feature和Input
+            break;
+        default:
+            report_cfg = 0;
+            break;
+    }
+
     if ((param->operation == HOGPD_OP_REPORT_READ) && (param->report.type == HOGPD_REPORT_MAP))
     {
+        // 原有逻辑：返回Report Map，无需修改
         struct hogpd_report_cfm *req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_CFM,
                                                         src_id, 
                                                         dest_id, 
                                                         hogpd_report_cfm,
                                                         APP_HID_MOUSE_REPORT_MAP_LEN);
-
-        req->conidx = app_hid_env.conidx; ///???
-        /// Operation requested (read/write @see enum hogpd_op)
+        req->conidx = param->conidx;
         req->operation = HOGPD_OP_REPORT_READ;
-        /// Status of the request
-        req->status = GAP_ERR_NO_ERROR;  ///???
-        /// Report Info
-        //req->report;
-        /// HIDS Instance
-        req->report.hid_idx = param->report.hid_idx;///   ???///app_hid_env.conidx; ///???
-        /// type of report (@see enum hogpd_report_type)
+        req->status = GAP_ERR_NO_ERROR;
+        req->report.hid_idx = param->report.hid_idx;
         req->report.type = HOGPD_REPORT_MAP;
-        /// Report Length (uint8_t)
         req->report.length = APP_HID_MOUSE_REPORT_MAP_LEN;
-        /// Report Instance - 0 for boot reports and report map
-        req->report.idx = 0;
-        /// Report data
-         memcpy(&req->report.value[0], &app_hid_mouse_report_map[0], APP_HID_MOUSE_REPORT_MAP_LEN);
-
-        // Send the message
+        memcpy(&req->report.value[0], &app_hid_mouse_report_map[0], APP_HID_MOUSE_REPORT_MAP_LEN);
+        ke_msg_send(req);
+    }
+    else if ((param->operation == HOGPD_OP_REPORT_READ) && (param->report.type == HOGPD_REPORT))
+    {
+        struct hogpd_report_cfm *req = NULL;
+        // 第二步：判断是否为Feature Report读取请求（触摸屏Report ID=4）
+        if ((report_cfg == HOGPD_CFG_REPORT_FEAT) && (param->report.idx == 3))
+        {
+            // 处理GET_FEATURE请求：返回最大触摸点数（1字节，0x03）
+            req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_CFM,
+                                   src_id,
+                                   dest_id,
+                                   hogpd_report_cfm,
+                                   1); // Feature Report长度为1字节
+            req->conidx = param->conidx;
+            req->operation = HOGPD_OP_REPORT_READ;
+            req->status = GAP_ERR_NO_ERROR;
+            req->report.hid_idx = param->report.hid_idx;
+            req->report.type = HOGPD_REPORT;
+            req->report.idx = param->report.idx;
+            req->report.length = 1;
+            req->report.value[0] = 0x03; // 关键：返回最大触摸点数3
+        }
+        else
+        {
+            // 处理普通Input Report读取请求（鼠标/键盘/多媒体），返回默认值0即可
+            req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_CFM,
+                                   src_id,
+                                   dest_id,
+                                   hogpd_report_cfm,
+                                   8);
+            req->conidx = param->conidx;
+            req->operation = HOGPD_OP_REPORT_READ;
+            req->status = GAP_ERR_NO_ERROR;
+            req->report.hid_idx = param->report.hid_idx;
+            req->report.type = HOGPD_REPORT;
+            req->report.idx = param->report.idx;
+            req->report.length = 8;
+            memset(&req->report.value[0], 0, 8); // Input Report读取返回0（无实际意义）
+        }
+        ke_msg_send(req);
+    }
+    else if (param->report.type == HOGPD_BOOT_MOUSE_INPUT_REPORT)
+    {
+        // 原有逻辑：处理Boot鼠标Report，无需修改
+        struct hogpd_report_cfm *req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_CFM,
+                                                        src_id,
+                                                        dest_id,
+                                                        hogpd_report_cfm,
+                                                        0);
+        req->conidx = param->conidx;
+        req->operation = HOGPD_OP_REPORT_READ;
+        req->status = GAP_ERR_NO_ERROR;
+        req->report.hid_idx = param->report.hid_idx;
+        req->report.type = param->report.type;
+        req->report.length = 0;
+        req->report.idx = param->report.idx;
         ke_msg_send(req);
     }
     else
     {
-        if (param->report.type == HOGPD_BOOT_MOUSE_INPUT_REPORT)
-        { //request of boot mouse report
-            struct hogpd_report_cfm *req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_CFM,
-                                                            prf_get_task_from_id(TASK_ID_HOGPD),/* src_id */
-                                                            TASK_APP,
-                                                            hogpd_report_cfm,
-                                                            0/*param->report.length*/);
-
-            req->conidx = param->conidx; ///app_hid_env.conidx; ///???
-            /// Operation requested (read/write @see enum hogpd_op)
-            req->operation = HOGPD_OP_REPORT_READ;
-            /// Status of the request
-            req->status = GAP_ERR_NO_ERROR;  ///???
-            /// HIDS Instance
-            req->report.hid_idx = app_hid_env.conidx; ///???
-            /// type of report (@see enum hogpd_report_type)
-            req->report.type = param->report.type;//-1;//outside 
-            /// Report Length (uint8_t)
-            req->report.length = 0; //param->report.length;
-            /// Report Instance - 0 for boot reports and report map
-            req->report.idx = param->report.idx; //0;
-            /// Report data
-
-            // Send the message
-            ke_msg_send(req);
-        }
-        else
-        if (param->report.type == HOGPD_REPORT)
-        { //request of mouse report
-            struct hogpd_report_cfm *req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_CFM,
-                                                            prf_get_task_from_id(TASK_ID_HOGPD),/* src_id */
-                                                            TASK_APP,
-                                                            hogpd_report_cfm,
-                                                            8/*param->report.length*/);
-
-            req->conidx = param->conidx; ///app_hid_env.conidx; ///???
-            /// Operation requested (read/write @see enum hogpd_op)
-            req->operation = HOGPD_OP_REPORT_READ;
-            /// Status of the request
-            req->status = GAP_ERR_NO_ERROR;  ///???
-            /// Report Info
-            //req->report;
-            /// HIDS Instance
-            req->report.hid_idx = app_hid_env.conidx; ///???
-            /// type of report (@see enum hogpd_report_type)
-            req->report.type = param->report.type;//-1;//outside 
-            /// Report Length (uint8_t)
-            req->report.length = 8; //param->report.length;
-            /// Report Instance - 0 for boot reports and report map
-            req->report.idx = param->report.idx; //0;
-            /// Report data
-            memset(&req->report.value[0], 0, 8); //???
-            req->report.value[0] = param->report.hid_idx;    /// HIDS Instance
-            req->report.value[1] = param->report.type;    /// type of report (@see enum hogpd_report_type)
-            req->report.value[2] = param->report.length;    /// Report Length (uint8_t)
-            req->report.value[3] = param->report.idx;    /// Report Instance - 0 for boot reports and report map
-
-            // Send the message
-            ke_msg_send(req);
-        }
-        else
-        {
-            struct hogpd_report_cfm *req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_CFM,
-                                                            prf_get_task_from_id(TASK_ID_HOGPD),/* src_id */
-                                                            TASK_APP,
-                                                            hogpd_report_cfm,
-                                                            8/*param->report.length*/);
-
-            req->conidx = param->conidx; ///app_hid_env.conidx; ///???
-            /// Operation requested (read/write @see enum hogpd_op)
-            req->operation = HOGPD_OP_REPORT_READ;
-            /// Status of the request
-            req->status = GAP_ERR_NO_ERROR;  ///???
-            /// Report Info
-            //req->report;
-            /// HIDS Instance
-            req->report.hid_idx = app_hid_env.conidx; ///???
-            /// type of report (@see enum hogpd_report_type)
-            req->report.type = param->report.type;//-1;//outside 
-            /// Report Length (uint8_t)
-            req->report.length = 8; //param->report.length;
-            /// Report Instance - 0 for boot reports and report map
-            req->report.idx = param->report.idx; //0;
-            /// Report data
-            memset(&req->report.value[0], 0, 8); //???
-            req->report.value[0] = param->report.hid_idx;    /// HIDS Instance
-            req->report.value[1] = param->report.type;    /// type of report (@see enum hogpd_report_type)
-            req->report.value[2] = param->report.length;    /// Report Length (uint8_t)
-            req->report.value[3] = param->report.idx;    /// Report Instance - 0 for boot reports and report map
-
-            // Send the message
-            ke_msg_send(req);
-        }
+        // 其他情况返回无错误
+        struct hogpd_report_cfm *req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_CFM,
+                                                        src_id,
+                                                        dest_id,
+                                                        hogpd_report_cfm,
+                                                        0);
+        req->conidx = param->conidx;
+        req->operation = param->operation;
+        req->status = GAP_ERR_NO_ERROR;
+        req->report.hid_idx = param->report.hid_idx;
+        req->report.type = param->report.type;
+        req->report.length = 0;
+        req->report.idx = param->report.idx;
+        ke_msg_send(req);
     }
 
     return (KE_MSG_CONSUMED);
