@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\beacon.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\beacon.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Fri Nov 21 00:52:43 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Nov 22 19:07:13 2025
 <BR><P>
 <H3>Maximum Stack Usage =        424 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1402,8 +1402,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_key_press_timeout_handler
 </UL>
 
-<P><STRONG><a name="[df]"></a>app_hid_send_multitouch</STRONG> (Thumb, 236 bytes, Stack size 48 bytes, app_hid_touchscreen.o(i.app_hid_send_multitouch))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = app_hid_send_multitouch &rArr; __2printf
+<P><STRONG><a name="[df]"></a>app_hid_send_multitouch</STRONG> (Thumb, 294 bytes, Stack size 56 bytes, app_hid_touchscreen.o(i.app_hid_send_multitouch))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = app_hid_send_multitouch &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_alloc
@@ -1429,7 +1429,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[37]"></a>app_key_press_timeout_handler</STRONG> (Thumb, 290 bytes, Stack size 56 bytes, app_gpio.o(i.app_key_press_timeout_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = app_key_press_timeout_handler &rArr; app_multi_touchscreen_swipe &rArr; app_touchscreen_multi &rArr; app_hid_send_multitouch &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = app_key_press_timeout_handler &rArr; app_multi_touchscreen_swipe &rArr; app_touchscreen_multi &rArr; app_hid_send_multitouch &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;is_app_hid_ready
@@ -1445,7 +1445,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> app_gpio.o(i.app_key_press_timeout_handler)
 </UL>
 <P><STRONG><a name="[e7]"></a>app_multi_touchscreen_swipe</STRONG> (Thumb, 206 bytes, Stack size 72 bytes, app_hid_touchscreen.o(i.app_multi_touchscreen_swipe))
-<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = app_multi_touchscreen_swipe &rArr; app_touchscreen_multi &rArr; app_hid_send_multitouch &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = app_multi_touchscreen_swipe &rArr; app_touchscreen_multi &rArr; app_hid_send_multitouch &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
@@ -1470,7 +1470,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ea]"></a>app_touchscreen_multi</STRONG> (Thumb, 114 bytes, Stack size 48 bytes, app_hid_touchscreen.o(i.app_touchscreen_multi))
-<BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = app_touchscreen_multi &rArr; app_hid_send_multitouch &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = app_touchscreen_multi &rArr; app_hid_send_multitouch &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_multitouch
@@ -1479,7 +1479,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[30]"></a>app_user_msg_handler</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, app_ble.o(i.app_user_msg_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = app_user_msg_handler &rArr; app_key_press_timeout_handler &rArr; app_multi_touchscreen_swipe &rArr; app_touchscreen_multi &rArr; app_hid_send_multitouch &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = app_user_msg_handler &rArr; app_key_press_timeout_handler &rArr; app_multi_touchscreen_swipe &rArr; app_touchscreen_multi &rArr; app_hid_send_multitouch &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_key_press_timeout_handler
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_mouse_timeout_timer_handler

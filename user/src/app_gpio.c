@@ -350,6 +350,17 @@ void app_key_press_timeout_handler(void)
             uint16_t y_end[3] = {15000, 15000, 15000};
 						app_multi_touchscreen_swipe(x_start,y_start,x_end,y_end,300);
 						//app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
+//						switch(touch_demo % 2) {
+//                case 0:
+//                    // Single tap
+//                    app_touchscreen_threefinger_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
+//                    break;
+
+//                case 1:
+//                    // Swipe
+//                    app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
+//                    break;
+//						}
 //            switch(touch_demo % 6) {
 //                case 0:
 //                    // Single tap
