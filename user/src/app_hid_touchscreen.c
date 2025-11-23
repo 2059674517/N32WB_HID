@@ -323,34 +323,32 @@ void app_multi_touchscreen_swipe(uint16_t count,uint16_t* x_start, uint16_t* y_s
     // Touch down
 		app_hid_send_multitouch(NULL, 0);
 		delay_n_ms(10);
-		app_touchscreen_multi(1,x_start,y_start);
-		delay_n_ms(10);
-		app_touchscreen_multi(2,x_start,y_start);
-		delay_n_ms(10);
-		app_touchscreen_multi(3,x_start,y_start);
-		delay_n_ms(10);
-
+		
+		for(int i=0; i<count; i++){
+			app_touchscreen_multi(i+1,x_start,y_start);
+			delay_n_ms(10);
+		}
+		
     // Move through intermediate points
     for (uint8_t i = 1; i < steps; i++) {
 				for(int i=0; i<count; i++){
 					current_x[i] += x_step[i];
 					current_y[i] += y_step[i];
 				}
-        app_touchscreen_multi(3,current_x,current_y);
+        app_touchscreen_multi(count,current_x,current_y);
         delay_n_ms(delay_per_step);
     }
 
     // Final position
-    app_touchscreen_multi(3,x_end,y_end);
+    app_touchscreen_multi(count,x_end,y_end);
     delay_n_ms(10);
 
     // Touch up
-		app_touchscreen_multi(2,x_end,y_end);
-    delay_n_ms(10);
-		app_touchscreen_multi(1,x_end,y_end);
-    delay_n_ms(10);
-		app_touchscreen_multi(0,x_end,y_end);
-    delay_n_ms(10);
+		for(int i=count-1; i>=0; i--){
+			app_touchscreen_multi(i,x_end,y_end);
+			delay_n_ms(10);
+		}
+		
 		app_hid_send_multitouch(NULL, 0);
 		//app_hid_send_multitouch(NULL, 0);
 }

@@ -1774,287 +1774,287 @@ Image Symbol Table
     i.app_lsi_calib_evt_handler              0x01002264   Section        0  ns_ble_task.o(i.app_lsi_calib_evt_handler)
     app_lsi_calib_evt_handler                0x01002265   Thumb Code   140  ns_ble_task.o(i.app_lsi_calib_evt_handler)
     i.app_multi_touchscreen_swipe            0x01002310   Section        0  app_hid_touchscreen.o(i.app_multi_touchscreen_swipe)
-    i.app_sec_msg_dflt_handler               0x01002458   Section        0  ns_sec.o(i.app_sec_msg_dflt_handler)
-    app_sec_msg_dflt_handler                 0x01002459   Thumb Code     4  ns_sec.o(i.app_sec_msg_dflt_handler)
-    i.app_set_adv_data                       0x0100245c   Section        0  ns_ble.o(i.app_set_adv_data)
-    app_set_adv_data                         0x0100245d   Thumb Code   116  ns_ble.o(i.app_set_adv_data)
-    i.app_set_scan_rsp_data                  0x010024d8   Section        0  ns_ble.o(i.app_set_scan_rsp_data)
-    app_set_scan_rsp_data                    0x010024d9   Thumb Code   178  ns_ble.o(i.app_set_scan_rsp_data)
-    i.app_sleep_prepare_proc                 0x01002594   Section        0  main.o(i.app_sleep_prepare_proc)
-    i.app_sleep_resume_proc                  0x01002596   Section        0  main.o(i.app_sleep_resume_proc)
-    i.app_start_advertising                  0x010025ac   Section        0  ns_ble.o(i.app_start_advertising)
-    app_start_advertising                    0x010025ad   Thumb Code    92  ns_ble.o(i.app_start_advertising)
-    i.app_stop_advertising                   0x01002614   Section        0  ns_ble.o(i.app_stop_advertising)
-    app_stop_advertising                     0x01002615   Thumb Code    38  ns_ble.o(i.app_stop_advertising)
-    i.app_touchscreen_multi                  0x01002644   Section        0  app_hid_touchscreen.o(i.app_touchscreen_multi)
-    i.app_user_msg_handler                   0x010026f4   Section        0  app_ble.o(i.app_user_msg_handler)
-    i.attm_att_set_permission                0x01002710   Section        0  lib_att.o(i.attm_att_set_permission)
-    i.attm_att_set_value                     0x010027c4   Section        0  lib_att.o(i.attm_att_set_value)
-    i.attm_reserve_handle_range              0x0100287c   Section        0  lib_att.o(i.attm_reserve_handle_range)
-    i.bass_batt_level_ntf_cfg_ind_handler    0x0100289e   Section        0  app_batt.o(i.bass_batt_level_ntf_cfg_ind_handler)
-    bass_batt_level_ntf_cfg_ind_handler      0x0100289f   Thumb Code     4  app_batt.o(i.bass_batt_level_ntf_cfg_ind_handler)
-    i.bass_batt_level_upd_req_handler        0x010028a4   Section        0  bass_task.o(i.bass_batt_level_upd_req_handler)
-    bass_batt_level_upd_req_handler          0x010028a5   Thumb Code   100  bass_task.o(i.bass_batt_level_upd_req_handler)
-    i.bass_cleanup                           0x0100290c   Section        0  bass.o(i.bass_cleanup)
-    bass_cleanup                             0x0100290d   Thumb Code    10  bass.o(i.bass_cleanup)
-    i.bass_create                            0x01002916   Section        0  bass.o(i.bass_create)
-    bass_create                              0x01002917   Thumb Code    10  bass.o(i.bass_create)
-    i.bass_destroy                           0x01002920   Section        0  bass.o(i.bass_destroy)
-    bass_destroy                             0x01002921   Thumb Code    28  bass.o(i.bass_destroy)
-    i.bass_enable_req_handler                0x0100293c   Section        0  bass_task.o(i.bass_enable_req_handler)
-    bass_enable_req_handler                  0x0100293d   Thumb Code   122  bass_task.o(i.bass_enable_req_handler)
-    i.bass_exe_operation                     0x010029c0   Section        0  bass.o(i.bass_exe_operation)
-    i.bass_get_att_handle                    0x01002ab0   Section        0  bass.o(i.bass_get_att_handle)
-    i.bass_get_att_idx                       0x01002b26   Section        0  bass.o(i.bass_get_att_idx)
-    i.bass_init                              0x01002b90   Section        0  bass.o(i.bass_init)
-    bass_init                                0x01002b91   Thumb Code   338  bass.o(i.bass_init)
-    i.bass_notify_batt_lvl                   0x01002cec   Section        0  bass.o(i.bass_notify_batt_lvl)
-    bass_notify_batt_lvl                     0x01002ced   Thumb Code    64  bass.o(i.bass_notify_batt_lvl)
-    i.bass_prf_itf_get                       0x01002d2c   Section        0  bass.o(i.bass_prf_itf_get)
-    i.bass_task_init                         0x01002d34   Section        0  bass_task.o(i.bass_task_init)
-    i.batt_level_upd_handler                 0x01002d54   Section        0  app_batt.o(i.batt_level_upd_handler)
-    batt_level_upd_handler                   0x01002d55   Thumb Code     4  app_batt.o(i.batt_level_upd_handler)
-    i.build_keyboard_report                  0x01002d58   Section        0  app_hid_keyboard.o(i.build_keyboard_report)
-    i.detect_select                          0x01002d84   Section        0  main.o(i.detect_select)
-    i.diss_check_val_len                     0x01002d94   Section        0  diss.o(i.diss_check_val_len)
-    i.diss_cleanup                           0x01002dbe   Section        0  diss.o(i.diss_cleanup)
-    diss_cleanup                             0x01002dbf   Thumb Code     2  diss.o(i.diss_cleanup)
-    i.diss_compute_cfg_flag                  0x01002dc0   Section        0  diss.o(i.diss_compute_cfg_flag)
-    i.diss_create                            0x01002de6   Section        0  diss.o(i.diss_create)
-    diss_create                              0x01002de7   Thumb Code     2  diss.o(i.diss_create)
-    i.diss_destroy                           0x01002de8   Section        0  diss.o(i.diss_destroy)
-    diss_destroy                             0x01002de9   Thumb Code    36  diss.o(i.diss_destroy)
-    i.diss_handle_to_value                   0x01002e0c   Section        0  diss.o(i.diss_handle_to_value)
-    i.diss_init                              0x01002e3c   Section        0  diss.o(i.diss_init)
-    diss_init                                0x01002e3d   Thumb Code   126  diss.o(i.diss_init)
-    i.diss_prf_itf_get                       0x01002ec4   Section        0  diss.o(i.diss_prf_itf_get)
-    i.diss_set_value_req_handler             0x01002ecc   Section        0  diss_task.o(i.diss_set_value_req_handler)
-    diss_set_value_req_handler               0x01002ecd   Thumb Code   150  diss_task.o(i.diss_set_value_req_handler)
-    i.diss_task_init                         0x01002f68   Section        0  diss_task.o(i.diss_task_init)
-    i.diss_value_cfm_handler                 0x01002f88   Section        0  diss_task.o(i.diss_value_cfm_handler)
-    diss_value_cfm_handler                   0x01002f89   Thumb Code   120  diss_task.o(i.diss_value_cfm_handler)
-    i.diss_value_req_ind_handler             0x01003004   Section        0  app_dis.o(i.diss_value_req_ind_handler)
-    diss_value_req_ind_handler               0x01003005   Thumb Code   112  app_dis.o(i.diss_value_req_ind_handler)
-    i.diss_value_to_handle                   0x010030bc   Section        0  diss.o(i.diss_value_to_handle)
-    i.entry_idle                             0x010030f0   Section        0  ns_sleep.o(i.entry_idle)
-    i.entry_sleep                            0x01003118   Section        0  ns_sleep.o(i.entry_sleep)
-    i.fputc                                  0x010031c8   Section        0  ns_log_usart.o(i.fputc)
-    i.gapc_bond_ind_handler                  0x01003200   Section        0  ns_sec.o(i.gapc_bond_ind_handler)
-    gapc_bond_ind_handler                    0x01003201   Thumb Code   200  ns_sec.o(i.gapc_bond_ind_handler)
-    i.gapc_bond_req_ind_handler              0x010032d4   Section        0  ns_sec.o(i.gapc_bond_req_ind_handler)
-    gapc_bond_req_ind_handler                0x010032d5   Thumb Code   454  ns_sec.o(i.gapc_bond_req_ind_handler)
-    i.gapc_cmp_evt_handler                   0x010034b8   Section        0  ns_ble_task.o(i.gapc_cmp_evt_handler)
-    gapc_cmp_evt_handler                     0x010034b9   Thumb Code    32  ns_ble_task.o(i.gapc_cmp_evt_handler)
-    i.gapc_conn_rssi_ind_handler             0x010034dc   Section        0  ns_ble_task.o(i.gapc_conn_rssi_ind_handler)
-    gapc_conn_rssi_ind_handler               0x010034dd   Thumb Code    84  ns_ble_task.o(i.gapc_conn_rssi_ind_handler)
-    i.gapc_connection_req_ind_handler        0x01003538   Section        0  ns_ble_task.o(i.gapc_connection_req_ind_handler)
-    gapc_connection_req_ind_handler          0x01003539   Thumb Code   316  ns_ble_task.o(i.gapc_connection_req_ind_handler)
-    i.gapc_disconnect_ind_handler            0x010036a4   Section        0  ns_ble_task.o(i.gapc_disconnect_ind_handler)
-    gapc_disconnect_ind_handler              0x010036a5   Thumb Code    92  ns_ble_task.o(i.gapc_disconnect_ind_handler)
-    i.gapc_encrypt_ind_handler               0x01003734   Section        0  ns_sec.o(i.gapc_encrypt_ind_handler)
-    gapc_encrypt_ind_handler                 0x01003735   Thumb Code    36  ns_sec.o(i.gapc_encrypt_ind_handler)
-    i.gapc_encrypt_req_ind_handler           0x01003760   Section        0  ns_sec.o(i.gapc_encrypt_req_ind_handler)
-    gapc_encrypt_req_ind_handler             0x01003761   Thumb Code   278  ns_sec.o(i.gapc_encrypt_req_ind_handler)
-    i.gapc_get_dev_info_req_ind_handler      0x0100389c   Section        0  ns_ble_task.o(i.gapc_get_dev_info_req_ind_handler)
-    gapc_get_dev_info_req_ind_handler        0x0100389d   Thumb Code   114  ns_ble_task.o(i.gapc_get_dev_info_req_ind_handler)
-    i.gapc_le_phy_ind_handler                0x01003918   Section        0  ns_ble_task.o(i.gapc_le_phy_ind_handler)
-    gapc_le_phy_ind_handler                  0x01003919   Thumb Code    24  ns_ble_task.o(i.gapc_le_phy_ind_handler)
-    i.gapc_le_pkt_size_ind_handler           0x01003948   Section        0  ns_ble_task.o(i.gapc_le_pkt_size_ind_handler)
-    gapc_le_pkt_size_ind_handler             0x01003949   Thumb Code    22  ns_ble_task.o(i.gapc_le_pkt_size_ind_handler)
-    i.gapc_param_update_req_ind_handler      0x01003964   Section        0  ns_ble_task.o(i.gapc_param_update_req_ind_handler)
-    gapc_param_update_req_ind_handler        0x01003965   Thumb Code    92  ns_ble_task.o(i.gapc_param_update_req_ind_handler)
-    i.gapc_param_updated_ind_handler         0x010039c4   Section        0  ns_ble_task.o(i.gapc_param_updated_ind_handler)
-    gapc_param_updated_ind_handler           0x010039c5   Thumb Code    32  ns_ble_task.o(i.gapc_param_updated_ind_handler)
-    i.gapc_set_dev_info_req_ind_handler      0x010039e8   Section        0  ns_ble_task.o(i.gapc_set_dev_info_req_ind_handler)
-    gapc_set_dev_info_req_ind_handler        0x010039e9   Thumb Code    54  ns_ble_task.o(i.gapc_set_dev_info_req_ind_handler)
-    i.gapm_activity_created_ind_handler      0x01003a28   Section        0  ns_ble_task.o(i.gapm_activity_created_ind_handler)
-    gapm_activity_created_ind_handler        0x01003a29   Thumb Code    48  ns_ble_task.o(i.gapm_activity_created_ind_handler)
-    i.gapm_activity_stopped_ind_handler      0x01003a5c   Section        0  ns_ble_task.o(i.gapm_activity_stopped_ind_handler)
-    gapm_activity_stopped_ind_handler        0x01003a5d   Thumb Code    84  ns_ble_task.o(i.gapm_activity_stopped_ind_handler)
-    i.gapm_addr_solved_ind_handler           0x01003ab8   Section        0  ns_ble_task.o(i.gapm_addr_solved_ind_handler)
-    gapm_addr_solved_ind_handler             0x01003ab9   Thumb Code    34  ns_ble_task.o(i.gapm_addr_solved_ind_handler)
-    i.gapm_cmp_evt_handler                   0x01003ae0   Section        0  ns_ble_task.o(i.gapm_cmp_evt_handler)
-    gapm_cmp_evt_handler                     0x01003ae1   Thumb Code   860  ns_ble_task.o(i.gapm_cmp_evt_handler)
-    i.gapm_ext_adv_repoer_ind_handler        0x01003e8c   Section        0  ns_ble_task.o(i.gapm_ext_adv_repoer_ind_handler)
-    gapm_ext_adv_repoer_ind_handler          0x01003e8d   Thumb Code   134  ns_ble_task.o(i.gapm_ext_adv_repoer_ind_handler)
-    i.gapm_gen_rand_nb_ind_handler           0x01003f1c   Section        0  ns_ble_task.o(i.gapm_gen_rand_nb_ind_handler)
-    gapm_gen_rand_nb_ind_handler             0x01003f1d   Thumb Code    20  ns_ble_task.o(i.gapm_gen_rand_nb_ind_handler)
-    i.gapm_profile_added_ind_handler         0x01003f30   Section        0  ns_ble_task.o(i.gapm_profile_added_ind_handler)
-    gapm_profile_added_ind_handler           0x01003f31   Thumb Code    12  ns_ble_task.o(i.gapm_profile_added_ind_handler)
-    i.gattc_att_info_req_ind_handler         0x01003f3c   Section        0  bass_task.o(i.gattc_att_info_req_ind_handler)
-    gattc_att_info_req_ind_handler           0x01003f3d   Thumb Code    78  bass_task.o(i.gattc_att_info_req_ind_handler)
-    i.gattc_att_info_req_ind_handler         0x01003f90   Section        0  hogpd_task.o(i.gattc_att_info_req_ind_handler)
-    gattc_att_info_req_ind_handler           0x01003f91   Thumb Code   104  hogpd_task.o(i.gattc_att_info_req_ind_handler)
-    i.gattc_cmp_evt_handler                  0x01003ffc   Section        0  bass_task.o(i.gattc_cmp_evt_handler)
-    gattc_cmp_evt_handler                    0x01003ffd   Thumb Code    16  bass_task.o(i.gattc_cmp_evt_handler)
-    i.gattc_cmp_evt_handler                  0x0100400c   Section        0  hogpd_task.o(i.gattc_cmp_evt_handler)
-    gattc_cmp_evt_handler                    0x0100400d   Thumb Code    68  hogpd_task.o(i.gattc_cmp_evt_handler)
-    i.gattc_cmp_evt_handler                  0x01004054   Section        0  ns_ble_task.o(i.gattc_cmp_evt_handler)
-    gattc_cmp_evt_handler                    0x01004055   Thumb Code    32  ns_ble_task.o(i.gattc_cmp_evt_handler)
-    i.gattc_mtu_changed_ind_handler          0x01004078   Section        0  ns_ble_task.o(i.gattc_mtu_changed_ind_handler)
-    gattc_mtu_changed_ind_handler            0x01004079   Thumb Code    70  ns_ble_task.o(i.gattc_mtu_changed_ind_handler)
-    i.gattc_read_req_ind_handler             0x010040cc   Section        0  diss_task.o(i.gattc_read_req_ind_handler)
-    gattc_read_req_ind_handler               0x010040cd   Thumb Code   186  diss_task.o(i.gattc_read_req_ind_handler)
-    i.gattc_read_req_ind_handler             0x01004190   Section        0  bass_task.o(i.gattc_read_req_ind_handler)
-    gattc_read_req_ind_handler               0x01004191   Thumb Code   186  bass_task.o(i.gattc_read_req_ind_handler)
-    i.gattc_read_req_ind_handler             0x01004250   Section        0  hogpd_task.o(i.gattc_read_req_ind_handler)
-    gattc_read_req_ind_handler               0x01004251   Thumb Code   346  hogpd_task.o(i.gattc_read_req_ind_handler)
-    i.gattc_write_req_ind_handler            0x010043b4   Section        0  bass_task.o(i.gattc_write_req_ind_handler)
-    gattc_write_req_ind_handler              0x010043b5   Thumb Code   158  bass_task.o(i.gattc_write_req_ind_handler)
-    i.gattc_write_req_ind_handler            0x0100445c   Section        0  hogpd_task.o(i.gattc_write_req_ind_handler)
-    gattc_write_req_ind_handler              0x0100445d   Thumb Code   394  hogpd_task.o(i.gattc_write_req_ind_handler)
-    i.hogpd_cleanup                          0x010045f0   Section        0  hogpd.o(i.hogpd_cleanup)
-    hogpd_cleanup                            0x010045f1   Thumb Code    38  hogpd.o(i.hogpd_cleanup)
-    i.hogpd_create                           0x01004616   Section        0  hogpd.o(i.hogpd_create)
-    hogpd_create                             0x01004617   Thumb Code     2  hogpd.o(i.hogpd_create)
-    i.hogpd_ctnl_pt_ind_handler              0x01004618   Section        0  app_hid.o(i.hogpd_ctnl_pt_ind_handler)
-    hogpd_ctnl_pt_ind_handler                0x01004619   Thumb Code    64  app_hid.o(i.hogpd_ctnl_pt_ind_handler)
-    i.hogpd_destroy                          0x01004660   Section        0  hogpd.o(i.hogpd_destroy)
-    hogpd_destroy                            0x01004661   Thumb Code    16  hogpd.o(i.hogpd_destroy)
-    i.hogpd_enable_req_handler               0x01004670   Section        0  hogpd_task.o(i.hogpd_enable_req_handler)
-    hogpd_enable_req_handler                 0x01004671   Thumb Code   112  hogpd_task.o(i.hogpd_enable_req_handler)
-    i.hogpd_enable_rsp_handler               0x010046e8   Section        0  app_hid.o(i.hogpd_enable_rsp_handler)
-    hogpd_enable_rsp_handler                 0x010046e9   Thumb Code     4  app_hid.o(i.hogpd_enable_rsp_handler)
-    i.hogpd_get_att_handle                   0x010046ec   Section        0  hogpd.o(i.hogpd_get_att_handle)
-    i.hogpd_get_att_idx                      0x010047d2   Section        0  hogpd.o(i.hogpd_get_att_idx)
-    i.hogpd_init                             0x010048e4   Section        0  hogpd.o(i.hogpd_init)
-    hogpd_init                               0x010048e5   Thumb Code  1032  hogpd.o(i.hogpd_init)
-    i.hogpd_ntf_cfg_ind_handler              0x01004cf4   Section        0  app_hid.o(i.hogpd_ntf_cfg_ind_handler)
-    hogpd_ntf_cfg_ind_handler                0x01004cf5   Thumb Code    48  app_hid.o(i.hogpd_ntf_cfg_ind_handler)
-    i.hogpd_ntf_cfg_ind_send                 0x01004d34   Section        0  hogpd.o(i.hogpd_ntf_cfg_ind_send)
-    i.hogpd_ntf_send                         0x01004de0   Section        0  hogpd.o(i.hogpd_ntf_send)
-    i.hogpd_prf_itf_get                      0x01004ee0   Section        0  hogpd.o(i.hogpd_prf_itf_get)
-    i.hogpd_proto_mode_cfm_handler           0x01004ee8   Section        0  hogpd_task.o(i.hogpd_proto_mode_cfm_handler)
-    hogpd_proto_mode_cfm_handler             0x01004ee9   Thumb Code   184  hogpd_task.o(i.hogpd_proto_mode_cfm_handler)
-    i.hogpd_proto_mode_req_ind_handler       0x01004fa4   Section        0  app_hid.o(i.hogpd_proto_mode_req_ind_handler)
-    hogpd_proto_mode_req_ind_handler         0x01004fa5   Thumb Code    92  app_hid.o(i.hogpd_proto_mode_req_ind_handler)
-    i.hogpd_report_cfm_handler               0x01005008   Section        0  hogpd_task.o(i.hogpd_report_cfm_handler)
-    hogpd_report_cfm_handler                 0x01005009   Thumb Code   252  hogpd_task.o(i.hogpd_report_cfm_handler)
-    i.hogpd_report_req_ind_handler           0x01005108   Section        0  app_hid.o(i.hogpd_report_req_ind_handler)
-    hogpd_report_req_ind_handler             0x01005109   Thumb Code   254  app_hid.o(i.hogpd_report_req_ind_handler)
-    i.hogpd_report_upd_handler               0x01005210   Section        0  app_hid.o(i.hogpd_report_upd_handler)
-    hogpd_report_upd_handler                 0x01005211   Thumb Code    36  app_hid.o(i.hogpd_report_upd_handler)
-    i.hogpd_report_upd_req_handler           0x01005238   Section        0  hogpd_task.o(i.hogpd_report_upd_req_handler)
-    hogpd_report_upd_req_handler             0x01005239   Thumb Code   106  hogpd_task.o(i.hogpd_report_upd_req_handler)
-    i.hogpd_task_init                        0x010052ac   Section        0  hogpd_task.o(i.hogpd_task_init)
-    i.is_app_hid_ready                       0x010052cc   Section        0  app_hid.o(i.is_app_hid_ready)
-    i.llhwc_modem_setmode                    0x010052e0   Section        0  rwip_driver.o(i.llhwc_modem_setmode)
-    i.llhwc_phy_prerx_flash                  0x01005310   Section        0  rwip_driver.o(i.llhwc_phy_prerx_flash)
-    i.llhwc_setmode_reg_config               0x01005410   Section        0  rwip_driver.o(i.llhwc_setmode_reg_config)
-    llhwc_setmode_reg_config                 0x01005411   Thumb Code    90  rwip_driver.o(i.llhwc_setmode_reg_config)
-    i.main                                   0x01005498   Section        0  main.o(i.main)
-    i.ns_EXTI4_12_IRQHandler                 0x0100550c   Section        0  ns_ble.o(i.ns_EXTI4_12_IRQHandler)
-    i.ns_HardFault_Handler                   0x0100557c   Section        0  ns_ble.o(i.ns_HardFault_Handler)
-    i.ns_ble_active_rssi                     0x010056a8   Section        0  ns_ble.o(i.ns_ble_active_rssi)
-    i.ns_ble_add_prf_func_register           0x010056d4   Section        0  ns_ble.o(i.ns_ble_add_prf_func_register)
-    i.ns_ble_add_svc                         0x010056f4   Section        0  ns_ble.o(i.ns_ble_add_svc)
-    i.ns_ble_adv_fsm_next                    0x0100571c   Section        0  ns_ble.o(i.ns_ble_adv_fsm_next)
-    i.ns_ble_adv_init                        0x01005784   Section        0  ns_ble.o(i.ns_ble_adv_init)
-    i.ns_ble_adv_start                       0x010057cc   Section        0  ns_ble.o(i.ns_ble_adv_start)
-    i.ns_ble_adv_stop                        0x0100581c   Section        0  ns_ble.o(i.ns_ble_adv_stop)
-    i.ns_ble_create_init                     0x01005844   Section        0  ns_ble.o(i.ns_ble_create_init)
-    i.ns_ble_create_scan                     0x01005874   Section        0  ns_ble.o(i.ns_ble_create_scan)
-    i.ns_ble_delete_init                     0x010058a4   Section        0  ns_ble.o(i.ns_ble_delete_init)
-    i.ns_ble_delete_scan                     0x010058dc   Section        0  ns_ble.o(i.ns_ble_delete_scan)
-    i.ns_ble_disconnect                      0x01005910   Section        0  ns_ble.o(i.ns_ble_disconnect)
-    i.ns_ble_gap_init                        0x0100593c   Section        0  ns_ble.o(i.ns_ble_gap_init)
-    i.ns_ble_get_connection_num              0x010059a0   Section        0  ns_ble.o(i.ns_ble_get_connection_num)
-    i.ns_ble_list_set_ral                    0x010059c4   Section        0  ns_ble.o(i.ns_ble_list_set_ral)
-    i.ns_ble_lsc_config                      0x01005a14   Section        0  ns_ble.o(i.ns_ble_lsc_config)
-    i.ns_ble_prf_task_register               0x01005a94   Section        0  ns_ble.o(i.ns_ble_prf_task_register)
-    i.ns_ble_scan_data_find                  0x01005ab8   Section        0  ns_ble.o(i.ns_ble_scan_data_find)
-    i.ns_ble_stack_init                      0x01005b00   Section        0  ns_ble.o(i.ns_ble_stack_init)
-    i.ns_ble_stack_vtor_init                 0x01005bb0   Section        0  ns_ble.o(i.ns_ble_stack_vtor_init)
-    ns_ble_stack_vtor_init                   0x01005bb1   Thumb Code   150  ns_ble.o(i.ns_ble_stack_vtor_init)
-    i.ns_ble_start_init                      0x01005c78   Section        0  ns_ble.o(i.ns_ble_start_init)
-    i.ns_ble_start_scan                      0x01005d64   Section        0  ns_ble.o(i.ns_ble_start_scan)
-    i.ns_ble_stop_init                       0x01005e0c   Section        0  ns_ble.o(i.ns_ble_stop_init)
-    i.ns_ble_stop_scan                       0x01005e40   Section        0  ns_ble.o(i.ns_ble_stop_scan)
-    i.ns_ble_update_param                    0x01005e7c   Section        0  ns_ble.o(i.ns_ble_update_param)
-    i.ns_bond_db_add_entry                   0x01005f18   Section        0  ns_sec.o(i.ns_bond_db_add_entry)
-    ns_bond_db_add_entry                     0x01005f19   Thumb Code   132  ns_sec.o(i.ns_bond_db_add_entry)
-    i.ns_bond_db_get_size                    0x01005fa4   Section        0  ns_sec.o(i.ns_bond_db_get_size)
-    ns_bond_db_get_size                      0x01005fa5   Thumb Code    36  ns_sec.o(i.ns_bond_db_get_size)
-    i.ns_bond_db_load                        0x01005fd0   Section        0  ns_sec.o(i.ns_bond_db_load)
-    ns_bond_db_load                          0x01005fd1   Thumb Code    24  ns_sec.o(i.ns_bond_db_load)
-    i.ns_bond_last_bonded_peer_id            0x01005fec   Section        0  ns_sec.o(i.ns_bond_last_bonded_peer_id)
-    i.ns_bond_last_bonded_ral_info           0x01006020   Section        0  ns_sec.o(i.ns_bond_last_bonded_ral_info)
-    i.ns_bond_resolv_addr_start              0x01006084   Section        0  ns_sec.o(i.ns_bond_resolv_addr_start)
-    i.ns_bond_search_addr_irk                0x010060e8   Section        0  ns_sec.o(i.ns_bond_search_addr_irk)
-    i.ns_iwdg_config                         0x01006150   Section        0  ns_ble.o(i.ns_iwdg_config)
-    i.ns_log_usart_deinit                    0x0100619c   Section        0  ns_log_usart.o(i.ns_log_usart_deinit)
-    i.ns_log_usart_init                      0x010061b8   Section        0  ns_log_usart.o(i.ns_log_usart_init)
-    i.ns_peripheral_config                   0x0100621c   Section        0  ns_ble.o(i.ns_peripheral_config)
-    i.ns_sec_bond_store_evt_handler          0x010062d4   Section        0  ns_sec.o(i.ns_sec_bond_store_evt_handler)
-    i.ns_sec_get_bond_status                 0x010063b4   Section        0  ns_sec.o(i.ns_sec_get_bond_status)
-    i.ns_sec_get_iocap                       0x010063c4   Section        0  ns_sec.o(i.ns_sec_get_iocap)
-    i.ns_sec_init                            0x010063d0   Section        0  ns_sec.o(i.ns_sec_init)
-    i.ns_sec_pincode_respond                 0x01006420   Section        0  ns_sec.o(i.ns_sec_pincode_respond)
-    i.ns_sleep                               0x01006460   Section        0  ns_sleep.o(i.ns_sleep)
-    i.ns_sleep_lock_acquire                  0x010064ec   Section        0  ns_sleep.o(i.ns_sleep_lock_acquire)
-    i.ns_sleep_lock_release                  0x01006504   Section        0  ns_sleep.o(i.ns_sleep_lock_release)
-    i.ns_timer_api_process_handler           0x0100651c   Section        0  ns_timer.o(i.ns_timer_api_process_handler)
-    i.ns_timer_create                        0x010065e0   Section        0  ns_timer.o(i.ns_timer_create)
-    i.patchx_enable                          0x0100661c   Section        0  ns_ble.o(i.patchx_enable)
-    patchx_enable                            0x0100661d   Thumb Code    54  ns_ble.o(i.patchx_enable)
-    i.prf_add_profile                        0x0100665c   Section        0  prf.o(i.prf_add_profile)
-    i.prf_dst_task_get                       0x010066e0   Section        0  prf.o(i.prf_dst_task_get)
-    i.prf_env_get                            0x010066f0   Section        0  prf.o(i.prf_env_get)
-    i.prf_get_id_from_task                   0x01006720   Section        0  prf.o(i.prf_get_id_from_task)
-    i.prf_get_itf_func_register              0x01006754   Section        0  prf.o(i.prf_get_itf_func_register)
-    i.prf_get_task_from_id                   0x01006778   Section        0  prf.o(i.prf_get_task_from_id)
-    i.prf_init                               0x010067ac   Section        0  prf.o(i.prf_init)
-    i.prf_itf_get                            0x0100682c   Section        0  prf.o(i.prf_itf_get)
-    prf_itf_get                              0x0100682d   Thumb Code    40  prf.o(i.prf_itf_get)
-    i.prf_pack_char_pres_fmt                 0x01006858   Section        0  prf_utils.o(i.prf_pack_char_pres_fmt)
-    i.prf_src_task_get                       0x01006876   Section        0  prf.o(i.prf_src_task_get)
-    i.radio_freq_cal_from_trim               0x01006888   Section        0  rwip_driver.o(i.radio_freq_cal_from_trim)
-    i.rwip_init                              0x010068b8   Section        0  rwip.o(i.rwip_init)
-    i.rwip_sleep                             0x010069cc   Section        0  rwip_driver.o(i.rwip_sleep)
-    i.rwip_slp_isr                           0x01006b00   Section        0  rwip_driver.o(i.rwip_slp_isr)
-    i.rwip_wakeup                            0x01006b4c   Section        0  rwip_driver.o(i.rwip_wakeup)
-    rwip_wakeup                              0x01006b4d   Thumb Code   150  rwip_driver.o(i.rwip_wakeup)
-    i.timer_canceled_handler                 0x01006bfc   Section        0  ns_timer.o(i.timer_canceled_handler)
-    timer_canceled_handler                   0x01006bfd   Thumb Code     2  ns_timer.o(i.timer_canceled_handler)
-    i.timer_modified_handler                 0x01006bfe   Section        0  ns_timer.o(i.timer_modified_handler)
-    timer_modified_handler                   0x01006bff   Thumb Code     2  ns_timer.o(i.timer_modified_handler)
-    .constdata                               0x01006c00   Section      320  system_n32wb03x.o(.constdata)
-    .constdata                               0x01006d40   Section       12  n32wb03x_rcc.o(.constdata)
-    s_AhbPresTable                           0x01006d40   Data           4  n32wb03x_rcc.o(.constdata)
-    s_ApbPresTable                           0x01006d44   Data           8  n32wb03x_rcc.o(.constdata)
-    .constdata                               0x01006d4c   Section     2020  n32wb03x_qflash.o(.constdata)
-    .constdata                               0x01007530   Section       30  rwip_driver.o(.constdata)
-    TXPWR_MAP                                0x01007530   Data          30  rwip_driver.o(.constdata)
-    .constdata                               0x01007550   Section      168  diss.o(.constdata)
-    .constdata                               0x010075f8   Section       24  diss_task.o(.constdata)
-    diss_msg_handler_tab                     0x010075f8   Data          24  diss_task.o(.constdata)
-    .constdata                               0x01007610   Section       48  bass_task.o(.constdata)
-    bass_msg_handler_tab                     0x01007610   Data          48  bass_task.o(.constdata)
-    .constdata                               0x01007640   Section       56  bass.o(.constdata)
-    .constdata                               0x01007678   Section       64  hogpd_task.o(.constdata)
-    hogpd_msg_handler_tab                    0x01007678   Data          64  hogpd_task.o(.constdata)
-    .constdata                               0x010076b8   Section      200  hogpd.o(.constdata)
-    .constdata                               0x01007780   Section       40  ns_sec.o(.constdata)
-    .constdata                               0x010077a8   Section        8  ns_sec.o(.constdata)
-    .constdata                               0x010077b0   Section      841  ns_ble.o(.constdata)
-    fun_5_Array                              0x010077b0   Data         820  ns_ble.o(.constdata)
-    __func__                                 0x01007ae4   Data          21  ns_ble.o(.constdata)
-    .constdata                               0x01007afa   Section      205  ns_ble_task.o(.constdata)
-    gapm_att_db                              0x01007afa   Data          88  ns_ble_task.o(.constdata)
-    gattm_att_db                             0x01007b52   Data          64  ns_ble_task.o(.constdata)
-    __func__                                 0x01007b92   Data          21  ns_ble_task.o(.constdata)
-    __func__                                 0x01007ba7   Data          32  ns_ble_task.o(.constdata)
-    .constdata                               0x01007bc8   Section      192  ns_ble_task.o(.constdata)
-    app_msg_handler_tab                      0x01007bc8   Data         192  ns_ble_task.o(.constdata)
-    .constdata                               0x01007c88   Section       12  ns_ble_task.o(.constdata)
-    .constdata                               0x01007c94   Section        8  app_dis.o(.constdata)
-    .constdata                               0x01007c9c   Section        8  app_dis.o(.constdata)
-    .constdata                               0x01007ca4   Section       24  app_batt.o(.constdata)
-    .constdata                               0x01007cbc   Section        8  app_batt.o(.constdata)
-    .constdata                               0x01007cc4   Section      386  app_hid.o(.constdata)
-    app_hid_mouse_report_map                 0x01007ccc   Data         378  app_hid.o(.constdata)
-    .constdata                               0x01007e48   Section       56  app_hid.o(.constdata)
-    .constdata                               0x01007e80   Section       30  app_gpio.o(.constdata)
+    i.app_sec_msg_dflt_handler               0x0100241c   Section        0  ns_sec.o(i.app_sec_msg_dflt_handler)
+    app_sec_msg_dflt_handler                 0x0100241d   Thumb Code     4  ns_sec.o(i.app_sec_msg_dflt_handler)
+    i.app_set_adv_data                       0x01002420   Section        0  ns_ble.o(i.app_set_adv_data)
+    app_set_adv_data                         0x01002421   Thumb Code   116  ns_ble.o(i.app_set_adv_data)
+    i.app_set_scan_rsp_data                  0x0100249c   Section        0  ns_ble.o(i.app_set_scan_rsp_data)
+    app_set_scan_rsp_data                    0x0100249d   Thumb Code   178  ns_ble.o(i.app_set_scan_rsp_data)
+    i.app_sleep_prepare_proc                 0x01002558   Section        0  main.o(i.app_sleep_prepare_proc)
+    i.app_sleep_resume_proc                  0x0100255a   Section        0  main.o(i.app_sleep_resume_proc)
+    i.app_start_advertising                  0x01002570   Section        0  ns_ble.o(i.app_start_advertising)
+    app_start_advertising                    0x01002571   Thumb Code    92  ns_ble.o(i.app_start_advertising)
+    i.app_stop_advertising                   0x010025d8   Section        0  ns_ble.o(i.app_stop_advertising)
+    app_stop_advertising                     0x010025d9   Thumb Code    38  ns_ble.o(i.app_stop_advertising)
+    i.app_touchscreen_multi                  0x01002608   Section        0  app_hid_touchscreen.o(i.app_touchscreen_multi)
+    i.app_user_msg_handler                   0x010026b8   Section        0  app_ble.o(i.app_user_msg_handler)
+    i.attm_att_set_permission                0x010026d4   Section        0  lib_att.o(i.attm_att_set_permission)
+    i.attm_att_set_value                     0x01002788   Section        0  lib_att.o(i.attm_att_set_value)
+    i.attm_reserve_handle_range              0x01002840   Section        0  lib_att.o(i.attm_reserve_handle_range)
+    i.bass_batt_level_ntf_cfg_ind_handler    0x01002862   Section        0  app_batt.o(i.bass_batt_level_ntf_cfg_ind_handler)
+    bass_batt_level_ntf_cfg_ind_handler      0x01002863   Thumb Code     4  app_batt.o(i.bass_batt_level_ntf_cfg_ind_handler)
+    i.bass_batt_level_upd_req_handler        0x01002868   Section        0  bass_task.o(i.bass_batt_level_upd_req_handler)
+    bass_batt_level_upd_req_handler          0x01002869   Thumb Code   100  bass_task.o(i.bass_batt_level_upd_req_handler)
+    i.bass_cleanup                           0x010028d0   Section        0  bass.o(i.bass_cleanup)
+    bass_cleanup                             0x010028d1   Thumb Code    10  bass.o(i.bass_cleanup)
+    i.bass_create                            0x010028da   Section        0  bass.o(i.bass_create)
+    bass_create                              0x010028db   Thumb Code    10  bass.o(i.bass_create)
+    i.bass_destroy                           0x010028e4   Section        0  bass.o(i.bass_destroy)
+    bass_destroy                             0x010028e5   Thumb Code    28  bass.o(i.bass_destroy)
+    i.bass_enable_req_handler                0x01002900   Section        0  bass_task.o(i.bass_enable_req_handler)
+    bass_enable_req_handler                  0x01002901   Thumb Code   122  bass_task.o(i.bass_enable_req_handler)
+    i.bass_exe_operation                     0x01002984   Section        0  bass.o(i.bass_exe_operation)
+    i.bass_get_att_handle                    0x01002a74   Section        0  bass.o(i.bass_get_att_handle)
+    i.bass_get_att_idx                       0x01002aea   Section        0  bass.o(i.bass_get_att_idx)
+    i.bass_init                              0x01002b54   Section        0  bass.o(i.bass_init)
+    bass_init                                0x01002b55   Thumb Code   338  bass.o(i.bass_init)
+    i.bass_notify_batt_lvl                   0x01002cb0   Section        0  bass.o(i.bass_notify_batt_lvl)
+    bass_notify_batt_lvl                     0x01002cb1   Thumb Code    64  bass.o(i.bass_notify_batt_lvl)
+    i.bass_prf_itf_get                       0x01002cf0   Section        0  bass.o(i.bass_prf_itf_get)
+    i.bass_task_init                         0x01002cf8   Section        0  bass_task.o(i.bass_task_init)
+    i.batt_level_upd_handler                 0x01002d18   Section        0  app_batt.o(i.batt_level_upd_handler)
+    batt_level_upd_handler                   0x01002d19   Thumb Code     4  app_batt.o(i.batt_level_upd_handler)
+    i.build_keyboard_report                  0x01002d1c   Section        0  app_hid_keyboard.o(i.build_keyboard_report)
+    i.detect_select                          0x01002d48   Section        0  main.o(i.detect_select)
+    i.diss_check_val_len                     0x01002d58   Section        0  diss.o(i.diss_check_val_len)
+    i.diss_cleanup                           0x01002d82   Section        0  diss.o(i.diss_cleanup)
+    diss_cleanup                             0x01002d83   Thumb Code     2  diss.o(i.diss_cleanup)
+    i.diss_compute_cfg_flag                  0x01002d84   Section        0  diss.o(i.diss_compute_cfg_flag)
+    i.diss_create                            0x01002daa   Section        0  diss.o(i.diss_create)
+    diss_create                              0x01002dab   Thumb Code     2  diss.o(i.diss_create)
+    i.diss_destroy                           0x01002dac   Section        0  diss.o(i.diss_destroy)
+    diss_destroy                             0x01002dad   Thumb Code    36  diss.o(i.diss_destroy)
+    i.diss_handle_to_value                   0x01002dd0   Section        0  diss.o(i.diss_handle_to_value)
+    i.diss_init                              0x01002e00   Section        0  diss.o(i.diss_init)
+    diss_init                                0x01002e01   Thumb Code   126  diss.o(i.diss_init)
+    i.diss_prf_itf_get                       0x01002e88   Section        0  diss.o(i.diss_prf_itf_get)
+    i.diss_set_value_req_handler             0x01002e90   Section        0  diss_task.o(i.diss_set_value_req_handler)
+    diss_set_value_req_handler               0x01002e91   Thumb Code   150  diss_task.o(i.diss_set_value_req_handler)
+    i.diss_task_init                         0x01002f2c   Section        0  diss_task.o(i.diss_task_init)
+    i.diss_value_cfm_handler                 0x01002f4c   Section        0  diss_task.o(i.diss_value_cfm_handler)
+    diss_value_cfm_handler                   0x01002f4d   Thumb Code   120  diss_task.o(i.diss_value_cfm_handler)
+    i.diss_value_req_ind_handler             0x01002fc8   Section        0  app_dis.o(i.diss_value_req_ind_handler)
+    diss_value_req_ind_handler               0x01002fc9   Thumb Code   112  app_dis.o(i.diss_value_req_ind_handler)
+    i.diss_value_to_handle                   0x01003080   Section        0  diss.o(i.diss_value_to_handle)
+    i.entry_idle                             0x010030b4   Section        0  ns_sleep.o(i.entry_idle)
+    i.entry_sleep                            0x010030dc   Section        0  ns_sleep.o(i.entry_sleep)
+    i.fputc                                  0x0100318c   Section        0  ns_log_usart.o(i.fputc)
+    i.gapc_bond_ind_handler                  0x010031c4   Section        0  ns_sec.o(i.gapc_bond_ind_handler)
+    gapc_bond_ind_handler                    0x010031c5   Thumb Code   200  ns_sec.o(i.gapc_bond_ind_handler)
+    i.gapc_bond_req_ind_handler              0x01003298   Section        0  ns_sec.o(i.gapc_bond_req_ind_handler)
+    gapc_bond_req_ind_handler                0x01003299   Thumb Code   454  ns_sec.o(i.gapc_bond_req_ind_handler)
+    i.gapc_cmp_evt_handler                   0x0100347c   Section        0  ns_ble_task.o(i.gapc_cmp_evt_handler)
+    gapc_cmp_evt_handler                     0x0100347d   Thumb Code    32  ns_ble_task.o(i.gapc_cmp_evt_handler)
+    i.gapc_conn_rssi_ind_handler             0x010034a0   Section        0  ns_ble_task.o(i.gapc_conn_rssi_ind_handler)
+    gapc_conn_rssi_ind_handler               0x010034a1   Thumb Code    84  ns_ble_task.o(i.gapc_conn_rssi_ind_handler)
+    i.gapc_connection_req_ind_handler        0x010034fc   Section        0  ns_ble_task.o(i.gapc_connection_req_ind_handler)
+    gapc_connection_req_ind_handler          0x010034fd   Thumb Code   316  ns_ble_task.o(i.gapc_connection_req_ind_handler)
+    i.gapc_disconnect_ind_handler            0x01003668   Section        0  ns_ble_task.o(i.gapc_disconnect_ind_handler)
+    gapc_disconnect_ind_handler              0x01003669   Thumb Code    92  ns_ble_task.o(i.gapc_disconnect_ind_handler)
+    i.gapc_encrypt_ind_handler               0x010036f8   Section        0  ns_sec.o(i.gapc_encrypt_ind_handler)
+    gapc_encrypt_ind_handler                 0x010036f9   Thumb Code    36  ns_sec.o(i.gapc_encrypt_ind_handler)
+    i.gapc_encrypt_req_ind_handler           0x01003724   Section        0  ns_sec.o(i.gapc_encrypt_req_ind_handler)
+    gapc_encrypt_req_ind_handler             0x01003725   Thumb Code   278  ns_sec.o(i.gapc_encrypt_req_ind_handler)
+    i.gapc_get_dev_info_req_ind_handler      0x01003860   Section        0  ns_ble_task.o(i.gapc_get_dev_info_req_ind_handler)
+    gapc_get_dev_info_req_ind_handler        0x01003861   Thumb Code   114  ns_ble_task.o(i.gapc_get_dev_info_req_ind_handler)
+    i.gapc_le_phy_ind_handler                0x010038dc   Section        0  ns_ble_task.o(i.gapc_le_phy_ind_handler)
+    gapc_le_phy_ind_handler                  0x010038dd   Thumb Code    24  ns_ble_task.o(i.gapc_le_phy_ind_handler)
+    i.gapc_le_pkt_size_ind_handler           0x0100390c   Section        0  ns_ble_task.o(i.gapc_le_pkt_size_ind_handler)
+    gapc_le_pkt_size_ind_handler             0x0100390d   Thumb Code    22  ns_ble_task.o(i.gapc_le_pkt_size_ind_handler)
+    i.gapc_param_update_req_ind_handler      0x01003928   Section        0  ns_ble_task.o(i.gapc_param_update_req_ind_handler)
+    gapc_param_update_req_ind_handler        0x01003929   Thumb Code    92  ns_ble_task.o(i.gapc_param_update_req_ind_handler)
+    i.gapc_param_updated_ind_handler         0x01003988   Section        0  ns_ble_task.o(i.gapc_param_updated_ind_handler)
+    gapc_param_updated_ind_handler           0x01003989   Thumb Code    32  ns_ble_task.o(i.gapc_param_updated_ind_handler)
+    i.gapc_set_dev_info_req_ind_handler      0x010039ac   Section        0  ns_ble_task.o(i.gapc_set_dev_info_req_ind_handler)
+    gapc_set_dev_info_req_ind_handler        0x010039ad   Thumb Code    54  ns_ble_task.o(i.gapc_set_dev_info_req_ind_handler)
+    i.gapm_activity_created_ind_handler      0x010039ec   Section        0  ns_ble_task.o(i.gapm_activity_created_ind_handler)
+    gapm_activity_created_ind_handler        0x010039ed   Thumb Code    48  ns_ble_task.o(i.gapm_activity_created_ind_handler)
+    i.gapm_activity_stopped_ind_handler      0x01003a20   Section        0  ns_ble_task.o(i.gapm_activity_stopped_ind_handler)
+    gapm_activity_stopped_ind_handler        0x01003a21   Thumb Code    84  ns_ble_task.o(i.gapm_activity_stopped_ind_handler)
+    i.gapm_addr_solved_ind_handler           0x01003a7c   Section        0  ns_ble_task.o(i.gapm_addr_solved_ind_handler)
+    gapm_addr_solved_ind_handler             0x01003a7d   Thumb Code    34  ns_ble_task.o(i.gapm_addr_solved_ind_handler)
+    i.gapm_cmp_evt_handler                   0x01003aa4   Section        0  ns_ble_task.o(i.gapm_cmp_evt_handler)
+    gapm_cmp_evt_handler                     0x01003aa5   Thumb Code   860  ns_ble_task.o(i.gapm_cmp_evt_handler)
+    i.gapm_ext_adv_repoer_ind_handler        0x01003e50   Section        0  ns_ble_task.o(i.gapm_ext_adv_repoer_ind_handler)
+    gapm_ext_adv_repoer_ind_handler          0x01003e51   Thumb Code   134  ns_ble_task.o(i.gapm_ext_adv_repoer_ind_handler)
+    i.gapm_gen_rand_nb_ind_handler           0x01003ee0   Section        0  ns_ble_task.o(i.gapm_gen_rand_nb_ind_handler)
+    gapm_gen_rand_nb_ind_handler             0x01003ee1   Thumb Code    20  ns_ble_task.o(i.gapm_gen_rand_nb_ind_handler)
+    i.gapm_profile_added_ind_handler         0x01003ef4   Section        0  ns_ble_task.o(i.gapm_profile_added_ind_handler)
+    gapm_profile_added_ind_handler           0x01003ef5   Thumb Code    12  ns_ble_task.o(i.gapm_profile_added_ind_handler)
+    i.gattc_att_info_req_ind_handler         0x01003f00   Section        0  bass_task.o(i.gattc_att_info_req_ind_handler)
+    gattc_att_info_req_ind_handler           0x01003f01   Thumb Code    78  bass_task.o(i.gattc_att_info_req_ind_handler)
+    i.gattc_att_info_req_ind_handler         0x01003f54   Section        0  hogpd_task.o(i.gattc_att_info_req_ind_handler)
+    gattc_att_info_req_ind_handler           0x01003f55   Thumb Code   104  hogpd_task.o(i.gattc_att_info_req_ind_handler)
+    i.gattc_cmp_evt_handler                  0x01003fc0   Section        0  bass_task.o(i.gattc_cmp_evt_handler)
+    gattc_cmp_evt_handler                    0x01003fc1   Thumb Code    16  bass_task.o(i.gattc_cmp_evt_handler)
+    i.gattc_cmp_evt_handler                  0x01003fd0   Section        0  hogpd_task.o(i.gattc_cmp_evt_handler)
+    gattc_cmp_evt_handler                    0x01003fd1   Thumb Code    68  hogpd_task.o(i.gattc_cmp_evt_handler)
+    i.gattc_cmp_evt_handler                  0x01004018   Section        0  ns_ble_task.o(i.gattc_cmp_evt_handler)
+    gattc_cmp_evt_handler                    0x01004019   Thumb Code    32  ns_ble_task.o(i.gattc_cmp_evt_handler)
+    i.gattc_mtu_changed_ind_handler          0x0100403c   Section        0  ns_ble_task.o(i.gattc_mtu_changed_ind_handler)
+    gattc_mtu_changed_ind_handler            0x0100403d   Thumb Code    70  ns_ble_task.o(i.gattc_mtu_changed_ind_handler)
+    i.gattc_read_req_ind_handler             0x01004090   Section        0  diss_task.o(i.gattc_read_req_ind_handler)
+    gattc_read_req_ind_handler               0x01004091   Thumb Code   186  diss_task.o(i.gattc_read_req_ind_handler)
+    i.gattc_read_req_ind_handler             0x01004154   Section        0  bass_task.o(i.gattc_read_req_ind_handler)
+    gattc_read_req_ind_handler               0x01004155   Thumb Code   186  bass_task.o(i.gattc_read_req_ind_handler)
+    i.gattc_read_req_ind_handler             0x01004214   Section        0  hogpd_task.o(i.gattc_read_req_ind_handler)
+    gattc_read_req_ind_handler               0x01004215   Thumb Code   346  hogpd_task.o(i.gattc_read_req_ind_handler)
+    i.gattc_write_req_ind_handler            0x01004378   Section        0  bass_task.o(i.gattc_write_req_ind_handler)
+    gattc_write_req_ind_handler              0x01004379   Thumb Code   158  bass_task.o(i.gattc_write_req_ind_handler)
+    i.gattc_write_req_ind_handler            0x01004420   Section        0  hogpd_task.o(i.gattc_write_req_ind_handler)
+    gattc_write_req_ind_handler              0x01004421   Thumb Code   394  hogpd_task.o(i.gattc_write_req_ind_handler)
+    i.hogpd_cleanup                          0x010045b4   Section        0  hogpd.o(i.hogpd_cleanup)
+    hogpd_cleanup                            0x010045b5   Thumb Code    38  hogpd.o(i.hogpd_cleanup)
+    i.hogpd_create                           0x010045da   Section        0  hogpd.o(i.hogpd_create)
+    hogpd_create                             0x010045db   Thumb Code     2  hogpd.o(i.hogpd_create)
+    i.hogpd_ctnl_pt_ind_handler              0x010045dc   Section        0  app_hid.o(i.hogpd_ctnl_pt_ind_handler)
+    hogpd_ctnl_pt_ind_handler                0x010045dd   Thumb Code    64  app_hid.o(i.hogpd_ctnl_pt_ind_handler)
+    i.hogpd_destroy                          0x01004624   Section        0  hogpd.o(i.hogpd_destroy)
+    hogpd_destroy                            0x01004625   Thumb Code    16  hogpd.o(i.hogpd_destroy)
+    i.hogpd_enable_req_handler               0x01004634   Section        0  hogpd_task.o(i.hogpd_enable_req_handler)
+    hogpd_enable_req_handler                 0x01004635   Thumb Code   112  hogpd_task.o(i.hogpd_enable_req_handler)
+    i.hogpd_enable_rsp_handler               0x010046ac   Section        0  app_hid.o(i.hogpd_enable_rsp_handler)
+    hogpd_enable_rsp_handler                 0x010046ad   Thumb Code     4  app_hid.o(i.hogpd_enable_rsp_handler)
+    i.hogpd_get_att_handle                   0x010046b0   Section        0  hogpd.o(i.hogpd_get_att_handle)
+    i.hogpd_get_att_idx                      0x01004796   Section        0  hogpd.o(i.hogpd_get_att_idx)
+    i.hogpd_init                             0x010048a8   Section        0  hogpd.o(i.hogpd_init)
+    hogpd_init                               0x010048a9   Thumb Code  1032  hogpd.o(i.hogpd_init)
+    i.hogpd_ntf_cfg_ind_handler              0x01004cb8   Section        0  app_hid.o(i.hogpd_ntf_cfg_ind_handler)
+    hogpd_ntf_cfg_ind_handler                0x01004cb9   Thumb Code    48  app_hid.o(i.hogpd_ntf_cfg_ind_handler)
+    i.hogpd_ntf_cfg_ind_send                 0x01004cf8   Section        0  hogpd.o(i.hogpd_ntf_cfg_ind_send)
+    i.hogpd_ntf_send                         0x01004da4   Section        0  hogpd.o(i.hogpd_ntf_send)
+    i.hogpd_prf_itf_get                      0x01004ea4   Section        0  hogpd.o(i.hogpd_prf_itf_get)
+    i.hogpd_proto_mode_cfm_handler           0x01004eac   Section        0  hogpd_task.o(i.hogpd_proto_mode_cfm_handler)
+    hogpd_proto_mode_cfm_handler             0x01004ead   Thumb Code   184  hogpd_task.o(i.hogpd_proto_mode_cfm_handler)
+    i.hogpd_proto_mode_req_ind_handler       0x01004f68   Section        0  app_hid.o(i.hogpd_proto_mode_req_ind_handler)
+    hogpd_proto_mode_req_ind_handler         0x01004f69   Thumb Code    92  app_hid.o(i.hogpd_proto_mode_req_ind_handler)
+    i.hogpd_report_cfm_handler               0x01004fcc   Section        0  hogpd_task.o(i.hogpd_report_cfm_handler)
+    hogpd_report_cfm_handler                 0x01004fcd   Thumb Code   252  hogpd_task.o(i.hogpd_report_cfm_handler)
+    i.hogpd_report_req_ind_handler           0x010050cc   Section        0  app_hid.o(i.hogpd_report_req_ind_handler)
+    hogpd_report_req_ind_handler             0x010050cd   Thumb Code   254  app_hid.o(i.hogpd_report_req_ind_handler)
+    i.hogpd_report_upd_handler               0x010051d4   Section        0  app_hid.o(i.hogpd_report_upd_handler)
+    hogpd_report_upd_handler                 0x010051d5   Thumb Code    36  app_hid.o(i.hogpd_report_upd_handler)
+    i.hogpd_report_upd_req_handler           0x010051fc   Section        0  hogpd_task.o(i.hogpd_report_upd_req_handler)
+    hogpd_report_upd_req_handler             0x010051fd   Thumb Code   106  hogpd_task.o(i.hogpd_report_upd_req_handler)
+    i.hogpd_task_init                        0x01005270   Section        0  hogpd_task.o(i.hogpd_task_init)
+    i.is_app_hid_ready                       0x01005290   Section        0  app_hid.o(i.is_app_hid_ready)
+    i.llhwc_modem_setmode                    0x010052a4   Section        0  rwip_driver.o(i.llhwc_modem_setmode)
+    i.llhwc_phy_prerx_flash                  0x010052d4   Section        0  rwip_driver.o(i.llhwc_phy_prerx_flash)
+    i.llhwc_setmode_reg_config               0x010053d4   Section        0  rwip_driver.o(i.llhwc_setmode_reg_config)
+    llhwc_setmode_reg_config                 0x010053d5   Thumb Code    90  rwip_driver.o(i.llhwc_setmode_reg_config)
+    i.main                                   0x0100545c   Section        0  main.o(i.main)
+    i.ns_EXTI4_12_IRQHandler                 0x010054d0   Section        0  ns_ble.o(i.ns_EXTI4_12_IRQHandler)
+    i.ns_HardFault_Handler                   0x01005540   Section        0  ns_ble.o(i.ns_HardFault_Handler)
+    i.ns_ble_active_rssi                     0x0100566c   Section        0  ns_ble.o(i.ns_ble_active_rssi)
+    i.ns_ble_add_prf_func_register           0x01005698   Section        0  ns_ble.o(i.ns_ble_add_prf_func_register)
+    i.ns_ble_add_svc                         0x010056b8   Section        0  ns_ble.o(i.ns_ble_add_svc)
+    i.ns_ble_adv_fsm_next                    0x010056e0   Section        0  ns_ble.o(i.ns_ble_adv_fsm_next)
+    i.ns_ble_adv_init                        0x01005748   Section        0  ns_ble.o(i.ns_ble_adv_init)
+    i.ns_ble_adv_start                       0x01005790   Section        0  ns_ble.o(i.ns_ble_adv_start)
+    i.ns_ble_adv_stop                        0x010057e0   Section        0  ns_ble.o(i.ns_ble_adv_stop)
+    i.ns_ble_create_init                     0x01005808   Section        0  ns_ble.o(i.ns_ble_create_init)
+    i.ns_ble_create_scan                     0x01005838   Section        0  ns_ble.o(i.ns_ble_create_scan)
+    i.ns_ble_delete_init                     0x01005868   Section        0  ns_ble.o(i.ns_ble_delete_init)
+    i.ns_ble_delete_scan                     0x010058a0   Section        0  ns_ble.o(i.ns_ble_delete_scan)
+    i.ns_ble_disconnect                      0x010058d4   Section        0  ns_ble.o(i.ns_ble_disconnect)
+    i.ns_ble_gap_init                        0x01005900   Section        0  ns_ble.o(i.ns_ble_gap_init)
+    i.ns_ble_get_connection_num              0x01005964   Section        0  ns_ble.o(i.ns_ble_get_connection_num)
+    i.ns_ble_list_set_ral                    0x01005988   Section        0  ns_ble.o(i.ns_ble_list_set_ral)
+    i.ns_ble_lsc_config                      0x010059d8   Section        0  ns_ble.o(i.ns_ble_lsc_config)
+    i.ns_ble_prf_task_register               0x01005a58   Section        0  ns_ble.o(i.ns_ble_prf_task_register)
+    i.ns_ble_scan_data_find                  0x01005a7c   Section        0  ns_ble.o(i.ns_ble_scan_data_find)
+    i.ns_ble_stack_init                      0x01005ac4   Section        0  ns_ble.o(i.ns_ble_stack_init)
+    i.ns_ble_stack_vtor_init                 0x01005b74   Section        0  ns_ble.o(i.ns_ble_stack_vtor_init)
+    ns_ble_stack_vtor_init                   0x01005b75   Thumb Code   150  ns_ble.o(i.ns_ble_stack_vtor_init)
+    i.ns_ble_start_init                      0x01005c3c   Section        0  ns_ble.o(i.ns_ble_start_init)
+    i.ns_ble_start_scan                      0x01005d28   Section        0  ns_ble.o(i.ns_ble_start_scan)
+    i.ns_ble_stop_init                       0x01005dd0   Section        0  ns_ble.o(i.ns_ble_stop_init)
+    i.ns_ble_stop_scan                       0x01005e04   Section        0  ns_ble.o(i.ns_ble_stop_scan)
+    i.ns_ble_update_param                    0x01005e40   Section        0  ns_ble.o(i.ns_ble_update_param)
+    i.ns_bond_db_add_entry                   0x01005edc   Section        0  ns_sec.o(i.ns_bond_db_add_entry)
+    ns_bond_db_add_entry                     0x01005edd   Thumb Code   132  ns_sec.o(i.ns_bond_db_add_entry)
+    i.ns_bond_db_get_size                    0x01005f68   Section        0  ns_sec.o(i.ns_bond_db_get_size)
+    ns_bond_db_get_size                      0x01005f69   Thumb Code    36  ns_sec.o(i.ns_bond_db_get_size)
+    i.ns_bond_db_load                        0x01005f94   Section        0  ns_sec.o(i.ns_bond_db_load)
+    ns_bond_db_load                          0x01005f95   Thumb Code    24  ns_sec.o(i.ns_bond_db_load)
+    i.ns_bond_last_bonded_peer_id            0x01005fb0   Section        0  ns_sec.o(i.ns_bond_last_bonded_peer_id)
+    i.ns_bond_last_bonded_ral_info           0x01005fe4   Section        0  ns_sec.o(i.ns_bond_last_bonded_ral_info)
+    i.ns_bond_resolv_addr_start              0x01006048   Section        0  ns_sec.o(i.ns_bond_resolv_addr_start)
+    i.ns_bond_search_addr_irk                0x010060ac   Section        0  ns_sec.o(i.ns_bond_search_addr_irk)
+    i.ns_iwdg_config                         0x01006114   Section        0  ns_ble.o(i.ns_iwdg_config)
+    i.ns_log_usart_deinit                    0x01006160   Section        0  ns_log_usart.o(i.ns_log_usart_deinit)
+    i.ns_log_usart_init                      0x0100617c   Section        0  ns_log_usart.o(i.ns_log_usart_init)
+    i.ns_peripheral_config                   0x010061e0   Section        0  ns_ble.o(i.ns_peripheral_config)
+    i.ns_sec_bond_store_evt_handler          0x01006298   Section        0  ns_sec.o(i.ns_sec_bond_store_evt_handler)
+    i.ns_sec_get_bond_status                 0x01006378   Section        0  ns_sec.o(i.ns_sec_get_bond_status)
+    i.ns_sec_get_iocap                       0x01006388   Section        0  ns_sec.o(i.ns_sec_get_iocap)
+    i.ns_sec_init                            0x01006394   Section        0  ns_sec.o(i.ns_sec_init)
+    i.ns_sec_pincode_respond                 0x010063e4   Section        0  ns_sec.o(i.ns_sec_pincode_respond)
+    i.ns_sleep                               0x01006424   Section        0  ns_sleep.o(i.ns_sleep)
+    i.ns_sleep_lock_acquire                  0x010064b0   Section        0  ns_sleep.o(i.ns_sleep_lock_acquire)
+    i.ns_sleep_lock_release                  0x010064c8   Section        0  ns_sleep.o(i.ns_sleep_lock_release)
+    i.ns_timer_api_process_handler           0x010064e0   Section        0  ns_timer.o(i.ns_timer_api_process_handler)
+    i.ns_timer_create                        0x010065a4   Section        0  ns_timer.o(i.ns_timer_create)
+    i.patchx_enable                          0x010065e0   Section        0  ns_ble.o(i.patchx_enable)
+    patchx_enable                            0x010065e1   Thumb Code    54  ns_ble.o(i.patchx_enable)
+    i.prf_add_profile                        0x01006620   Section        0  prf.o(i.prf_add_profile)
+    i.prf_dst_task_get                       0x010066a4   Section        0  prf.o(i.prf_dst_task_get)
+    i.prf_env_get                            0x010066b4   Section        0  prf.o(i.prf_env_get)
+    i.prf_get_id_from_task                   0x010066e4   Section        0  prf.o(i.prf_get_id_from_task)
+    i.prf_get_itf_func_register              0x01006718   Section        0  prf.o(i.prf_get_itf_func_register)
+    i.prf_get_task_from_id                   0x0100673c   Section        0  prf.o(i.prf_get_task_from_id)
+    i.prf_init                               0x01006770   Section        0  prf.o(i.prf_init)
+    i.prf_itf_get                            0x010067f0   Section        0  prf.o(i.prf_itf_get)
+    prf_itf_get                              0x010067f1   Thumb Code    40  prf.o(i.prf_itf_get)
+    i.prf_pack_char_pres_fmt                 0x0100681c   Section        0  prf_utils.o(i.prf_pack_char_pres_fmt)
+    i.prf_src_task_get                       0x0100683a   Section        0  prf.o(i.prf_src_task_get)
+    i.radio_freq_cal_from_trim               0x0100684c   Section        0  rwip_driver.o(i.radio_freq_cal_from_trim)
+    i.rwip_init                              0x0100687c   Section        0  rwip.o(i.rwip_init)
+    i.rwip_sleep                             0x01006990   Section        0  rwip_driver.o(i.rwip_sleep)
+    i.rwip_slp_isr                           0x01006ac4   Section        0  rwip_driver.o(i.rwip_slp_isr)
+    i.rwip_wakeup                            0x01006b10   Section        0  rwip_driver.o(i.rwip_wakeup)
+    rwip_wakeup                              0x01006b11   Thumb Code   150  rwip_driver.o(i.rwip_wakeup)
+    i.timer_canceled_handler                 0x01006bc0   Section        0  ns_timer.o(i.timer_canceled_handler)
+    timer_canceled_handler                   0x01006bc1   Thumb Code     2  ns_timer.o(i.timer_canceled_handler)
+    i.timer_modified_handler                 0x01006bc2   Section        0  ns_timer.o(i.timer_modified_handler)
+    timer_modified_handler                   0x01006bc3   Thumb Code     2  ns_timer.o(i.timer_modified_handler)
+    .constdata                               0x01006bc4   Section      320  system_n32wb03x.o(.constdata)
+    .constdata                               0x01006d04   Section       12  n32wb03x_rcc.o(.constdata)
+    s_AhbPresTable                           0x01006d04   Data           4  n32wb03x_rcc.o(.constdata)
+    s_ApbPresTable                           0x01006d08   Data           8  n32wb03x_rcc.o(.constdata)
+    .constdata                               0x01006d10   Section     2020  n32wb03x_qflash.o(.constdata)
+    .constdata                               0x010074f4   Section       30  rwip_driver.o(.constdata)
+    TXPWR_MAP                                0x010074f4   Data          30  rwip_driver.o(.constdata)
+    .constdata                               0x01007514   Section      168  diss.o(.constdata)
+    .constdata                               0x010075bc   Section       24  diss_task.o(.constdata)
+    diss_msg_handler_tab                     0x010075bc   Data          24  diss_task.o(.constdata)
+    .constdata                               0x010075d4   Section       48  bass_task.o(.constdata)
+    bass_msg_handler_tab                     0x010075d4   Data          48  bass_task.o(.constdata)
+    .constdata                               0x01007604   Section       56  bass.o(.constdata)
+    .constdata                               0x0100763c   Section       64  hogpd_task.o(.constdata)
+    hogpd_msg_handler_tab                    0x0100763c   Data          64  hogpd_task.o(.constdata)
+    .constdata                               0x0100767c   Section      200  hogpd.o(.constdata)
+    .constdata                               0x01007744   Section       40  ns_sec.o(.constdata)
+    .constdata                               0x0100776c   Section        8  ns_sec.o(.constdata)
+    .constdata                               0x01007774   Section      841  ns_ble.o(.constdata)
+    fun_5_Array                              0x01007774   Data         820  ns_ble.o(.constdata)
+    __func__                                 0x01007aa8   Data          21  ns_ble.o(.constdata)
+    .constdata                               0x01007abe   Section      205  ns_ble_task.o(.constdata)
+    gapm_att_db                              0x01007abe   Data          88  ns_ble_task.o(.constdata)
+    gattm_att_db                             0x01007b16   Data          64  ns_ble_task.o(.constdata)
+    __func__                                 0x01007b56   Data          21  ns_ble_task.o(.constdata)
+    __func__                                 0x01007b6b   Data          32  ns_ble_task.o(.constdata)
+    .constdata                               0x01007b8c   Section      192  ns_ble_task.o(.constdata)
+    app_msg_handler_tab                      0x01007b8c   Data         192  ns_ble_task.o(.constdata)
+    .constdata                               0x01007c4c   Section       12  ns_ble_task.o(.constdata)
+    .constdata                               0x01007c58   Section        8  app_dis.o(.constdata)
+    .constdata                               0x01007c60   Section        8  app_dis.o(.constdata)
+    .constdata                               0x01007c68   Section       24  app_batt.o(.constdata)
+    .constdata                               0x01007c80   Section        8  app_batt.o(.constdata)
+    .constdata                               0x01007c88   Section      386  app_hid.o(.constdata)
+    app_hid_mouse_report_map                 0x01007c90   Data         378  app_hid.o(.constdata)
+    .constdata                               0x01007e0c   Section       56  app_hid.o(.constdata)
+    .constdata                               0x01007e44   Section       30  app_gpio.o(.constdata)
     .data                                    0x20004000   Section       12  n32wb03x_qflash.o(.data)
     .data                                    0x2000400c   Section       20  rwip_driver.o(.data)
     modem_setmode                            0x2000400d   Data           2  rwip_driver.o(.data)
@@ -3112,119 +3112,119 @@ Image Symbol Table
     app_hid_send_multitouch                  0x01001dcd   Thumb Code   296  app_hid_touchscreen.o(i.app_hid_send_multitouch)
     app_key_configuration                    0x01001fdd   Thumb Code   216  app_gpio.o(i.app_key_configuration)
     app_key_press_timeout_handler            0x010020b9   Thumb Code   294  app_gpio.o(i.app_key_press_timeout_handler)
-    app_multi_touchscreen_swipe              0x01002311   Thumb Code   304  app_hid_touchscreen.o(i.app_multi_touchscreen_swipe)
-    app_sleep_prepare_proc                   0x01002595   Thumb Code     2  main.o(i.app_sleep_prepare_proc)
-    app_sleep_resume_proc                    0x01002597   Thumb Code    20  main.o(i.app_sleep_resume_proc)
-    app_touchscreen_multi                    0x01002645   Thumb Code   114  app_hid_touchscreen.o(i.app_touchscreen_multi)
-    app_user_msg_handler                     0x010026f5   Thumb Code    24  app_ble.o(i.app_user_msg_handler)
-    attm_att_set_permission                  0x01002711   Thumb Code   172  lib_att.o(i.attm_att_set_permission)
-    attm_att_set_value                       0x010027c5   Thumb Code   176  lib_att.o(i.attm_att_set_value)
-    attm_reserve_handle_range                0x0100287d   Thumb Code    34  lib_att.o(i.attm_reserve_handle_range)
-    bass_exe_operation                       0x010029c1   Thumb Code   236  bass.o(i.bass_exe_operation)
-    bass_get_att_handle                      0x01002ab1   Thumb Code   118  bass.o(i.bass_get_att_handle)
-    bass_get_att_idx                         0x01002b27   Thumb Code   106  bass.o(i.bass_get_att_idx)
-    bass_prf_itf_get                         0x01002d2d   Thumb Code     4  bass.o(i.bass_prf_itf_get)
-    bass_task_init                           0x01002d35   Thumb Code    28  bass_task.o(i.bass_task_init)
-    build_keyboard_report                    0x01002d59   Thumb Code    44  app_hid_keyboard.o(i.build_keyboard_report)
-    detect_select                            0x01002d85   Thumb Code    12  main.o(i.detect_select)
-    diss_check_val_len                       0x01002d95   Thumb Code    42  diss.o(i.diss_check_val_len)
-    diss_compute_cfg_flag                    0x01002dc1   Thumb Code    38  diss.o(i.diss_compute_cfg_flag)
-    diss_handle_to_value                     0x01002e0d   Thumb Code    48  diss.o(i.diss_handle_to_value)
-    diss_prf_itf_get                         0x01002ec5   Thumb Code     4  diss.o(i.diss_prf_itf_get)
-    diss_task_init                           0x01002f69   Thumb Code    28  diss_task.o(i.diss_task_init)
-    diss_value_to_handle                     0x010030bd   Thumb Code    52  diss.o(i.diss_value_to_handle)
-    entry_idle                               0x010030f1   Thumb Code    30  ns_sleep.o(i.entry_idle)
-    entry_sleep                              0x01003119   Thumb Code   150  ns_sleep.o(i.entry_sleep)
-    fputc                                    0x010031c9   Thumb Code    46  ns_log_usart.o(i.fputc)
-    hogpd_get_att_handle                     0x010046ed   Thumb Code   230  hogpd.o(i.hogpd_get_att_handle)
-    hogpd_get_att_idx                        0x010047d3   Thumb Code   272  hogpd.o(i.hogpd_get_att_idx)
-    hogpd_ntf_cfg_ind_send                   0x01004d35   Thumb Code   166  hogpd.o(i.hogpd_ntf_cfg_ind_send)
-    hogpd_ntf_send                           0x01004de1   Thumb Code   256  hogpd.o(i.hogpd_ntf_send)
-    hogpd_prf_itf_get                        0x01004ee1   Thumb Code     4  hogpd.o(i.hogpd_prf_itf_get)
-    hogpd_task_init                          0x010052ad   Thumb Code    28  hogpd_task.o(i.hogpd_task_init)
-    is_app_hid_ready                         0x010052cd   Thumb Code    16  app_hid.o(i.is_app_hid_ready)
-    llhwc_modem_setmode                      0x010052e1   Thumb Code    44  rwip_driver.o(i.llhwc_modem_setmode)
-    llhwc_phy_prerx_flash                    0x01005311   Thumb Code   158  rwip_driver.o(i.llhwc_phy_prerx_flash)
-    main                                     0x01005499   Thumb Code    72  main.o(i.main)
-    ns_EXTI4_12_IRQHandler                   0x0100550d   Thumb Code    74  ns_ble.o(i.ns_EXTI4_12_IRQHandler)
-    ns_HardFault_Handler                     0x0100557d   Thumb Code    84  ns_ble.o(i.ns_HardFault_Handler)
-    ns_ble_active_rssi                       0x010056a9   Thumb Code    34  ns_ble.o(i.ns_ble_active_rssi)
-    ns_ble_add_prf_func_register             0x010056d5   Thumb Code    28  ns_ble.o(i.ns_ble_add_prf_func_register)
-    ns_ble_add_svc                           0x010056f5   Thumb Code    36  ns_ble.o(i.ns_ble_add_svc)
-    ns_ble_adv_fsm_next                      0x0100571d   Thumb Code    94  ns_ble.o(i.ns_ble_adv_fsm_next)
-    ns_ble_adv_init                          0x01005785   Thumb Code    68  ns_ble.o(i.ns_ble_adv_init)
-    ns_ble_adv_start                         0x010057cd   Thumb Code    72  ns_ble.o(i.ns_ble_adv_start)
-    ns_ble_adv_stop                          0x0100581d   Thumb Code    34  ns_ble.o(i.ns_ble_adv_stop)
-    ns_ble_create_init                       0x01005845   Thumb Code    42  ns_ble.o(i.ns_ble_create_init)
-    ns_ble_create_scan                       0x01005875   Thumb Code    42  ns_ble.o(i.ns_ble_create_scan)
-    ns_ble_delete_init                       0x010058a5   Thumb Code    48  ns_ble.o(i.ns_ble_delete_init)
-    ns_ble_delete_scan                       0x010058dd   Thumb Code    44  ns_ble.o(i.ns_ble_delete_scan)
-    ns_ble_disconnect                        0x01005911   Thumb Code    34  ns_ble.o(i.ns_ble_disconnect)
-    ns_ble_gap_init                          0x0100593d   Thumb Code    70  ns_ble.o(i.ns_ble_gap_init)
-    ns_ble_get_connection_num                0x010059a1   Thumb Code    32  ns_ble.o(i.ns_ble_get_connection_num)
-    ns_ble_list_set_ral                      0x010059c5   Thumb Code    74  ns_ble.o(i.ns_ble_list_set_ral)
-    ns_ble_lsc_config                        0x01005a15   Thumb Code   108  ns_ble.o(i.ns_ble_lsc_config)
-    ns_ble_prf_task_register                 0x01005a95   Thumb Code    32  ns_ble.o(i.ns_ble_prf_task_register)
-    ns_ble_scan_data_find                    0x01005ab9   Thumb Code    70  ns_ble.o(i.ns_ble_scan_data_find)
-    ns_ble_stack_init                        0x01005b01   Thumb Code   158  ns_ble.o(i.ns_ble_stack_init)
-    ns_ble_start_init                        0x01005c79   Thumb Code   220  ns_ble.o(i.ns_ble_start_init)
-    ns_ble_start_scan                        0x01005d65   Thumb Code   154  ns_ble.o(i.ns_ble_start_scan)
-    ns_ble_stop_init                         0x01005e0d   Thumb Code    44  ns_ble.o(i.ns_ble_stop_init)
-    ns_ble_stop_scan                         0x01005e41   Thumb Code    50  ns_ble.o(i.ns_ble_stop_scan)
-    ns_ble_update_param                      0x01005e7d   Thumb Code   118  ns_ble.o(i.ns_ble_update_param)
-    ns_bond_last_bonded_peer_id              0x01005fed   Thumb Code    50  ns_sec.o(i.ns_bond_last_bonded_peer_id)
-    ns_bond_last_bonded_ral_info             0x01006021   Thumb Code    92  ns_sec.o(i.ns_bond_last_bonded_ral_info)
-    ns_bond_resolv_addr_start                0x01006085   Thumb Code    94  ns_sec.o(i.ns_bond_resolv_addr_start)
-    ns_bond_search_addr_irk                  0x010060e9   Thumb Code    98  ns_sec.o(i.ns_bond_search_addr_irk)
-    ns_iwdg_config                           0x01006151   Thumb Code    52  ns_ble.o(i.ns_iwdg_config)
-    ns_log_usart_deinit                      0x0100619d   Thumb Code    20  ns_log_usart.o(i.ns_log_usart_deinit)
-    ns_log_usart_init                        0x010061b9   Thumb Code    90  ns_log_usart.o(i.ns_log_usart_init)
-    ns_peripheral_config                     0x0100621d   Thumb Code   128  ns_ble.o(i.ns_peripheral_config)
-    ns_sec_bond_store_evt_handler            0x010062d5   Thumb Code   180  ns_sec.o(i.ns_sec_bond_store_evt_handler)
-    ns_sec_get_bond_status                   0x010063b5   Thumb Code    12  ns_sec.o(i.ns_sec_get_bond_status)
-    ns_sec_get_iocap                         0x010063c5   Thumb Code     6  ns_sec.o(i.ns_sec_get_iocap)
-    ns_sec_init                              0x010063d1   Thumb Code    74  ns_sec.o(i.ns_sec_init)
-    ns_sec_pincode_respond                   0x01006421   Thumb Code    58  ns_sec.o(i.ns_sec_pincode_respond)
-    ns_sleep                                 0x01006461   Thumb Code   132  ns_sleep.o(i.ns_sleep)
-    ns_sleep_lock_acquire                    0x010064ed   Thumb Code    20  ns_sleep.o(i.ns_sleep_lock_acquire)
-    ns_sleep_lock_release                    0x01006505   Thumb Code    20  ns_sleep.o(i.ns_sleep_lock_release)
-    ns_timer_api_process_handler             0x0100651d   Thumb Code   176  ns_timer.o(i.ns_timer_api_process_handler)
-    ns_timer_create                          0x010065e1   Thumb Code    50  ns_timer.o(i.ns_timer_create)
-    prf_add_profile                          0x0100665d   Thumb Code   126  prf.o(i.prf_add_profile)
-    prf_dst_task_get                         0x010066e1   Thumb Code    16  prf.o(i.prf_dst_task_get)
-    prf_env_get                              0x010066f1   Thumb Code    42  prf.o(i.prf_env_get)
-    prf_get_id_from_task                     0x01006721   Thumb Code    48  prf.o(i.prf_get_id_from_task)
-    prf_get_itf_func_register                0x01006755   Thumb Code    32  prf.o(i.prf_get_itf_func_register)
-    prf_get_task_from_id                     0x01006779   Thumb Code    48  prf.o(i.prf_get_task_from_id)
-    prf_init                                 0x010067ad   Thumb Code   124  prf.o(i.prf_init)
-    prf_pack_char_pres_fmt                   0x01006859   Thumb Code    30  prf_utils.o(i.prf_pack_char_pres_fmt)
-    prf_src_task_get                         0x01006877   Thumb Code    16  prf.o(i.prf_src_task_get)
-    radio_freq_cal_from_trim                 0x01006889   Thumb Code    30  rwip_driver.o(i.radio_freq_cal_from_trim)
-    rwip_init                                0x010068b9   Thumb Code   200  rwip.o(i.rwip_init)
-    rwip_sleep                               0x010069cd   Thumb Code   262  rwip_driver.o(i.rwip_sleep)
-    rwip_slp_isr                             0x01006b01   Thumb Code    56  rwip_driver.o(i.rwip_slp_isr)
-    TRIM_READ_CMD_CODE                       0x01006c00   Data         320  system_n32wb03x.o(.constdata)
-    const_qflash_cmd                         0x01006d4c   Data         804  n32wb03x_qflash.o(.constdata)
-    TRIM_WRITE_CMD_CODE                      0x01007070   Data         512  n32wb03x_qflash.o(.constdata)
-    TRIM_ERASE_CMD_CODE                      0x01007270   Data         384  n32wb03x_qflash.o(.constdata)
-    OTP_LOCK                                 0x010073f0   Data         320  n32wb03x_qflash.o(.constdata)
-    diss_att_db                              0x01007550   Data         152  diss.o(.constdata)
-    diss_itf                                 0x010075e8   Data          16  diss.o(.constdata)
-    bas_att_db                               0x01007640   Data          40  bass.o(.constdata)
-    bass_itf                                 0x01007668   Data          16  bass.o(.constdata)
-    hids_att_db                              0x010076b8   Data         184  hogpd.o(.constdata)
-    hogpd_itf                                0x01007770   Data          16  hogpd.o(.constdata)
-    app_sec_msg_handler_list                 0x01007780   Data          40  ns_sec.o(.constdata)
-    app_sec_handlers                         0x010077a8   Data           8  ns_sec.o(.constdata)
-    TASK_DESC_APP_M                          0x01007c88   Data          12  ns_ble_task.o(.constdata)
-    app_dis_msg_handler_list                 0x01007c94   Data           8  app_dis.o(.constdata)
-    app_dis_handlers                         0x01007c9c   Data           8  app_dis.o(.constdata)
-    app_batt_msg_handler_list                0x01007ca4   Data          24  app_batt.o(.constdata)
-    app_batt_handlers                        0x01007cbc   Data           8  app_batt.o(.constdata)
-    app_hid_handlers                         0x01007cc4   Data           8  app_hid.o(.constdata)
-    app_hid_msg_handler_list                 0x01007e48   Data          56  app_hid.o(.constdata)
-    Region$$Table$$Base                      0x01007ea0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x01007ec0   Number         0  anon$$obj.o(Region$$Table)
+    app_multi_touchscreen_swipe              0x01002311   Thumb Code   244  app_hid_touchscreen.o(i.app_multi_touchscreen_swipe)
+    app_sleep_prepare_proc                   0x01002559   Thumb Code     2  main.o(i.app_sleep_prepare_proc)
+    app_sleep_resume_proc                    0x0100255b   Thumb Code    20  main.o(i.app_sleep_resume_proc)
+    app_touchscreen_multi                    0x01002609   Thumb Code   114  app_hid_touchscreen.o(i.app_touchscreen_multi)
+    app_user_msg_handler                     0x010026b9   Thumb Code    24  app_ble.o(i.app_user_msg_handler)
+    attm_att_set_permission                  0x010026d5   Thumb Code   172  lib_att.o(i.attm_att_set_permission)
+    attm_att_set_value                       0x01002789   Thumb Code   176  lib_att.o(i.attm_att_set_value)
+    attm_reserve_handle_range                0x01002841   Thumb Code    34  lib_att.o(i.attm_reserve_handle_range)
+    bass_exe_operation                       0x01002985   Thumb Code   236  bass.o(i.bass_exe_operation)
+    bass_get_att_handle                      0x01002a75   Thumb Code   118  bass.o(i.bass_get_att_handle)
+    bass_get_att_idx                         0x01002aeb   Thumb Code   106  bass.o(i.bass_get_att_idx)
+    bass_prf_itf_get                         0x01002cf1   Thumb Code     4  bass.o(i.bass_prf_itf_get)
+    bass_task_init                           0x01002cf9   Thumb Code    28  bass_task.o(i.bass_task_init)
+    build_keyboard_report                    0x01002d1d   Thumb Code    44  app_hid_keyboard.o(i.build_keyboard_report)
+    detect_select                            0x01002d49   Thumb Code    12  main.o(i.detect_select)
+    diss_check_val_len                       0x01002d59   Thumb Code    42  diss.o(i.diss_check_val_len)
+    diss_compute_cfg_flag                    0x01002d85   Thumb Code    38  diss.o(i.diss_compute_cfg_flag)
+    diss_handle_to_value                     0x01002dd1   Thumb Code    48  diss.o(i.diss_handle_to_value)
+    diss_prf_itf_get                         0x01002e89   Thumb Code     4  diss.o(i.diss_prf_itf_get)
+    diss_task_init                           0x01002f2d   Thumb Code    28  diss_task.o(i.diss_task_init)
+    diss_value_to_handle                     0x01003081   Thumb Code    52  diss.o(i.diss_value_to_handle)
+    entry_idle                               0x010030b5   Thumb Code    30  ns_sleep.o(i.entry_idle)
+    entry_sleep                              0x010030dd   Thumb Code   150  ns_sleep.o(i.entry_sleep)
+    fputc                                    0x0100318d   Thumb Code    46  ns_log_usart.o(i.fputc)
+    hogpd_get_att_handle                     0x010046b1   Thumb Code   230  hogpd.o(i.hogpd_get_att_handle)
+    hogpd_get_att_idx                        0x01004797   Thumb Code   272  hogpd.o(i.hogpd_get_att_idx)
+    hogpd_ntf_cfg_ind_send                   0x01004cf9   Thumb Code   166  hogpd.o(i.hogpd_ntf_cfg_ind_send)
+    hogpd_ntf_send                           0x01004da5   Thumb Code   256  hogpd.o(i.hogpd_ntf_send)
+    hogpd_prf_itf_get                        0x01004ea5   Thumb Code     4  hogpd.o(i.hogpd_prf_itf_get)
+    hogpd_task_init                          0x01005271   Thumb Code    28  hogpd_task.o(i.hogpd_task_init)
+    is_app_hid_ready                         0x01005291   Thumb Code    16  app_hid.o(i.is_app_hid_ready)
+    llhwc_modem_setmode                      0x010052a5   Thumb Code    44  rwip_driver.o(i.llhwc_modem_setmode)
+    llhwc_phy_prerx_flash                    0x010052d5   Thumb Code   158  rwip_driver.o(i.llhwc_phy_prerx_flash)
+    main                                     0x0100545d   Thumb Code    72  main.o(i.main)
+    ns_EXTI4_12_IRQHandler                   0x010054d1   Thumb Code    74  ns_ble.o(i.ns_EXTI4_12_IRQHandler)
+    ns_HardFault_Handler                     0x01005541   Thumb Code    84  ns_ble.o(i.ns_HardFault_Handler)
+    ns_ble_active_rssi                       0x0100566d   Thumb Code    34  ns_ble.o(i.ns_ble_active_rssi)
+    ns_ble_add_prf_func_register             0x01005699   Thumb Code    28  ns_ble.o(i.ns_ble_add_prf_func_register)
+    ns_ble_add_svc                           0x010056b9   Thumb Code    36  ns_ble.o(i.ns_ble_add_svc)
+    ns_ble_adv_fsm_next                      0x010056e1   Thumb Code    94  ns_ble.o(i.ns_ble_adv_fsm_next)
+    ns_ble_adv_init                          0x01005749   Thumb Code    68  ns_ble.o(i.ns_ble_adv_init)
+    ns_ble_adv_start                         0x01005791   Thumb Code    72  ns_ble.o(i.ns_ble_adv_start)
+    ns_ble_adv_stop                          0x010057e1   Thumb Code    34  ns_ble.o(i.ns_ble_adv_stop)
+    ns_ble_create_init                       0x01005809   Thumb Code    42  ns_ble.o(i.ns_ble_create_init)
+    ns_ble_create_scan                       0x01005839   Thumb Code    42  ns_ble.o(i.ns_ble_create_scan)
+    ns_ble_delete_init                       0x01005869   Thumb Code    48  ns_ble.o(i.ns_ble_delete_init)
+    ns_ble_delete_scan                       0x010058a1   Thumb Code    44  ns_ble.o(i.ns_ble_delete_scan)
+    ns_ble_disconnect                        0x010058d5   Thumb Code    34  ns_ble.o(i.ns_ble_disconnect)
+    ns_ble_gap_init                          0x01005901   Thumb Code    70  ns_ble.o(i.ns_ble_gap_init)
+    ns_ble_get_connection_num                0x01005965   Thumb Code    32  ns_ble.o(i.ns_ble_get_connection_num)
+    ns_ble_list_set_ral                      0x01005989   Thumb Code    74  ns_ble.o(i.ns_ble_list_set_ral)
+    ns_ble_lsc_config                        0x010059d9   Thumb Code   108  ns_ble.o(i.ns_ble_lsc_config)
+    ns_ble_prf_task_register                 0x01005a59   Thumb Code    32  ns_ble.o(i.ns_ble_prf_task_register)
+    ns_ble_scan_data_find                    0x01005a7d   Thumb Code    70  ns_ble.o(i.ns_ble_scan_data_find)
+    ns_ble_stack_init                        0x01005ac5   Thumb Code   158  ns_ble.o(i.ns_ble_stack_init)
+    ns_ble_start_init                        0x01005c3d   Thumb Code   220  ns_ble.o(i.ns_ble_start_init)
+    ns_ble_start_scan                        0x01005d29   Thumb Code   154  ns_ble.o(i.ns_ble_start_scan)
+    ns_ble_stop_init                         0x01005dd1   Thumb Code    44  ns_ble.o(i.ns_ble_stop_init)
+    ns_ble_stop_scan                         0x01005e05   Thumb Code    50  ns_ble.o(i.ns_ble_stop_scan)
+    ns_ble_update_param                      0x01005e41   Thumb Code   118  ns_ble.o(i.ns_ble_update_param)
+    ns_bond_last_bonded_peer_id              0x01005fb1   Thumb Code    50  ns_sec.o(i.ns_bond_last_bonded_peer_id)
+    ns_bond_last_bonded_ral_info             0x01005fe5   Thumb Code    92  ns_sec.o(i.ns_bond_last_bonded_ral_info)
+    ns_bond_resolv_addr_start                0x01006049   Thumb Code    94  ns_sec.o(i.ns_bond_resolv_addr_start)
+    ns_bond_search_addr_irk                  0x010060ad   Thumb Code    98  ns_sec.o(i.ns_bond_search_addr_irk)
+    ns_iwdg_config                           0x01006115   Thumb Code    52  ns_ble.o(i.ns_iwdg_config)
+    ns_log_usart_deinit                      0x01006161   Thumb Code    20  ns_log_usart.o(i.ns_log_usart_deinit)
+    ns_log_usart_init                        0x0100617d   Thumb Code    90  ns_log_usart.o(i.ns_log_usart_init)
+    ns_peripheral_config                     0x010061e1   Thumb Code   128  ns_ble.o(i.ns_peripheral_config)
+    ns_sec_bond_store_evt_handler            0x01006299   Thumb Code   180  ns_sec.o(i.ns_sec_bond_store_evt_handler)
+    ns_sec_get_bond_status                   0x01006379   Thumb Code    12  ns_sec.o(i.ns_sec_get_bond_status)
+    ns_sec_get_iocap                         0x01006389   Thumb Code     6  ns_sec.o(i.ns_sec_get_iocap)
+    ns_sec_init                              0x01006395   Thumb Code    74  ns_sec.o(i.ns_sec_init)
+    ns_sec_pincode_respond                   0x010063e5   Thumb Code    58  ns_sec.o(i.ns_sec_pincode_respond)
+    ns_sleep                                 0x01006425   Thumb Code   132  ns_sleep.o(i.ns_sleep)
+    ns_sleep_lock_acquire                    0x010064b1   Thumb Code    20  ns_sleep.o(i.ns_sleep_lock_acquire)
+    ns_sleep_lock_release                    0x010064c9   Thumb Code    20  ns_sleep.o(i.ns_sleep_lock_release)
+    ns_timer_api_process_handler             0x010064e1   Thumb Code   176  ns_timer.o(i.ns_timer_api_process_handler)
+    ns_timer_create                          0x010065a5   Thumb Code    50  ns_timer.o(i.ns_timer_create)
+    prf_add_profile                          0x01006621   Thumb Code   126  prf.o(i.prf_add_profile)
+    prf_dst_task_get                         0x010066a5   Thumb Code    16  prf.o(i.prf_dst_task_get)
+    prf_env_get                              0x010066b5   Thumb Code    42  prf.o(i.prf_env_get)
+    prf_get_id_from_task                     0x010066e5   Thumb Code    48  prf.o(i.prf_get_id_from_task)
+    prf_get_itf_func_register                0x01006719   Thumb Code    32  prf.o(i.prf_get_itf_func_register)
+    prf_get_task_from_id                     0x0100673d   Thumb Code    48  prf.o(i.prf_get_task_from_id)
+    prf_init                                 0x01006771   Thumb Code   124  prf.o(i.prf_init)
+    prf_pack_char_pres_fmt                   0x0100681d   Thumb Code    30  prf_utils.o(i.prf_pack_char_pres_fmt)
+    prf_src_task_get                         0x0100683b   Thumb Code    16  prf.o(i.prf_src_task_get)
+    radio_freq_cal_from_trim                 0x0100684d   Thumb Code    30  rwip_driver.o(i.radio_freq_cal_from_trim)
+    rwip_init                                0x0100687d   Thumb Code   200  rwip.o(i.rwip_init)
+    rwip_sleep                               0x01006991   Thumb Code   262  rwip_driver.o(i.rwip_sleep)
+    rwip_slp_isr                             0x01006ac5   Thumb Code    56  rwip_driver.o(i.rwip_slp_isr)
+    TRIM_READ_CMD_CODE                       0x01006bc4   Data         320  system_n32wb03x.o(.constdata)
+    const_qflash_cmd                         0x01006d10   Data         804  n32wb03x_qflash.o(.constdata)
+    TRIM_WRITE_CMD_CODE                      0x01007034   Data         512  n32wb03x_qflash.o(.constdata)
+    TRIM_ERASE_CMD_CODE                      0x01007234   Data         384  n32wb03x_qflash.o(.constdata)
+    OTP_LOCK                                 0x010073b4   Data         320  n32wb03x_qflash.o(.constdata)
+    diss_att_db                              0x01007514   Data         152  diss.o(.constdata)
+    diss_itf                                 0x010075ac   Data          16  diss.o(.constdata)
+    bas_att_db                               0x01007604   Data          40  bass.o(.constdata)
+    bass_itf                                 0x0100762c   Data          16  bass.o(.constdata)
+    hids_att_db                              0x0100767c   Data         184  hogpd.o(.constdata)
+    hogpd_itf                                0x01007734   Data          16  hogpd.o(.constdata)
+    app_sec_msg_handler_list                 0x01007744   Data          40  ns_sec.o(.constdata)
+    app_sec_handlers                         0x0100776c   Data           8  ns_sec.o(.constdata)
+    TASK_DESC_APP_M                          0x01007c4c   Data          12  ns_ble_task.o(.constdata)
+    app_dis_msg_handler_list                 0x01007c58   Data           8  app_dis.o(.constdata)
+    app_dis_handlers                         0x01007c60   Data           8  app_dis.o(.constdata)
+    app_batt_msg_handler_list                0x01007c68   Data          24  app_batt.o(.constdata)
+    app_batt_handlers                        0x01007c80   Data           8  app_batt.o(.constdata)
+    app_hid_handlers                         0x01007c88   Data           8  app_hid.o(.constdata)
+    app_hid_msg_handler_list                 0x01007e0c   Data          56  app_hid.o(.constdata)
+    Region$$Table$$Base                      0x01007e64   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x01007e84   Number         0  anon$$obj.o(Region$$Table)
     rwip_rst_state                           0x20000000   Data           0  symbol_g15.obj ABSOLUTE
     ecc_env                                  0x20000004   Data           0  symbol_g15.obj ABSOLUTE
     aa_gen                                   0x20000010   Data           0  symbol_g15.obj ABSOLUTE
@@ -3378,9 +3378,9 @@ Memory Map of the image
 
   Image Entry point : 0x010000c1
 
-  Load Region LR_IROM1 (Base: 0x01000000, Size: 0x00009a4c, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x00009570])
+  Load Region LR_IROM1 (Base: 0x01000000, Size: 0x00009a10, Max: 0x00040000, ABSOLUTE, COMPRESSED[0x00009534])
 
-    Execution Region ER_IROM1 (Exec base: 0x01000000, Load base: 0x01000000, Size: 0x00007ec0, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x01000000, Load base: 0x01000000, Size: 0x00007e84, Max: 0x00040000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3507,212 +3507,212 @@ Memory Map of the image
     0x01001fdc   0x01001fdc   0x000000dc   Code   RO         4769    i.app_key_configuration  app_gpio.o
     0x010020b8   0x010020b8   0x000001ac   Code   RO         4770    i.app_key_press_timeout_handler  app_gpio.o
     0x01002264   0x01002264   0x000000ac   Code   RO         4155    i.app_lsi_calib_evt_handler  ns_ble_task.o
-    0x01002310   0x01002310   0x00000148   Code   RO         4831    i.app_multi_touchscreen_swipe  app_hid_touchscreen.o
-    0x01002458   0x01002458   0x00000004   Code   RO         3495    i.app_sec_msg_dflt_handler  ns_sec.o
-    0x0100245c   0x0100245c   0x0000007c   Code   RO         3725    i.app_set_adv_data  ns_ble.o
-    0x010024d8   0x010024d8   0x000000bc   Code   RO         3726    i.app_set_scan_rsp_data  ns_ble.o
-    0x01002594   0x01002594   0x00000002   Code   RO         4695    i.app_sleep_prepare_proc  main.o
-    0x01002596   0x01002596   0x00000014   Code   RO         4696    i.app_sleep_resume_proc  main.o
-    0x010025aa   0x010025aa   0x00000002   PAD
-    0x010025ac   0x010025ac   0x00000068   Code   RO         3727    i.app_start_advertising  ns_ble.o
-    0x01002614   0x01002614   0x00000030   Code   RO         3728    i.app_stop_advertising  ns_ble.o
-    0x01002644   0x01002644   0x000000b0   Code   RO         4832    i.app_touchscreen_multi  app_hid_touchscreen.o
-    0x010026f4   0x010026f4   0x0000001c   Code   RO         4371    i.app_user_msg_handler  app_ble.o
-    0x01002710   0x01002710   0x000000b4   Code   RO         2741    i.attm_att_set_permission  lib_att.o
-    0x010027c4   0x010027c4   0x000000b8   Code   RO         2742    i.attm_att_set_value  lib_att.o
-    0x0100287c   0x0100287c   0x00000022   Code   RO         2743    i.attm_reserve_handle_range  lib_att.o
-    0x0100289e   0x0100289e   0x00000004   Code   RO         4525    i.bass_batt_level_ntf_cfg_ind_handler  app_batt.o
-    0x010028a2   0x010028a2   0x00000002   PAD
-    0x010028a4   0x010028a4   0x00000068   Code   RO         3079    i.bass_batt_level_upd_req_handler  bass_task.o
-    0x0100290c   0x0100290c   0x0000000a   Code   RO         3159    i.bass_cleanup      bass.o
-    0x01002916   0x01002916   0x0000000a   Code   RO         3160    i.bass_create       bass.o
-    0x01002920   0x01002920   0x0000001c   Code   RO         3161    i.bass_destroy      bass.o
-    0x0100293c   0x0100293c   0x00000084   Code   RO         3080    i.bass_enable_req_handler  bass_task.o
-    0x010029c0   0x010029c0   0x000000f0   Code   RO         3162    i.bass_exe_operation  bass.o
-    0x01002ab0   0x01002ab0   0x00000076   Code   RO         3163    i.bass_get_att_handle  bass.o
-    0x01002b26   0x01002b26   0x0000006a   Code   RO         3164    i.bass_get_att_idx  bass.o
-    0x01002b90   0x01002b90   0x0000015c   Code   RO         3165    i.bass_init         bass.o
-    0x01002cec   0x01002cec   0x00000040   Code   RO         3166    i.bass_notify_batt_lvl  bass.o
-    0x01002d2c   0x01002d2c   0x00000008   Code   RO         3167    i.bass_prf_itf_get  bass.o
-    0x01002d34   0x01002d34   0x00000020   Code   RO         3081    i.bass_task_init    bass_task.o
-    0x01002d54   0x01002d54   0x00000004   Code   RO         4526    i.batt_level_upd_handler  app_batt.o
-    0x01002d58   0x01002d58   0x0000002c   Code   RO         4741    i.build_keyboard_report  app_hid_keyboard.o
-    0x01002d84   0x01002d84   0x00000010   Code   RO         4697    i.detect_select     main.o
-    0x01002d94   0x01002d94   0x0000002a   Code   RO         2910    i.diss_check_val_len  diss.o
-    0x01002dbe   0x01002dbe   0x00000002   Code   RO         2911    i.diss_cleanup      diss.o
-    0x01002dc0   0x01002dc0   0x00000026   Code   RO         2912    i.diss_compute_cfg_flag  diss.o
-    0x01002de6   0x01002de6   0x00000002   Code   RO         2913    i.diss_create       diss.o
-    0x01002de8   0x01002de8   0x00000024   Code   RO         2914    i.diss_destroy      diss.o
-    0x01002e0c   0x01002e0c   0x00000030   Code   RO         2915    i.diss_handle_to_value  diss.o
-    0x01002e3c   0x01002e3c   0x00000088   Code   RO         2916    i.diss_init         diss.o
-    0x01002ec4   0x01002ec4   0x00000008   Code   RO         2917    i.diss_prf_itf_get  diss.o
-    0x01002ecc   0x01002ecc   0x0000009c   Code   RO         3009    i.diss_set_value_req_handler  diss_task.o
-    0x01002f68   0x01002f68   0x00000020   Code   RO         3010    i.diss_task_init    diss_task.o
-    0x01002f88   0x01002f88   0x0000007c   Code   RO         3011    i.diss_value_cfm_handler  diss_task.o
-    0x01003004   0x01003004   0x000000b8   Code   RO         4477    i.diss_value_req_ind_handler  app_dis.o
-    0x010030bc   0x010030bc   0x00000034   Code   RO         2918    i.diss_value_to_handle  diss.o
-    0x010030f0   0x010030f0   0x00000028   Code   RO         3406    i.entry_idle        ns_sleep.o
-    0x01003118   0x01003118   0x000000b0   Code   RO         3407    i.entry_sleep       ns_sleep.o
-    0x010031c8   0x010031c8   0x00000038   Code   RO         3466    i.fputc             ns_log_usart.o
-    0x01003200   0x01003200   0x000000d4   Code   RO         3496    i.gapc_bond_ind_handler  ns_sec.o
-    0x010032d4   0x010032d4   0x000001e4   Code   RO         3497    i.gapc_bond_req_ind_handler  ns_sec.o
-    0x010034b8   0x010034b8   0x00000024   Code   RO         4156    i.gapc_cmp_evt_handler  ns_ble_task.o
-    0x010034dc   0x010034dc   0x0000005c   Code   RO         4157    i.gapc_conn_rssi_ind_handler  ns_ble_task.o
-    0x01003538   0x01003538   0x0000016c   Code   RO         4158    i.gapc_connection_req_ind_handler  ns_ble_task.o
-    0x010036a4   0x010036a4   0x00000090   Code   RO         4159    i.gapc_disconnect_ind_handler  ns_ble_task.o
-    0x01003734   0x01003734   0x0000002c   Code   RO         3498    i.gapc_encrypt_ind_handler  ns_sec.o
-    0x01003760   0x01003760   0x0000013c   Code   RO         3499    i.gapc_encrypt_req_ind_handler  ns_sec.o
-    0x0100389c   0x0100389c   0x0000007c   Code   RO         4160    i.gapc_get_dev_info_req_ind_handler  ns_ble_task.o
-    0x01003918   0x01003918   0x00000030   Code   RO         4161    i.gapc_le_phy_ind_handler  ns_ble_task.o
-    0x01003948   0x01003948   0x0000001c   Code   RO         4162    i.gapc_le_pkt_size_ind_handler  ns_ble_task.o
-    0x01003964   0x01003964   0x00000060   Code   RO         4163    i.gapc_param_update_req_ind_handler  ns_ble_task.o
-    0x010039c4   0x010039c4   0x00000024   Code   RO         4164    i.gapc_param_updated_ind_handler  ns_ble_task.o
-    0x010039e8   0x010039e8   0x00000040   Code   RO         4165    i.gapc_set_dev_info_req_ind_handler  ns_ble_task.o
-    0x01003a28   0x01003a28   0x00000034   Code   RO         4166    i.gapm_activity_created_ind_handler  ns_ble_task.o
-    0x01003a5c   0x01003a5c   0x0000005c   Code   RO         4167    i.gapm_activity_stopped_ind_handler  ns_ble_task.o
-    0x01003ab8   0x01003ab8   0x00000028   Code   RO         4168    i.gapm_addr_solved_ind_handler  ns_ble_task.o
-    0x01003ae0   0x01003ae0   0x000003ac   Code   RO         4169    i.gapm_cmp_evt_handler  ns_ble_task.o
-    0x01003e8c   0x01003e8c   0x00000090   Code   RO         4170    i.gapm_ext_adv_repoer_ind_handler  ns_ble_task.o
-    0x01003f1c   0x01003f1c   0x00000014   Code   RO         4171    i.gapm_gen_rand_nb_ind_handler  ns_ble_task.o
-    0x01003f30   0x01003f30   0x0000000c   Code   RO         4172    i.gapm_profile_added_ind_handler  ns_ble_task.o
-    0x01003f3c   0x01003f3c   0x00000054   Code   RO         3082    i.gattc_att_info_req_ind_handler  bass_task.o
-    0x01003f90   0x01003f90   0x0000006c   Code   RO         3250    i.gattc_att_info_req_ind_handler  hogpd_task.o
-    0x01003ffc   0x01003ffc   0x00000010   Code   RO         3083    i.gattc_cmp_evt_handler  bass_task.o
-    0x0100400c   0x0100400c   0x00000048   Code   RO         3251    i.gattc_cmp_evt_handler  hogpd_task.o
-    0x01004054   0x01004054   0x00000024   Code   RO         4173    i.gattc_cmp_evt_handler  ns_ble_task.o
-    0x01004078   0x01004078   0x00000054   Code   RO         4174    i.gattc_mtu_changed_ind_handler  ns_ble_task.o
-    0x010040cc   0x010040cc   0x000000c4   Code   RO         3012    i.gattc_read_req_ind_handler  diss_task.o
-    0x01004190   0x01004190   0x000000c0   Code   RO         3084    i.gattc_read_req_ind_handler  bass_task.o
-    0x01004250   0x01004250   0x00000164   Code   RO         3252    i.gattc_read_req_ind_handler  hogpd_task.o
-    0x010043b4   0x010043b4   0x000000a8   Code   RO         3085    i.gattc_write_req_ind_handler  bass_task.o
-    0x0100445c   0x0100445c   0x00000194   Code   RO         3253    i.gattc_write_req_ind_handler  hogpd_task.o
-    0x010045f0   0x010045f0   0x00000026   Code   RO         3321    i.hogpd_cleanup     hogpd.o
-    0x01004616   0x01004616   0x00000002   Code   RO         3322    i.hogpd_create      hogpd.o
-    0x01004618   0x01004618   0x00000048   Code   RO         4589    i.hogpd_ctnl_pt_ind_handler  app_hid.o
-    0x01004660   0x01004660   0x00000010   Code   RO         3323    i.hogpd_destroy     hogpd.o
-    0x01004670   0x01004670   0x00000078   Code   RO         3254    i.hogpd_enable_req_handler  hogpd_task.o
-    0x010046e8   0x010046e8   0x00000004   Code   RO         4590    i.hogpd_enable_rsp_handler  app_hid.o
-    0x010046ec   0x010046ec   0x000000e6   Code   RO         3324    i.hogpd_get_att_handle  hogpd.o
-    0x010047d2   0x010047d2   0x00000110   Code   RO         3325    i.hogpd_get_att_idx  hogpd.o
-    0x010048e2   0x010048e2   0x00000002   PAD
-    0x010048e4   0x010048e4   0x00000410   Code   RO         3326    i.hogpd_init        hogpd.o
-    0x01004cf4   0x01004cf4   0x00000040   Code   RO         4591    i.hogpd_ntf_cfg_ind_handler  app_hid.o
-    0x01004d34   0x01004d34   0x000000ac   Code   RO         3327    i.hogpd_ntf_cfg_ind_send  hogpd.o
-    0x01004de0   0x01004de0   0x00000100   Code   RO         3328    i.hogpd_ntf_send    hogpd.o
-    0x01004ee0   0x01004ee0   0x00000008   Code   RO         3329    i.hogpd_prf_itf_get  hogpd.o
-    0x01004ee8   0x01004ee8   0x000000bc   Code   RO         3255    i.hogpd_proto_mode_cfm_handler  hogpd_task.o
-    0x01004fa4   0x01004fa4   0x00000064   Code   RO         4592    i.hogpd_proto_mode_req_ind_handler  app_hid.o
-    0x01005008   0x01005008   0x00000100   Code   RO         3256    i.hogpd_report_cfm_handler  hogpd_task.o
-    0x01005108   0x01005108   0x00000108   Code   RO         4593    i.hogpd_report_req_ind_handler  app_hid.o
-    0x01005210   0x01005210   0x00000028   Code   RO         4594    i.hogpd_report_upd_handler  app_hid.o
-    0x01005238   0x01005238   0x00000074   Code   RO         3257    i.hogpd_report_upd_req_handler  hogpd_task.o
-    0x010052ac   0x010052ac   0x00000020   Code   RO         3258    i.hogpd_task_init   hogpd_task.o
-    0x010052cc   0x010052cc   0x00000014   Code   RO         4595    i.is_app_hid_ready  app_hid.o
-    0x010052e0   0x010052e0   0x00000030   Code   RO         2556    i.llhwc_modem_setmode  rwip_driver.o
-    0x01005310   0x01005310   0x00000100   Code   RO         2557    i.llhwc_phy_prerx_flash  rwip_driver.o
-    0x01005410   0x01005410   0x00000088   Code   RO         2558    i.llhwc_setmode_reg_config  rwip_driver.o
-    0x01005498   0x01005498   0x00000074   Code   RO         4698    i.main              main.o
-    0x0100550c   0x0100550c   0x00000070   Code   RO         3729    i.ns_EXTI4_12_IRQHandler  ns_ble.o
-    0x0100557c   0x0100557c   0x0000012c   Code   RO         3730    i.ns_HardFault_Handler  ns_ble.o
-    0x010056a8   0x010056a8   0x0000002c   Code   RO         3731    i.ns_ble_active_rssi  ns_ble.o
-    0x010056d4   0x010056d4   0x00000020   Code   RO         3732    i.ns_ble_add_prf_func_register  ns_ble.o
-    0x010056f4   0x010056f4   0x00000028   Code   RO         3733    i.ns_ble_add_svc    ns_ble.o
-    0x0100571c   0x0100571c   0x00000068   Code   RO         3735    i.ns_ble_adv_fsm_next  ns_ble.o
-    0x01005784   0x01005784   0x00000048   Code   RO         3736    i.ns_ble_adv_init   ns_ble.o
-    0x010057cc   0x010057cc   0x00000050   Code   RO         3737    i.ns_ble_adv_start  ns_ble.o
-    0x0100581c   0x0100581c   0x00000028   Code   RO         3738    i.ns_ble_adv_stop   ns_ble.o
-    0x01005844   0x01005844   0x00000030   Code   RO         3739    i.ns_ble_create_init  ns_ble.o
-    0x01005874   0x01005874   0x00000030   Code   RO         3740    i.ns_ble_create_scan  ns_ble.o
-    0x010058a4   0x010058a4   0x00000038   Code   RO         3741    i.ns_ble_delete_init  ns_ble.o
-    0x010058dc   0x010058dc   0x00000034   Code   RO         3742    i.ns_ble_delete_scan  ns_ble.o
-    0x01005910   0x01005910   0x0000002c   Code   RO         3743    i.ns_ble_disconnect  ns_ble.o
-    0x0100593c   0x0100593c   0x00000064   Code   RO         3746    i.ns_ble_gap_init   ns_ble.o
-    0x010059a0   0x010059a0   0x00000024   Code   RO         3749    i.ns_ble_get_connection_num  ns_ble.o
-    0x010059c4   0x010059c4   0x00000050   Code   RO         3752    i.ns_ble_list_set_ral  ns_ble.o
-    0x01005a14   0x01005a14   0x00000080   Code   RO         3754    i.ns_ble_lsc_config  ns_ble.o
-    0x01005a94   0x01005a94   0x00000024   Code   RO         3758    i.ns_ble_prf_task_register  ns_ble.o
-    0x01005ab8   0x01005ab8   0x00000046   Code   RO         3763    i.ns_ble_scan_data_find  ns_ble.o
-    0x01005afe   0x01005afe   0x00000002   PAD
-    0x01005b00   0x01005b00   0x000000b0   Code   RO         3770    i.ns_ble_stack_init  ns_ble.o
-    0x01005bb0   0x01005bb0   0x000000c8   Code   RO         3771    i.ns_ble_stack_vtor_init  ns_ble.o
-    0x01005c78   0x01005c78   0x000000ec   Code   RO         3772    i.ns_ble_start_init  ns_ble.o
-    0x01005d64   0x01005d64   0x000000a8   Code   RO         3773    i.ns_ble_start_scan  ns_ble.o
-    0x01005e0c   0x01005e0c   0x00000034   Code   RO         3774    i.ns_ble_stop_init  ns_ble.o
-    0x01005e40   0x01005e40   0x0000003c   Code   RO         3775    i.ns_ble_stop_scan  ns_ble.o
-    0x01005e7c   0x01005e7c   0x0000009c   Code   RO         3776    i.ns_ble_update_param  ns_ble.o
-    0x01005f18   0x01005f18   0x0000008c   Code   RO         3500    i.ns_bond_db_add_entry  ns_sec.o
-    0x01005fa4   0x01005fa4   0x0000002c   Code   RO         3501    i.ns_bond_db_get_size  ns_sec.o
-    0x01005fd0   0x01005fd0   0x0000001c   Code   RO         3502    i.ns_bond_db_load   ns_sec.o
-    0x01005fec   0x01005fec   0x00000032   Code   RO         3504    i.ns_bond_last_bonded_peer_id  ns_sec.o
-    0x0100601e   0x0100601e   0x00000002   PAD
-    0x01006020   0x01006020   0x00000064   Code   RO         3505    i.ns_bond_last_bonded_ral_info  ns_sec.o
-    0x01006084   0x01006084   0x00000064   Code   RO         3506    i.ns_bond_resolv_addr_start  ns_sec.o
-    0x010060e8   0x010060e8   0x00000068   Code   RO         3507    i.ns_bond_search_addr_irk  ns_sec.o
-    0x01006150   0x01006150   0x0000004c   Code   RO         3777    i.ns_iwdg_config    ns_ble.o
-    0x0100619c   0x0100619c   0x0000001c   Code   RO         3467    i.ns_log_usart_deinit  ns_log_usart.o
-    0x010061b8   0x010061b8   0x00000064   Code   RO         3468    i.ns_log_usart_init  ns_log_usart.o
-    0x0100621c   0x0100621c   0x000000b8   Code   RO         3779    i.ns_peripheral_config  ns_ble.o
-    0x010062d4   0x010062d4   0x000000e0   Code   RO         3509    i.ns_sec_bond_store_evt_handler  ns_sec.o
-    0x010063b4   0x010063b4   0x00000010   Code   RO         3510    i.ns_sec_get_bond_status  ns_sec.o
-    0x010063c4   0x010063c4   0x0000000c   Code   RO         3511    i.ns_sec_get_iocap  ns_sec.o
-    0x010063d0   0x010063d0   0x00000050   Code   RO         3512    i.ns_sec_init       ns_sec.o
-    0x01006420   0x01006420   0x00000040   Code   RO         3513    i.ns_sec_pincode_respond  ns_sec.o
-    0x01006460   0x01006460   0x0000008c   Code   RO         3408    i.ns_sleep          ns_sleep.o
-    0x010064ec   0x010064ec   0x00000018   Code   RO         3409    i.ns_sleep_lock_acquire  ns_sleep.o
-    0x01006504   0x01006504   0x00000018   Code   RO         3410    i.ns_sleep_lock_release  ns_sleep.o
-    0x0100651c   0x0100651c   0x000000c4   Code   RO         4305    i.ns_timer_api_process_handler  ns_timer.o
-    0x010065e0   0x010065e0   0x0000003c   Code   RO         4308    i.ns_timer_create   ns_timer.o
-    0x0100661c   0x0100661c   0x00000040   Code   RO         3780    i.patchx_enable     ns_ble.o
-    0x0100665c   0x0100665c   0x00000084   Code   RO         2778    i.prf_add_profile   prf.o
-    0x010066e0   0x010066e0   0x00000010   Code   RO         2781    i.prf_dst_task_get  prf.o
-    0x010066f0   0x010066f0   0x00000030   Code   RO         2782    i.prf_env_get       prf.o
-    0x01006720   0x01006720   0x00000034   Code   RO         2783    i.prf_get_id_from_task  prf.o
-    0x01006754   0x01006754   0x00000024   Code   RO         2784    i.prf_get_itf_func_register  prf.o
-    0x01006778   0x01006778   0x00000034   Code   RO         2785    i.prf_get_task_from_id  prf.o
-    0x010067ac   0x010067ac   0x00000080   Code   RO         2786    i.prf_init          prf.o
-    0x0100682c   0x0100682c   0x0000002c   Code   RO         2787    i.prf_itf_get       prf.o
-    0x01006858   0x01006858   0x0000001e   Code   RO         2869    i.prf_pack_char_pres_fmt  prf_utils.o
-    0x01006876   0x01006876   0x00000010   Code   RO         2788    i.prf_src_task_get  prf.o
-    0x01006886   0x01006886   0x00000002   PAD
-    0x01006888   0x01006888   0x00000030   Code   RO         2559    i.radio_freq_cal_from_trim  rwip_driver.o
-    0x010068b8   0x010068b8   0x00000114   Code   RO         2220    i.rwip_init         rwip.o
-    0x010069cc   0x010069cc   0x00000134   Code   RO         2564    i.rwip_sleep        rwip_driver.o
-    0x01006b00   0x01006b00   0x0000004c   Code   RO         2565    i.rwip_slp_isr      rwip_driver.o
-    0x01006b4c   0x01006b4c   0x000000b0   Code   RO         2566    i.rwip_wakeup       rwip_driver.o
-    0x01006bfc   0x01006bfc   0x00000002   Code   RO         4310    i.timer_canceled_handler  ns_timer.o
-    0x01006bfe   0x01006bfe   0x00000002   Code   RO         4311    i.timer_modified_handler  ns_timer.o
-    0x01006c00   0x01006c00   0x00000140   Data   RO           20    .constdata          system_n32wb03x.o
-    0x01006d40   0x01006d40   0x0000000c   Data   RO          783    .constdata          n32wb03x_rcc.o
-    0x01006d4c   0x01006d4c   0x000007e4   Data   RO         1809    .constdata          n32wb03x_qflash.o
-    0x01007530   0x01007530   0x0000001e   Data   RO         2567    .constdata          rwip_driver.o
-    0x0100754e   0x0100754e   0x00000002   PAD
-    0x01007550   0x01007550   0x000000a8   Data   RO         2919    .constdata          diss.o
-    0x010075f8   0x010075f8   0x00000018   Data   RO         3013    .constdata          diss_task.o
-    0x01007610   0x01007610   0x00000030   Data   RO         3086    .constdata          bass_task.o
-    0x01007640   0x01007640   0x00000038   Data   RO         3168    .constdata          bass.o
-    0x01007678   0x01007678   0x00000040   Data   RO         3259    .constdata          hogpd_task.o
-    0x010076b8   0x010076b8   0x000000c8   Data   RO         3330    .constdata          hogpd.o
-    0x01007780   0x01007780   0x00000028   Data   RO         3518    .constdata          ns_sec.o
-    0x010077a8   0x010077a8   0x00000008   Data   RO         3519    .constdata          ns_sec.o
-    0x010077b0   0x010077b0   0x00000349   Data   RO         3782    .constdata          ns_ble.o
-    0x01007af9   0x01007af9   0x00000001   PAD
-    0x01007afa   0x01007afa   0x000000cd   Data   RO         4175    .constdata          ns_ble_task.o
-    0x01007bc7   0x01007bc7   0x00000001   PAD
-    0x01007bc8   0x01007bc8   0x000000c0   Data   RO         4176    .constdata          ns_ble_task.o
-    0x01007c88   0x01007c88   0x0000000c   Data   RO         4177    .constdata          ns_ble_task.o
-    0x01007c94   0x01007c94   0x00000008   Data   RO         4478    .constdata          app_dis.o
-    0x01007c9c   0x01007c9c   0x00000008   Data   RO         4479    .constdata          app_dis.o
-    0x01007ca4   0x01007ca4   0x00000018   Data   RO         4527    .constdata          app_batt.o
-    0x01007cbc   0x01007cbc   0x00000008   Data   RO         4528    .constdata          app_batt.o
-    0x01007cc4   0x01007cc4   0x00000182   Data   RO         4596    .constdata          app_hid.o
-    0x01007e46   0x01007e46   0x00000002   PAD
-    0x01007e48   0x01007e48   0x00000038   Data   RO         4597    .constdata          app_hid.o
-    0x01007e80   0x01007e80   0x0000001e   Data   RO         4772    .constdata          app_gpio.o
-    0x01007e9e   0x01007e9e   0x00000002   PAD
-    0x01007ea0   0x01007ea0   0x00000020   Data   RO         5252    Region$$Table       anon$$obj.o
+    0x01002310   0x01002310   0x0000010c   Code   RO         4831    i.app_multi_touchscreen_swipe  app_hid_touchscreen.o
+    0x0100241c   0x0100241c   0x00000004   Code   RO         3495    i.app_sec_msg_dflt_handler  ns_sec.o
+    0x01002420   0x01002420   0x0000007c   Code   RO         3725    i.app_set_adv_data  ns_ble.o
+    0x0100249c   0x0100249c   0x000000bc   Code   RO         3726    i.app_set_scan_rsp_data  ns_ble.o
+    0x01002558   0x01002558   0x00000002   Code   RO         4695    i.app_sleep_prepare_proc  main.o
+    0x0100255a   0x0100255a   0x00000014   Code   RO         4696    i.app_sleep_resume_proc  main.o
+    0x0100256e   0x0100256e   0x00000002   PAD
+    0x01002570   0x01002570   0x00000068   Code   RO         3727    i.app_start_advertising  ns_ble.o
+    0x010025d8   0x010025d8   0x00000030   Code   RO         3728    i.app_stop_advertising  ns_ble.o
+    0x01002608   0x01002608   0x000000b0   Code   RO         4832    i.app_touchscreen_multi  app_hid_touchscreen.o
+    0x010026b8   0x010026b8   0x0000001c   Code   RO         4371    i.app_user_msg_handler  app_ble.o
+    0x010026d4   0x010026d4   0x000000b4   Code   RO         2741    i.attm_att_set_permission  lib_att.o
+    0x01002788   0x01002788   0x000000b8   Code   RO         2742    i.attm_att_set_value  lib_att.o
+    0x01002840   0x01002840   0x00000022   Code   RO         2743    i.attm_reserve_handle_range  lib_att.o
+    0x01002862   0x01002862   0x00000004   Code   RO         4525    i.bass_batt_level_ntf_cfg_ind_handler  app_batt.o
+    0x01002866   0x01002866   0x00000002   PAD
+    0x01002868   0x01002868   0x00000068   Code   RO         3079    i.bass_batt_level_upd_req_handler  bass_task.o
+    0x010028d0   0x010028d0   0x0000000a   Code   RO         3159    i.bass_cleanup      bass.o
+    0x010028da   0x010028da   0x0000000a   Code   RO         3160    i.bass_create       bass.o
+    0x010028e4   0x010028e4   0x0000001c   Code   RO         3161    i.bass_destroy      bass.o
+    0x01002900   0x01002900   0x00000084   Code   RO         3080    i.bass_enable_req_handler  bass_task.o
+    0x01002984   0x01002984   0x000000f0   Code   RO         3162    i.bass_exe_operation  bass.o
+    0x01002a74   0x01002a74   0x00000076   Code   RO         3163    i.bass_get_att_handle  bass.o
+    0x01002aea   0x01002aea   0x0000006a   Code   RO         3164    i.bass_get_att_idx  bass.o
+    0x01002b54   0x01002b54   0x0000015c   Code   RO         3165    i.bass_init         bass.o
+    0x01002cb0   0x01002cb0   0x00000040   Code   RO         3166    i.bass_notify_batt_lvl  bass.o
+    0x01002cf0   0x01002cf0   0x00000008   Code   RO         3167    i.bass_prf_itf_get  bass.o
+    0x01002cf8   0x01002cf8   0x00000020   Code   RO         3081    i.bass_task_init    bass_task.o
+    0x01002d18   0x01002d18   0x00000004   Code   RO         4526    i.batt_level_upd_handler  app_batt.o
+    0x01002d1c   0x01002d1c   0x0000002c   Code   RO         4741    i.build_keyboard_report  app_hid_keyboard.o
+    0x01002d48   0x01002d48   0x00000010   Code   RO         4697    i.detect_select     main.o
+    0x01002d58   0x01002d58   0x0000002a   Code   RO         2910    i.diss_check_val_len  diss.o
+    0x01002d82   0x01002d82   0x00000002   Code   RO         2911    i.diss_cleanup      diss.o
+    0x01002d84   0x01002d84   0x00000026   Code   RO         2912    i.diss_compute_cfg_flag  diss.o
+    0x01002daa   0x01002daa   0x00000002   Code   RO         2913    i.diss_create       diss.o
+    0x01002dac   0x01002dac   0x00000024   Code   RO         2914    i.diss_destroy      diss.o
+    0x01002dd0   0x01002dd0   0x00000030   Code   RO         2915    i.diss_handle_to_value  diss.o
+    0x01002e00   0x01002e00   0x00000088   Code   RO         2916    i.diss_init         diss.o
+    0x01002e88   0x01002e88   0x00000008   Code   RO         2917    i.diss_prf_itf_get  diss.o
+    0x01002e90   0x01002e90   0x0000009c   Code   RO         3009    i.diss_set_value_req_handler  diss_task.o
+    0x01002f2c   0x01002f2c   0x00000020   Code   RO         3010    i.diss_task_init    diss_task.o
+    0x01002f4c   0x01002f4c   0x0000007c   Code   RO         3011    i.diss_value_cfm_handler  diss_task.o
+    0x01002fc8   0x01002fc8   0x000000b8   Code   RO         4477    i.diss_value_req_ind_handler  app_dis.o
+    0x01003080   0x01003080   0x00000034   Code   RO         2918    i.diss_value_to_handle  diss.o
+    0x010030b4   0x010030b4   0x00000028   Code   RO         3406    i.entry_idle        ns_sleep.o
+    0x010030dc   0x010030dc   0x000000b0   Code   RO         3407    i.entry_sleep       ns_sleep.o
+    0x0100318c   0x0100318c   0x00000038   Code   RO         3466    i.fputc             ns_log_usart.o
+    0x010031c4   0x010031c4   0x000000d4   Code   RO         3496    i.gapc_bond_ind_handler  ns_sec.o
+    0x01003298   0x01003298   0x000001e4   Code   RO         3497    i.gapc_bond_req_ind_handler  ns_sec.o
+    0x0100347c   0x0100347c   0x00000024   Code   RO         4156    i.gapc_cmp_evt_handler  ns_ble_task.o
+    0x010034a0   0x010034a0   0x0000005c   Code   RO         4157    i.gapc_conn_rssi_ind_handler  ns_ble_task.o
+    0x010034fc   0x010034fc   0x0000016c   Code   RO         4158    i.gapc_connection_req_ind_handler  ns_ble_task.o
+    0x01003668   0x01003668   0x00000090   Code   RO         4159    i.gapc_disconnect_ind_handler  ns_ble_task.o
+    0x010036f8   0x010036f8   0x0000002c   Code   RO         3498    i.gapc_encrypt_ind_handler  ns_sec.o
+    0x01003724   0x01003724   0x0000013c   Code   RO         3499    i.gapc_encrypt_req_ind_handler  ns_sec.o
+    0x01003860   0x01003860   0x0000007c   Code   RO         4160    i.gapc_get_dev_info_req_ind_handler  ns_ble_task.o
+    0x010038dc   0x010038dc   0x00000030   Code   RO         4161    i.gapc_le_phy_ind_handler  ns_ble_task.o
+    0x0100390c   0x0100390c   0x0000001c   Code   RO         4162    i.gapc_le_pkt_size_ind_handler  ns_ble_task.o
+    0x01003928   0x01003928   0x00000060   Code   RO         4163    i.gapc_param_update_req_ind_handler  ns_ble_task.o
+    0x01003988   0x01003988   0x00000024   Code   RO         4164    i.gapc_param_updated_ind_handler  ns_ble_task.o
+    0x010039ac   0x010039ac   0x00000040   Code   RO         4165    i.gapc_set_dev_info_req_ind_handler  ns_ble_task.o
+    0x010039ec   0x010039ec   0x00000034   Code   RO         4166    i.gapm_activity_created_ind_handler  ns_ble_task.o
+    0x01003a20   0x01003a20   0x0000005c   Code   RO         4167    i.gapm_activity_stopped_ind_handler  ns_ble_task.o
+    0x01003a7c   0x01003a7c   0x00000028   Code   RO         4168    i.gapm_addr_solved_ind_handler  ns_ble_task.o
+    0x01003aa4   0x01003aa4   0x000003ac   Code   RO         4169    i.gapm_cmp_evt_handler  ns_ble_task.o
+    0x01003e50   0x01003e50   0x00000090   Code   RO         4170    i.gapm_ext_adv_repoer_ind_handler  ns_ble_task.o
+    0x01003ee0   0x01003ee0   0x00000014   Code   RO         4171    i.gapm_gen_rand_nb_ind_handler  ns_ble_task.o
+    0x01003ef4   0x01003ef4   0x0000000c   Code   RO         4172    i.gapm_profile_added_ind_handler  ns_ble_task.o
+    0x01003f00   0x01003f00   0x00000054   Code   RO         3082    i.gattc_att_info_req_ind_handler  bass_task.o
+    0x01003f54   0x01003f54   0x0000006c   Code   RO         3250    i.gattc_att_info_req_ind_handler  hogpd_task.o
+    0x01003fc0   0x01003fc0   0x00000010   Code   RO         3083    i.gattc_cmp_evt_handler  bass_task.o
+    0x01003fd0   0x01003fd0   0x00000048   Code   RO         3251    i.gattc_cmp_evt_handler  hogpd_task.o
+    0x01004018   0x01004018   0x00000024   Code   RO         4173    i.gattc_cmp_evt_handler  ns_ble_task.o
+    0x0100403c   0x0100403c   0x00000054   Code   RO         4174    i.gattc_mtu_changed_ind_handler  ns_ble_task.o
+    0x01004090   0x01004090   0x000000c4   Code   RO         3012    i.gattc_read_req_ind_handler  diss_task.o
+    0x01004154   0x01004154   0x000000c0   Code   RO         3084    i.gattc_read_req_ind_handler  bass_task.o
+    0x01004214   0x01004214   0x00000164   Code   RO         3252    i.gattc_read_req_ind_handler  hogpd_task.o
+    0x01004378   0x01004378   0x000000a8   Code   RO         3085    i.gattc_write_req_ind_handler  bass_task.o
+    0x01004420   0x01004420   0x00000194   Code   RO         3253    i.gattc_write_req_ind_handler  hogpd_task.o
+    0x010045b4   0x010045b4   0x00000026   Code   RO         3321    i.hogpd_cleanup     hogpd.o
+    0x010045da   0x010045da   0x00000002   Code   RO         3322    i.hogpd_create      hogpd.o
+    0x010045dc   0x010045dc   0x00000048   Code   RO         4589    i.hogpd_ctnl_pt_ind_handler  app_hid.o
+    0x01004624   0x01004624   0x00000010   Code   RO         3323    i.hogpd_destroy     hogpd.o
+    0x01004634   0x01004634   0x00000078   Code   RO         3254    i.hogpd_enable_req_handler  hogpd_task.o
+    0x010046ac   0x010046ac   0x00000004   Code   RO         4590    i.hogpd_enable_rsp_handler  app_hid.o
+    0x010046b0   0x010046b0   0x000000e6   Code   RO         3324    i.hogpd_get_att_handle  hogpd.o
+    0x01004796   0x01004796   0x00000110   Code   RO         3325    i.hogpd_get_att_idx  hogpd.o
+    0x010048a6   0x010048a6   0x00000002   PAD
+    0x010048a8   0x010048a8   0x00000410   Code   RO         3326    i.hogpd_init        hogpd.o
+    0x01004cb8   0x01004cb8   0x00000040   Code   RO         4591    i.hogpd_ntf_cfg_ind_handler  app_hid.o
+    0x01004cf8   0x01004cf8   0x000000ac   Code   RO         3327    i.hogpd_ntf_cfg_ind_send  hogpd.o
+    0x01004da4   0x01004da4   0x00000100   Code   RO         3328    i.hogpd_ntf_send    hogpd.o
+    0x01004ea4   0x01004ea4   0x00000008   Code   RO         3329    i.hogpd_prf_itf_get  hogpd.o
+    0x01004eac   0x01004eac   0x000000bc   Code   RO         3255    i.hogpd_proto_mode_cfm_handler  hogpd_task.o
+    0x01004f68   0x01004f68   0x00000064   Code   RO         4592    i.hogpd_proto_mode_req_ind_handler  app_hid.o
+    0x01004fcc   0x01004fcc   0x00000100   Code   RO         3256    i.hogpd_report_cfm_handler  hogpd_task.o
+    0x010050cc   0x010050cc   0x00000108   Code   RO         4593    i.hogpd_report_req_ind_handler  app_hid.o
+    0x010051d4   0x010051d4   0x00000028   Code   RO         4594    i.hogpd_report_upd_handler  app_hid.o
+    0x010051fc   0x010051fc   0x00000074   Code   RO         3257    i.hogpd_report_upd_req_handler  hogpd_task.o
+    0x01005270   0x01005270   0x00000020   Code   RO         3258    i.hogpd_task_init   hogpd_task.o
+    0x01005290   0x01005290   0x00000014   Code   RO         4595    i.is_app_hid_ready  app_hid.o
+    0x010052a4   0x010052a4   0x00000030   Code   RO         2556    i.llhwc_modem_setmode  rwip_driver.o
+    0x010052d4   0x010052d4   0x00000100   Code   RO         2557    i.llhwc_phy_prerx_flash  rwip_driver.o
+    0x010053d4   0x010053d4   0x00000088   Code   RO         2558    i.llhwc_setmode_reg_config  rwip_driver.o
+    0x0100545c   0x0100545c   0x00000074   Code   RO         4698    i.main              main.o
+    0x010054d0   0x010054d0   0x00000070   Code   RO         3729    i.ns_EXTI4_12_IRQHandler  ns_ble.o
+    0x01005540   0x01005540   0x0000012c   Code   RO         3730    i.ns_HardFault_Handler  ns_ble.o
+    0x0100566c   0x0100566c   0x0000002c   Code   RO         3731    i.ns_ble_active_rssi  ns_ble.o
+    0x01005698   0x01005698   0x00000020   Code   RO         3732    i.ns_ble_add_prf_func_register  ns_ble.o
+    0x010056b8   0x010056b8   0x00000028   Code   RO         3733    i.ns_ble_add_svc    ns_ble.o
+    0x010056e0   0x010056e0   0x00000068   Code   RO         3735    i.ns_ble_adv_fsm_next  ns_ble.o
+    0x01005748   0x01005748   0x00000048   Code   RO         3736    i.ns_ble_adv_init   ns_ble.o
+    0x01005790   0x01005790   0x00000050   Code   RO         3737    i.ns_ble_adv_start  ns_ble.o
+    0x010057e0   0x010057e0   0x00000028   Code   RO         3738    i.ns_ble_adv_stop   ns_ble.o
+    0x01005808   0x01005808   0x00000030   Code   RO         3739    i.ns_ble_create_init  ns_ble.o
+    0x01005838   0x01005838   0x00000030   Code   RO         3740    i.ns_ble_create_scan  ns_ble.o
+    0x01005868   0x01005868   0x00000038   Code   RO         3741    i.ns_ble_delete_init  ns_ble.o
+    0x010058a0   0x010058a0   0x00000034   Code   RO         3742    i.ns_ble_delete_scan  ns_ble.o
+    0x010058d4   0x010058d4   0x0000002c   Code   RO         3743    i.ns_ble_disconnect  ns_ble.o
+    0x01005900   0x01005900   0x00000064   Code   RO         3746    i.ns_ble_gap_init   ns_ble.o
+    0x01005964   0x01005964   0x00000024   Code   RO         3749    i.ns_ble_get_connection_num  ns_ble.o
+    0x01005988   0x01005988   0x00000050   Code   RO         3752    i.ns_ble_list_set_ral  ns_ble.o
+    0x010059d8   0x010059d8   0x00000080   Code   RO         3754    i.ns_ble_lsc_config  ns_ble.o
+    0x01005a58   0x01005a58   0x00000024   Code   RO         3758    i.ns_ble_prf_task_register  ns_ble.o
+    0x01005a7c   0x01005a7c   0x00000046   Code   RO         3763    i.ns_ble_scan_data_find  ns_ble.o
+    0x01005ac2   0x01005ac2   0x00000002   PAD
+    0x01005ac4   0x01005ac4   0x000000b0   Code   RO         3770    i.ns_ble_stack_init  ns_ble.o
+    0x01005b74   0x01005b74   0x000000c8   Code   RO         3771    i.ns_ble_stack_vtor_init  ns_ble.o
+    0x01005c3c   0x01005c3c   0x000000ec   Code   RO         3772    i.ns_ble_start_init  ns_ble.o
+    0x01005d28   0x01005d28   0x000000a8   Code   RO         3773    i.ns_ble_start_scan  ns_ble.o
+    0x01005dd0   0x01005dd0   0x00000034   Code   RO         3774    i.ns_ble_stop_init  ns_ble.o
+    0x01005e04   0x01005e04   0x0000003c   Code   RO         3775    i.ns_ble_stop_scan  ns_ble.o
+    0x01005e40   0x01005e40   0x0000009c   Code   RO         3776    i.ns_ble_update_param  ns_ble.o
+    0x01005edc   0x01005edc   0x0000008c   Code   RO         3500    i.ns_bond_db_add_entry  ns_sec.o
+    0x01005f68   0x01005f68   0x0000002c   Code   RO         3501    i.ns_bond_db_get_size  ns_sec.o
+    0x01005f94   0x01005f94   0x0000001c   Code   RO         3502    i.ns_bond_db_load   ns_sec.o
+    0x01005fb0   0x01005fb0   0x00000032   Code   RO         3504    i.ns_bond_last_bonded_peer_id  ns_sec.o
+    0x01005fe2   0x01005fe2   0x00000002   PAD
+    0x01005fe4   0x01005fe4   0x00000064   Code   RO         3505    i.ns_bond_last_bonded_ral_info  ns_sec.o
+    0x01006048   0x01006048   0x00000064   Code   RO         3506    i.ns_bond_resolv_addr_start  ns_sec.o
+    0x010060ac   0x010060ac   0x00000068   Code   RO         3507    i.ns_bond_search_addr_irk  ns_sec.o
+    0x01006114   0x01006114   0x0000004c   Code   RO         3777    i.ns_iwdg_config    ns_ble.o
+    0x01006160   0x01006160   0x0000001c   Code   RO         3467    i.ns_log_usart_deinit  ns_log_usart.o
+    0x0100617c   0x0100617c   0x00000064   Code   RO         3468    i.ns_log_usart_init  ns_log_usart.o
+    0x010061e0   0x010061e0   0x000000b8   Code   RO         3779    i.ns_peripheral_config  ns_ble.o
+    0x01006298   0x01006298   0x000000e0   Code   RO         3509    i.ns_sec_bond_store_evt_handler  ns_sec.o
+    0x01006378   0x01006378   0x00000010   Code   RO         3510    i.ns_sec_get_bond_status  ns_sec.o
+    0x01006388   0x01006388   0x0000000c   Code   RO         3511    i.ns_sec_get_iocap  ns_sec.o
+    0x01006394   0x01006394   0x00000050   Code   RO         3512    i.ns_sec_init       ns_sec.o
+    0x010063e4   0x010063e4   0x00000040   Code   RO         3513    i.ns_sec_pincode_respond  ns_sec.o
+    0x01006424   0x01006424   0x0000008c   Code   RO         3408    i.ns_sleep          ns_sleep.o
+    0x010064b0   0x010064b0   0x00000018   Code   RO         3409    i.ns_sleep_lock_acquire  ns_sleep.o
+    0x010064c8   0x010064c8   0x00000018   Code   RO         3410    i.ns_sleep_lock_release  ns_sleep.o
+    0x010064e0   0x010064e0   0x000000c4   Code   RO         4305    i.ns_timer_api_process_handler  ns_timer.o
+    0x010065a4   0x010065a4   0x0000003c   Code   RO         4308    i.ns_timer_create   ns_timer.o
+    0x010065e0   0x010065e0   0x00000040   Code   RO         3780    i.patchx_enable     ns_ble.o
+    0x01006620   0x01006620   0x00000084   Code   RO         2778    i.prf_add_profile   prf.o
+    0x010066a4   0x010066a4   0x00000010   Code   RO         2781    i.prf_dst_task_get  prf.o
+    0x010066b4   0x010066b4   0x00000030   Code   RO         2782    i.prf_env_get       prf.o
+    0x010066e4   0x010066e4   0x00000034   Code   RO         2783    i.prf_get_id_from_task  prf.o
+    0x01006718   0x01006718   0x00000024   Code   RO         2784    i.prf_get_itf_func_register  prf.o
+    0x0100673c   0x0100673c   0x00000034   Code   RO         2785    i.prf_get_task_from_id  prf.o
+    0x01006770   0x01006770   0x00000080   Code   RO         2786    i.prf_init          prf.o
+    0x010067f0   0x010067f0   0x0000002c   Code   RO         2787    i.prf_itf_get       prf.o
+    0x0100681c   0x0100681c   0x0000001e   Code   RO         2869    i.prf_pack_char_pres_fmt  prf_utils.o
+    0x0100683a   0x0100683a   0x00000010   Code   RO         2788    i.prf_src_task_get  prf.o
+    0x0100684a   0x0100684a   0x00000002   PAD
+    0x0100684c   0x0100684c   0x00000030   Code   RO         2559    i.radio_freq_cal_from_trim  rwip_driver.o
+    0x0100687c   0x0100687c   0x00000114   Code   RO         2220    i.rwip_init         rwip.o
+    0x01006990   0x01006990   0x00000134   Code   RO         2564    i.rwip_sleep        rwip_driver.o
+    0x01006ac4   0x01006ac4   0x0000004c   Code   RO         2565    i.rwip_slp_isr      rwip_driver.o
+    0x01006b10   0x01006b10   0x000000b0   Code   RO         2566    i.rwip_wakeup       rwip_driver.o
+    0x01006bc0   0x01006bc0   0x00000002   Code   RO         4310    i.timer_canceled_handler  ns_timer.o
+    0x01006bc2   0x01006bc2   0x00000002   Code   RO         4311    i.timer_modified_handler  ns_timer.o
+    0x01006bc4   0x01006bc4   0x00000140   Data   RO           20    .constdata          system_n32wb03x.o
+    0x01006d04   0x01006d04   0x0000000c   Data   RO          783    .constdata          n32wb03x_rcc.o
+    0x01006d10   0x01006d10   0x000007e4   Data   RO         1809    .constdata          n32wb03x_qflash.o
+    0x010074f4   0x010074f4   0x0000001e   Data   RO         2567    .constdata          rwip_driver.o
+    0x01007512   0x01007512   0x00000002   PAD
+    0x01007514   0x01007514   0x000000a8   Data   RO         2919    .constdata          diss.o
+    0x010075bc   0x010075bc   0x00000018   Data   RO         3013    .constdata          diss_task.o
+    0x010075d4   0x010075d4   0x00000030   Data   RO         3086    .constdata          bass_task.o
+    0x01007604   0x01007604   0x00000038   Data   RO         3168    .constdata          bass.o
+    0x0100763c   0x0100763c   0x00000040   Data   RO         3259    .constdata          hogpd_task.o
+    0x0100767c   0x0100767c   0x000000c8   Data   RO         3330    .constdata          hogpd.o
+    0x01007744   0x01007744   0x00000028   Data   RO         3518    .constdata          ns_sec.o
+    0x0100776c   0x0100776c   0x00000008   Data   RO         3519    .constdata          ns_sec.o
+    0x01007774   0x01007774   0x00000349   Data   RO         3782    .constdata          ns_ble.o
+    0x01007abd   0x01007abd   0x00000001   PAD
+    0x01007abe   0x01007abe   0x000000cd   Data   RO         4175    .constdata          ns_ble_task.o
+    0x01007b8b   0x01007b8b   0x00000001   PAD
+    0x01007b8c   0x01007b8c   0x000000c0   Data   RO         4176    .constdata          ns_ble_task.o
+    0x01007c4c   0x01007c4c   0x0000000c   Data   RO         4177    .constdata          ns_ble_task.o
+    0x01007c58   0x01007c58   0x00000008   Data   RO         4478    .constdata          app_dis.o
+    0x01007c60   0x01007c60   0x00000008   Data   RO         4479    .constdata          app_dis.o
+    0x01007c68   0x01007c68   0x00000018   Data   RO         4527    .constdata          app_batt.o
+    0x01007c80   0x01007c80   0x00000008   Data   RO         4528    .constdata          app_batt.o
+    0x01007c88   0x01007c88   0x00000182   Data   RO         4596    .constdata          app_hid.o
+    0x01007e0a   0x01007e0a   0x00000002   PAD
+    0x01007e0c   0x01007e0c   0x00000038   Data   RO         4597    .constdata          app_hid.o
+    0x01007e44   0x01007e44   0x0000001e   Data   RO         4772    .constdata          app_gpio.o
+    0x01007e62   0x01007e62   0x00000002   PAD
+    0x01007e64   0x01007e64   0x00000020   Data   RO         5252    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20004000, Load base: 0x01007ec0, Size: 0x00002b40, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x000016b0])
+    Execution Region RW_IRAM1 (Exec base: 0x20004000, Load base: 0x01007e84, Size: 0x00002b40, Max: 0x00008000, ABSOLUTE, COMPRESSED[0x000016b0])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3752,7 +3752,7 @@ Image component sizes
       1032        162         30          5          0       6348   app_gpio.o
       1348        212        442          8          0      12322   app_hid.o
         44          0          0          0          0       4464   app_hid_keyboard.o
-      1004        290          0          0          0       8141   app_hid_touchscreen.o
+       944        290          0          0          0       8185   app_hid_touchscreen.o
        932         18         56          0          0      21011   bass.o
        728         40         48          0          0      46365   bass_task.o
        364         14        168          0          0      17330   diss.o
@@ -3781,7 +3781,7 @@ Image component sizes
        506         62        320          0         52     118559   system_n32wb03x.o
 
     ----------------------------------------------------------------------
-     25280       3440       4992       7048       4020     798195   Object Totals
+     25220       3440       4992       7048       4020     798239   Object Totals
        108         36         32          0          0          0   (incl. Generated)
         24          0          8        221          0          0   (incl. Padding)
 
@@ -3839,15 +3839,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     27456       3520       4992       7052       4020     788543   Grand Totals
-     27456       3520       4992       5808       4020     788543   ELF Image Totals (compressed)
-     27456       3520       4992       5808          0          0   ROM Totals
+     27396       3520       4992       7052       4020     788587   Grand Totals
+     27396       3520       4992       5808       4020     788587   ELF Image Totals (compressed)
+     27396       3520       4992       5808          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                32448 (  31.69kB)
+    Total RO  Size (Code + RO Data)                32388 (  31.63kB)
     Total RW  Size (RW Data + ZI Data)             11072 (  10.81kB)
-    Total ROM Size (Code + RO Data + RW Data)      38256 (  37.36kB)
+    Total ROM Size (Code + RO Data + RW Data)      38196 (  37.30kB)
 
 ==============================================================================
 
