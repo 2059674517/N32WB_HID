@@ -102,7 +102,7 @@ void app_hid_send_multitouch(const hid_touch_point_t* touches, uint8_t count)
                         i, touch->contact_id, touch->tip_switch, touch->x, touch->y);
         } else {
             // No touch - set contact ID but no tip switch
-            report[offset] = (i << 1);  // Contact ID without tip switch
+            report[offset] = ((i+1) << 1);  // Contact ID without tip switch
 						NS_LOG_WARNING("\r\ncontact_id:%d\r\n", report[offset]);
         }
     }
@@ -283,7 +283,7 @@ void app_touchscreen_multi(uint8_t finger_count,
     // Prepare touch points
     for (uint8_t i = 0; i < finger_count; i++) {
         touches[i].tip_switch = 1;
-        touches[i].contact_id = i;
+        touches[i].contact_id = i+1;
         touches[i].x = (x_coords[i] > 32767) ? 32767 : x_coords[i];
         touches[i].y = (y_coords[i] > 32767) ? 32767 : y_coords[i];
     }
@@ -296,39 +296,46 @@ void app_touchscreen_multi(uint8_t finger_count,
 /**
  * @brief Simulate a swipe gesture
  */
-void app_multi_touchscreen_swipe(uint16_t* x_start, uint16_t* y_start,
+void app_multi_touchscreen_swipe(uint16_t count,uint16_t* x_start, uint16_t* y_start,
                            uint16_t* x_end, uint16_t* y_end,
                            uint16_t duration_ms)
 {
     NS_LOG_INFO("multiTouchscreen SWIPE");
 
-    uint8_t steps = 10;
+    uint8_t steps = 30;
     uint16_t delay_per_step = duration_ms / steps;
-
-    int16_t x_step = (x_end[0] - x_start[0]) / steps;
-    int16_t y_step = (y_end[0] - y_start[0]) / steps;
-
-    uint16_t current_x[3];
+	
+		int16_t x_step[30];
+    int16_t y_step[30];
+		uint16_t current_x[3];
     uint16_t current_y[3];
 		
-		current_x[0] = x_start[0];
-    current_y[0] = y_start[0];
-		current_x[1] = x_start[1];
-    current_y[1] = y_start[1];
-		current_x[2] = x_start[2];
-    current_y[2] = y_start[2];
+		for(int i=0; i<count; i++){
+			x_step[i] = (x_end[i] - x_start[i]) / steps;
+      y_step[i] = (y_end[i] - y_start[i]) / steps;
+		}
+
+		for(int i=0; i<count; i++){
+			current_x[i] = x_start[i];
+			current_y[i] = y_start[i];
+		}
 	
     // Touch down
+		app_hid_send_multitouch(NULL, 0);
+		delay_n_ms(10);
+		app_touchscreen_multi(1,x_start,y_start);
+		delay_n_ms(10);
+		app_touchscreen_multi(2,x_start,y_start);
+		delay_n_ms(10);
 		app_touchscreen_multi(3,x_start,y_start);
+		delay_n_ms(10);
 
     // Move through intermediate points
     for (uint8_t i = 1; i < steps; i++) {
-        current_x[0] += x_step;
-        current_y[0] += y_step;
-				current_x[1] += x_step;
-        current_y[1] += y_step;
-				current_x[2] += x_step;
-        current_y[2] += y_step;
+				for(int i=0; i<count; i++){
+					current_x[i] += x_step[i];
+					current_y[i] += y_step[i];
+				}
         app_touchscreen_multi(3,current_x,current_y);
         delay_n_ms(delay_per_step);
     }
@@ -338,7 +345,14 @@ void app_multi_touchscreen_swipe(uint16_t* x_start, uint16_t* y_start,
     delay_n_ms(10);
 
     // Touch up
+		app_touchscreen_multi(2,x_end,y_end);
+    delay_n_ms(10);
+		app_touchscreen_multi(1,x_end,y_end);
+    delay_n_ms(10);
+		app_touchscreen_multi(0,x_end,y_end);
+    delay_n_ms(10);
 		app_hid_send_multitouch(NULL, 0);
+		//app_hid_send_multitouch(NULL, 0);
 }
 
 /**

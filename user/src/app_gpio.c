@@ -345,11 +345,11 @@ void app_key_press_timeout_handler(void)
             // Demo: Multi-touch screen operations
             static uint8_t touch_demo = 0;
 						uint16_t x_start[3] = {8000, 16384, 24000};
-            uint16_t y_start[3] = {5000, 5000, 5000};
-						uint16_t x_end[3] = {8000, 16384, 24000};
-            uint16_t y_end[3] = {15000, 15000, 15000};
-						//app_multi_touchscreen_swipe(x_start,y_start,x_end,y_end,300);
-						app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
+            uint16_t y_start[3] = {5000, 4000, 4500};
+						uint16_t x_end[3] = {10200, 18984, 25500};
+            uint16_t y_end[3] = {19000, 17000, 20000};
+						app_multi_touchscreen_swipe(3,x_start,y_start,x_end,y_end,300);
+						//app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
 //						switch(touch_demo % 2) {
 //                case 0:
 //                    // Single tap
@@ -412,9 +412,9 @@ void app_key_press_timeout_handler(void)
             NS_LOG_WARNING("HID not ready, skipping touch screen send\r\n");
         }
         #endif
-        //key3_irq_actived = 0;
-				ns_timer_create(KEY_PRESS_DELAY,app_key_press_timeout_handler);
-        key3_irq_actived = 1;
+        key3_irq_actived = 0;
+//				ns_timer_create(KEY_PRESS_DELAY,app_key_press_timeout_handler);
+//        key3_irq_actived = 1;
     }
     else if(key3_irq_actived == 2)
     {

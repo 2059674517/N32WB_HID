@@ -51,6 +51,7 @@
 .\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\ip\ble\hl\api\rwble_hl_error.h
 .\objects\app_ble.o: ..\user\inc\app_profile\rwapp_config.h
 .\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\ip\ble\hl\inc\rwprf_config.h
+.\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\ip\ble\hl\api\gapc_task.h
 .\objects\app_ble.o: ..\user\inc\app_ble.h
 .\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_library\ble\ns_ble.h
 .\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\stack_common\global_func.h
@@ -113,7 +114,6 @@
 .\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\ip\ble\hl\inc\gapm.h
 .\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\ip\ble\hl\src\gap\gapm_int.h
 .\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\ip\ble\hl\inc\gapc.h
-.\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\ip\ble\hl\api\gapc_task.h
 .\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\ip\ble\hl\src\gatt\gattm_int.h
 .\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\ip\ble\hl\api\gattm_task.h
 .\objects\app_ble.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\ip\ble\hl\src\gatt\attm_db.h

@@ -35,6 +35,7 @@
 #include <string.h>
 #include "n32wb03x.h"
 #include "gapm_task.h"               // GAP Manager Task API
+#include "gapc_task.h"               // GAP Controller Task API (for RSSI)
 #include "app_ble.h"
 #include "app_gpio.h"
 #include "ns_sec.h"
@@ -101,11 +102,17 @@ void app_ble_msg_handler(struct ble_msg_t const *p_ble_msg)
         case APP_BLE_GAP_CONNECTED:
             app_batt_enable_prf(app_env.conidx);
             app_hid_enable_prf(app_env.conidx);
-        
+
             app_ble_connected();
             break;
         case APP_BLE_GAP_DISCONNECTED:
             app_ble_disconnected();
+            break;
+        case APP_BLE_GAP_RSSI_IND:
+            {
+                struct gapc_con_rssi_ind const *rssi_ind = p_ble_msg->msg.p_gapc_rssi;
+                NS_LOG_INFO("RSSI: %d dBm\r\n", rssi_ind->rssi);
+            }
             break;
 
         default:
@@ -314,8 +321,11 @@ void app_ble_init(void)
  */
 void app_ble_connected(void)
 {
-    LedOn(LED2_PORT,LED2_PIN);   
-    
+    LedOn(LED2_PORT,LED2_PIN);
+
+    // Start RSSI monitoring every 2 seconds (2000 ms)
+    ns_ble_active_rssi(2000);
+    NS_LOG_INFO("Started RSSI monitoring\r\n");
 }
 
 /**
