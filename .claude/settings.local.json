@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"\nwith open(r''D:\\SU\\singlechip\\N32\\N32WB031\\my_project\\hid_touchscreen\\user\\src\\app_hid_touchscreen.c'', ''rb'') as f:\n    content = f.read()\n    \n# Find the exact bytes for line 225-230\nlines = content.split(b''\\r\\n'')\nfor i in range(224, 231):\n    print(f''Line {i+1}: {repr(lines[i])}'')\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

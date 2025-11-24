@@ -236,14 +236,6 @@ static const uint8_t app_hid_mouse_report_map[] =
     0xA1, 0x01,        // Collection (Application)
     0x85, 0x04,        // Report ID (4)
 
-    // Maximum contact count (3 touches)
-    0x09, 0x55,        //   Usage (Contact Count Maximum)
-    0x15, 0x00,        //   Logical Minimum (0)
-    0x25, 0x03,        //   Logical Maximum (3)
-    0x75, 0x08,        //   Report Size (8)
-    0x95, 0x01,        //   Report Count (1)
-    0xB1, 0x02,        //   Feature (Data,Var,Abs)
-
     // Touch point 1
     0x09, 0x22,        //   Usage (Finger)
     0xA1, 0x02,        //   Collection (Logical)
@@ -328,7 +320,7 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x81, 0x02,        //     Input (Data,Var,Abs)
     0xC0,              //   End Collection (Logical)
 
-    // Contact count
+    // Contact count (Input Report)
     0x05, 0x0D,        //   Usage Page (Digitizers)
     0x09, 0x54,        //   Usage (Contact Count)
     0x15, 0x00,        //   Logical Minimum (0)
@@ -336,6 +328,14 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x75, 0x08,        //   Report Size (8)
     0x95, 0x01,        //   Report Count (1)
     0x81, 0x02,        //   Input (Data,Var,Abs)
+
+    // Contact Count Maximum (Feature Report)
+    0x09, 0x55,        //   Usage (Contact Count Maximum)
+    0x15, 0x00,        //   Logical Minimum (0)
+    0x25, 0x03,        //   Logical Maximum (3)
+    0x75, 0x08,        //   Report Size (8)
+    0x95, 0x01,        //   Report Count (1)
+    0xB1, 0x02,        //   Feature (Data,Var,Abs)
 
     0xC0,              // End Collection
 };
@@ -397,8 +397,8 @@ void app_hid_add_hids(void)
     // The device is a keyboard and mouse combo with touch screen
     db_cfg->cfg[0].svc_features = HOGPD_CFG_KEYBOARD | HOGPD_CFG_MOUSE; // Support both keyboard and mouse
 
-    // Report Characteristics - Now includes touch screen
-    db_cfg->cfg[0].report_nb    = 4;  // Changed from 3 to 4 to include touch screen report
+    // Report Characteristics - Now includes touch screen with both Input and Feature reports
+    db_cfg->cfg[0].report_nb    = 5;  // 5 reports: mouse, multimedia, keyboard, touchscreen input, touchscreen feature
 
     db_cfg->cfg[0].report_id[0] = 1;  // Mouse
     db_cfg->cfg[0].report_char_cfg[0] = HOGPD_CFG_REPORT_IN;
@@ -409,8 +409,11 @@ void app_hid_add_hids(void)
     db_cfg->cfg[0].report_id[2] = 3;  // Keyboard
     db_cfg->cfg[0].report_char_cfg[2] = HOGPD_CFG_REPORT_IN;
 
-    db_cfg->cfg[0].report_id[3] = 4;  // Touch Screen
+    db_cfg->cfg[0].report_id[3] = 4;  // Touch Screen (Input Report)
     db_cfg->cfg[0].report_char_cfg[3] = HOGPD_CFG_REPORT_IN;
+
+    db_cfg->cfg[0].report_id[4] = 4;  // Touch Screen (Feature Report - same Report ID!)
+    db_cfg->cfg[0].report_char_cfg[4] = HOGPD_CFG_REPORT_FEAT;
 
     // HID Information
     db_cfg->cfg[0].hid_info.bcdHID       = 0x0111;         // HID Version 1.11
@@ -898,7 +901,14 @@ static int hogpd_report_req_ind_handler(ke_msg_id_t const msgid,
                                     ke_task_id_t const dest_id,
                                     ke_task_id_t const src_id)
 {
-    NS_LOG_DEBUG("%s\r\n",__func__);
+    NS_LOG_WARNING("=== REPORT REQUEST ===\r\n");
+    NS_LOG_WARNING("operation: %d\r\n", param->operation);
+    NS_LOG_WARNING("report.idx: %d\r\n", param->report.idx);
+    NS_LOG_WARNING("report.type: %d\r\n", param->report.type);
+    NS_LOG_WARNING("report.hid_idx: %d\r\n", param->report.hid_idx);
+    NS_LOG_WARNING("conidx: %d\r\n", param->conidx);
+    NS_LOG_WARNING("=====================\r\n");
+
     // 第一步：根据report.idx获取Report类型（Input/Feature）
     uint8_t report_cfg = 0;
     switch(param->report.idx)
@@ -906,10 +916,11 @@ static int hogpd_report_req_ind_handler(ke_msg_id_t const msgid,
         case 0: // Report ID=1（鼠标）
         case 1: // Report ID=2（多媒体）
         case 2: // Report ID=3（键盘）
+        case 3: // Report ID=4（触摸屏Input）
             report_cfg = HOGPD_CFG_REPORT_IN;
             break;
-        case 3: // Report ID=4（触摸屏：含Input和Feature）
-            report_cfg = HOGPD_CFG_REPORT_FEAT; // 同时支持Feature和Input
+        case 4: // Report ID=4（触摸屏Feature）
+            report_cfg = HOGPD_CFG_REPORT_FEAT;
             break;
         default:
             report_cfg = 0;
@@ -936,10 +947,15 @@ static int hogpd_report_req_ind_handler(ke_msg_id_t const msgid,
     else if ((param->operation == HOGPD_OP_REPORT_READ) && (param->report.type == HOGPD_REPORT))
     {
         struct hogpd_report_cfm *req = NULL;
-        // 第二步：判断是否为Feature Report读取请求（触摸屏Report ID=4）
-        if ((report_cfg == HOGPD_CFG_REPORT_FEAT) && (param->report.idx == 3))
+
+        NS_LOG_WARNING("Read HOGPD_REPORT: idx=%d, report_cfg=%d\r\n", param->report.idx, report_cfg);
+
+        // 特殊处理触摸屏Feature Report（idx=4, Report ID=4, Type=Feature）的读取请求
+        // Windows会读取Feature Report来获取最大触摸点数
+        if (param->report.idx == 4)
         {
-            // 处理GET_FEATURE请求：返回最大触摸点数（1字节，0x03）
+            NS_LOG_WARNING("Touch screen FEATURE report read - returning Contact Count Maximum = 3\r\n");
+            // 返回最大触摸点数（1字节，0x03）
             req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_CFM,
                                    src_id,
                                    dest_id,
@@ -952,11 +968,14 @@ static int hogpd_report_req_ind_handler(ke_msg_id_t const msgid,
             req->report.type = HOGPD_REPORT;
             req->report.idx = param->report.idx;
             req->report.length = 1;
-            req->report.value[0] = 0x03; // 关键：返回最大触摸点数3
+            req->report.value[0] = 0x03; // 返回最大触摸点数3
+
+            NS_LOG_WARNING("Sent Feature Report: value=0x%02x\r\n", req->report.value[0]);
         }
         else
         {
-            // 处理普通Input Report读取请求（鼠标/键盘/多媒体），返回默认值0即可
+            NS_LOG_WARNING("Other report read (idx=%d) - returning zeros\r\n", param->report.idx);
+            // 处理普通Input Report读取请求（鼠标/键盘/多媒体/触摸屏Input），返回默认值0即可
             req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_CFM,
                                    src_id,
                                    dest_id,

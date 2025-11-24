@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\beacon.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\beacon.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sun Nov 23 16:59:07 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Mon Nov 24 16:50:00 2025
 <BR><P>
 <H3>Maximum Stack Usage =        424 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -195,15 +195,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[10a]"></a>co_list_init</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
-<BR><BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_init
+<BR><BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_init (via Veneer)
 </UL>
 
 <P><STRONG><a name="[107]"></a>co_list_pop_front</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
-<BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_destroy
+<BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_destroy (via Veneer)
 </UL>
 
 <P><STRONG><a name="[10e]"></a>co_list_push_back</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
-<BR><BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_set_value_req_handler
+<BR><BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_set_value_req_handler (via Veneer)
 </UL>
 
 <P><STRONG><a name="[97]"></a>delay_n_10us</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, symbol_g15.obj(ABSOLUTE))
@@ -1151,6 +1151,7 @@ Global Symbols
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapc_encrypt_req_ind_handler
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_keyboard_report
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_hid_send_consumer_report
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_report_req_ind_handler
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_ntf_cfg_ind_handler
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_key_press_timeout_handler
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_ble_msg_handler
@@ -1184,6 +1185,7 @@ Global Symbols
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_report_cfm_handler
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_read_req_ind_handler
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_att_info_req_ind_handler
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hogpd_report_req_ind_handler
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_value_req_ind_handler
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapm_ext_adv_repoer_ind_handler
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gapm_cmp_evt_handler
@@ -1339,7 +1341,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> ns_ble_task.o(.constdata)
 </UL>
-<P><STRONG><a name="[33]"></a>app_hid_add_hids</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, app_hid.o(i.app_hid_add_hids))
+<P><STRONG><a name="[33]"></a>app_hid_add_hids</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, app_hid.o(i.app_hid_add_hids))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = app_hid_add_hids &rArr; app_hid_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
@@ -2351,7 +2353,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = diss_destroy
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_free
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;co_list_pop_front
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;co_list_pop_front (via Veneer)
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> diss.o(.constdata)
 </UL>
@@ -2361,7 +2363,7 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_state_set
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_malloc
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_task_init
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;co_list_init
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;co_list_init (via Veneer)
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attm_svc_create_db (via Veneer)
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;diss_compute_cfg_flag
 </UL>
@@ -2372,7 +2374,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_alloc
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;co_list_push_back
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;co_list_push_back (via Veneer)
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;co_list_extract (via Veneer)
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_malloc
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_free
@@ -3088,11 +3090,13 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_hid.o(.constdata)
 </UL>
-<P><STRONG><a name="[7e]"></a>hogpd_report_req_ind_handler</STRONG> (Thumb, 254 bytes, Stack size 24 bytes, app_hid.o(i.hogpd_report_req_ind_handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = hogpd_report_req_ind_handler
+<P><STRONG><a name="[7e]"></a>hogpd_report_req_ind_handler</STRONG> (Thumb, 344 bytes, Stack size 40 bytes, app_hid.o(i.hogpd_report_req_ind_handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = hogpd_report_req_ind_handler &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
+<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_send
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ke_msg_alloc
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
