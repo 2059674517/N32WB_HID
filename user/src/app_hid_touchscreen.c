@@ -35,6 +35,7 @@
 
 #include "app_hid_touchscreen.h"
 #include <string.h>
+#include <math.h>
 #include "app_profile/app_hid.h"
 #include "ns_delay.h"
 #include "ns_log.h"
@@ -404,7 +405,7 @@ void app_touchscreen_rotate(uint16_t center_x, uint16_t center_y,
 
     uint8_t steps = 20;
     uint16_t delay_per_step = duration_ms / steps;
-    float angle_step = (angle_degrees * 3.14159f / 180.0f) / steps;
+    float angle_step_radians = (angle_degrees * 3.14159f / 180.0f) / steps;
 
     hid_touch_point_t touches[2];
 
@@ -416,24 +417,20 @@ void app_touchscreen_rotate(uint16_t center_x, uint16_t center_y,
 
     // Perform rotate gesture with real multi-touch
     for (uint8_t i = 0; i <= steps; i++) {
-        float current_angle = angle_step * i;
+        // Current rotation angle for this step
+        float current_angle = angle_step_radians * i;
 
-        // Simple approximation for rotation
-        // Finger 1 position
-        int16_t x1 = center_x + radius;
-        int16_t y1 = center_y;
+        // Finger 1: starts at 0 degrees (right side), rotates by current_angle
+        // In screen coordinates: X+ is right, Y+ is down
+        // Positive angle = clockwise rotation
+        float angle1 = current_angle;
+        int16_t x1 = center_x + (int16_t)(radius * cosf(angle1));
+        int16_t y1 = center_y + (int16_t)(radius * sinf(angle1));
 
-        // Rotate finger 1 position
-        if (i > 0) {
-            // Approximate rotation using linear interpolation
-            float progress = (float)i / steps;
-            x1 = center_x + (int16_t)(radius * (1.0f - progress * 0.5f));
-            y1 = center_y + (int16_t)(radius * progress);
-        }
-
-        // Finger 2 position (opposite side)
-        int16_t x2 = center_x - (x1 - center_x);
-        int16_t y2 = center_y - (y1 - center_y);
+        // Finger 2: starts at 180 degrees (left side), rotates by same angle
+        float angle2 = 3.14159f + current_angle;
+        int16_t x2 = center_x + (int16_t)(radius * cosf(angle2));
+        int16_t y2 = center_y + (int16_t)(radius * sinf(angle2));
 
         // Clamp to valid range
         touches[0].x = (x1 < 0) ? 0 : ((x1 > SCREEN_WIDTH) ? SCREEN_WIDTH : x1);
@@ -614,4 +611,64 @@ void app_gesture_swipe(int16_t distance_pixels, uint8_t is_vertical)
                 is_vertical ? "VERTICAL" : "HORIZONTAL", distance_pixels);
 
     app_touchscreen_swipe(x_start, y_start, x_end, y_end, duration_ms);
+}
+
+/**
+ * @brief Swipe up from bottom edge
+ */
+void app_gesture_swipe_up_from_bottom(void)
+{
+    // Start from 90% of screen height, swipe up to 30%
+    uint16_t x_start = SCREEN_WIDTH / 2;
+    uint16_t x_end = x_start;
+    uint16_t y_start = (SCREEN_HEIGHT * 10) / 10;  // 90%
+    uint16_t y_end = (SCREEN_HEIGHT * 7) / 10;    // 30%
+
+    NS_LOG_INFO("Gesture: Swipe UP from bottom edge\r\n");
+    app_touchscreen_swipe(x_start, y_start, x_end, y_end, 400);
+}
+
+/**
+ * @brief Swipe down from top edge
+ */
+void app_gesture_swipe_down_from_top(void)
+{
+    // Start from 10% of screen height, swipe down to 70%
+    uint16_t x_start = SCREEN_WIDTH / 2;
+    uint16_t x_end = x_start;
+    uint16_t y_start = 0;        // 10%
+    uint16_t y_end = (SCREEN_HEIGHT * 2) / 10;    // 70%
+
+    NS_LOG_INFO("Gesture: Swipe DOWN from top edge\r\n");
+    app_touchscreen_swipe(x_start, y_start, x_end, y_end, 400);
+}
+
+/**
+ * @brief Swipe right from left edge
+ */
+void app_gesture_swipe_right_from_left(void)
+{
+    // Start from 10% of screen width, swipe right to 70%
+    uint16_t x_start = 0;         // 10%
+    uint16_t x_end = (SCREEN_WIDTH * 5) / 10;     // 70%
+    uint16_t y_start = SCREEN_HEIGHT / 2;
+    uint16_t y_end = y_start;
+
+    NS_LOG_INFO("Gesture: Swipe RIGHT from left edge\r\n");
+    app_touchscreen_swipe(x_start, y_start, x_end, y_end, 400);
+}
+
+/**
+ * @brief Swipe left from right edge
+ */
+void app_gesture_swipe_left_from_right(void)
+{
+    // Start from 90% of screen width, swipe left to 30%
+    uint16_t x_start = SCREEN_WIDTH ;   // 90%
+    uint16_t x_end = (SCREEN_WIDTH * 5) / 10;     // 30%
+    uint16_t y_start = SCREEN_HEIGHT / 2;
+    uint16_t y_end = y_start;
+
+    NS_LOG_INFO("Gesture: Swipe LEFT from right edge\r\n");
+    app_touchscreen_swipe(x_start, y_start, x_end, y_end, 400);
 }

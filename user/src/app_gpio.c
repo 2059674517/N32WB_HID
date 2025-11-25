@@ -345,7 +345,7 @@ void app_key_press_timeout_handler(void)
             // Demo: High-level gesture APIs
             static uint8_t touch_demo = 0;
 
-            switch(touch_demo % 4) {
+            switch(touch_demo % 8) {
                 case 0:
                     // Three-finger swipe for screenshot (from 20% of screen)
                     NS_LOG_INFO("Gesture: Screenshot swipe\r\n");
@@ -355,19 +355,43 @@ void app_key_press_timeout_handler(void)
                 case 1:
                     // Single-finger vertical swipe (down 10000 pixels)
                     NS_LOG_INFO("Gesture: Vertical swipe down\r\n");
-                    app_gesture_swipe(10000, 1);
+                    app_gesture_swipe(-10000, 1);
                     break;
 
                 case 2:
                     // Zoom in gesture (level 5)
                     NS_LOG_INFO("Gesture: Zoom in\r\n");
-                    app_gesture_zoom(5, 1);
+                    app_gesture_zoom(5, 0);
                     break;
 
                 case 3:
                     // Rotate gesture (90 degrees clockwise)
                     NS_LOG_INFO("Gesture: Rotate 90бу\r\n");
-                    app_gesture_rotate(90);
+                    app_gesture_rotate(-90);
+                    break;
+								
+								case 4:
+                    // Zoom in gesture (level 5)
+                    NS_LOG_INFO("Gesture: Zoom in\r\n");
+                    app_gesture_swipe_up_from_bottom();
+                    break;
+
+                case 5:
+                    // Rotate gesture (90 degrees clockwise)
+                    NS_LOG_INFO("Gesture: Rotate 90бу\r\n");
+                    app_gesture_swipe_down_from_top();
+                    break;
+								
+								case 6:
+                    // Zoom in gesture (level 5)
+                    NS_LOG_INFO("Gesture: Zoom in\r\n");
+                    app_gesture_swipe_right_from_left();
+                    break;
+
+                case 7:
+                    // Rotate gesture (90 degrees clockwise)
+                    NS_LOG_INFO("Gesture: Rotate 90бу\r\n");
+                    app_gesture_swipe_left_from_right();
                     break;
             }
 

@@ -2,6 +2,7 @@
 .\objects\app_hid_touchscreen.o: ..\user\inc\app_hid_touchscreen.h
 .\objects\app_hid_touchscreen.o: D:\install\MDK\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\app_hid_touchscreen.o: D:\install\MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\app_hid_touchscreen.o: D:\install\MDK\ARM\ARMCC\Bin\..\include\math.h
 .\objects\app_hid_touchscreen.o: ..\user\inc\app_profile/app_hid.h
 .\objects\app_hid_touchscreen.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\modules\rwip\api\rwip_config.h
 .\objects\app_hid_touchscreen.o: ..\firmware\CMSIS\device\n32wb03x.h

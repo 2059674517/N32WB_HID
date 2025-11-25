@@ -172,6 +172,26 @@ void app_gesture_screenshot(uint8_t start_percent);
  */
 void app_gesture_swipe(int16_t distance_pixels, uint8_t is_vertical);
 
+/**
+ * @brief Swipe up from bottom edge (common gesture for "show home" or "multitask")
+ */
+void app_gesture_swipe_up_from_bottom(void);
+
+/**
+ * @brief Swipe down from top edge (common gesture for "notification center")
+ */
+void app_gesture_swipe_down_from_top(void);
+
+/**
+ * @brief Swipe right from left edge (common gesture for "back" or "menu")
+ */
+void app_gesture_swipe_right_from_left(void);
+
+/**
+ * @brief Swipe left from right edge (common gesture for "back" or "forward")
+ */
+void app_gesture_swipe_left_from_right(void);
+
 #ifdef __cplusplus
 }
 #endif
