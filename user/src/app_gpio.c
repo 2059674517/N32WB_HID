@@ -53,7 +53,7 @@
 uint8_t key1_irq_actived = 0;
 uint8_t key2_irq_actived = 0;
 uint8_t key3_irq_actived = 0;
-uint8_t key_enable = 0;//�������ʹ�ܣ���Ϊ0�ż�ⰴ���Ƿ���
+uint8_t key_enable = 0;//�������ʹ�ܣ����?�ż�ⰴ���Ƿ���?
 /* Private function prototypes -----------------------------------------------*/
 
 /* Private functions ---------------------------------------------------------*/
@@ -298,7 +298,7 @@ void app_key_press_timeout_handler(void)
 //								HID_KEY_KP_7, HID_KEY_KP_8, HID_KEY_KP_9, HID_KEY_KP_0,
 //								HID_KEY_KP_DOT, HID_KEY_KP_EQUAL,
 
-//								// ��ý����Ƽ������ּ���֧�֣�
+//								// ��ý����Ƽ������ּ���֧�֣�?
 //								HID_KEY_MUTE, HID_KEY_VOLUME_UP, HID_KEY_VOLUME_DOWN,
 //								HID_KEY_MEDIA_NEXT, HID_KEY_MEDIA_PREV, HID_KEY_MEDIA_PLAY_PAUSE
 									
@@ -348,19 +348,29 @@ void app_key_press_timeout_handler(void)
             uint16_t y_start[3] = {5000, 4000, 4500};
 						uint16_t x_end[3] = {10200, 18984, 25500};
             uint16_t y_end[3] = {19000, 17000, 20000};
-						app_multi_touchscreen_swipe(2,x_start,y_start,x_end,y_end,300);
+						//app_multi_touchscreen_swipe(3,x_start,y_start,x_end,y_end,300);
 						//app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
-//						switch(touch_demo % 2) {
-//                case 0:
-//                    // Single tap
-//                    app_touchscreen_threefinger_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
-//                    break;
+						switch(touch_demo % 4) {
+                case 0:
+                    // Single tap
+                    app_multi_touchscreen_swipe(3,x_start,y_start,x_end,y_end,300);
+                    break;
 
-//                case 1:
-//                    // Swipe
-//                    app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
-//                    break;
-//						}
+                case 1:
+                    // Swipe
+                    app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
+                    break;
+								
+								case 2:
+                    // Swipe
+                    app_touchscreen_pinch(16384, 16384, 8000, 16000, 500);
+                    break;
+								
+								case 3:
+                    // Swipe
+                    app_touchscreen_rotate(16384, 16384, 6000, 90, 800);
+                    break;
+						}
 //            switch(touch_demo % 6) {
 //                case 0:
 //                    // Single tap

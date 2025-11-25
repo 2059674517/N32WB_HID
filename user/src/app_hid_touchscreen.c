@@ -43,9 +43,6 @@
 #include "ke_msg.h"
 #include "co_utils.h"
 
-// Multi-touch report size: 3 touches * 5 bytes + 1 byte count = 16 bytes
-#define APP_HID_MULTITOUCH_REPORT_LEN  16
-
 // External HID environment
 extern struct app_hid_env_tag app_hid_env;
 
@@ -77,10 +74,9 @@ void app_hid_send_multitouch(const hid_touch_point_t* touches, uint8_t count)
     // Build the multi-touch report buffer
     uint8_t report[APP_HID_MULTITOUCH_REPORT_LEN];
     memset(report, 0, sizeof(report));
-
     // Fill in touch data for each finger
     for (uint8_t i = 0; i < MAX_TOUCH_POINTS; i++) {
-        uint8_t offset = i * 5;  // 5 bytes per touch
+        uint8_t offset =i * 5;  // 5 bytes per touch
 
         if (i < count && touches != NULL) {
             // Active touch point
@@ -102,13 +98,13 @@ void app_hid_send_multitouch(const hid_touch_point_t* touches, uint8_t count)
                         i, touch->contact_id, touch->tip_switch, touch->x, touch->y);
         } else {
             // No touch - set contact ID but no tip switch
-            report[offset] = ((i+1) << 1);  // Contact ID without tip switch
+            report[offset] = ((i) << 1);  // Contact ID without tip switch
 						NS_LOG_WARNING("\r\ncontact_id:%d\r\n", report[offset]);
         }
     }
 
     // Last byte: Contact count
-    report[15] = count;
+    
 
     // Send the report using the HID profile
     struct hogpd_report_upd_req * req = KE_MSG_ALLOC_DYN(HOGPD_REPORT_UPD_REQ,
@@ -154,8 +150,8 @@ void app_hid_send_touchscreen(uint8_t contact_id, uint8_t is_touching,
     // Fill touch point data
     touch.tip_switch = is_touching ? 1 : 0;
     touch.contact_id = contact_id;
-    touch.x = (x > 32767) ? 32767 : x;
-    touch.y = (y > 32767) ? 32767 : y;
+    touch.x = (x > MAX_X) ? MAX_X : x;
+    touch.y = (y > MAX_Y) ? MAX_Y : y;
 
     // Send as single touch
     if (is_touching) {
@@ -178,54 +174,6 @@ void app_touchscreen_tap(uint16_t x, uint16_t y)
 
     // Touch up
     app_hid_send_touchscreen(0, 0, x, y, 0);
-}
-
-/**
- * @brief Simulate a swipe gesture
- */
-void app_touchscreen_threefinger_swipe(uint16_t x_start, uint16_t y_start,
-                           uint16_t x_end, uint16_t y_end,
-                           uint16_t duration_ms)
-{
-    NS_LOG_INFO("Touchscreen SWIPE from (%d,%d) to (%d,%d)\r\n",
-                x_start, y_start, x_end, y_end);
-
-    uint8_t steps = 10;
-    uint16_t delay_per_step = duration_ms / steps;
-
-    int16_t x_step = (x_end - x_start) / steps;
-    int16_t y_step = (y_end - y_start) / steps;
-
-    uint16_t current_x = x_start;
-    uint16_t current_y = y_start;
-
-    // Touch down
-    app_hid_send_touchscreen(0, 1, current_x, current_y, 100);
-		app_hid_send_touchscreen(1, 1, current_x+1000, current_y, 100);
-		app_hid_send_touchscreen(2, 1, current_x+2000, current_y, 100);
-
-    // Move through intermediate points
-    for (uint8_t i = 1; i < steps; i++) {
-        current_x += x_step;
-        current_y += y_step;
-        app_hid_send_touchscreen(0, 1, current_x, current_y, 100);
-				app_hid_send_touchscreen(1, 1, current_x+1000, current_y, 100);
-				app_hid_send_touchscreen(2, 1, current_x+2000, current_y, 100);
-				NS_LOG_INFO("Touchscreen SWIPE from (%d,%d) to (%d,%d)\r\n",
-                current_x, current_y, current_x, current_y);
-        delay_n_ms(delay_per_step);
-    }
-
-    // Final position
-    app_hid_send_touchscreen(0, 1, x_end, y_end, 100);
-		app_hid_send_touchscreen(1, 1, x_end+1000, y_end, 100);
-		app_hid_send_touchscreen(2, 1, x_end+2000, y_end, 100);
-    delay_n_ms(10);
-
-    // Touch up
-    app_hid_send_touchscreen(0, 0, x_end, y_end, 0);
-		app_hid_send_touchscreen(1, 0, x_end+1000, y_end, 0);
-		app_hid_send_touchscreen(2, 0, x_end+2000, y_end, 0);
 }
 
 /**
@@ -283,9 +231,9 @@ void app_touchscreen_multi(uint8_t finger_count,
     // Prepare touch points
     for (uint8_t i = 0; i < finger_count; i++) {
         touches[i].tip_switch = 1;
-        touches[i].contact_id = i+1;
-        touches[i].x = (x_coords[i] > 32767) ? 32767 : x_coords[i];
-        touches[i].y = (y_coords[i] > 32767) ? 32767 : y_coords[i];
+        touches[i].contact_id = i;
+        touches[i].x = (x_coords[i] > MAX_X) ? MAX_X : x_coords[i];
+        touches[i].y = (y_coords[i] > MAX_Y) ? MAX_Y : y_coords[i];
     }
 
     // Touch down all fingers simultaneously
@@ -302,7 +250,7 @@ void app_multi_touchscreen_swipe(uint16_t count,uint16_t* x_start, uint16_t* y_s
 {
     NS_LOG_INFO("multiTouchscreen SWIPE");
 
-    uint8_t steps = 30;
+    uint8_t steps = 10;
     uint16_t delay_per_step = duration_ms / steps;
 	
 		int16_t x_step[30];
@@ -344,10 +292,10 @@ void app_multi_touchscreen_swipe(uint16_t count,uint16_t* x_start, uint16_t* y_s
     delay_n_ms(10);
 
     // Touch up
-		for(int i=count-1; i>=0; i--){
-			app_touchscreen_multi(i,x_end,y_end);
-			delay_n_ms(10);
-		}
+//		for(int i=count-1; i>=0; i--){
+//			app_touchscreen_multi(i,x_end,y_end);
+//			delay_n_ms(10);
+//		}
 		
 		app_hid_send_multitouch(NULL, 0);
 		//app_hid_send_multitouch(NULL, 0);
@@ -376,8 +324,8 @@ void app_touchscreen_multi_tap(uint8_t finger_count,
     for (uint8_t i = 0; i < finger_count; i++) {
         touches[i].tip_switch = 1;
         touches[i].contact_id = i;
-        touches[i].x = (x_coords[i] > 32767) ? 32767 : x_coords[i];
-        touches[i].y = (y_coords[i] > 32767) ? 32767 : y_coords[i];
+        touches[i].x = (x_coords[i] > MAX_X) ? MAX_X : x_coords[i];
+        touches[i].y = (y_coords[i] > MAX_Y) ? MAX_Y : y_coords[i];
     }
 
     // Touch down all fingers simultaneously
@@ -422,7 +370,7 @@ void app_touchscreen_pinch(uint16_t center_x, uint16_t center_y,
         // Position fingers horizontally around center
         touches[0].x = (center_x > current_distance/2) ? center_x - current_distance/2 : 0;
         touches[0].y = center_y;
-        touches[1].x = (center_x + current_distance/2 > 32767) ? 32767 : center_x + current_distance/2;
+        touches[1].x = (center_x + current_distance/2 > MAX_X) ? MAX_X : center_x + current_distance/2;
         touches[1].y = center_y;
 
         // Send both touches simultaneously
@@ -488,10 +436,10 @@ void app_touchscreen_rotate(uint16_t center_x, uint16_t center_y,
         int16_t y2 = center_y - (y1 - center_y);
 
         // Clamp to valid range
-        touches[0].x = (x1 < 0) ? 0 : ((x1 > 32767) ? 32767 : x1);
-        touches[0].y = (y1 < 0) ? 0 : ((y1 > 32767) ? 32767 : y1);
-        touches[1].x = (x2 < 0) ? 0 : ((x2 > 32767) ? 32767 : x2);
-        touches[1].y = (y2 < 0) ? 0 : ((y2 > 32767) ? 32767 : y2);
+        touches[0].x = (x1 < 0) ? 0 : ((x1 > MAX_X) ? MAX_X : x1);
+        touches[0].y = (y1 < 0) ? 0 : ((y1 > MAX_Y) ? MAX_Y : y1);
+        touches[1].x = (x2 < 0) ? 0 : ((x2 > MAX_X) ? MAX_X : x2);
+        touches[1].y = (y2 < 0) ? 0 : ((y2 > MAX_Y) ? MAX_Y : y2);
 
         // Send both touches simultaneously
         app_hid_send_multitouch(touches, 2);

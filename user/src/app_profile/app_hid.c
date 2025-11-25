@@ -235,8 +235,11 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x09, 0x04,        // Usage (Touch Screen)
     0xA1, 0x01,        // Collection (Application)
     0x85, 0x04,        // Report ID (4)
-
+		
+		
+		
     // Touch point 1
+		0x05, 0x0D,        // Usage Page (Digitizers)
     0x09, 0x22,        //   Usage (Finger)
     0xA1, 0x02,        //   Collection (Logical)
     0x09, 0x42,        //     Usage (Tip Switch)
@@ -247,9 +250,9 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x81, 0x02,        //     Input (Data,Var,Abs)
 
     0x09, 0x51,        //     Usage (Contact Identifier)
-    0x25, 0x7F,        //     Logical Maximum (127)
     0x75, 0x07,        //     Report Size (7)
     0x95, 0x01,        //     Report Count (1)
+		0x25, 0x7F,        //     Logical Maximum (127)
     0x81, 0x02,        //     Input (Data,Var,Abs)
 
     0x05, 0x01,        //     Usage Page (Generic Desktop)
@@ -265,6 +268,7 @@ static const uint8_t app_hid_mouse_report_map[] =
     0xC0,              //   End Collection (Logical)
 
     // Touch point 2
+		0x05, 0x0D,        // Usage Page (Digitizers)
     0x09, 0x22,        //   Usage (Finger)
     0xA1, 0x02,        //   Collection (Logical)
     0x09, 0x42,        //     Usage (Tip Switch)
@@ -275,9 +279,9 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x81, 0x02,        //     Input (Data,Var,Abs)
 
     0x09, 0x51,        //     Usage (Contact Identifier)
-    0x25, 0x7F,        //     Logical Maximum (127)
     0x75, 0x07,        //     Report Size (7)
     0x95, 0x01,        //     Report Count (1)
+		0x25, 0x7F,        //     Logical Maximum (127)
     0x81, 0x02,        //     Input (Data,Var,Abs)
 
     0x05, 0x01,        //     Usage Page (Generic Desktop)
@@ -293,6 +297,7 @@ static const uint8_t app_hid_mouse_report_map[] =
     0xC0,              //   End Collection (Logical)
 
     // Touch point 3
+		0x05, 0x0D,        // Usage Page (Digitizers)
     0x09, 0x22,        //   Usage (Finger)
     0xA1, 0x02,        //   Collection (Logical)
     0x09, 0x42,        //     Usage (Tip Switch)
@@ -303,9 +308,10 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x81, 0x02,        //     Input (Data,Var,Abs)
 
     0x09, 0x51,        //     Usage (Contact Identifier)
-    0x25, 0x7F,        //     Logical Maximum (127)
+    
     0x75, 0x07,        //     Report Size (7)
     0x95, 0x01,        //     Report Count (1)
+		0x25, 0x7F,        //     Logical Maximum (127)
     0x81, 0x02,        //     Input (Data,Var,Abs)
 
     0x05, 0x01,        //     Usage Page (Generic Desktop)
@@ -320,22 +326,7 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x81, 0x02,        //     Input (Data,Var,Abs)
     0xC0,              //   End Collection (Logical)
 
-    // Contact count (Input Report)
-    0x05, 0x0D,        //   Usage Page (Digitizers)
-    0x09, 0x54,        //   Usage (Contact Count)
-    0x15, 0x00,        //   Logical Minimum (0)
-    0x25, 0x03,        //   Logical Maximum (3)
-    0x75, 0x08,        //   Report Size (8)
-    0x95, 0x01,        //   Report Count (1)
-    0x81, 0x02,        //   Input (Data,Var,Abs)
-
-    // Contact Count Maximum (Feature Report)
-    0x09, 0x55,        //   Usage (Contact Count Maximum)
-    0x15, 0x00,        //   Logical Minimum (0)
-    0x25, 0x03,        //   Logical Maximum (3)
-    0x75, 0x08,        //   Report Size (8)
-    0x95, 0x01,        //   Report Count (1)
-    0xB1, 0x02,        //   Feature (Data,Var,Abs)
+    
 
     0xC0,              // End Collection
 };
@@ -425,7 +416,6 @@ void app_hid_add_hids(void)
     
     app_hid_init();
 }
-
 
 
 

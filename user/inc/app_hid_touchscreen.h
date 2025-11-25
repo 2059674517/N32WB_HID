@@ -43,6 +43,12 @@ extern "C" {
 
 // Maximum number of simultaneous touch points
 #define MAX_TOUCH_POINTS 3  // Support up to 3 fingers
+// Multi-touch report size: 3 touches * 5 bytes = 15 bytes
+#define APP_HID_MULTITOUCH_REPORT_LEN  MAX_TOUCH_POINTS * 5
+// Logical Maximum of x
+#define MAX_X 32767 
+// Logical Maximum of x
+#define MAX_Y 32767
 
 // Single touch contact structure (5 bytes per contact)
 typedef struct __attribute__((packed)) {
@@ -55,7 +61,7 @@ typedef struct __attribute__((packed)) {
 // Multi-touch report structure (16 bytes total)
 typedef struct __attribute__((packed)) {
     hid_touch_point_t touches[MAX_TOUCH_POINTS];  // 3 * 5 = 15 bytes
-    uint8_t contact_count;                        // Number of active contacts (0-3)
+    //uint8_t contact_count;                        // Number of active contacts (0-3)
 } hid_multitouch_report_t;
 
 /**
@@ -91,10 +97,6 @@ void app_touchscreen_tap(uint16_t x, uint16_t y);
  * @param duration_ms Duration of swipe in milliseconds
  */
 void app_touchscreen_swipe(uint16_t x_start, uint16_t y_start,
-                           uint16_t x_end, uint16_t y_end,
-                           uint16_t duration_ms);
-
-void app_touchscreen_threefinger_swipe(uint16_t x_start, uint16_t y_start,
                            uint16_t x_end, uint16_t y_end,
                            uint16_t duration_ms);
 
