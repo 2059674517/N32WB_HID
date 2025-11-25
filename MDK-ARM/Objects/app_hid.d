@@ -130,6 +130,7 @@
 .\objects\app_hid.o: ..\middlewares\Nationstech\ble_library\ns_ble_profile\hogp\hogpd\api\hogpd_task.h
 .\objects\app_hid.o: ..\middlewares\Nationstech\ble_library\ns_ble_profile\hogp\hogp_common.h
 .\objects\app_hid.o: ..\middlewares\Nationstech\ble_library\ns_ble_stack\ip\ble\hl\api\prf_types.h
+.\objects\app_hid.o: ..\user\inc\app_hid_touchscreen.h
 .\objects\app_hid.o: ..\middlewares\Nationstech\ble_library\ns_ble_profile\hogp\hogpd\src\hogpd.h
 .\objects\app_hid.o: ..\user\inc\app_gpio.h
 .\objects\app_hid.o: ..\user\inc\app_ble.h

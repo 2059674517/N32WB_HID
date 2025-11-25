@@ -41,14 +41,15 @@ extern "C" {
 
 #include <stdint.h>
 
+// Screen dimensions (logical coordinates)
+#define SCREEN_WIDTH  32767   // X axis maximum (0-32767)
+#define SCREEN_HEIGHT 32767   // Y axis maximum (0-32767)
+
 // Maximum number of simultaneous touch points
 #define MAX_TOUCH_POINTS 3  // Support up to 3 fingers
+
 // Multi-touch report size: 3 touches * 5 bytes = 15 bytes
-#define APP_HID_MULTITOUCH_REPORT_LEN  MAX_TOUCH_POINTS * 5
-// Logical Maximum of x
-#define MAX_X 32767 
-// Logical Maximum of x
-#define MAX_Y 32767
+#define APP_HID_MULTITOUCH_REPORT_LEN  (MAX_TOUCH_POINTS * 5)
 
 // Single touch contact structure (5 bytes per contact)
 typedef struct __attribute__((packed)) {
@@ -137,6 +138,39 @@ void app_touchscreen_rotate(uint16_t center_x, uint16_t center_y,
 void app_touchscreen_multi_tap(uint8_t finger_count,
                                const uint16_t* x_coords,
                                const uint16_t* y_coords);
+
+// ============================================================================
+// High-Level Gesture APIs (Easy to use)
+// ============================================================================
+
+/**
+ * @brief Perform zoom gesture (pinch in/out)
+ * @param zoom_level Zoom level (1-10, higher = more zoom change)
+ * @param is_zoom_in 1 = zoom in (pinch out), 0 = zoom out (pinch in)
+ */
+void app_gesture_zoom(uint8_t zoom_level, uint8_t is_zoom_in);
+
+/**
+ * @brief Perform rotation gesture
+ * @param angle_degrees Rotation angle in degrees (-180 to +180)
+ *                      Positive = clockwise, Negative = counter-clockwise
+ */
+void app_gesture_rotate(int16_t angle_degrees);
+
+/**
+ * @brief Perform three-finger swipe for screenshot
+ * @param start_percent Starting position as percentage of screen height (0-100)
+ *                      Example: 20 = start at 20% of screen height
+ *                      Swipe will move 30% of screen height
+ */
+void app_gesture_screenshot(uint8_t start_percent);
+
+/**
+ * @brief Perform single-finger swipe
+ * @param distance_pixels Distance to swipe in pixels (positive = down/right, negative = up/left)
+ * @param is_vertical 1 = vertical swipe, 0 = horizontal swipe
+ */
+void app_gesture_swipe(int16_t distance_pixels, uint8_t is_vertical);
 
 #ifdef __cplusplus
 }

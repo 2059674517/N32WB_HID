@@ -53,7 +53,7 @@
 uint8_t key1_irq_actived = 0;
 uint8_t key2_irq_actived = 0;
 uint8_t key3_irq_actived = 0;
-uint8_t key_enable = 0;//�������ʹ�ܣ����?�ż�ⰴ���Ƿ���?
+uint8_t key_enable = 0;//�������ʹ�ܣ����?�ż�ⰴ���Ƿ���?
 /* Private function prototypes -----------------------------------------------*/
 
 /* Private functions ---------------------------------------------------------*/
@@ -298,7 +298,7 @@ void app_key_press_timeout_handler(void)
 //								HID_KEY_KP_7, HID_KEY_KP_8, HID_KEY_KP_9, HID_KEY_KP_0,
 //								HID_KEY_KP_DOT, HID_KEY_KP_EQUAL,
 
-//								// ��ý����Ƽ������ּ���֧�֣�?
+//								// ��ý����Ƽ������ּ���֧�֣�?
 //								HID_KEY_MUTE, HID_KEY_VOLUME_UP, HID_KEY_VOLUME_DOWN,
 //								HID_KEY_MEDIA_NEXT, HID_KEY_MEDIA_PREV, HID_KEY_MEDIA_PLAY_PAUSE
 									
@@ -342,80 +342,34 @@ void app_key_press_timeout_handler(void)
         #if (CFG_APP_HID)
         // Check if HID is ready before sending
         if (is_app_hid_ready()) {
-            // Demo: Multi-touch screen operations
+            // Demo: High-level gesture APIs
             static uint8_t touch_demo = 0;
-						uint16_t x_start[3] = {8000, 16384, 24000};
-            uint16_t y_start[3] = {5000, 4000, 4500};
-						uint16_t x_end[3] = {10200, 18984, 25500};
-            uint16_t y_end[3] = {19000, 17000, 20000};
-						//app_multi_touchscreen_swipe(3,x_start,y_start,x_end,y_end,300);
-						//app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
-						switch(touch_demo % 4) {
+
+            switch(touch_demo % 4) {
                 case 0:
-                    // Single tap
-                    app_multi_touchscreen_swipe(3,x_start,y_start,x_end,y_end,300);
+                    // Three-finger swipe for screenshot (from 20% of screen)
+                    NS_LOG_INFO("Gesture: Screenshot swipe\r\n");
+                    app_gesture_screenshot(20);
                     break;
 
                 case 1:
-                    // Swipe
-                    app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
+                    // Single-finger vertical swipe (down 10000 pixels)
+                    NS_LOG_INFO("Gesture: Vertical swipe down\r\n");
+                    app_gesture_swipe(10000, 1);
                     break;
-								
-								case 2:
-                    // Swipe
-                    app_touchscreen_pinch(16384, 16384, 8000, 16000, 500);
+
+                case 2:
+                    // Zoom in gesture (level 5)
+                    NS_LOG_INFO("Gesture: Zoom in\r\n");
+                    app_gesture_zoom(5, 1);
                     break;
-								
-								case 3:
-                    // Swipe
-                    app_touchscreen_rotate(16384, 16384, 6000, 90, 800);
+
+                case 3:
+                    // Rotate gesture (90 degrees clockwise)
+                    NS_LOG_INFO("Gesture: Rotate 90��\r\n");
+                    app_gesture_rotate(90);
                     break;
-						}
-//            switch(touch_demo % 6) {
-//                case 0:
-//                    // Single tap
-//                    NS_LOG_INFO("Touch screen: Single tap\r\n");
-//                    app_touchscreen_tap(16384, 16384);  // Center of screen
-//                    break;
-
-//                case 1:
-//                    // Swipe
-//                    NS_LOG_INFO("Touch screen: Swipe\r\n");
-//                    app_touchscreen_swipe(16384, 32767/10*3, 16384, 32767/10*6, 300);
-//                    break;
-
-//                case 2:
-//                    // Two-finger tap (real multi-touch)
-//                    NS_LOG_INFO("Touch screen: Two-finger tap\r\n");
-//                    {
-//                        uint16_t x_coords[2] = {10000, 22000};
-//                        uint16_t y_coords[2] = {16384, 16384};
-//                        app_touchscreen_multi_tap(2, x_coords, y_coords);
-//                    }
-//                    break;
-
-//                case 3:
-//                    // Three-finger tap (real multi-touch)
-//                    NS_LOG_INFO("Touch screen: Three-finger tap\r\n");
-//                    {
-//                        uint16_t x_coords[3] = {8000, 16384, 24000};
-//                        uint16_t y_coords[3] = {16384, 16384, 16384};
-//                        app_touchscreen_multi_tap(3, x_coords, y_coords);
-//                    }
-//                    break;
-
-//                case 4:
-//                    // Pinch gesture (zoom)
-//                    NS_LOG_INFO("Touch screen: Pinch zoom\r\n");
-//                    app_touchscreen_pinch(16384, 16384, 8000, 16000, 500);
-//                    break;
-
-//                case 5:
-//                    // Rotate gesture
-//                    NS_LOG_INFO("Touch screen: Two-finger rotate\r\n");
-//                    app_touchscreen_rotate(16384, 16384, 6000, 90, 800);
-//                    break;
-//            }
+            }
 
             touch_demo++;
         } else {

@@ -56,6 +56,7 @@
 #include "arch.h"                    // Platform Definitions
 #include "prf.h"
 #include "ke_timer.h"
+#include "app_hid_touchscreen.h"
 
 #if (NVDS_SUPPORT)
 #include "nvds.h"                   // NVDS Definitions
@@ -77,6 +78,10 @@
 
 /// HID Application Module Environment Structure
 struct app_hid_env_tag app_hid_env;
+
+// Calculate coordinate maximum bytes from screen dimension macros
+#define COORD_MAX_LOW_BYTE  (SCREEN_WIDTH & 0xFF)
+#define COORD_MAX_HIGH_BYTE ((SCREEN_WIDTH >> 8) & 0xFF)
 
 /// HID Mouse Report Descriptor
 static const uint8_t app_hid_mouse_report_map[] =
@@ -258,7 +263,7 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x05, 0x01,        //     Usage Page (Generic Desktop)
     0x09, 0x30,        //     Usage (X)
     0x15, 0x00,        //     Logical Minimum (0)
-    0x26, 0xFF, 0x7F,  //     Logical Maximum (32767)
+    0x26, COORD_MAX_LOW_BYTE, COORD_MAX_HIGH_BYTE,  //     Logical Maximum (SCREEN_WIDTH)
     0x75, 0x10,        //     Report Size (16)
     0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
@@ -287,7 +292,7 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x05, 0x01,        //     Usage Page (Generic Desktop)
     0x09, 0x30,        //     Usage (X)
     0x15, 0x00,        //     Logical Minimum (0)
-    0x26, 0xFF, 0x7F,  //     Logical Maximum (32767)
+    0x26, COORD_MAX_LOW_BYTE, COORD_MAX_HIGH_BYTE,  //     Logical Maximum (SCREEN_WIDTH)
     0x75, 0x10,        //     Report Size (16)
     0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
@@ -317,7 +322,7 @@ static const uint8_t app_hid_mouse_report_map[] =
     0x05, 0x01,        //     Usage Page (Generic Desktop)
     0x09, 0x30,        //     Usage (X)
     0x15, 0x00,        //     Logical Minimum (0)
-    0x26, 0xFF, 0x7F,  //     Logical Maximum (32767)
+    0x26, COORD_MAX_LOW_BYTE, COORD_MAX_HIGH_BYTE,  //     Logical Maximum (SCREEN_WIDTH)
     0x75, 0x10,        //     Report Size (16)
     0x95, 0x01,        //     Report Count (1)
     0x81, 0x02,        //     Input (Data,Var,Abs)
